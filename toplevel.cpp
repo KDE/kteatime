@@ -185,7 +185,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			ready = true;
 			enable_menuEntries();
 
-			QString teaMessage = 
+			QString teaMessage =
 			    i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
 			if (beeping)
@@ -237,20 +237,17 @@ void TopLevel::rebuildTeaMenu() {
 	QStringList::ConstIterator ti = times.begin();
 	for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
 		QString str = *it;
-		str.append(" (");
 		uint total_seconds = (*ti).toUInt();
-		QString temp;
+                str.append(" (");
 		if (total_seconds / 60)
 		{
-		  temp.setNum(total_seconds / 60);
-		  str.append(temp+"min");
+		  str.append(i18n("%1min").arg(total_seconds / 60));
 		}
 		if (total_seconds % 60)
 		{
-		  temp.setNum(total_seconds % 60);
-		  str.append(temp+"s");
+		  str.append(i18n("%1s").arg(total_seconds % 60));
 		}
-		str.append(")");
+                str.append(")");
 		menu->insertItem(str, id++, index++);
 		ti++;
 	}
@@ -380,10 +377,10 @@ void TopLevel::spinBoxValueChanged(const QString& newText) {
 /* config-slot: "new" button clicked */
 void TopLevel::newButtonClicked() {
 	QListViewItem* item = new QListViewItem(listbox, 0);
-	item->setText(0, i18n("New Tea"));
-	item->setText(1, QString::number(1));
-	nameEdit->setText(item->text(0));
-	timeEdit->setValue(item->text(0).toUInt());
+        listbox->setCurrentItem(item);
+
+	nameEdit->setText(i18n("New Tea"));
+	timeEdit->setValue(60);
 
 	nameEdit->setFocus();
 
@@ -396,8 +393,8 @@ void TopLevel::newButtonClicked() {
 void TopLevel::delButtonClicked() {
 	if (listbox->currentItem())
 	{
-		delete listbox->currentItem();	
-	
+		delete listbox->currentItem();
+
 		if (listbox->childCount() == 0)
 			disable_properties();
 		enable_controls();
@@ -555,7 +552,7 @@ void TopLevel::config()
   actionEnable->setChecked(useAction);
   actionEdit->setText(action);
   actionEdit->setEnabled(useAction);
-  
+
   if (dlg->exec() == QDialog::Accepted)
   {
     // activate new settings
@@ -563,7 +560,7 @@ void TopLevel::config()
     popping = popup->isChecked();
     useAction = actionEnable->isChecked();
     action = actionEdit->text();
-    
+
     teas.clear();
     times.clear();
 
