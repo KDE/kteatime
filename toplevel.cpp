@@ -295,7 +295,7 @@ void TopLevel::config()
     num = spin->value();
     n.sprintf(i18n("Other tea (%is)"), num);
     teas.append(n); n2.setNum(num); times.append(n2);
-    menu->changeItem(n.data(), teas.count()-1);
+    menu->changeItem(n, teas.count()-1);
 
     KConfig *config = kapp->getConfig();
     config->setGroup("Teas");
