@@ -420,8 +420,7 @@ void TopLevel::anonymous()
 
 	TimeEdit *time = new TimeEdit(propright);
 	time->setFixedHeight(time->sizeHint().height());
-	time->setValue(3*60);                       // 3min default
-	                                            // FIXME: save this default to config?
+	time->setValue(DEFAULT_TEA_TIME);
 	QLabel *l = new QLabel(time, i18n("Tea time:"), propleft);
 	l->setFixedSize(l->sizeHint());
 
@@ -449,9 +448,11 @@ void TopLevel::anonymous()
 
 /* enable/disable buttons for editing listbox */
 void TopLevel::enable_controls() {
-	bool amFirst = (listbox->currentItem() == listbox->firstChild());
-	bool amLast = (!listbox->currentItem()->itemBelow());   // itemBelow() returns returns NULL if last
 	bool haveSelection = (listbox->currentItem() != 0);
+	bool amFirst = (listbox->currentItem() == listbox->firstChild());
+	bool amLast = true;
+	if (haveSelection)
+		amLast = (!listbox->currentItem()->itemBelow());   // itemBelow() returns returns NULL if last
 
 	btn_del->setEnabled(haveSelection);
 	btn_up->setEnabled(haveSelection && !amFirst);
@@ -482,14 +483,21 @@ void TopLevel::listBoxItemSelected() {
 
 /* config-slot: name of a tea edited */
 void TopLevel::nameEditTextChanged(const QString& newText) {
-	listbox->blockSignals(TRUE);
-	static_cast<TeaListItem *>(listbox->currentItem())->setName(newText);
-	listbox->blockSignals(FALSE);
+	/* this method also gets called when the last TeaListItem has been deleted
+	 * (to clear the name edit widget), so check for empty listbox */
+	if (listbox->currentItem() != NULL) {
+		listbox->blockSignals(TRUE);
+		static_cast<TeaListItem *>(listbox->currentItem())->setName(newText);
+		listbox->blockSignals(FALSE);
+	}
 }
 
 /* config-slot: time for a tea changed */
 void TopLevel::spinBoxValueChanged(int v) {
-	static_cast<TeaListItem *>(listbox->currentItem())->setTime(v);
+	/* this method also gets called when the last TeaListItem has been deleted
+	 * (to clear the time edit widget), so check for empty listbox */
+	if (listbox->currentItem() != NULL)
+		static_cast<TeaListItem *>(listbox->currentItem())->setTime(v);
 }
 
 /* config-slot: "new" button clicked */
@@ -498,7 +506,7 @@ void TopLevel::newButtonClicked() {
 	listbox->setCurrentItem(item);
 
 	nameEdit->setText(i18n("New Tea"));
-	timeEdit->setValue(60);
+	timeEdit->setValue(DEFAULT_TEA_TIME);
 
 	nameEdit->setFocus();
 
@@ -512,13 +520,20 @@ void TopLevel::newButtonClicked() {
 /* config-slot: "delete" button clicked */
 void TopLevel::delButtonClicked() {
 	if (listbox->currentItem()) {
-		if (listbox->currentItem() == current_item)
+		if (listbox->currentItem() == current_item) {
+			// am deleting current tea (ie. the one active in menu)
 			current_item = listbox->firstChild();
+			// note: is 0 if there is no child left
+		}
 		delete listbox->currentItem();
 
-		if (listbox->childCount() == 0)
+		if (listbox->childCount() == 0) {
+			// no childs left
+			nameEdit->setText("");
+			timeEdit->setValue(0);
 			disable_properties();
-		listbox->setSelected(listbox->currentItem(), true); // select new current item
+		} else
+			listbox->setSelected(listbox->currentItem(), true); // select new current item
 		enable_controls();
 	}
 }

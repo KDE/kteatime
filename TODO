@@ -1,3 +1,4 @@
+- save default time for "anonymous" to config
 - in configure-window: add "Execute: "-label in front of "action"-text edit
 - nicer placement of "Configure events" button
 - KNotifyClient: "Execute" not capable of %t substitution?
@@ -7,9 +8,7 @@
 - when tea is steeping, the tooltip disappears too quick (after max. 1s) [bug #55103]
 - when steeping, display "stop <teaname>" on left-click, not just "stop"
   (not easy when using KAction in a simple way?)
-- bug(?): I haven't seen the icon being +animated+ for a long time!
-  (something wrong with timer?)
-  --> use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
+- use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 
 
 internals:
