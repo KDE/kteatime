@@ -686,21 +686,21 @@ void TopLevel::config()
 
     btn_del = new QPushButton(QString::null, listgroup_widget);
     QToolTip::add(btn_del, i18n("Delete"));
-    btn_del->setPixmap(SmallIcon("editdelete"));
+    btn_del->setIconSet(SmallIconSet("editdelete"));
     btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
     hbox->addWidget(btn_del);
 
     btn_up = new QPushButton(QString::null, listgroup_widget);
     QToolTip::add(btn_up, i18n("Up"));
-    btn_up->setPixmap(SmallIcon("up"));
+    btn_up->setIconSet(SmallIconSet("up"));
     btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
     connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
     hbox->addWidget(btn_up);
 
     btn_down = new QPushButton(QString::null, listgroup_widget);
     QToolTip::add(btn_down, i18n("Down"));
-    btn_down->setPixmap(SmallIcon("down"));
+    btn_down->setIconSet(SmallIconSet("down"));
     btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
     connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
     hbox->addWidget(btn_down);
