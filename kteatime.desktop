@@ -32,4 +32,4 @@ Terminal=0
 DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
-Categories=QT;KDE;Amusement
+Categories=Qt;KDE;Amusement
