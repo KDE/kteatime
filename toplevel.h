@@ -36,14 +36,14 @@ private slots:
   void teaSelected(int index);
   void start();
   void config();
-    
+
 private:
 
   bool running, ready, frame1;
-  
+
   QStringList teas, times;
-  int seconds, teatime;
-  
+  int seconds, teatime, current_tea;
+
   QPopupMenu *menu;
   QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
 

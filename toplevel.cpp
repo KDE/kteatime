@@ -33,7 +33,7 @@
 #include "tea1.xpm"
 #include "tea2.xpm"
 
-TopLevel::TopLevel() 
+TopLevel::TopLevel()
   : QWidget()
 {
   QString n;
@@ -44,7 +44,7 @@ TopLevel::TopLevel()
 
   KConfig *config = kapp->config();
   config->setGroup("Teas");
- 
+
   teas.clear(); times.clear();
 
   teas.append(i18n("Black Tea (3 min)")); n.setNum(180); times.append(n);
@@ -55,12 +55,13 @@ TopLevel::TopLevel()
   n = i18n("Other tea (%1s)").arg(num);
   teas.append(n); n.setNum(num); times.append(n);
 
+  int index = 0;
   for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++)
-    menu->insertItem(*it);
+    menu->insertItem(*it, index++);
 
   connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
-  num = config->readNumEntry("Tea",0);
+  current_tea = num = config->readNumEntry("Tea",0);
   if (num > teas.count())
     num = 0;
   for (unsigned int i=0; i < teas.count(); i++)
@@ -76,7 +77,7 @@ TopLevel::TopLevel()
   beeping = config->readBoolEntry("Beep", true);
   popping = config->readBoolEntry("Popup", true);
   action = config->readEntry("Action");
-    
+
   mugPixmap = new QPixmap(mug);
   bagPixmap = new QPixmap(bag);
   tea1Pixmap = new QPixmap(tea1);
@@ -98,7 +99,7 @@ TopLevel::~TopLevel()
 }
 
 
-void TopLevel::mousePressEvent(QMouseEvent *event) 
+void TopLevel::mousePressEvent(QMouseEvent *event)
 {
   if (event->button() == 1)
   {
@@ -127,7 +128,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 }
 
 
-void TopLevel::paintEvent(QPaintEvent *) 
+void TopLevel::paintEvent(QPaintEvent *)
 {
   QPixmap *pm;
 
@@ -159,7 +160,7 @@ void TopLevel::start()
   killTimers();
   seconds = teatime;
   startTimer(1000);
- 
+
   running = true; ready = false;
   repaint();
 }
@@ -197,6 +198,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 
 void TopLevel::teaSelected(int index)
 {
+
   if (index >=0 && index < (int)teas.count())
   {
     for (unsigned int i=0; i < teas.count(); i++)
@@ -204,13 +206,14 @@ void TopLevel::teaSelected(int index)
 
     KConfig *config = kapp->config();
     config->setGroup("Teas");
-  
-    config->writeEntry("Tea",index);  
+
+    config->writeEntry("Tea", index);
 
     bool ok;
     teatime = (*times.at(index)).toInt(&ok);
     if (!ok)
       teatime = 300;
+    current_tea = index;
   }
 }
 
@@ -222,10 +225,10 @@ void TopLevel::config()
   dlg->resize(320,180);
 
   QVBoxLayout *box = new QVBoxLayout(dlg,4,8);
-  
+
   QGridLayout *grid = new QGridLayout(5,2);
   box->addLayout(grid);
-  
+
   QSpinBox *spin = new QSpinBox(1,10000,10,dlg);
   spin->setFixedHeight(spin->sizeHint().height());
 
@@ -291,19 +294,23 @@ void TopLevel::config()
     beeping = beep->isChecked();
     popping = popup->isChecked();
     action = actionEdit->text();
-    teas.remove(teas.last()); 
+    teas.remove(teas.last());
     times.remove(teas.last());
+
     QString n,n2;
     num = spin->value();
     n = i18n("Other tea (%1s)").arg(num);
     teas.append(n); n2.setNum(num); times.append(n2);
     menu->changeItem(n, teas.count()-1);
+    if (current_tea == (int)teas.count() - 1)
+      teatime = num;
 
     KConfig *config = kapp->config();
     config->setGroup("Teas");
     config->writeEntry("Beep",beeping);
     config->writeEntry("Popup",popping);
     config->writeEntry("UserTea",num);
-    config->writeEntry("Action",action);    
+    config->writeEntry("Action",action);
+
   }
 }
