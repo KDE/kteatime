@@ -22,6 +22,7 @@
 #include <qcursor.h>
 #include <qpushbutton.h>
 #include <qgroupbox.h>
+#include <qheader.h>
 
 #include <kconfig.h>
 #include <khelpmenu.h>
@@ -101,6 +102,9 @@ TopLevel::TopLevel() : KSystemTray()
 	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 
+	steeping_menu = new QPopupMenu();
+	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &cancel current"), this, SLOT(stop()));
+
 	beeping = config->readBoolEntry("Beep", true);
 	popping = config->readBoolEntry("Popup", true);
 	action = config->readEntry("Action");
@@ -141,7 +145,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 			stop();			// reset tooltip and stop animation
 		} else {
 			if (running)
-				stop();
+				steeping_menu->popup(QCursor::pos());
 			else if (!running)
 				start();
 		}
@@ -252,9 +256,8 @@ void TopLevel::rebuildTeaMenu() {
 	}
 
 	// now select 'current' tea
-	// FIXME: does it make sense to assume a valid 'current' tea after reconstruction?
 	if (current_selected >= teas.count())
-		current_selected = 0;
+		current_selected = -1;
 	for (unsigned int i=0; i < teas.count(); i++)
 		menu->setItemChecked(i, i == current_selected);
 }
@@ -289,17 +292,22 @@ void TopLevel::teaSelected(int index)
 /* menu-slot: "start" selected in menu */
 void TopLevel::start()
 {
-	current_name = *teas.at(current_selected);		// remember name of current tea
-	seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
+	if (current_selected >= 0)
+	{
+		current_name = *teas.at(current_selected);		// remember name of current tea
+		seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
 
-	killTimers();
-	startTimer(1000);
+		killTimers();
+		startTimer(1000);
 
-	running = true;
-	ready = false;
-	enable_menuEntries();					// disable "start", enable "stop"
+		running = true;
+		ready = false;
+		enable_menuEntries();					// disable "start", enable "stop"
 
-	repaint();
+		repaint();
+	}
+	else
+		KMessageBox::error(this, i18n("There is no tea to start steeping."), i18n("No Tea"));
 }
 
 /* menu-slot: "stop" selected in menu */
@@ -323,15 +331,15 @@ void TopLevel::stop()
 
 /* enable/disable buttons for editing listbox */
 void TopLevel::enable_controls() {
-	bool amFirst = (listbox->currentItem() == 0);
-	bool amLast = (listbox->currentItem() == listbox->count() - 1);
-	bool haveSelection = (listbox->currentItem() >= 0);
+	bool amFirst = (listbox->currentItem() == listbox->firstChild());
+	bool amLast = (listbox->currentItem() == listbox->lastItem());
+	bool haveSelection = (listbox->currentItem() != 0);
 
 	btn_del->setEnabled(haveSelection);
 	btn_up->setEnabled(haveSelection && !amFirst);
 	btn_down->setEnabled(haveSelection && !amLast);
 	if (haveSelection) {
-		listbox->ensureCurrentVisible();
+		listbox->ensureItemVisible(listbox->currentItem());
 	}
 }
 
@@ -346,101 +354,80 @@ void TopLevel::enable_properties() {
 }
 
 /* config-slot: item in tea-list selected */
-void TopLevel::listBoxItemSelected(int id) {
-	if (id >= 0) {
-  		// item selected, display its properties on right side
-  		nameEdit->setText(listbox->item(id)->text());
-  		timeEdit->setValue((*ntimes.at(id)).toInt());
-	} else {
-  		// no item selected anymore, so clear right side
-		nameEdit->setText("");
-		timeEdit->setValue(1);
+void TopLevel::listBoxItemSelected() {
+	if (listbox->currentItem())
+	{
+		// item selected, display its properties on right side
+		nameEdit->setText(listbox->currentItem()->text(0));
+		timeEdit->setValue(listbox->currentItem()->text(1).toInt());
+		enable_controls();
 	}
-	enable_controls();
 }
 
 /* config-slot: name of a tea edited */
 void TopLevel::nameEditTextChanged(const QString& newText) {
-	int index = listbox->currentItem();
 	listbox->blockSignals(TRUE);
-	listbox->changeItem(newText, index);
+	listbox->currentItem()->setText(0, newText);
 	listbox->blockSignals(FALSE);
 }
 
 /* config-slot: time for a tea changed */
 void TopLevel::spinBoxValueChanged(const QString& newText) {
-	int index = listbox->currentItem();
-	if (index != -1) {
-		QString str = newText.left(newText.length() - timeEdit->suffix().length());  // strip suffix
-  		QStringList::Iterator it = ntimes.at(index);
-		*it = str;
-	}
+	QString str = newText.left(newText.length() - timeEdit->suffix().length());  // strip suffix
+	listbox->currentItem()->setText(1, str);
 }
 
 /* config-slot: "new" button clicked */
 void TopLevel::newButtonClicked() {
-	int pos = listbox->currentItem();
-	listbox->insertItem(i18n("New Tea"), pos);		// if pos<0, insertItem will append
-	if (pos < 0) {
-  		ntimes.append(QString::number(1));			// add time
-		listbox->setSelected(listbox->count()-1, true);		// select new entry
-	} else {
-		ntimes.insert(ntimes.at(pos), QString::number(1));	// add time
-		listbox->setSelected(pos, true);			// select new entry
-	}
-	// FIXME: also give focus to nameEdit (how?)
-	if (listbox->count() == 1)
+	QListViewItem* item = new QListViewItem(listbox, 0);
+	item->setText(0, i18n("New Tea"));
+	item->setText(1, QString::number(1));
+	nameEdit->setText(item->text(0));
+	timeEdit->setValue(item->text(0).toUInt());
+
+	nameEdit->setFocus();
+
+	if (listbox->childCount() == 1)
 		enable_properties();
 	enable_controls();
 }
 
 /* config-slot: "delete" button clicked */
 void TopLevel::delButtonClicked() {
-	int index = listbox->currentItem();
-	if (index != -1) {
-		// remove Time for this tea first, so listbox-update gets it right
-		QStringList::Iterator it = ntimes.at(index);
-		ntimes.remove(it);
-  		listbox->removeItem(index);
-		if (listbox->count() == 0)
+	if (listbox->currentItem())
+	{
+		delete listbox->currentItem();	
+	
+		if (listbox->childCount() == 0)
 			disable_properties();
 		enable_controls();
-		// FIXME: if 'current_selected' tea has been deleted, reset current_selected to ?
 	}
 }
 
 /* config-slot: "up" button clicked */
 void TopLevel::upButtonClicked() {
-	int index = listbox->currentItem();
-	if (index != -1) {
-  		// selected item is at index, move up
-  		QListBoxItem *item = listbox->item(index-1);
-		listbox->takeItem(item);
-		listbox->insertItem(item, index);
-		// also move Time!
-		QStringList::Iterator it = ntimes.at(index);
-		QString str = *it;
-		*it = *ntimes.at(index-1);
-		*ntimes.at(index-1) = str;
-		enable_controls();
-	}
+	QListViewItem* item = listbox->selectedItem();
+
+	if (item && item->itemAbove())
+		item->itemAbove()->moveItem(item);
+
+	enable_controls();
 }
 
 /* config-slot: "down" button clicked */
 void TopLevel::downButtonClicked() {
-	int index = listbox->currentItem();
-	if (index != -1) {
-  		// selected item is at index, move down
-  		QListBoxItem *item = listbox->item(index+1);
-		listbox->takeItem(item);
-		listbox->insertItem(item, index);
-		// also move Time!
-		QStringList::Iterator it = ntimes.at(index);
-		QString str = *it;
-		*it = *ntimes.at(index+1);
-		*ntimes.at(index+1) = str;
-		enable_controls();
-	}
+	QListViewItem* item = listbox->selectedItem();
+
+	if (item && item->itemBelow())
+		item->moveItem(item->itemBelow());
+
+	enable_controls();
+}
+
+/* config-slot: checkbox next to "action" field toggled*/
+void TopLevel::actionEnableToggled(bool on)
+{
+	actionEdit->setEnabled(on);
 }
 
 /* config-slot: "help" button clicked */
@@ -462,25 +449,26 @@ void TopLevel::config()
   QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);	// whole config-stuff
   QBoxLayout *box = new QHBoxLayout(top_box);		// list + properties
 
-  // FIXME: currently, teas are modified inside QListBox, but times are not,
-  //        so I need a copy of times to work with
-  //        --> maybe display (and work with) times in QListBox, too?
-  ntimes = times;
-
   /* left side - tea list and list-modifying buttons */
   QBoxLayout *leftside = new QVBoxLayout(box);
   QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
   leftside->addWidget(listgroup, 0, 0);
-  listbox = new QListBox(listgroup, "listBox");
-  // now add all defined teas to listbox
-//  QStringList::ConstIterator ti = times.begin();
-  // FIXME: use a two-column listbox and display time there also?
-  for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
-	QString str = *it;
-	listbox->insertItem(str);
-//	ti++;
+  listbox = new QListView(listgroup, "listBox");
+  listbox->addColumn(i18n("Name"));
+  listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+  listbox->addColumn(i18n("Time"));
+  listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+  // now add all defined teas (and their times) to the listview
+  // this is done backwards because QListViewItem's are inserted at the end
+  QStringList::ConstIterator ti = times.begin();
+  for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++, ti++)
+  {
+	QListViewItem* item = new QListViewItem(listbox);
+	item->setText(0, *it);
+	item->setText(1, *ti);
   }
-  connect(listbox, SIGNAL(highlighted(int)), SLOT(listBoxItemSelected(int)));
+
+  connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
   // now buttons for constructing tea-list
   QHBox *hbox = new QHBox(listgroup);
@@ -516,11 +504,11 @@ void TopLevel::config()
 
   // FIXME: - must enforce correct vertical alignment of each label-editor pair
   //          (better use one HBox for each label-editor pair?)
-  // FIXME: - right-justify text in labels (how?)
   QVBox *propleft = new QVBox(propbox);
   QVBox *propright = new QVBox(propbox);
   nameEdit = new QLineEdit(propright);
   nameEdit->setFixedHeight(nameEdit->sizeHint().height());
+  nameEdit->setAlignment(QLineEdit::AlignRight);
   (void) new QLabel(nameEdit, i18n("Name:"), propleft);
   connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
@@ -535,9 +523,11 @@ void TopLevel::config()
   QGroupBox *actiongroup = new QGroupBox(3, Vertical, i18n("Action"), page);
   top_box->addWidget(actiongroup, 0, 0);
 
-  // FIXME: place QCheckBox before QLineEdit, too
-  QLineEdit *actionEdit = new QLineEdit(actiongroup);
+  QHBox *actionbox = new QHBox(actiongroup);
+  QCheckBox *actionEnable = new QCheckBox(actionbox);
+  actionEdit = new QLineEdit(actionbox);
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
+  connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
 
   QCheckBox *beep = new QCheckBox(i18n("Beep"), actiongroup);
   QCheckBox *popup = new QCheckBox(i18n("Popup"), actiongroup);
@@ -549,7 +539,7 @@ void TopLevel::config()
   top_box->setStretchFactor(box, 10);
 
   // select first entry in listbox, if no entries then disable right side
-  if (listbox->count() > 0) {
+  if (listbox->childCount() > 0) {
   	listbox->setSelected(0, true);
   } else {
   	enable_controls();
@@ -562,20 +552,47 @@ void TopLevel::config()
 
   beep->setChecked(beeping);
   popup->setChecked(popping);
+  if (action == QString::null)
+    actionEnable->setChecked(false);
+  else
+    actionEnable->setChecked(true);
   actionEdit->setText(action);
+  actionEdit->setEnabled(actionEnable->isChecked());
 
   if (dlg->exec() == QDialog::Accepted)
   {
     // activate new settings
     beeping = beep->isChecked();
     popping = popup->isChecked();
-    action = actionEdit->text();
+    if (actionEdit->isEnabled())
+      action = actionEdit->text();
+    else
+      action = QString::null;
 
     teas.clear();
-    for (int i=0; i<listbox->numRows(); i++) {
-    	teas.append(listbox->item(i)->text());
+    times.clear();
+
+    // Copy over teas and times from the QListView
+    int i = 0;
+    current_name = QString::null;
+    current_selected = 0;
+    for (QListViewItemIterator it(listbox); it.current() != 0; it++)
+    {
+      teas.append(it.current()->text(0));
+      times.append(it.current()->text(1));
+      if (it.current()->isSelected())
+      {
+        current_selected = i;
+        current_name = it.current()->text(0);
+      }
+      i++;
     }
-    times = ntimes;
+    if (current_selected == 0)
+      if (teas.empty())
+        current_selected = -1;
+      else
+        current_name = *(teas.begin());
+
     rebuildTeaMenu();
 
     // and store to config

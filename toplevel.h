@@ -16,7 +16,7 @@
 #include <qpixmap.h>
 #include <qlineedit.h>
 #include <qstringlist.h>
-#include <qlistbox.h>
+#include <qlistview.h>
 #include <qpushbutton.h>
 #include <qgroupbox.h>
 #include <knuminput.h>
@@ -47,7 +47,7 @@ private slots:
     void setToolTip(const QString &text);
     void rebuildTeaMenu();
 
-    void listBoxItemSelected(int id);
+    void listBoxItemSelected();
     void nameEditTextChanged(const QString& newText);
     void spinBoxValueChanged(const QString& newText);
     void newButtonClicked();
@@ -58,11 +58,11 @@ private slots:
     void disable_properties();
     void enable_properties();
     void enable_controls();
+    void actionEnableToggled(bool on);
 
 private:
 
     QStringList teas, times;		// lists of tea-names and -times
-    QStringList ntimes;			// copy of 'times', for working during configuring
 
     bool running, ready, frame1;
     int current_selected;		// index of currently +selected+ tea in menu
@@ -74,9 +74,9 @@ private:
 
     QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
 
-    QPopupMenu *menu;
-    QListBox *listbox;
-    QLineEdit *nameEdit;
+    QPopupMenu *menu, *steeping_menu;
+    QListView *listbox;
+    QLineEdit *nameEdit, *actionEdit;
     KIntSpinBox *timeEdit;
     QGroupBox *editgroup;
     QPushButton *btn_new, *btn_del, *btn_up, *btn_down;

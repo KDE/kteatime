@@ -1,3 +1,11 @@
+2002-06-23  Matthias Hoelzer-Kluepfel <mhk@kde.org>
+	- added left-click menu while steeping
+        - gave focus to name edit when a new tea is added
+	- now unable to start steeping if no teas exist
+	- added a QCheckBox to enable/disable the action field
+	- made text in the name edit field right-justified
+	(patch provided by Jackson Dunstan <jdunstan@digipen.edu>)
+
 2002-06-20  Matthias Hoelzer-Kluepfel <mhk@kde.org>
 	- improved the display of times in the menu
 	  (patch provided by -Jackson Dunstan <jdunstan@digipen.edu>)
