@@ -419,7 +419,9 @@ void TopLevel::teaStartSelected(int index)
 /* menu-slot: "start" selected in menu */
 void TopLevel::start()
 {
-	if (!listempty) {
+	if (listempty && !shooting) {
+		KMessageBox::error(this, i18n("There is no tea to begin steeping."), i18n("No Tea"));
+	} else {
 		if (!shooting) {
 			current_name = teas[current_selected].name;     // remember name of current tea
 			startSeconds = teas[current_selected].time;     // initialize time for current tea
@@ -437,8 +439,6 @@ void TopLevel::start()
 
 		repaint();
 	}
-	else
-		KMessageBox::error(this, i18n("There is no tea to begin steeping."), i18n("No Tea"));
 }
 
 /* menu-slot: "stop" selected in menu */
