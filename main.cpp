@@ -17,7 +17,7 @@
 static const char *description =
 	I18N_NOOP("KDE utility for making fine cup of tea");
 
-static const char *version = "v0.0.1";
+static const char *version = "v1.0.0";
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     version, description, KAboutData::License_GPL,
     "(c) 1998-1999, Matthias Hoelzer-Kluepfel");
   aboutData.addAuthor("Matthias Hoelzer-Kluepfel",0, "hoelzer@kde.org");
+  aboutData.addAuthor("Martin Willers", 0, "willers@xm-arts.de");
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KApplication app;
