@@ -1,6 +1,7 @@
 2003-02-07  Martin Willers <willers@xm-arts.de>
 	- fixed inserting of new items into listview
-	(patch provided by Daniel Teske <teske@bigfoot.com>)
+	- simplified layout in config-window
+	(patches provided by Daniel Teske <teske@bigfoot.com>)
 
 2003-01-07  Martin Willers <willers@xm-arts.de>
 	- fixed destructor of class toplevel

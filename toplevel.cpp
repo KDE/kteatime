@@ -454,16 +454,12 @@ void TopLevel::config()
   QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
   leftside->addWidget(listgroup, 0, 0);
 
-  QWidget *listgroup_widget = new QWidget(listgroup);
-  QBoxLayout *listgroup_layout = new QVBoxLayout(listgroup_widget);
-
-  listbox = new QListView(listgroup_widget, "listBox");
+  listbox = new QListView(listgroup, "listBox");
   listbox->addColumn(i18n("Name"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->addColumn(i18n("Time"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->setSorting(-1);
-  listgroup_layout->addWidget(listbox);
 
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItem's are inserted at the end
@@ -478,7 +474,8 @@ void TopLevel::config()
   connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
   // now buttons for constructing tea-list
-  QBoxLayout *hbox = new QHBoxLayout(listgroup_layout);
+  QWidget *listgroup_widget = new QWidget(listgroup);
+  QBoxLayout *hbox = new QHBoxLayout(listgroup_widget);
   hbox->setSpacing(4);
   btn_new = new QPushButton(QString::null, listgroup_widget);
   QToolTip::add(btn_new, i18n("New"));
