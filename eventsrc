@@ -4,6 +4,7 @@ Comment=The KDE Tea Cooker
 Comment[cs]=Samovar pro KDE
 Comment[da]=KDE's tekoger
 Comment[hu]=KDE teafőző
+Comment[ru]=Приготовление чая
 Comment[tr]=Çay Pişirici
 
 [tea]
@@ -11,12 +12,14 @@ Name=Tea is ready
 Name[cs]=Čaj je připraven
 Name[da]=Teen er klar
 Name[hu]=Kész a tea!
+Name[ru]=Чай готов
 Name[sv]=Teet är klart
 Name[tr]=Çay hazır
 Comment=Tea is ready
 Comment[cs]=Čaj je připraven
 Comment[da]=Teen er klar
 Comment[hu]=Kész a tea!
+Comment[ru]=Чай готов
 Comment[sv]=Teet är klart
 Comment[tr]=Çay hazır
 default_sound=KDE_Notify.wav
