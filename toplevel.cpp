@@ -102,6 +102,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	beeping = config->readBoolEntry("Beep", true);
 	popping = config->readBoolEntry("Popup", true);
+	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
 
 	mugPixmap = new QPixmap(UserIcon("mug"));
@@ -189,7 +190,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			// invoke action
 			if (beeping)
 				KNotifyClient::beep();
-			if (!action.isEmpty())
+			if (useAction && (!action.isEmpty()))
 				system(QFile::encodeName(action));
 			if (popping)
 				KPassivePopup::message(i18n("The Tea Cooker"),
@@ -551,23 +552,18 @@ void TopLevel::config()
 
   beep->setChecked(beeping);
   popup->setChecked(popping);
-  if (action == QString::null)
-    actionEnable->setChecked(false);
-  else
-    actionEnable->setChecked(true);
+  actionEnable->setChecked(useAction);
   actionEdit->setText(action);
-  actionEdit->setEnabled(actionEnable->isChecked());
-
+  actionEdit->setEnabled(useAction);
+  
   if (dlg->exec() == QDialog::Accepted)
   {
     // activate new settings
     beeping = beep->isChecked();
     popping = popup->isChecked();
-    if (actionEdit->isEnabled())
-      action = actionEdit->text();
-    else
-      action = QString::null;
-
+    useAction = actionEnable->isChecked();
+    action = actionEdit->text();
+    
     teas.clear();
     times.clear();
 
@@ -603,6 +599,7 @@ void TopLevel::config()
     config->setGroup("General");
     config->writeEntry("Beep", beeping);
     config->writeEntry("Popup", popping);
+    config->writeEntry("UseAction", useAction);
     config->writeEntry("Action", action);
     config->writeEntry("Tea", current_selected);
     // first get rid of all previous tea-entries from config, then write anew

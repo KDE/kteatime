@@ -70,7 +70,7 @@ private:
     int seconds;			// variable for counting down seconds
     QString current_name;		// name of currently +running+ tea
 
-    bool beeping, popping;
+    bool beeping, popping, useAction;
     QString action;
 
     QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;

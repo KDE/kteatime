@@ -1,6 +1,5 @@
 - bug: pressing "add new tea" in config-dialogue somehow corrupts one of the
   other teas and prints "New Tea" +twice+ in list
-- state of KCheckBox at "custom action" isn't saved to Config?
 
 - somehow strip hours from KLocale::formatTime()-returned string
   in locale-respecting way
