@@ -515,7 +515,7 @@ void TopLevel::config()
   timeEdit = new KIntSpinBox(1, 10000, 10, 1, 10, propright);
   timeEdit->setSuffix(i18n(" s"));
   timeEdit->setFixedHeight(timeEdit->sizeHint().height());
-  QLabel *l = new QLabel(timeEdit, i18n("Tea Time:"), propleft);
+  QLabel *l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
   l->setFixedSize(l->sizeHint());
   connect(timeEdit, SIGNAL(valueChanged(const QString&)), SLOT(spinBoxValueChanged(const QString&)) );
 
