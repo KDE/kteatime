@@ -11,7 +11,7 @@
 #define _TOPLEVEL_H_
 
 #include <kapp.h>
-#include <qpopmenu.h>
+#include <qpopupmenu.h>
 #include <qtimer.h>
 #include <qpixmap.h>
 #include <qstringlist.h>

@@ -13,7 +13,7 @@
 #include <qframe.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qlined.h>
+#include <qlineedit.h>
 #include <qmenudata.h>
 #include <qpainter.h>
 #include <qpopupmenu.h>
