@@ -243,7 +243,7 @@ void TopLevel::rebuildTeaMenu() {
 		if (total_seconds / 60)
 		{
 		  temp.setNum(total_seconds / 60);
-		  str.append(temp+"m");
+		  str.append(temp+"min");
 		}
 		if (total_seconds % 60)
 		{
