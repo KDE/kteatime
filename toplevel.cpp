@@ -53,7 +53,7 @@ TopLevel::TopLevel()
   teas.append(i18n("Fruit Tea (8 min)")); n.setNum(480); times.append(n);
 
   num = config->readNumEntry("UserTea", 150);
-  n = i18n("Other tea (%1s)").arg(num);
+  n = i18n("Other Tea (%1s)").arg(num);
   teas.append(n); n.setNum(num); times.append(n);
 
   int index = 0;
