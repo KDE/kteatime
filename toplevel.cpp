@@ -193,7 +193,8 @@ void TopLevel::timerEvent(QTimerEvent *)
 				system(QFile::encodeName(action));
 			if (popping)
 				KPassivePopup::message(i18n("The Tea Cooker"),
-				                       teaMessage, *teaNotReadyPixmap, this);
+				                       teaMessage, *teaAnim1Pixmap, this, "popup", 0);
+				// FIXME: does auto-deletion work without timeout?
 			setToolTip(teaMessage);
 			repaint();
 		} else {

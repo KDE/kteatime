@@ -1,3 +1,6 @@
+2002-07-14  Martin Willers <willers@xm-arts.de>
+	- KPassivePopup now stays on-screen until acknowlegded by mouse-click
+
 2002-06-23  Matthias Hoelzer-Kluepfel <mhk@kde.org>
 	- added left-click menu while steeping
         - gave focus to name edit when a new tea is added
