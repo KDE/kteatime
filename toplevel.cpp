@@ -145,7 +145,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	// this menu will be displayed when a tea is steeping, and left mouse button is clicked
 	steeping_menu = new QPopupMenu();
-//	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &cancel current"), this, SLOT(stop()));
+//	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &Cancel Current"), this, SLOT(stop()));
 	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
 
 //	start_menu->insertSeparator();
@@ -579,7 +579,7 @@ void TopLevel::confButtonClicked()
 
 void TopLevel::config()
 {
-  KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure The Tea Cooker"),
+  KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure Tea Cooker"),
 				     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
 				     KDialogBase::Ok, this, "config", true);
   QWidget *page = dlg->plainPage();
