@@ -77,7 +77,7 @@ TopLevel::TopLevel() : KSystemTray()
 		num = config->readNumEntry("Number", 0);
 		teas.resize(num);
 		QString tempstr;
-		for (unsigned int index=1; index<=num; index++) {
+		for (unsigned int index=1; index<=num; ++index) {
 			key.sprintf("Tea%d Time", index);
 			tempstr = config->readEntry(key, NULL);
 			teas[index-1].time = tempstr.toInt();
@@ -361,7 +361,7 @@ void TopLevel::rebuildTeaMenus() {
 	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
-	for (QValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); it++) {
+	for (QValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); ++it) {
 		// construct string with name and steeping time
 		QString str = it->name;
 		str.append(" (");
@@ -381,7 +381,7 @@ void TopLevel::rebuildTeaMenus() {
 /* enable/disable menu-entries according to current running-state */
 void TopLevel::enable_menuEntries()
 {
-	for (int index=0; menu->idAt(index) >= 0; index++) {
+	for (int index=0; menu->idAt(index) >= 0; ++index) {
 		// [en|dis]able all tea-entries (all have positive menu-ids)
 		menu->setItemEnabled(menu->idAt(index), !running);
 	}
@@ -812,7 +812,7 @@ void TopLevel::config()
     int i = 0;
     teas.clear();
     teas.resize(listbox->childCount());
-    for (QListViewItemIterator it(listbox); it.current() != 0; it++) {
+    for (QListViewItemIterator it(listbox); it.current() != 0; ++it) {
       teas[i].name = static_cast<TeaListItem *>(it.current())->name();
       teas[i].time = static_cast<TeaListItem *>(it.current())->time();
       if (it.current() == current_item)
@@ -843,7 +843,7 @@ void TopLevel::config()
     config->writeEntry("Number", teas.count());
     QString key;
     int index = 1;
-    for (QValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+    for (QValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
       key.sprintf("Tea%d Name", index);
       config->writeEntry(key, it->name);
       key.sprintf("Tea%d Time", index);

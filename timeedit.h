@@ -5,8 +5,8 @@
    (C) 2003 by Daniel Teske (teske@bigfoot.com)
 
  ------------------------------------------------------------- */
-#ifndef _TIMEEDIT_H_
-#define _TIMEEDIT_H_
+#ifndef TIMEEDIT_H
+#define TIMEEDIT_H
 
 #include <qspinbox.h>
 #include <qwidget.h>
@@ -69,3 +69,4 @@ protected:
 };
 
 #endif
+

@@ -5,8 +5,8 @@
    (C) 2003 by Daniel Teske (teske@bigfoot.com)
 
  ------------------------------------------------------------- */
-#ifndef _TEALIST_H_
-#define _TEALIST_H_
+#ifndef TEALIST_H
+#define TEALIST_H
 
 #include <qstring.h>
 
@@ -25,7 +25,7 @@ public:
 	int time();
 	QString name();
 	void setTime(int v);
-	void setName(QString n);
+	void setName(const QString &n);
 
 private:
 	int tim;

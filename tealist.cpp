@@ -46,7 +46,7 @@ void TeaListItem::setTime(int t)
 	tim = t;
 }
 
-void TeaListItem::setName(QString n)
+void TeaListItem::setName(const QString &n)
 {
 	nam = n;
 	QListViewItem::setText(0, n);

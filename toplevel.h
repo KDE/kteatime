@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef _TOPLEVEL_H_
-#define _TOPLEVEL_H_
+#ifndef TOPLEVEL_H
+#define TOPLEVEL_H
 
 #include <kapplication.h>
 #include <qpopupmenu.h>
