@@ -18,6 +18,7 @@
 #include <qpushbutton.h>
 #include <qspinbox.h>
 #include <qtooltip.h>
+#include <stdlib.h>
 
 #include <kconfig.h>
 #include <kiconloader.h>
@@ -33,7 +34,7 @@
 #include "tea2.xpm"
 
 TopLevel::TopLevel() 
-  : KTMainWindow()
+  : QWidget()
 {
   QString n;
   unsigned int num;
@@ -178,7 +179,7 @@ void TopLevel::timerEvent(QTimerEvent *)
       if (beeping)
         kapp->beep();
       if (!action.isEmpty())
-        system(action.data());
+        system(action);
       if (popping)
         KMessageBox::information(0, i18n("The tea is now ready!"));
 

@@ -32,19 +32,11 @@ int main(int argc, char *argv[])
   
   KApplication app;
 
-  TopLevel *toplevel=0;
+  TopLevel toplevel;
+  KWM::setDockWindow(toplevel.winId());
+  toplevel.show();
 
-  if (app.isRestored())
-      RESTORE(TopLevel)
-  else {
-      // no session management: just create one window
-      toplevel = new TopLevel();
-  }
-
-  KWM::setDockWindow(toplevel->winId());
-  toplevel->show();
-
-  app.setTopWidget(new QWidget);
+  app.setTopWidget(&toplevel);
 
   return app.exec();
 }

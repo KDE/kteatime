@@ -11,13 +11,12 @@
 #define _TOPLEVEL_H_
 
 #include <kapp.h>
-#include <ktmainwindow.h>
 #include <qpopmenu.h>
 #include <qtimer.h>
 #include <qpixmap.h>
 #include <qstringlist.h>
 
-class TopLevel : public KTMainWindow
+class TopLevel : public QWidget
 {
   Q_OBJECT
 
