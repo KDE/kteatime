@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
   KApplication app;
 
   TopLevel toplevel;
-  KWin::setDockWindowFor(toplevel.winId(),0);
+  KWin::setSystemTrayWindowFor(toplevel.winId(),0);
   toplevel.show();
 
   app.setTopWidget(&toplevel);
