@@ -6,6 +6,8 @@
 
  ------------------------------------------------------------- */
 
+#include <stdlib.h>
+
 #include <qcheckbox.h>
 #include <qdialog.h>
 #include <qframe.h>
@@ -18,7 +20,7 @@
 #include <qpushbutton.h>
 #include <qspinbox.h>
 #include <qtooltip.h>
-#include <stdlib.h>
+#include <qfile.h>
 
 #include <kconfig.h>
 #include <kiconloader.h>
@@ -181,7 +183,7 @@ void TopLevel::timerEvent(QTimerEvent *)
       if (beeping)
         kapp->beep();
       if (!action.isEmpty())
-        system(action);
+        system(QFile::encodeName(action));
       if (popping)
         KMessageBox::information(0, i18n("The tea is now ready!"));
 
