@@ -1,10 +1,11 @@
 
-2002-04-10  Martin Willers <willers@xm-arts.de>
+2002-04-18  Martin Willers <willers@xm-arts.de>
+	- when saving config, non-used teas are now deleted from config
 
+2002-04-10  Martin Willers <willers@xm-arts.de>
 	- Bugfix: when tea was finished, click on icon -> icon ok, but
 	  tooltip was still "tea finished"
 	- added "Cancel"-button to menu, and can also cancel timer by clicking
 	  on icon while running
 	- showing remaining time not as "x.y", but as "xx:yy"
 	- can configure arbitrary amount of teas, with custom name and time
-

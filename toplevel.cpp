@@ -85,7 +85,7 @@ TopLevel::TopLevel() : KSystemTray()
 	menu->setCheckable(true);
 	connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
-	rebuildTeaMenu();		// populate top of menu with tea-entries
+	rebuildTeaMenu();		// populate top of menu with tea-entries from config
 
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
 	KPopupMenu* helpMnu = help->menu();
@@ -110,6 +110,15 @@ TopLevel::TopLevel() : KSystemTray()
 	stop();				// reset timer, disable some menu entries, etc.
 }
 
+/* slot: signal shutDown() from KApplication */
+/* not currently needed
+void TopLevel::queryExit()
+{
+	KConfig *config = kapp->config();
+//	config->sync();
+}
+*/
+
 
 TopLevel::~TopLevel()
 {
@@ -118,12 +127,12 @@ TopLevel::~TopLevel()
 	delete bagPixmap;
 	delete tea1Pixmap;
 	delete tea2Pixmap;
-	// FIXME: must delete more?
+	// FIXME: must delete more (like all the QWidgets in config-window)?
 }
 
 
 void TopLevel::rebuildTeaMenu() {
-	// first remove all tea-entries from menu, these can be identified by their positive id
+	// first remove all current tea-entries from menu, these can be identified by their positive id
 	while (menu->idAt(0) >= 0)
 		menu->removeItemAt(0);
 
@@ -286,17 +295,9 @@ void TopLevel::teaSelected(int index)
 		bool ok;
 		teatime = (*times.at(index)).toInt(&ok);
 		if (!ok)
-			teatime = 300;		// FIXME: really neccessary?
+			teatime = 300;		// FIXME: this really neccessary?
 		current_tea = index;
 	}
-}
-
-void TopLevel::disable_properties() {
-	editgroup->setEnabled(false);
-}
-
-void TopLevel::enable_properties() {
-	editgroup->setEnabled(true);
 }
 
 /* enable/disable buttons for editing listbox */
@@ -304,6 +305,7 @@ void TopLevel::enable_controls() {
 	bool amFirst = (listbox->currentItem() == 0);
 	bool amLast = (listbox->currentItem() == listbox->count() - 1);
 	bool haveSelection = (listbox->currentItem() >= 0);
+
 	btn_del->setEnabled(haveSelection);
 	btn_up->setEnabled(haveSelection && !amFirst);
 	btn_down->setEnabled(haveSelection && !amLast);
@@ -319,7 +321,7 @@ void TopLevel::listBoxItemSelected(int id) {
   	nameEdit->setText(listbox->item(id)->text());
   	timeEdit->setValue((*ntimes.at(id)).toInt());
   } else {
-  	// no item selected anymore, so clear properties
+  	// no item selected anymore, so clear right side
 	nameEdit->setText("");
 	timeEdit->setValue(1);
   }
@@ -410,6 +412,15 @@ void TopLevel::downButtonClicked() {
   }
 }
 
+void TopLevel::disable_properties() {
+	editgroup->setEnabled(false);
+}
+
+void TopLevel::enable_properties() {
+	editgroup->setEnabled(true);
+}
+
+
 void TopLevel::config()
 {
   KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure The Tea Cooker"),
@@ -467,7 +478,7 @@ void TopLevel::config()
   btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
   connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
 // FIXME: somehow add stretch-space now to avoid stretching of buttons
-//  hbox->addStretch(10);	// this doesn't work with QHBox
+//  hbox->addStretch(10);	// this doesn't work with QHBox...
 
   /* right side - tea properties */
   QBoxLayout *rightside = new QVBoxLayout(box);
@@ -560,8 +571,22 @@ void TopLevel::config()
 	ti++;
 	index++;
     }
-    // FIXME: remove remaining "Tea%d [Name|Time]" entries from config
-    //        also remove old-style-entries (like "UserTea")
+    // and delete all non-used tea-definitions from config
+    // (assuming non-broken config)
+    while (1) {
+    	key.sprintf("Tea%d Name", index);
+	if (config->hasKey(key)) {
+		config->deleteEntry(key);
+		key.sprintf("Tea%d Time", index);
+		config->deleteEntry(key);
+	} else
+		break;
+	index++;
+    }
+    // also remove old-style entries (if present)
+    if (config->hasKey("UserTea"))
+    	config->deleteEntry("UserTea");
+
     config->sync();
   }
 }

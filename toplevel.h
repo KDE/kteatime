@@ -46,6 +46,7 @@ private slots:
     void help();
     void setToolTip(const QString &text);
     void rebuildTeaMenu();
+
     void listBoxItemSelected(int id);
     void nameEditTextChanged(const QString& newText);
     void spinBoxValueChanged(const QString& newText);
