@@ -38,3 +38,4 @@ Exec=kteatime
 Icon=kteatime
 Type=Application
 Terminal=0
+MapNotify=true
