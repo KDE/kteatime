@@ -7,6 +7,8 @@
      3. click on "new tea" again
      --> "New Tea"-entry appears where it should
 - bug(?): I haven't seen the icon being animated for a long time!
+- remember geometry of config-dialog (and its QListView!)
+  (or at least: x-maximize QListView's titles)
 
 - somehow strip hours from KLocale::formatTime()-returned string
   in locale-respecting way

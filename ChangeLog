@@ -1,3 +1,8 @@
+2003-01-07  Martin Willers <willers@xm-arts.de>
+	- fixed destructor of class toplevel
+	- finally avoiding stretching of buttons in config-dialog
+	(patches provided by Daniel Teske <teske@bigfoot.com>)
+
 2003-01-02  Martin Willers <willers@xm-arts.de>
 	- configuration dialog now selects first tea available
 	- small optimization in TopLevel::teaSelected()

@@ -130,6 +130,7 @@ TopLevel::~TopLevel()
 	delete teaNotReadyPixmap;
 	delete teaAnim1Pixmap;
 	delete teaAnim2Pixmap;
+	delete steeping_menu;
 	// FIXME: must delete more (like all the QWidgets in config-window)?
 }
 
@@ -452,11 +453,17 @@ void TopLevel::config()
   QBoxLayout *leftside = new QVBoxLayout(box);
   QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
   leftside->addWidget(listgroup, 0, 0);
-  listbox = new QListView(listgroup, "listBox");
+
+  QWidget *listgroup_widget = new QWidget(listgroup);
+  QBoxLayout *listgroup_layout = new QVBoxLayout(listgroup_widget);
+
+  listbox = new QListView(listgroup_widget, "listBox");
   listbox->addColumn(i18n("Name"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->addColumn(i18n("Time"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+  listgroup_layout->addWidget(listbox);
+
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItem's are inserted at the end
   QStringList::ConstIterator ti = times.begin();
@@ -470,30 +477,37 @@ void TopLevel::config()
   connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
   // now buttons for constructing tea-list
-  QHBox *hbox = new QHBox(listgroup);
+  QBoxLayout *hbox = new QHBoxLayout(listgroup_layout);
   hbox->setSpacing(4);
-  btn_new = new QPushButton(QString::null, hbox);
+  btn_new = new QPushButton(QString::null, listgroup_widget);
   QToolTip::add(btn_new, i18n("New"));
   btn_new->setPixmap(SmallIcon("filenew"));
   btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
   connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
-  btn_del = new QPushButton(QString::null, hbox);
+  hbox->addWidget(btn_new);
+
+  btn_del = new QPushButton(QString::null, listgroup_widget);
   QToolTip::add(btn_del, i18n("Delete"));
   btn_del->setPixmap(SmallIcon("editdelete"));
   btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
   connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
-  btn_up = new QPushButton(QString::null, hbox);
+  hbox->addWidget(btn_del);
+
+  btn_up = new QPushButton(QString::null, listgroup_widget);
   QToolTip::add(btn_up, i18n("Up"));
   btn_up->setPixmap(SmallIcon("up"));
   btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
   connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
-  btn_down = new QPushButton(QString::null, hbox);
+  hbox->addWidget(btn_up);
+
+  btn_down = new QPushButton(QString::null, listgroup_widget);
   QToolTip::add(btn_down, i18n("Down"));
   btn_down->setPixmap(SmallIcon("down"));
   btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
   connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
-// FIXME: somehow add stretch-space now to avoid stretching of buttons
-//  hbox->addStretch(10);	// this doesn't work with QHBox...
+  hbox->addWidget(btn_down);
+
+  hbox->addStretch(10);
 
   /* right side - tea properties */
   QBoxLayout *rightside = new QVBoxLayout(box);
