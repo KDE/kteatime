@@ -64,7 +64,7 @@ private slots:
 	void config();
 	void help();
 	void anonymous();
-	void setToolTip(const QString &text);
+	void setToolTip(const QString &text, bool force=false);
 	void rebuildTeaMenus();
 
 	void listBoxItemSelected();

@@ -333,14 +333,16 @@ void TopLevel::timerEvent(QTimerEvent *)
 	}
 }
 
-
 /** update ToolTip */
-void TopLevel::setToolTip(const QString &text)
+void TopLevel::setToolTip(const QString &text, bool force)
 {
+	// don't update if text hasn't changed
 	if (lastTip == text)
 		return;
-	// don't remove Tooltip if (probably) still showing
-	if (!this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
+
+	// don't remove Tooltip if (probably - can't know for sure?) currently showing
+	// FIXME: this isn't too nice: currently mouse must stay outside for >1s for update to occur
+	if (force || !this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
 		lastTip = text;
 		QToolTip::remove(this);
 		QToolTip::add(this, text);
@@ -456,7 +458,7 @@ void TopLevel::stop()
 			menu->setItemChecked(current_selected, true);
 	}
 
-	setToolTip(i18n("The Tea Cooker"));
+	setToolTip(i18n("The Tea Cooker"), true);
 	repaint();
 }
 
