@@ -33,8 +33,8 @@
 #include <qgroupbox.h>
 #include <knuminput.h>
 #include <ksystemtray.h>
+#include <qpixmap.h>
 
-class QPixmap;
 class KAction;
 class TimeEdit;
 
@@ -103,7 +103,7 @@ private:
 	QString action;
 	bool useTrayVis;                    // visualize progress in tray icon
 
-	QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
+	QPixmap mugPixmap, teaNotReadyPixmap, teaAnim1Pixmap, teaAnim2Pixmap;
 
 	KAction *startAct, *stopAct, *confAct, *anonAct;
 	QPopupMenu *menu, *steeping_menu, *start_menu;

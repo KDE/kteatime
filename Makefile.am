@@ -18,12 +18,10 @@ KDE_OPTIONS = nofinal
 appsdata_DATA = eventsrc
 appsdatadir = $(kde_datadir)/kteatime
 
-pics_DATA = mug.png tea_not_ready.png tea_anim1.png tea_anim2.png
-picsdir = $(kde_datadir)/kteatime/pics
+kteatimeicondir = $(kde_datadir)/kteatime/icons
+kteatimeicon_ICON = AUTO
 
 messages:
 	$(XGETTEXT) $(kteatime_SOURCES) -o $(podir)/kteatime.pot
 
 xdg_apps_DATA = kteatime.desktop
-
-EXTRA_DIST = $(pics_DATA)

@@ -168,10 +168,10 @@ TopLevel::TopLevel() : KSystemTray()
 	action = config->readEntry("Action");
 	useTrayVis = config->readBoolEntry("UseTrayVis", true);
 
-	mugPixmap = new QPixmap(UserIcon("mug"));
-	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
-	teaAnim1Pixmap = new QPixmap(UserIcon("tea_anim1"));
-	teaAnim2Pixmap = new QPixmap(UserIcon("tea_anim2"));
+	mugPixmap = loadIcon("mug");
+	teaNotReadyPixmap = loadIcon("tea_not_ready");
+	teaAnim1Pixmap = loadIcon("tea_anim1");
+	teaAnim2Pixmap = loadIcon("tea_anim2");
 
 	stop();                         // reset timer, disable some menu entries, etc.
 }
@@ -190,10 +190,6 @@ void TopLevel::queryExit()
 TopLevel::~TopLevel()
 {
 	delete menu;
-	delete mugPixmap;
-	delete teaNotReadyPixmap;
-	delete teaAnim1Pixmap;
-	delete teaAnim2Pixmap;
 	delete steeping_menu;
 	delete start_menu;
 	// FIXME: must delete more (like all the QWidgets in config-window)?
@@ -220,21 +216,21 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 /** Handle paintEvent (ie. animate icon) */
 void TopLevel::paintEvent(QPaintEvent *)
 {
-	QPixmap *pm = mugPixmap;
+	QPixmap *pm = &mugPixmap;
 
 	if (running) {
 		if (useTrayVis)
-			pm = teaAnim1Pixmap;                            // this is 'mugPixmap' plus brown content
+			pm = &teaAnim1Pixmap;                            // this is 'mugPixmap' plus brown content
 		else
-			pm = teaNotReadyPixmap;                         // generic "steeping" icon
+			pm = &teaNotReadyPixmap;                         // generic "steeping" icon
 	} else {
 		// use simple two-frame "animation"
 		// FIXME: how about using a QMovie instead? (eg. MNG)
 		if (ready) {
 			if (firstFrame)
-				pm = teaAnim1Pixmap;
+				pm = &teaAnim1Pixmap;
 			else
-				pm = teaAnim2Pixmap;
+				pm = &teaAnim2Pixmap;
 		}
 	}
 
@@ -304,7 +300,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			}
 			if (usePopup)
 				KPassivePopup::message(i18n("The Tea Cooker"),
-				                       teaMessage, *teaAnim1Pixmap, this, "popup", 0);
+				                       teaMessage, teaAnim1Pixmap, this, "popup", 0);
 				// FIXME: does auto-deletion work without timeout?
 			setToolTip(teaMessage);
 			repaint();
