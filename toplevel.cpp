@@ -459,7 +459,7 @@ void TopLevel::config()
 
   /* left side - tea list and list-modifying buttons */
   QBoxLayout *leftside = new QVBoxLayout(box);
-  QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea list"), page);
+  QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
   leftside->addWidget(listgroup, 0, 0);
   listbox = new QListBox(listgroup, "listBox");
   // now add all defined teas to listbox
@@ -500,7 +500,7 @@ void TopLevel::config()
 
   /* right side - tea properties */
   QBoxLayout *rightside = new QVBoxLayout(box);
-  editgroup = new QGroupBox(2, Vertical, i18n("Tea properties"), page);
+  editgroup = new QGroupBox(2, Vertical, i18n("Tea Properties"), page);
   rightside->addWidget(editgroup, 0, 0);
   QHBox *propbox = new QHBox(editgroup);
 
