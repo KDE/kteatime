@@ -18,7 +18,6 @@
 #include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qpushbutton.h>
-#include <qspinbox.h>
 #include <qtooltip.h>
 #include <qfile.h>
 
@@ -28,6 +27,7 @@
 #include <kmessagebox.h>
 #include <knotifyclient.h>
 #include <kwin.h>
+#include <knuminput.h>
 
 #include "toplevel.h"
 #include <kdialogbase.h>
@@ -230,7 +230,7 @@ void TopLevel::config()
   QGridLayout *grid = new QGridLayout(5,2);
   box->addLayout(grid);
 
-  QSpinBox *spin = new QSpinBox(1,10000,10,dlg->plainPage());
+  KIntSpinBox *spin = new KIntSpinBox(1,10000,10, 1, 10, dlg->plainPage());
   spin->setFixedHeight(spin->sizeHint().height());
 
   QLabel *l = new QLabel(spin, i18n("Your Tea Time (s):"), dlg->plainPage());
@@ -281,7 +281,7 @@ void TopLevel::config()
     popping = popup->isChecked();
     action = actionEdit->text();
     teas.remove(teas.last());
-    times.remove(teas.last());
+    times.remove(times.last());
 
     QString n,n2;
     num = spin->value();
@@ -297,7 +297,7 @@ void TopLevel::config()
     config->writeEntry("Popup",popping);
     config->writeEntry("UserTea",num);
     config->writeEntry("Action",action);
-
+    config->sync();
   }
 }
 
