@@ -1,21 +1,28 @@
-- when in "ready"-state, left-click -> auto-go to initial state
-  before opening left-click menu(?)
+- in configure-window: add "Execute: "-label in front of "action"-text edit
+- nicer placement of "Configure events" button
+- KNotifyClient: "Execute" not capable of %t substitution?
+  (--> hence no replacement for my own "Execute: " action)
+- KNotifyClient: passive popup cannot(?) have no timeout
+  (--> hence no replacement for my own "Popup" action)
+- when tea is steeping, the tooltip disappears too quick (after max. 1s) [bug #55103]
 - when steeping, display "stop <teaname>" on left-click, not just "stop"
+  (not easy when using KAction in a simple way?)
 - bug(?): I haven't seen the icon being +animated+ for a long time!
   (something wrong with timer?)
   --> use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
+
+
+internals:
+- 'int2time()' somewhere into class-namespace? (ie. not as global function)
+- do kapp->closeAllWindows() on slotFileQuit() ?
+- when in "ready"-state, left-click -> auto-go to initial state
+  before opening left-click menu(?)
 - remember geometry of config-dialog (and its QListView!)
   (or at least: x-maximize QListView's titles)
 - somehow make double-click with left button start 'current' tea
   without displaying start_menu?
-- add "custom time"-entry to menu -> popup small window for entering
-  "anonymous" tea-name and -time
-- try to keep valid 'current_selected' index when shuffling tea-list
-
 - figure out how to use KAction for "quit"-entry of menu
   (somehow doesn't work as intended..)
-- strip hours from KLocale::formatTime()-returned string
-  in locale-respecting way
 - some more tidying of configure-dialog
   (eg. initial position!, initial size)
 - DCOP interface?
