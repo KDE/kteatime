@@ -12,6 +12,7 @@
 #include <kapp.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
+#include <kaboutdata.h>
 
 #include "toplevel.h"
 
@@ -23,8 +24,12 @@ static const char *version = "v0.0.1";
 
 int main(int argc, char *argv[])
 {
-  KCmdLineArgs::init(argc, argv, "kteatime", description, version);
-
+  KAboutData aboutData( "kteatime", I18N_NOOP("KTeaTime"),
+    version, description, KAboutData::License_GPL,
+    "(c) 1998-1999, Matthias Hoelzer-Kluepfel");
+  aboutData.addAuthor("Matthias Hoelzer-Kluepfel",0, "hoelzer@kde.org");
+  KCmdLineArgs::init( argc, argv, &aboutData );
+  
   KApplication app;
 
   TopLevel *toplevel=0;
