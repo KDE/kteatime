@@ -1,6 +1,7 @@
-# KDE Config File 
-[KDE Desktop Entry]
+[Desktop Entry]
 Name=The Tea Cooker
+Name[de]=Der Teekocher
+Name[pt_BR]=O cozedor de chá
 Exec=kteatime
 Icon=kteatime.xpm
 Type=Application

@@ -17,10 +17,10 @@ messages:
 
 install-data-local: 
 	$(mkinstalldirs) $(APPSDIR)
-	$(INSTALL_DATA) kteatime.kdelnk $(APPSDIR)
+	$(INSTALL_DATA) kteatime.desktop $(APPSDIR)
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) kteatime.xpm $(kde_minidir)
 
 uninstall-local:
-	rm -f $(APPSDIR)/kteatime.kdelnk
+	rm -f $(APPSDIR)/kteatime.desktop
 	rm -f $(kde_minidir)/kteatime.xpm
