@@ -45,4 +45,4 @@ Icon=kteatime
 Type=Application
 Terminal=0
 DocPath=kteatime/index.html
-KDE-X-StartupNotify=true
+X-KDE-StartupNotify=true
