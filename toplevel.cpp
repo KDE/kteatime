@@ -520,13 +520,14 @@ void TopLevel::config()
   nameEdit = new QLineEdit(propright);
   nameEdit->setFixedHeight(nameEdit->sizeHint().height());
   nameEdit->setAlignment(QLineEdit::AlignRight);
-  (void) new QLabel(nameEdit, i18n("Name:"), propleft);
+  QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
+  l->setFixedSize(l->sizeHint());
   connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
   timeEdit = new KIntSpinBox(1, 10000, 10, 1, 10, propright);
   timeEdit->setSuffix(i18n(" s"));
   timeEdit->setFixedHeight(timeEdit->sizeHint().height());
-  QLabel *l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
+  l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
   l->setFixedSize(l->sizeHint());
   connect(timeEdit, SIGNAL(valueChanged(const QString&)), SLOT(spinBoxValueChanged(const QString&)) );
 
