@@ -276,8 +276,8 @@ void TopLevel::enable_menuEntries()
 void TopLevel::teaSelected(int index)
 {
 	if (index >=0 && index < (int)teas.count()) {
-		for (unsigned int i=0; i < teas.count(); i++)
-			menu->setItemChecked(i, (int)i == index);
+		menu->setItemChecked(current_selected, false);
+		menu->setItemChecked(index, true);
 
 		current_selected = index;
 		KConfig *config = kapp->config();
