@@ -116,18 +116,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
         start();
   }
   else
-  {
-    menu->move(-1000,-1000);
-    menu->show();
-    menu->hide();
-    QPoint globalPos = mapToGlobal( frameGeometry().topLeft() );
-    QRect g ( globalPos, frameGeometry().size() );
-    if ( g.x() > QApplication::desktop()->width()/2 &&
-      g.y()+menu->height() > QApplication::desktop()->height() )
-      menu->popup(QPoint( g.x(), g.y() - menu->height()));
-    else
-      menu->popup(QPoint( g.x() + g.width(), g.y() + g.height()));
-  }
+    menu->popup(QCursor::pos());
 }
 
 
