@@ -504,7 +504,7 @@ void TopLevel::help()
 	kapp->invokeHelp();
 }
 
-/* config-slot: "Configure events" button clicked */
+/* config-slot: "Configure events..." button clicked */
 void TopLevel::confButtonClicked()
 {
 	KNotifyDialog::configure(btn_conf);
@@ -600,7 +600,7 @@ void TopLevel::config()
 
   QWidget *actionconf_widget = new QWidget(actiongroup);
   QBoxLayout *actionconf_hbox = new QHBoxLayout(actionconf_widget);
-  btn_conf = new QPushButton(i18n("Configure events"), actionconf_widget);
+  btn_conf = new QPushButton(i18n("Configure events..."), actionconf_widget);
   actionconf_hbox->addWidget(btn_conf);
   connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
   actionconf_hbox->addStretch(10);
