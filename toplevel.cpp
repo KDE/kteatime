@@ -372,7 +372,7 @@ void TopLevel::teaStartSelected(int index)
 /* menu-slot: "start" selected in menu */
 void TopLevel::start()
 {
-	if (!listempty > 0) {
+	if (!listempty) {
 		if (!shooting) {
 			current_name = teas[current_selected].name;     // remember name of current tea
 			seconds = teas[current_selected].time;          // initialize time for current tea
@@ -641,7 +641,7 @@ void TopLevel::config()
   QVBox *propright = new QVBox(propbox);
   nameEdit = new QLineEdit(propright);
   nameEdit->setFixedHeight(nameEdit->sizeHint().height());
-  nameEdit->setAlignment(QLineEdit::AlignRight);
+  nameEdit->setAlignment(QLineEdit::AlignLeft);
   QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
   l->setFixedSize(l->sizeHint());
   connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
