@@ -13,7 +13,7 @@ kteatime_LDADD = $(LIB_KDEUI)
 KDE_ICON = kteatime
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kteatime_SOURCES) && mv messages.po ../po/kteatime.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kteatime_SOURCES) && mv messages.po $(podir)/kteatime.pot
 
 appsdir = $(kde_appsdir)/Utilities
 apps_DATA = kteatime.desktop
