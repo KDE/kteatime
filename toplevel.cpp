@@ -117,13 +117,13 @@ TopLevel::TopLevel() : KSystemTray()
 	listempty = (teas.count() == 0);
 
 
-	startAct = new KAction("&Start", "1rightarrow", 0,
+	startAct = new KAction(i18n("&Start"), "1rightarrow", 0,
 	                       this, SLOT(start()), actionCollection(), "start");
-	stopAct = new KAction("Sto&p", "cancel", 0,
+	stopAct = new KAction(i18n("Sto&p"), "cancel", 0,
 	                      this, SLOT(stop()), actionCollection(), "stop");
-	confAct = new KAction("&Configure...", "configure", 0,
+	confAct = new KAction(i18n("&Configure..."), "configure", 0,
 	                      this, SLOT(config()), actionCollection(), "configure");
-	anonAct = new KAction("&Anonymous...", 0, 0,
+	anonAct = new KAction(i18n("&Anonymous..."), 0, 0,
 	                      this, SLOT(anonymous()), actionCollection(), "anonymous");
 //	KAction *quitAct = actionCollection()->action("file_quit");
 
