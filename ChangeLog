@@ -1,3 +1,7 @@
+2003-04-10  Martin Willers <willers@xm-arts.de>
+	- have now proper wrapping time-edit widget
+	(based on patch provided by Daniel Teske)
+
 2003-03-14  Martin Willers <willers@xm-arts.de>
 	- added "Configure Events..." button for quick access to kcontrol
 	- some internal tidying and cleanups
