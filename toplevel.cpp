@@ -104,7 +104,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	// this menu will be displayed when no tea is steeping, and left mouse button is clicked
 	start_menu = new QPopupMenu();
-	start_menu->setCheckable(true);
+	start_menu->setCheckable(true);     // menu isn't tickable, but this gives some add. spacing
 	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
 
 	rebuildTeaMenus();		// populate tops of menus with tea-entries from config
@@ -300,10 +300,8 @@ void TopLevel::rebuildTeaMenus() {
 	// now select 'current' tea
 	if (current_selected >= (int)teas.count())
 		current_selected = -1;
-	for (unsigned int i=0; i < teas.count(); i++) {
+	for (unsigned int i=0; i < teas.count(); i++)
 		menu->setItemChecked(i, (int)i == current_selected);
-		start_menu->setItemChecked(i, (int)i == current_selected);
-	}
 }
 
 /* enable/disable menu-entries according to current running-state */
@@ -326,8 +324,6 @@ void TopLevel::teaSelected(int index)
 		// tick new active item in +both+ menus
 		menu->setItemChecked(current_selected, false);
 		menu->setItemChecked(index, true);
-		start_menu->setItemChecked(current_selected, false);
-		start_menu->setItemChecked(index, true);
 
 		current_selected = index;
 		KConfig *config = kapp->config();

@@ -1,3 +1,7 @@
+- when in "ready"-state, left-click -> auto-go to initial state
+  before opening left-click menu(?)
+
+- when steeping, display "stop <teaname>" on left-click, not just "stop"
 - bug(?): I haven't seen the icon being +animated+ for a long time!
   (something wrong with timer?)
   --> use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
@@ -23,6 +27,7 @@
 - use XML-UI
 - check for memory leaks
 - make config-reading bullet-proof
+
 
 ---- new approach:
 
