@@ -1,0 +1,10 @@
+[!Global!]
+IconName=kteatime
+Comment=The KDE Tea Cooker
+
+[tea]
+Name=Tea is ready
+Comment=Tea is ready
+default_sound=KDE_Notify.wav
+default_presentation=1
+

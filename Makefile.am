@@ -12,6 +12,9 @@ kteatime_LDADD = $(LIB_KDEUI)
 
 KDE_ICON = kteatime
 
+data_DATA = eventsrc
+datadir = $(kde_datadir)/kteatime
+
 pics_DATA = mug.png tea_not_ready.png tea_anim1.png tea_anim2.png
 picsdir = $(kde_datadir)/kteatime/pics
 

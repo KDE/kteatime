@@ -227,8 +227,16 @@ void TopLevel::timerEvent(QTimerEvent *)
 
 			QString teaMessage = i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
-			if (beeping)
-				KNotifyClient::beep();
+			if (beeping) {
+//				KNotifyClient::beep();          // this doesn't seem to work?!
+				KNotifyClient::event("tea");
+
+				// maybe use this instead (do I really need my own 'eventsrc' file?)
+//				KNotifyClient::userEvent("Tea is ready",
+//				                         KNotifyClient::Sound,
+//				                         KNotifyClient::Notification,
+//				                         "kopete_event.wav");
+			}
 			if (useAction && (!action.isEmpty()))
 				system(QFile::encodeName(action));
 			if (popping)
