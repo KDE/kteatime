@@ -1,12 +1,10 @@
-- bug: pressing "add new tea" in config-dialogue somehow corrupts one of the
-  other teas and prints "New Tea" +twice+ in list
-  -> this seems to be fixed, but still:
-     1. select entry #2 (of 3)
+- bug: in configure-dialog:
+     1. select entry #1 (of 3)
      2. click on "new tea"
-     --> "New Tea"-entry appears as new #1  (should appear as #2 or #3!)
+     --> "New Tea"-entry appears as new #4 (ok)
      3. click on "new tea" again
-     --> "New Tea"-entry appears where it should
-- bug(?): I haven't seen the icon being animated for a long time!
+     --> "New Tea"-entry appears as new #3 (should be #5, no?)
+- bug(?): I haven't seen the icon being +animated+ for a long time!
 - remember geometry of config-dialog (and its QListView!)
   (or at least: x-maximize QListView's titles)
 
@@ -15,9 +13,9 @@
 - beep() shouldn't use "special event" from "KDE system notifications",
   but define some own event? (and use own "steeping"-sample?)
 - some more tidying of configure-dialog
-  (eg. initial position!, initial size, don't stretch buttons)
+  (eg. initial position!, initial size)
 - display tea-menu on left-click for one-click select&start
-  (and offer "Cancel current" if already running -- already done)
+  (above "Cancel current" if already running)
 - try to keep valid 'current_selected' index when shuffling tea-menu
 - use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 - DCOP interface?
