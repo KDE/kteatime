@@ -14,6 +14,7 @@
 #include <qpainter.h>
 #include <qtooltip.h>
 #include <qfile.h>
+#include <qcursor.h>
 
 #include <kconfig.h>
 #include <kiconloader.h>
