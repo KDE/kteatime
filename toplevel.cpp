@@ -27,9 +27,10 @@
 #include <knotifyclient.h>
 #include <kwin.h>
 #include <knuminput.h>
-#include <kseparator.h> 
+#include <kseparator.h>
 
 #include "toplevel.h"
+#include "toplevel.moc"
 #include <kdialogbase.h>
 
 #include "mug.xpm"
