@@ -126,7 +126,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 }
 
 
-void TopLevel::paintEvent(QPaintEvent *pe) 
+void TopLevel::paintEvent(QPaintEvent *) 
 {
   QPixmap *pm;
 
