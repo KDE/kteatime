@@ -23,6 +23,7 @@
 #include <qlabel.h>
 #include <qframe.h>
 #include <qmessagebox.h>
+#include <klocale.h>
 
 
 #include "mug.xpm"
