@@ -1,8 +1,6 @@
 
 - somehow strip hours from KLocale::formatTime()-returned string
   in locale-respecting way
-- display times in Menu nicer (same as in tooltip!)
-
 - beep() shouldn't use "special event" from "KDE system notifications",
   but define some own event? (and use own sample?)
 - maybe use 2-column QListBox in config-window to display time next to name?
