@@ -1,6 +1,7 @@
 
 2002-04-20  Martin Willers <willers@xm-arts.de>
 	- now displaying name of current tea in tooltip
+	- better removing of unused tea-entries from config
 	- some cleanups
 
 2002-04-18  Martin Willers <willers@xm-arts.de>

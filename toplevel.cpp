@@ -4,6 +4,8 @@
 
    (C) 1998-1999 by Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
 
+       Some additions by Martin Willers <willers@xm-arts.de>, 2002
+
  ------------------------------------------------------------- */
 
 #include <stdlib.h>
@@ -68,7 +70,7 @@ TopLevel::TopLevel() : KSystemTray()
 		teas.append(i18n("Earl Grey")); n.setNum(300); times.append(n);
 		teas.append(i18n("Fruit Tea")); n.setNum(480); times.append(n);
 		// look for old-style "UserTea"-entry and add that one also
-		// FIXME: first change group to <default> again?
+		config->setGroup(NULL);			// switch back to old-style default group first
 		if (config->hasKey("UserTea")) {
 			num = config->readNumEntry("UserTea", 150);
 			n = i18n("Other Tea");
@@ -131,51 +133,20 @@ TopLevel::~TopLevel()
 }
 
 
-void TopLevel::rebuildTeaMenu() {
-	// first remove all current tea-entries from menu, these can be identified by their positive id
-	while (menu->idAt(0) >= 0)
-		menu->removeItemAt(0);
-
-	// now add new tea-entries to top of menu
-	int id = 0;
-	int index = 0;
-	QStringList::ConstIterator ti = times.begin();
-	for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
-		QString str = *it;
-		str.append(" (");
-		str.append(*ti);
-		str.append(i18n("s"));
-		str.append(")");
-		menu->insertItem(str, id++, index++);
-		ti++;
-	}
-
-	// now select 'current' tea
-	// FIXME: does it make sense to assume a valid 'current' tea after reconstruction?
-	if (current_selected >= teas.count())
-		current_selected = 0;
-	for (int i=0; i < teas.count(); i++)
-		menu->setItemChecked(i, i == current_selected);
-}
-
-
 void TopLevel::mousePressEvent(QMouseEvent *event)
 {
-	if (event->button() == 1) {
+	if (event->button() == LeftButton) {
 		if (ready) {
-			killTimers();
-			setToolTip(i18n("The Tea Cooker"));
-			ready = false;
-			repaint();
+			stop();			// reset tooltip and stop animation
 		} else {
 			if (running)
 				stop();
 			else if (!running)
 				start();
 		}
-	} else if (event->button() == 2)
+	} else if (event->button() == RightButton)
 		menu->popup(QCursor::pos());
-	// other mouse button(s) currently unused
+//	else if (event->button() == MidButton)	// currently unused
 }
 
 
@@ -202,47 +173,6 @@ void TopLevel::paintEvent(QPaintEvent *)
 	p.end();
 }
 
-
-/* enable/disable start and stop entries according to current running-state */
-void TopLevel::enable_menuEntries()
-{
-	int startindex = 0;
-	while (menu->idAt(startindex) >= 0)			// find first non-positive menu-id
-		startindex += 1;
-	startindex += 1;					// skip separator
-	int stopindex = startindex + 1;
-
-	menu->setItemEnabled(menu->idAt(startindex), !running);	// "start" entry
-	menu->setItemEnabled(menu->idAt(stopindex), running);	// "stop" entry
-}
-
-
-void TopLevel::start()
-{
-	current_name = *teas.at(current_selected);		// remember name of current tea
-	seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
-
-	killTimers();
-	startTimer(1000);
-
-	running = true;
-	ready = false;
-	enable_menuEntries();					// disable "start", enable "stop"
-
-	repaint();
-}
-
-void TopLevel::stop()
-{
-	killTimers();
-
-	running = false;
-	ready = false;
-	enable_menuEntries();					// disable "top", enable "start"
-
-	setToolTip(i18n("The Tea Cooker"));
-	repaint();
-}
 
 void TopLevel::timerEvent(QTimerEvent *)
 {
@@ -282,6 +212,55 @@ void TopLevel::timerEvent(QTimerEvent *)
 	}
 }
 
+void TopLevel::setToolTip(const QString &text)
+{
+	if (lasttip == text)
+        	return;
+	lasttip = text;
+	QToolTip::remove(this);
+	QToolTip::add(this, text);
+}
+
+void TopLevel::rebuildTeaMenu() {
+	// first remove all current tea-entries from menu, these can be identified by their positive id
+	while (menu->idAt(0) >= 0)
+		menu->removeItemAt(0);
+
+	// now add new tea-entries to top of menu
+	int id = 0;
+	int index = 0;
+	QStringList::ConstIterator ti = times.begin();
+	for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+		QString str = *it;
+		str.append(" (");
+		str.append(*ti);
+		str.append(i18n("s"));
+		str.append(")");
+		menu->insertItem(str, id++, index++);
+		ti++;
+	}
+
+	// now select 'current' tea
+	// FIXME: does it make sense to assume a valid 'current' tea after reconstruction?
+	if (current_selected >= teas.count())
+		current_selected = 0;
+	for (int i=0; i < teas.count(); i++)
+		menu->setItemChecked(i, i == current_selected);
+}
+
+/* enable/disable "start" and "stop" menu-entries according to current running-state */
+void TopLevel::enable_menuEntries()
+{
+	int startindex = 0;
+	while (menu->idAt(startindex) >= 0)			// find first non-positive menu-id
+		startindex += 1;
+	startindex += 1;					// skip separator
+	int stopindex = startindex + 1;
+
+	menu->setItemEnabled(menu->idAt(startindex), !running);	// "start" entry
+	menu->setItemEnabled(menu->idAt(stopindex), running);	// "stop" entry
+}
+
 /* menu-slot: tea selected in tea-menu */
 void TopLevel::teaSelected(int index)
 {
@@ -296,6 +275,41 @@ void TopLevel::teaSelected(int index)
 	}
 }
 
+/* menu-slot: "start" selected in menu */
+void TopLevel::start()
+{
+	current_name = *teas.at(current_selected);		// remember name of current tea
+	seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
+
+	killTimers();
+	startTimer(1000);
+
+	running = true;
+	ready = false;
+	enable_menuEntries();					// disable "start", enable "stop"
+
+	repaint();
+}
+
+/* menu-slot: "stop" selected in menu */
+void TopLevel::stop()
+{
+	killTimers();
+
+	running = false;
+	ready = false;
+	enable_menuEntries();					// disable "top", enable "start"
+
+	setToolTip(i18n("The Tea Cooker"));
+	repaint();
+}
+
+
+/*
+ * Configure-window handling
+ */
+
+
 /* enable/disable buttons for editing listbox */
 void TopLevel::enable_controls() {
 	bool amFirst = (listbox->currentItem() == 0);
@@ -308,6 +322,16 @@ void TopLevel::enable_controls() {
 	if (haveSelection) {
 		listbox->ensureCurrentVisible();
 	}
+}
+
+/* disable right side of configure-window */
+void TopLevel::disable_properties() {
+	editgroup->setEnabled(false);
+}
+
+/* enable right side of configure-window */
+void TopLevel::enable_properties() {
+	editgroup->setEnabled(true);
 }
 
 /* config-slot: item in tea-list selected */
@@ -408,12 +432,10 @@ void TopLevel::downButtonClicked() {
 	}
 }
 
-void TopLevel::disable_properties() {
-	editgroup->setEnabled(false);
-}
-
-void TopLevel::enable_properties() {
-	editgroup->setEnabled(true);
+/* config-slot: "help" button clicked */
+void TopLevel::help()
+{
+	kapp->invokeHelp();
 }
 
 
@@ -548,7 +570,7 @@ void TopLevel::config()
 
     // and store to config
     KConfig *config = kapp->config();
-    // remove old-style entries (if present)
+    // remove old-style entries from default-group (if present)
     if (config->hasKey("UserTea"))
     	config->deleteEntry("UserTea");
 
@@ -557,7 +579,8 @@ void TopLevel::config()
     config->writeEntry("Popup", popping);
     config->writeEntry("Action", action);
     config->writeEntry("Tea", current_selected);
-
+    // first get rid of all previous tea-entries from config, then write anew
+    config->deleteGroup("Teas", true);			// deep remove of whole group
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
     QString key;
@@ -571,35 +594,7 @@ void TopLevel::config()
 	ti++;
 	index++;
     }
-    // and delete all non-used tea-definitions from config
-    // (assuming non-broken config)
-    // FIXME: maybe better just deep-remove whole "Teas"-group, then write anew?
-    QString key2;
-    while (1) {
-    	key.sprintf("Tea%d Name", index);
-	key2.sprintf("Tea%d Time", index);
-	if (config->hasKey(key) || config->hasKey(key2)) {
-		config->deleteEntry(key);
-		config->deleteEntry(key);
-	} else
-		break;
-	index++;
-    }
 
     config->sync();
   }
-}
-
-void TopLevel::help()
-{
-	kapp->invokeHelp();
-}
-
-void TopLevel::setToolTip(const QString &text)
-{
-	if (lasttip == text)
-        	return;
-	lasttip = text;
-	QToolTip::remove(this);
-	QToolTip::add(this, text);
 }
