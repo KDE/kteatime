@@ -379,7 +379,7 @@ void TopLevel::spinBoxValueChanged(const QString& newText) {
 
 /* config-slot: "new" button clicked */
 void TopLevel::newButtonClicked() {
-	QListViewItem* item = new QListViewItem(listbox, 0);
+	QListViewItem* item = new QListViewItem(listbox, listbox->currentItem());
         listbox->setCurrentItem(item);
 
 	nameEdit->setText(i18n("New Tea"));
@@ -462,12 +462,13 @@ void TopLevel::config()
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->addColumn(i18n("Time"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+  listbox->setSorting(-1);
   listgroup_layout->addWidget(listbox);
 
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItem's are inserted at the end
-  QStringList::ConstIterator ti = times.begin();
-  for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++, ti++)
+  QStringList::ConstIterator ti = times.fromLast();
+  for (QStringList::ConstIterator it = teas.fromLast(); it != teas.end(); it--, ti--)
   {
 	QListViewItem* item = new QListViewItem(listbox);
 	item->setText(0, *it);

@@ -1,9 +1,3 @@
-- bug: in configure-dialog:
-     1. select entry #1 (of 3)
-     2. click on "new tea"
-     --> "New Tea"-entry appears as new #4 (ok)
-     3. click on "new tea" again
-     --> "New Tea"-entry appears as new #3 (should be #5, no?)
 - bug(?): I haven't seen the icon being +animated+ for a long time!
 - remember geometry of config-dialog (and its QListView!)
   (or at least: x-maximize QListView's titles)
