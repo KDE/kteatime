@@ -1,3 +1,7 @@
+2003-08-22  Martin Willers <willers@xm-arts.de>
+	- fix ToolTip disappearing prematurely
+	(patch by "Ivan")
+
 2003-04-17  Martin Willers <willers@xm-arts.de>
 	- fixed bug with propagation of valueChanged() signals from TimeEdit
 	- fixed bug: removing all teas from list was leading to crash!

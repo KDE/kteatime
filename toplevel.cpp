@@ -288,9 +288,13 @@ void TopLevel::setToolTip(const QString &text)
 {
 	if (lastTip == text)
 		return;
-	lastTip = text;
-	QToolTip::remove(this);
-	QToolTip::add(this, text);
+	// don't remove Tooltip if (probably) still showing
+	// (it doesn't update then, though)
+	if (!this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
+		lastTip = text;
+		QToolTip::remove(this);
+		QToolTip::add(this, text);
+	}
 }
 
 
