@@ -6,8 +6,6 @@
 
  ------------------------------------------------------------- */
 
-
-#include <ktmainwindow.h>
 #include <kapp.h>
 #include <kwin.h>
 #include <klocale.h>
