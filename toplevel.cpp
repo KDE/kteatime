@@ -58,7 +58,7 @@ TopLevel::TopLevel() : KSystemTray()
 	if (config->hasKey("Number")) {
 		// assuming this is a new-style config
 		num = config->readNumEntry("Number", 0);
-		for (int index=1; index<=num; index++) {
+		for (unsigned int index=1; index<=num; index++) {
 			key.sprintf("Tea%d Time", index);
 			times.append(config->readEntry(key, NULL));
   			key.sprintf("Tea%d Name", index);
@@ -234,8 +234,18 @@ void TopLevel::rebuildTeaMenu() {
 	for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
 		QString str = *it;
 		str.append(" (");
-		str.append(*ti);
-		str.append(i18n("s"));
+		uint total_seconds = (*ti).toUInt();
+		QString temp;
+		if (total_seconds / 60)
+		{
+		  temp.setNum(total_seconds / 60);
+		  str.append(temp+"m");
+		}
+		if (total_seconds % 60)
+		{
+		  temp.setNum(total_seconds % 60);
+		  str.append(temp+"s");
+		}
 		str.append(")");
 		menu->insertItem(str, id++, index++);
 		ti++;
@@ -245,7 +255,7 @@ void TopLevel::rebuildTeaMenu() {
 	// FIXME: does it make sense to assume a valid 'current' tea after reconstruction?
 	if (current_selected >= teas.count())
 		current_selected = 0;
-	for (int i=0; i < teas.count(); i++)
+	for (unsigned int i=0; i < teas.count(); i++)
 		menu->setItemChecked(i, i == current_selected);
 }
 
@@ -511,7 +521,7 @@ void TopLevel::config()
   QVBox *propright = new QVBox(propbox);
   nameEdit = new QLineEdit(propright);
   nameEdit->setFixedHeight(nameEdit->sizeHint().height());
-  QLabel *la = new QLabel(nameEdit, i18n("Name:"), propleft);
+  (void) new QLabel(nameEdit, i18n("Name:"), propleft);
   connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
   timeEdit = new KIntSpinBox(1, 10000, 10, 1, 10, propright);
