@@ -10,7 +10,7 @@
 #ifndef _TOPLEVEL_H_
 #define _TOPLEVEL_H_
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <qpopupmenu.h>
 #include <qtimer.h>
 #include <qpixmap.h>
