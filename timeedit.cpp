@@ -120,14 +120,14 @@ void TimeEdit::wrappedDown()
 }
 
 /** SLOT: Handle any change in minutes of seconds */
-void TimeEdit::spinBoxValueChanged(int v)
+void TimeEdit::spinBoxValueChanged(int)
 {
-	if (this->value() == 0) {
+	if (value() == 0) {
 		secondBox->stepUp();        // this will give another spinBoxValueChanged() invocation
 		return;
 	}
 
-	emit valueChanged(this->value());
+	emit valueChanged(value());
 }
 
 /** SLOT (overloading QSpinBox): set focus */
