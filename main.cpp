@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     "(c) 1998-1999, Matthias Hoelzer-Kluepfel");
   aboutData.addAuthor("Matthias Hoelzer-Kluepfel",0, "hoelzer@kde.org");
   aboutData.addAuthor("Martin Willers", 0, "willers@xm-arts.de");
-  aboutData.addCredit("Daniel Teske", "Many patches", "teske@bigfoot.com");
+  aboutData.addCredit("Daniel Teske", I18N_NOOP("Many patches"), "teske@bigfoot.com");
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KApplication app;
