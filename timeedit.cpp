@@ -82,14 +82,23 @@ TimeEdit::~TimeEdit()
 }
 
 /** Set to specified number of seconds. */
-void TimeEdit::setValue(int value)
+void TimeEdit::setValue(int val)
 {
-	if (value < 0)
+	if (val < 0)
 		return;
-	// FIXME: What does KSpinBox do if value is out of range?
 
-	secondBox->setValue(value % 60);
-	minuteBox->setValue(value / 60);
+	// block signals to avoid receiption of valueChanged()
+	// between changing of minutes and seconds
+	secondBox->blockSignals(true);
+	minuteBox->blockSignals(true);
+
+	secondBox->setValue(val % 60);
+	minuteBox->setValue(val / 60);
+
+	secondBox->blockSignals(false);
+	minuteBox->blockSignals(false);
+
+	emit valueChanged(value());
 }
 
 /** Return current value in seconds. */

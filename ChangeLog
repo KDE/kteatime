@@ -1,3 +1,6 @@
+2003-04-17  Martin Willers <willers@xm-arts.de>
+	- fixed bug with propagation of valueChanged() signals from TimeEdit
+
 2003-04-10  Martin Willers <willers@xm-arts.de>
 	- have now proper wrapping time-edit widget
 	- added facility to start steeping an 'anonymous' tea
@@ -63,7 +66,7 @@
 2002-06-20  Matthias Hoelzer-Kluepfel <mhk@kde.org>
 	- improved the display of times in the menu
 	  (patch provided by -Jackson Dunstan <jdunstan@digipen.edu>)
-	  
+
 2002-04-20  Martin Willers <willers@xm-arts.de>
 	- also displaying name of current tea when finished
 
