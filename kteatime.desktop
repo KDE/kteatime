@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Tea Cooker
+Name[bg]=Приготвяне на Чай
 Name[cs]=Vařič čaje
 Name[da]=Tekoger
 Name[de]=Teekocher
@@ -31,3 +32,4 @@ Terminal=0
 DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
+Categories=QT;KDE;Amusement
