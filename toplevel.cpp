@@ -27,6 +27,7 @@
 #include <qgroupbox.h>
 #include <qheader.h>
 #include <qpixmap.h>
+#include <qbitmap.h>
 
 #include <kconfig.h>
 #include <khelpmenu.h>
@@ -156,6 +157,7 @@ TopLevel::TopLevel() : KSystemTray()
 	usePopup = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
+	useTrayVis = false; // FIXME: read from config (and store!)
 
 	mugPixmap = new QPixmap(UserIcon("mug"));
 	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
@@ -207,31 +209,61 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 //	else if (event->button() == MidButton)	// currently unused
 }
 
-
-/** Handle paintEvent (ie. animate icon if tea is finished) */
+/** Handle paintEvent (ie. animate icon) */
 void TopLevel::paintEvent(QPaintEvent *)
 {
-	QPixmap *pm;
+	QPixmap *pm = mugPixmap;
 
-	if (running)
-		pm = teaNotReadyPixmap;
-	else {
+	if (running) {
+		if (useTrayVis)
+			pm = teaAnim1Pixmap;                            // this is 'mugPixmap' plus brown content
+		else
+			pm = teaNotReadyPixmap;                         // generic "steeping" icon
+	} else {
+		// use simple two-frame "animation"
+		// FIXME: how about using a QMovie instead? (eg. MNG)
 		if (ready) {
 			if (firstFrame)
 				pm = teaAnim1Pixmap;
 			else
 				pm = teaAnim2Pixmap;
-		} else
-			pm = mugPixmap;
+		}
 	}
 
+	// overlay pie chart onto tray icon
+	QPixmap base(*pm);                                      // make copy of base pixmap
+	if (useTrayVis && running) {
+		// extend mask
+		QBitmap mask = *(base.mask());
+		QPainter pm(&mask);
+		pm.setBrush(Qt::color1);                            // mask "colour"
+		pm.setPen(Qt::NoPen);                               // no border needed/wanted
+		pm.drawPie(0+1, 9+1, 11, 11, 90*16, -360*16);       // full circle of small size
+		pm.drawPie(0, 9, 13, 13, 90*16, percentDone*16);    // pie part of big size
+		pm.end();
+		base.setMask(mask);
+
+		// draw pie chart
+		QPainter px(&base);
+		px.setPen(QPen(Qt::black, 0));                      // black border
+		px.setBrush(QColor(192, 0, 0));                     // red fill colour for small circle
+		px.drawPie(0+1, 9+1, 11, 11, 90*16, -360*16);
+
+		px.setBrush(QColor(0, 192, 0));                     // green fill colour for pie part
+		px.drawPie(0, 9, 13, 13, 90*16, percentDone*16);
+		px.end();
+	}
+	// FIXME: over-emphasize first and last few percent? (for better visibility)
+	// FIXME: some optimizations (eg. store pre-drawn QPixmap with small circle)
+	//        (and use drawEllipse() instead of drawPie() for small circle!)
+
+	// set new tray icon
 	QPainter p(this);
 	int x = 1 + (12 - pm->width()/2);
 	int y = 1 + (12 - pm->height()/2);
-	p.drawPixmap(x , y, *pm);
+	p.drawPixmap(x, y, base);
 	p.end();
 }
-
 
 /** Check timer and initiate appropriate action if finished */
 void TopLevel::timerEvent(QTimerEvent *)
@@ -269,7 +301,16 @@ void TopLevel::timerEvent(QTimerEvent *)
 			setToolTip(teaMessage);
 			repaint();
 		} else {
-			// timer not yet run out; just update Tooltip appropriately
+			// timer not yet run out; just update tray-icon...
+			if (useTrayVis) {
+				int pDone = (360 * (startSeconds - seconds)) / startSeconds;
+//				printf("seconds = %d, pDone = %d, percentDone = %d\n", seconds, pDone, percentDone);
+				if (pDone - percentDone > 8) {
+					percentDone = pDone;
+					repaint();
+				}
+			}
+			// ...and Tooltip
 			QString min = int2time(seconds);
 			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
 		}
@@ -372,7 +413,9 @@ void TopLevel::start()
 	if (!listempty) {
 		if (!shooting) {
 			current_name = teas[current_selected].name;     // remember name of current tea
-			seconds = teas[current_selected].time;          // initialize time for current tea
+			startSeconds = teas[current_selected].time;     // initialize time for current tea
+			seconds = startSeconds;
+			percentDone = 0;
 		}
 		// else both are already defined by dialog handler
 
@@ -437,7 +480,9 @@ void TopLevel::anonymous()
 		if (!listempty)
 			menu->setItemChecked(current_selected, false);  // no item is to be checked
 		current_name = i18n("tea");                         // some generic tea name
-		seconds = time->value();
+		startSeconds = time->value();
+		seconds = startSeconds;
+		percentDone = 0;
 		start();
 	}
 }

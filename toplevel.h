@@ -78,6 +78,8 @@ private:
 
 	bool running, ready, firstFrame, listempty;
 	int seconds;                        // variable for counting down seconds
+	int startSeconds;                   // steeping time for current tea
+	int percentDone;                    // ok, this isn't really "per 100", but "per 360"
 
 	unsigned current_selected;          // index of currently +selected+ tea in menu
 	QListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
@@ -86,6 +88,7 @@ private:
 
 	bool useNotify, usePopup, useAction;
 	QString action;
+	bool useTrayVis;                    // visualize progress in tray icon as pie chart
 
 	QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
 
