@@ -157,7 +157,7 @@ TopLevel::TopLevel() : KSystemTray()
 	usePopup = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
-	useTrayVis = true; // FIXME: read from config (and store!)
+	useTrayVis = false; // FIXME: read from config (and store!)
 
 	mugPixmap = new QPixmap(UserIcon("mug"));
 	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
