@@ -180,7 +180,7 @@ void TopLevel::timerEvent(QTimerEvent *)
       if (!action.isEmpty())
         system(action.data());
       if (popping)
-        QMessageBox::information(0,i18n("The Tea Cooker"),i18n("The tea is now ready!"));
+        QMessageBox::information(0,i18n("The Tea Cooker"),i18n("The tea is now ready!"), i18n("OK"));
 
       repaint();
     }
