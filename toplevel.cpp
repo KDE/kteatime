@@ -54,15 +54,19 @@ TopLevel::TopLevel() : KSystemTray()
 	if (config->hasKey("Number")) {
 		// assuming this is a new-style config
 		num = config->readNumEntry("Number", 0);
+		times.resize(num);
+		teas.resize(num);
 		for (unsigned int index=1; index<=num; index++) {
 			key.sprintf("Tea%d Time", index);
-			times.append(config->readEntry(key, NULL));
+			times[index-1] = config->readEntry(key, NULL);
   			key.sprintf("Tea%d Name", index);
-			teas.append(config->readEntry(key, NULL));
+			teas[index-1] = config->readEntry(key, NULL);
+			// FIXME: check for non-existent!
   		}
 		config->setGroup("General");
 	} else {
 		// either old-style config or first start, so provide some sensible defaults
+		// (which are the same as in old-style kteatime)
 		teas.append(i18n("Black Tea")); n.setNum(180); times.append(n);
 		teas.append(i18n("Earl Grey")); n.setNum(300); times.append(n);
 		teas.append(i18n("Fruit Tea")); n.setNum(480); times.append(n);
@@ -186,8 +190,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			ready = true;
 			enable_menuEntries();
 
-			QString teaMessage =
-			    i18n("The %1 is now ready!").arg(current_name);
+			QString teaMessage = i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
 			if (beeping)
 				KNotifyClient::beep();
@@ -221,7 +224,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 void TopLevel::setToolTip(const QString &text)
 {
 	if (lastTip == text)
-        	return;
+		return;
 	lastTip = text;
 	QToolTip::remove(this);
 	QToolTip::add(this, text);
@@ -235,20 +238,16 @@ void TopLevel::rebuildTeaMenu() {
 	// now add new tea-entries to top of menu
 	int id = 0;
 	int index = 0;
-	QStringList::ConstIterator ti = times.begin();
-	for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+	QValueVector<QString>::ConstIterator ti = times.begin();
+	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
 		QString str = *it;
 		uint total_seconds = (*ti).toUInt();
-                str.append(" (");
+		str.append(" (");
 		if (total_seconds / 60)
-		{
-		  str.append(i18n("%1min").arg(total_seconds / 60));
-		}
+			str.append(i18n("%1min").arg(total_seconds / 60));
 		if (total_seconds % 60)
-		{
-		  str.append(i18n("%1s").arg(total_seconds % 60));
-		}
-                str.append(")");
+			str.append(i18n("%1s").arg(total_seconds % 60));
+		str.append(")");
 		menu->insertItem(str, id++, index++);
 		ti++;
 	}
@@ -264,7 +263,7 @@ void TopLevel::rebuildTeaMenu() {
 void TopLevel::enable_menuEntries()
 {
 	int index = 0;
-	while (menu->idAt(index) >= 0){     // find first non-positive menu-id
+	while (menu->idAt(index) >= 0) {    // find first non-positive menu-id
 		menu->setItemEnabled(menu->idAt(index), !running);
 		index++;
 	}
@@ -294,15 +293,15 @@ void TopLevel::start()
 {
 	if (current_selected >= 0)
 	{
-		current_name = *teas.at(current_selected);		// remember name of current tea
-		seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
+		current_name = teas[current_selected];          // remember name of current tea
+		seconds = times[current_selected].toInt();      // initialize time for current tea
 
 		killTimers();
 		startTimer(1000);
 
 		running = true;
 		ready = false;
-		enable_menuEntries();					// disable "start", enable "stop"
+		enable_menuEntries();                           // disable "start", enable "stop"
 
 		repaint();
 	}
@@ -317,7 +316,7 @@ void TopLevel::stop()
 
 	running = false;
 	ready = false;
-	enable_menuEntries();					// disable "top", enable "start"
+	enable_menuEntries();                               // disable "top", enable "start"
 
 	setToolTip(i18n("The Tea Cooker"));
 	repaint();
@@ -380,7 +379,7 @@ void TopLevel::spinBoxValueChanged(const QString& newText) {
 /* config-slot: "new" button clicked */
 void TopLevel::newButtonClicked() {
 	QListViewItem* item = new QListViewItem(listbox, listbox->currentItem());
-        listbox->setCurrentItem(item);
+	listbox->setCurrentItem(item);
 
 	nameEdit->setText(i18n("New Tea"));
 	timeEdit->setValue(60);
@@ -400,6 +399,7 @@ void TopLevel::delButtonClicked() {
 
 		if (listbox->childCount() == 0)
 			disable_properties();
+		listbox->setSelected(listbox->currentItem(), true); // select new current item
 		enable_controls();
 	}
 }
@@ -460,16 +460,6 @@ void TopLevel::config()
   listbox->addColumn(i18n("Time"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->setSorting(-1);
-
-  // now add all defined teas (and their times) to the listview
-  // this is done backwards because QListViewItem's are inserted at the end
-  QStringList::ConstIterator ti = times.fromLast();
-  for (QStringList::ConstIterator it = teas.fromLast(); it != teas.end(); it--, ti--)
-  {
-	QListViewItem* item = new QListViewItem(listbox);
-	item->setText(0, *it);
-	item->setText(1, *ti);
-  }
 
   connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
@@ -550,12 +540,20 @@ void TopLevel::config()
   // let listbox claim all remaining vertical space
   top_box->setStretchFactor(box, 10);
 
-  // select first entry in listbox, if no entries then disable right side
-  if (listbox->childCount() > 0) {
-  	listbox->setSelected(listbox->firstChild(), true);
-  } else {
-  	enable_controls();
-  	disable_properties();
+  // now add all defined teas (and their times) to the listview
+  // this is done backwards because QListViewItems are inserted at the end
+  for (int i=teas.count()-1; i>=0; i--)
+  {
+    QListViewItem* item = new QListViewItem(listbox);
+    item->setText(0, teas[i]);
+    item->setText(1, times[i]);
+    if (i == current_selected)
+      listbox->setSelected(item, true);
+  }
+  // select first entry in listbox; if no entries present then disable right side
+  if (listbox->childCount() == 0) {
+    enable_controls();
+    disable_properties();
   }
 
   connect(dlg, SIGNAL(helpClicked()), SLOT(help()));
@@ -583,10 +581,14 @@ void TopLevel::config()
     int i = 0;
     current_name = QString::null;
     current_selected = 0;
+	times.clear();
+	teas.clear();
+	times.resize(listbox->childCount());
+	teas.resize(listbox->childCount());
     for (QListViewItemIterator it(listbox); it.current() != 0; it++)
     {
-      teas.append(it.current()->text(0));
-      times.append(it.current()->text(1));
+      teas[i] = it.current()->text(0);
+      times[i] = it.current()->text(1);
       if (it.current()->isSelected())
       {
         current_selected = i;
@@ -594,11 +596,12 @@ void TopLevel::config()
       }
       i++;
     }
-    if (current_selected == 0)
+    if (current_selected == 0) {
       if (teas.empty())
         current_selected = -1;
       else
         current_name = *(teas.begin());
+    }
 
     rebuildTeaMenu();
 
@@ -606,7 +609,7 @@ void TopLevel::config()
     KConfig *config = kapp->config();
     // remove old-style entries from default-group (if present)
     if (config->hasKey("UserTea"))
-    	config->deleteEntry("UserTea");
+      config->deleteEntry("UserTea");
 
     config->setGroup("General");
     config->writeEntry("Beep", beeping);
@@ -619,15 +622,15 @@ void TopLevel::config()
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
     QString key;
-    QStringList::ConstIterator ti = times.begin();
+	QValueVector<QString>::ConstIterator ti = times.begin();
     int index = 1;
-    for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++) {
-    	key.sprintf("Tea%d Name", index);
-    	config->writeEntry(key, *it);
-	key.sprintf("Tea%d Time", index);
-	config->writeEntry(key, *ti);
-	ti++;
-	index++;
+	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+      key.sprintf("Tea%d Name", index);
+      config->writeEntry(key, *it);
+      key.sprintf("Tea%d Time", index);
+      config->writeEntry(key, *ti);
+      ti++;
+      index++;
     }
 
     config->sync();

@@ -14,7 +14,8 @@
 #include <qpopupmenu.h>
 #include <qtimer.h>
 #include <qlineedit.h>
-#include <qstringlist.h>
+//#include <qstringlist.h>
+#include <qvaluevector.h>
 #include <qlistview.h>
 #include <qpushbutton.h>
 #include <qgroupbox.h>
@@ -63,12 +64,13 @@ private slots:
 
 private:
 
-    QStringList teas, times;		// lists of tea-names and -times
+	QValueVector<QString> teas, times;  // lists of tea-names and -times
 
     bool running, ready, firstFrame;
-    int current_selected;		// index of currently +selected+ tea in menu
-    int seconds;			// variable for counting down seconds
-    QString current_name;		// name of currently +running+ tea
+    int seconds;                        // variable for counting down seconds
+
+	int current_selected;               // index of currently +selected+ tea in menu
+    QString current_name;               // name of currently +running+ tea
 
     bool beeping, popping, useAction;
     QString action;
