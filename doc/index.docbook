@@ -3,8 +3,6 @@
  <!ENTITY kappname "&kteatime;">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE">
- 
- 
 ]>
 
 <book lang="&language;">
@@ -29,7 +27,7 @@
 <othercredit role="reviewer">
 <firstname>Lauri</firstname>
 <surname>Watts</surname>
-<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<affiliation><address><email>lauri@kde.org</email></address></affiliation>
 <contrib>Reviewer</contrib>
 </othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
@@ -191,7 +189,8 @@ following in the base directory of the kdetoys distribution:</para>
 </screen>
 
 <para>By default, &kteatime; will install itself in the
-<guisubmenu>Toys</guisubmenu> subfolder of your K menu.</para>
+<guisubmenu>Toys</guisubmenu> subfolder of your <guimenu>K</guimenu>
+menu.</para>
 
 </sect1>
 
@@ -200,11 +199,17 @@ following in the base directory of the kdetoys distribution:</para>
 &documentation.index;
 
 </book>
- <!--
+
+<!--
 Local Variables:
 mode: sgml
-sgml-minimize-attributes: nil
-sgml-general-insert-case: lower
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
 End:
+
+// vim:ts=0:sw=2:tw=78:noet
 -->
+
 
