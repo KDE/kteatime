@@ -14,7 +14,6 @@
 #include <qpopupmenu.h>
 #include <qtimer.h>
 #include <qlineedit.h>
-//#include <qstringlist.h>
 #include <qvaluevector.h>
 #include <qlistview.h>
 #include <qpushbutton.h>
@@ -23,6 +22,7 @@
 #include <ksystemtray.h>
 
 class QPixmap;
+class KAction;
 
 class TopLevel : public KSystemTray
 {
@@ -77,6 +77,7 @@ private:
 
     QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
 
+	KAction *startAct, *stopAct, *confAct;
     QPopupMenu *menu, *steeping_menu;
     QListView *listbox;
     QLineEdit *nameEdit, *actionEdit;

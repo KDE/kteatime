@@ -36,6 +36,7 @@
 #include <kseparator.h>
 #include <kpopupmenu.h>
 #include <kdialogbase.h>
+#include <kaction.h>
 #include "toplevel.h"
 #include "toplevel.moc"
 
@@ -83,6 +84,13 @@ TopLevel::TopLevel() : KSystemTray()
 	// sanity-check for this is done on rebuildTeaMenu()
 
 
+	startAct = new KAction("&Start", "1rightarrow", 0,
+	                                this, SLOT(start()), actionCollection(), "start");
+	stopAct = new KAction("Sto&p", "cancel", 0,
+	                               this, SLOT(stop()), actionCollection(), "stop");
+	confAct = new KAction("&Configure...", "configure", 0,
+	                               this, SLOT(config()), actionCollection(), "configure");
+
 	// create app menu
 	menu = new QPopupMenu();
 	menu->setCheckable(true);
@@ -94,15 +102,16 @@ TopLevel::TopLevel() : KSystemTray()
 	KPopupMenu* helpMnu = help->menu();
 
 	menu->insertSeparator();
-	menu->insertItem(SmallIcon("1rightarrow"), i18n("&Start"), this, SLOT(start()));
-	menu->insertItem(SmallIcon("cancel"), i18n("Sto&p"), this, SLOT(stop()));
+	startAct->plug(menu);
+	stopAct->plug(menu);
 	menu->insertSeparator();
-	menu->insertItem(SmallIcon("configure"), i18n("&Configure..."), this, SLOT(config()));
+	confAct->plug(menu);
 	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 
 	steeping_menu = new QPopupMenu();
-	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &cancel current"), this, SLOT(stop()));
+//	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &cancel current"), this, SLOT(stop()));
+	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
 
 	beeping = config->readBoolEntry("Beep", true);
 	popping = config->readBoolEntry("Popup", true);
@@ -262,16 +271,14 @@ void TopLevel::rebuildTeaMenu() {
 /* enable/disable "start" and "stop" menu-entries according to current running-state */
 void TopLevel::enable_menuEntries()
 {
-	int index = 0;
-	while (menu->idAt(index) >= 0) {    // find first non-positive menu-id
+	for (int index=0; menu->idAt(index) >= 0; index++) {
+		// [en|dis]able all tea-entries (all have positive menu-ids)
 		menu->setItemEnabled(menu->idAt(index), !running);
-		index++;
 	}
-	index += 1;                         // skip separator
 
-	menu->setItemEnabled(menu->idAt(index), !running);      // "start" entry
-	menu->setItemEnabled(menu->idAt(index+1), running);     // "stop" entry
-	menu->setItemEnabled(menu->idAt(index+3), !running);    // "configuration" entry
+	startAct->setEnabled(!running);     // "start" entry
+	stopAct->setEnabled(running);       // "stop" entry
+	confAct->setEnabled(!running);      // "configuration" entry
 }
 
 /* menu-slot: tea selected in tea-menu */
