@@ -262,14 +262,16 @@ void TopLevel::rebuildTeaMenu() {
 /* enable/disable "start" and "stop" menu-entries according to current running-state */
 void TopLevel::enable_menuEntries()
 {
-	int startindex = 0;
-	while (menu->idAt(startindex) >= 0)			// find first non-positive menu-id
-		startindex += 1;
-	startindex += 1;					// skip separator
-	int stopindex = startindex + 1;
+	int index = 0;
+	while (menu->idAt(index) >= 0){     // find first non-positive menu-id
+		menu->setItemEnabled(menu->idAt(index), !running);
+		index++;
+	}
+	index += 1;                         // skip separator
 
-	menu->setItemEnabled(menu->idAt(startindex), !running);	// "start" entry
-	menu->setItemEnabled(menu->idAt(stopindex), running);	// "stop" entry
+	menu->setItemEnabled(menu->idAt(index), !running);      // "start" entry
+	menu->setItemEnabled(menu->idAt(index+1), running);     // "stop" entry
+	menu->setItemEnabled(menu->idAt(index+3), !running);    // "configuration" entry
 }
 
 /* menu-slot: tea selected in tea-menu */

@@ -1,3 +1,9 @@
+2003-01-02  Martin Willers <willers@xm-arts.de>
+	- configuration dialog now selects first tea available
+	- small optimization in TopLevel::teaSelected()
+	- when a tea is brewing, more menu entries are now disabled
+	(patches provided by Daniel Teske <teske@bigfoot.com>)
+
 2002-07-14  Martin Willers <willers@xm-arts.de>
 	- KPassivePopup now stays on-screen until acknowlegded by mouse-click
 	- now saving state of actionEnable to config
