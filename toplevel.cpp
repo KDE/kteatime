@@ -537,7 +537,7 @@ void TopLevel::config()
 
   // select first entry in listbox, if no entries then disable right side
   if (listbox->childCount() > 0) {
-  	listbox->setSelected(0, true);
+  	listbox->setSelected(listbox->firstChild(), true);
   } else {
   	enable_controls();
   	disable_properties();
