@@ -237,8 +237,11 @@ void TopLevel::timerEvent(QTimerEvent *)
 //				                         KNotifyClient::Notification,
 //				                         "kopete_event.wav");
 			}
-			if (useAction && (!action.isEmpty()))
-				system(QFile::encodeName(action));
+			if (useAction && (!action.isEmpty())) {
+        QString cmd = action;
+        cmd.replace("%t", current_name);
+				system(QFile::encodeName(cmd));
+      }
 			if (popping)
 				KPassivePopup::message(i18n("The Tea Cooker"),
 				                       teaMessage, *teaAnim1Pixmap, this, "popup", 0);
@@ -592,6 +595,7 @@ void TopLevel::config()
   QCheckBox *actionEnable = new QCheckBox(actionbox);
   actionEdit = new QLineEdit(actionbox);
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
+  QToolTip::add(actionEdit, i18n("%t: Tea Sort"));
   connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
 
   QCheckBox *beep = new QCheckBox(i18n("Beep"), actiongroup);
