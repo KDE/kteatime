@@ -605,17 +605,19 @@ void TopLevel::config()
   connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
   actionconf_hbox->addStretch(10);
 
+  QCheckBox *beep = new QCheckBox(i18n("Event"), actiongroup);
+  QCheckBox *popup = new QCheckBox(i18n("Permanent Popup"), actiongroup);
+  beep->setFixedHeight(beep->sizeHint().height());
+  popup->setFixedHeight(popup->sizeHint().height());
+
   QHBox *actionbox = new QHBox(actiongroup);
   QCheckBox *actionEnable = new QCheckBox(actionbox);
+//  FIXME: add text to this line:
+//  QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
   actionEdit = new QLineEdit(actionbox);
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
   QToolTip::add(actionEdit, i18n("Enter command here; '%t' will be replaced with name of steeping tea"));
   connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
-
-  QCheckBox *beep = new QCheckBox(i18n("Beep"), actiongroup);
-  QCheckBox *popup = new QCheckBox(i18n("Popup"), actiongroup);
-  beep->setFixedHeight(beep->sizeHint().height());
-  popup->setFixedHeight(popup->sizeHint().height());
   rightside->addStretch();
 
   // let listbox claim all remaining vertical space
@@ -627,7 +629,7 @@ void TopLevel::config()
     TeaListItem *item = new TeaListItem(listbox);
 	item->setName(teas[i].name);
 	item->setTime(teas[i].time);
-    if (i == current_selected)
+    if ((unsigned int)i == current_selected)
 		current_item = item;
   }
   listbox->setSelected(listbox->firstChild(), true);
