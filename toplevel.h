@@ -15,41 +15,45 @@
 #include <qtimer.h>
 #include <qpixmap.h>
 #include <qstringlist.h>
+#include <ksystemtray.h>
 
-class TopLevel : public QWidget
+class TopLevel : public KSystemTray
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
 
-  TopLevel();
-  ~TopLevel();
+    TopLevel();
+    ~TopLevel();
 
 protected:
 
-  void paintEvent(QPaintEvent *);
-  void mousePressEvent(QMouseEvent *);
-  void timerEvent(QTimerEvent *);
+    void paintEvent(QPaintEvent *);
+    void mousePressEvent(QMouseEvent *);
+    void timerEvent(QTimerEvent *);
 
 private slots:
 
-  void teaSelected(int index);
-  void start();
-  void config();
-  void help();
+    void teaSelected(int index);
+    void start();
+    void config();
+    void help();
+    void setToolTip(const QString &text);
 
 private:
 
-  bool running, ready, frame1;
+    bool running, ready, frame1;
 
-  QStringList teas, times;
-  int seconds, teatime, current_tea;
+    QStringList teas, times;
+    int seconds, teatime, current_tea;
 
-  QPopupMenu *menu;
-  QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
+    QPopupMenu *menu;
+    QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
 
-  bool beeping, popping;
-  QString action;
+    bool beeping, popping;
+    QString action;
+
+    QString lasttip;
 };
 
 

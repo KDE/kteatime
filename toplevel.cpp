@@ -38,7 +38,7 @@
 #include "tea2.xpm"
 
 TopLevel::TopLevel()
-  : QWidget()
+    : KSystemTray()
 {
   setBackgroundMode(X11ParentRelative);
   QString n;
@@ -90,7 +90,7 @@ TopLevel::TopLevel()
 
   running = ready = false;
 
-  QToolTip::add(this, i18n("The Tea Cooker"));
+  setToolTip(i18n("The Tea Cooker"));
 }
 
 
@@ -177,16 +177,21 @@ void TopLevel::timerEvent(QTimerEvent *)
       if (!action.isEmpty())
         system(QFile::encodeName(action));
       if (popping)
-        KMessageBox::information(0, i18n("The tea is now ready!"));
-
+          KMessageBox::information(0, i18n("The tea is now ready!"));
+      setToolTip(i18n("The tea is now ready!"));
       repaint();
+    }
+    else {
+        QString min;
+        min.sprintf("%.1f", (seconds / 12) / 5.);
+        setToolTip(i18n("%1 minutes left").arg(min));
     }
   }
   else
     if (ready)
     {
-      frame1 = frame1 ? false : true;
-      repaint();
+        frame1 = !frame1;
+        repaint();
     }
 }
 
@@ -267,7 +272,7 @@ void TopLevel::config()
   bool done;
   int num = (*times.at(teas.count()-1)).toInt(&done);
   if (!done)
-    num = 300;
+      num = 300;
   spin->setValue(num);
 
   if (dlg->exec() == QDialog::Accepted)
@@ -299,4 +304,13 @@ void TopLevel::config()
 void TopLevel::help()
 {
     kapp->invokeHelp();
+}
+
+void TopLevel::setToolTip(const QString &text)
+{
+    if (lasttip == text)
+        return;
+    lasttip = text;
+    QToolTip::remove(this);
+    QToolTip::add(this, text);
 }
