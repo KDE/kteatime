@@ -8,8 +8,8 @@
 
 
 #include <ktmainwindow.h>
-#include <kwm.h>
 #include <kapp.h>
+#include <kwin.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
   KApplication app;
 
   TopLevel toplevel;
-  KWM::setDockWindow(toplevel.winId());
+  KWin::setDockWindowFor(toplevel.winId(),0);
   toplevel.show();
 
   app.setTopWidget(&toplevel);

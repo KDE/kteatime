@@ -24,7 +24,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <kwm.h>
+#include <kwin.h>
 
 #include "toplevel.h"
 
@@ -118,7 +118,8 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
     menu->move(-1000,-1000);
     menu->show();
     menu->hide();
-    QRect g = KWM::geometry( this->winId() );
+    QPoint globalPos = mapToGlobal( frameGeometry().topLeft() );
+    QRect g ( globalPos, frameGeometry().size() );
     if ( g.x() > QApplication::desktop()->width()/2 &&
       g.y()+menu->height() > QApplication::desktop()->height() )
       menu->popup(QPoint( g.x(), g.y() - menu->height()));
