@@ -41,7 +41,7 @@ TopLevel::TopLevel()
   menu = new QPopupMenu();
   menu->setCheckable(true);
 
-  KConfig *config = kapp->getConfig();
+  KConfig *config = kapp->config();
   config->setGroup("Teas");
  
   teas.clear(); times.clear();
@@ -201,7 +201,7 @@ void TopLevel::teaSelected(int index)
     for (unsigned int i=0; i < teas.count(); i++)
       menu->setItemChecked(i, (int)i == index);
 
-    KConfig *config = kapp->getConfig();
+    KConfig *config = kapp->config();
     config->setGroup("Teas");
   
     config->writeEntry("Tea",index);  
@@ -298,7 +298,7 @@ void TopLevel::config()
     teas.append(n); n2.setNum(num); times.append(n2);
     menu->changeItem(n, teas.count()-1);
 
-    KConfig *config = kapp->getConfig();
+    KConfig *config = kapp->config();
     config->setGroup("Teas");
     config->writeEntry("Beep",beeping);
     config->writeEntry("Popup",popping);
