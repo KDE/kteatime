@@ -1,10 +1,17 @@
 [Desktop Entry]
 Name=The Tea Cooker
-Name[de]=Der Teekocher
+Name[ca]=El cuiner de té
+Name[eo]=Tekuirilo
+Name[fi]=Teen valmistaja
+Name[hu]=Teafõzõ
+Name[mi]=Teafõzõ
+Name[no_NY]=Tekokaren
 Name[pt_BR]=O cozedor de chá
+Name[sr]=Kuvar za èaj
+Name[sv]=Thekokaren
 Exec=kteatime
-Icon=kteatime.xpm
+Icon=kteatime
 Type=Application
 Comment=
 Terminal=0
-MiniIcon=kteatime.xpm
+MiniIcon=kteatime
