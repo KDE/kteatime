@@ -9,14 +9,9 @@
 #include <stdlib.h>
 
 #include <qcheckbox.h>
-#include <qdialog.h>
-#include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <qmenudata.h>
 #include <qpainter.h>
-#include <qpopupmenu.h>
-#include <qpushbutton.h>
 #include <qtooltip.h>
 #include <qfile.h>
 
@@ -25,7 +20,6 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <knotifyclient.h>
-#include <kwin.h>
 #include <knuminput.h>
 #include <kseparator.h>
 

@@ -6,7 +6,6 @@
 
  ------------------------------------------------------------- */
 
-#include <kapplication.h>
 #include <kwin.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
