@@ -15,7 +15,7 @@
 #include <qpopmenu.h>
 #include <qtimer.h>
 #include <qpixmap.h>
-
+#include <qstringlist.h>
 
 class TopLevel : public KTMainWindow
 {
@@ -42,7 +42,7 @@ private:
 
   bool running, ready, frame1;
   
-  QStrList teas, times;
+  QStringList teas, times;
   int seconds, teatime;
   
   QPopupMenu *menu;

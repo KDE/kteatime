@@ -8,7 +8,6 @@
 
 
 #include "toplevel.h"
-#include <kwm.h>
 #include <qpainter.h>
 #include <qmenudata.h>
 #include "kiconloader.h"
@@ -24,7 +23,8 @@
 #include <qframe.h>
 #include <qmessagebox.h>
 #include <klocale.h>
-
+#include <kwm.h>
+#include <qpopupmenu.h>
 
 #include "mug.xpm"
 #include "bag.xpm"
@@ -54,8 +54,8 @@ TopLevel::TopLevel()
   n.sprintf(i18n("Other tea (%is)"), num);
   teas.append(n); n.setNum(num); times.append(n);
 
-  for (unsigned int i=0; i<teas.count(); i++)
-    menu->insertItem(teas.at(i),i);
+  for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++)
+    menu->insertItem(*it);
 
   connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
@@ -64,7 +64,7 @@ TopLevel::TopLevel()
     num = 0;
   for (unsigned int i=0; i < teas.count(); i++)
     menu->setItemChecked(i, i == num);
-  teatime = QString(times.at(num)).toInt();
+  teatime = (*times.at(num)).toInt();
 
   menu->insertSeparator();
   menu->insertItem(i18n("&Start"), this, SLOT(start()));
@@ -207,7 +207,7 @@ void TopLevel::teaSelected(int index)
     config->writeEntry("Tea",index);  
 
     bool ok;
-    teatime = QString(times.at(index)).toInt(&ok);
+    teatime = (*times.at(index)).toInt(&ok);
     if (!ok)
       teatime = 300;
   }
@@ -280,7 +280,7 @@ void TopLevel::config()
   popup->setChecked(popping);
   actionEdit->setText(action);
   bool done;
-  int num = QString(times.at(teas.count()-1)).toInt(&done);
+  int num = (*times.at(teas.count()-1)).toInt(&done);
   if (!done)
     num = 300;
   spin->setValue(num);
@@ -290,7 +290,8 @@ void TopLevel::config()
     beeping = beep->isChecked();
     popping = popup->isChecked();
     action = actionEdit->text();
-    teas.removeLast(); times.removeLast();
+    teas.remove(teas.last()); 
+    times.remove(teas.last());
     QString n,n2;
     num = spin->value();
     n.sprintf(i18n("Other tea (%is)"), num);
