@@ -69,10 +69,10 @@ TopLevel::TopLevel()
   teatime = (*times.at(num)).toInt();
 
   menu->insertSeparator();
-  menu->insertItem(i18n("&Start"), this, SLOT(start()));
+  menu->insertItem(SmallIcon("1rightarrow"), i18n("&Start"), this, SLOT(start()));
   menu->insertSeparator();
-  menu->insertItem(i18n("&Configure..."), this, SLOT(config()));
-  menu->insertItem(i18n("Quit"), kapp, SLOT(quit()));
+  menu->insertItem(SmallIcon("configure"), i18n("&Configure..."), this, SLOT(config()));
+  menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 
   beeping = config->readBoolEntry("Beep", true);
   popping = config->readBoolEntry("Popup", true);
