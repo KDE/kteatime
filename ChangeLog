@@ -1,3 +1,10 @@
+2003-11-02  Martin Willers <willers@xm-arts.de>
+	- bugfix: opening the configuration dialog was leaking memory
+	- workaround for Qt bug(?): deleting teas didn't update QListView properly (fixes #63840)
+	  (the above two fixes based on patches by Daniel Teske)
+	- bugfix: when no tea was defined, one couldn't start an anonymous tea either
+	- bugfix: on some occasions, the tooltip wasn't updated properly
+
 2003-08-23  Martin Willers <willers@xm-arts.de>
 	- added option to visualize steeping progress in tray icon
 	- some work towards unified source headers
