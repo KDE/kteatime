@@ -1,0 +1,207 @@
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+ <!ENTITY kappname "&kteatime;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % English "INCLUDE">
+ <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
+ %ents;
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>The &kteatime Handbook</title>
+<authorgroup>
+<author>
+<firstname>Michaela</firstname>
+<surname>Korman</surname>
+<affiliation>
+<address><email>michael.korman@uconn.edu</email></address>
+</affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Matthias</firstname>
+<surname>Hoelzer-Kluepfel</surname>
+<affiliation><address><email>hoelzer@kde.org</email></address></affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Michael Korman</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>12/11/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<abstract>
+<para>This Handbook describes &kteatime;, the &kde; Tea Cooker.</para>
+</abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KTeaTime</keyword>
+<keyword>tea</keyword>
+<keyword>cooker</keyword>
+<keyword>timer</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<sect1 id="whats-kteatime">
+<title>What's &kteatime;?</title>
+
+<para>&kteatime; is a handy timer for steeping tea.  No longer will you have to
+guess at how long it takes for your tea to be ready.  Simply select the type of
+tea you have, and it will alert you when the tea is ready to drink.</para>
+</sect1> 
+
+</chapter>
+
+<chapter id="how-to-use">
+<title>How to Use &kteatime;</title>
+
+<para>When you start up &kteatime;, it will automatically dock itself in your
+panel.  To access the menu, right click on the docked icon.  This will present a
+list of options which are covered in more detail in the next chapter.</para>
+
+<sect1 id="timing-your-tea">
+<title>Timing Your Tea</title>
+
+<para>Upon starting, the panel icon will be that of a tea mug. If you click on
+the mug, a tea bag will appear in it. After the specified amount of seconds, the
+tea will be finished, and the icon will reflect this by transforming into a
+steaming mug of tea. At this point, the timer can be reset by clicking on the
+icon again.</para> 
+
+<note><para>the timer should only be reset by those who really enjoy
+tea.</para></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title>Menu Options</title>
+
+<para>The following section describes the menu options that are available in
+KTeaTime.</para>
+
+<sect1 id="select-your-tea">
+<title>Select Your Tea</title>
+
+<para>At the top of the menu are four options.  Here, you can select what kind
+of tea you are preparing to drink. Three of the options are: <guimenuitem>Black
+Tea</guimenuitem>, <guimenuitem>Earl Grey</guimenuitem>, and <guimenuitem>Fruit
+Tea</guimenuitem>. These teas are preconfigured with a default time.  Many
+people have complained that the times are not correct.  Please be aware that the
+amount of time it takes to steep a cup of tea is based on personal preference.
+The times chosen are approximations.  If you read on, you will learn how to set
+your own time. Once a custom time is defined, <guimenuitem>Other Tea
+</guimenuitem> can be used to select it.</para></sect1>
+
+<sect1 id="start">
+<title>Start</title>
+
+<para>This option will start the tea timer.  As confirmation that you have
+indeed selected <guimenuitem>Start</guimenuitem>, the panel icon will change
+into a mug with a teabag in it.  </para></sect1>
+
+<sect1 id="configure">
+<title><guimenuitem>Configure</guimenuitem></title>
+
+<para>This option opens up the configuration dialog box. A screenshot is shown
+below:</para>
+
+<screenshot>
+<screeninfo>The &kteatime; configuration dialog box.</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="config.png" format="PNG"></imageobject>
+<textobject><phrase>The &kteatime; configuration dialog
+box.</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>As shown in the picture, you may enter a customized tea time in the first
+text box. This is useful if you are brewing a cup of tea that is not on the
+list, or if you do not agree with the default times.</para> 
+
+<para>The second text box is the <guilabel>Action</guilabel> field. This
+contains an action that will be executed when the time is up.  Any valid system
+command can be entered into this box.  Probably, you will want to leave it
+blank.</para>
+
+<para>The two checkboxes at the bottom are built-in actions that will be
+executed when the time is up.  If <guilabel>Beep</guilabel> is selected, the
+system alarm will sound.  If <guilabel>Popup</guilabel> is selected, a popup
+dialog box will appear alerting you to the fact that your tea is now
+ready.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title>Credits</title>
+
+<para>&kteatime; Copyright 1998-1999 by Matthias Hoelzer-Kluepfel
+<email>hoelzer@kde.org</email></para>
+
+<para>Documentation by Michael Korman
+<email>michael.korman@uconn.edu</email></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;        	 <!-- GPL License -->
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="how-to-obtain-kteatime">
+<title>How to obtain &kteatime;</title>
+
+<para>&kteatime; is part of the kdetoys package.  To obtain the full kdetoys
+package, please visit the &kde; website at <ulink
+url="http://www.kde.org">http://www.kde.org</ulink>.</para>
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title>Compilation and installation</title>
+
+<para>In order to compile and install &kteatime; on your system, type the
+following in the base directory of the kdetoys distribution:</para>
+
+<screen>
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen>
+
+<para>By default, &kteatime; will install itself in the
+<guisubmenu>Toys</guisubmenu> subfolder of your K menu.</para>
+
+</sect1>
+
+</appendix>
+
+&kdedocindex;
+
+</book>
+ <!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
