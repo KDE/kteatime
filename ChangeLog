@@ -1,6 +1,10 @@
 
+2002-04-20  Martin Willers <willers@xm-arts.de>
+	- now displaying name of current tea in tooltip
+	- some cleanups
+
 2002-04-18  Martin Willers <willers@xm-arts.de>
-	- when saving config, non-used teas are now deleted from config
+	- when saving config, non-used old tea-entries are now deleted from config
 
 2002-04-10  Martin Willers <willers@xm-arts.de>
 	- Bugfix: when tea was finished, click on icon -> icon ok, but

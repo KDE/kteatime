@@ -68,6 +68,7 @@ TopLevel::TopLevel() : KSystemTray()
 		teas.append(i18n("Earl Grey")); n.setNum(300); times.append(n);
 		teas.append(i18n("Fruit Tea")); n.setNum(480); times.append(n);
 		// look for old-style "UserTea"-entry and add that one also
+		// FIXME: first change group to <default> again?
 		if (config->hasKey("UserTea")) {
 			num = config->readNumEntry("UserTea", 150);
 			n = i18n("Other Tea");
@@ -75,9 +76,8 @@ TopLevel::TopLevel() : KSystemTray()
 		}
 	}
 	config->setGroup("General");
-	current_tea = config->readNumEntry("Tea", 0);
-	if (current_tea > teas.count())
-		current_tea = 0;
+	current_selected = config->readNumEntry("Tea", 0);
+	// sanity-check for this is done on rebuildTeaMenu()
 
 
 	// create app menu
@@ -111,7 +111,7 @@ TopLevel::TopLevel() : KSystemTray()
 }
 
 /* slot: signal shutDown() from KApplication */
-/* not currently needed
+/* (not currently needed)
 void TopLevel::queryExit()
 {
 	KConfig *config = kapp->config();
@@ -152,11 +152,10 @@ void TopLevel::rebuildTeaMenu() {
 
 	// now select 'current' tea
 	// FIXME: does it make sense to assume a valid 'current' tea after reconstruction?
-	if (current_tea >= teas.count())
-		current_tea = 0;
+	if (current_selected >= teas.count())
+		current_selected = 0;
 	for (int i=0; i < teas.count(); i++)
-		menu->setItemChecked(i, i == current_tea);
-	teatime = (*times.at(current_tea)).toInt();
+		menu->setItemChecked(i, i == current_selected);
 }
 
 
@@ -208,9 +207,9 @@ void TopLevel::paintEvent(QPaintEvent *)
 void TopLevel::enable_menuEntries()
 {
 	int startindex = 0;
-	while (menu->idAt(startindex) >= 0)	// find first non-positive menu-id
+	while (menu->idAt(startindex) >= 0)			// find first non-positive menu-id
 		startindex += 1;
-	startindex += 1;			// skip separator
+	startindex += 1;					// skip separator
 	int stopindex = startindex + 1;
 
 	menu->setItemEnabled(menu->idAt(startindex), !running);	// "start" entry
@@ -220,13 +219,15 @@ void TopLevel::enable_menuEntries()
 
 void TopLevel::start()
 {
+	current_name = *teas.at(current_selected);		// remember name of current tea
+	seconds = (*times.at(current_selected)).toInt();	// initialize time for current tea
+
 	killTimers();
-	seconds = teatime;
 	startTimer(1000);
 
 	running = true;
 	ready = false;
-	enable_menuEntries();
+	enable_menuEntries();					// disable "start", enable "stop"
 
 	repaint();
 }
@@ -237,7 +238,7 @@ void TopLevel::stop()
 
 	running = false;
 	ready = false;
-	enable_menuEntries();
+	enable_menuEntries();					// disable "top", enable "start"
 
 	setToolTip(i18n("The Tea Cooker"));
 	repaint();
@@ -255,7 +256,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 
 			// invoke action
 			if (beeping)
-				KNotifyClient::beep();		// FIXME: doesn't work?
+				KNotifyClient::beep();
 			if (!action.isEmpty())
 				system(QFile::encodeName(action));
 			if (popping)
@@ -264,14 +265,14 @@ void TopLevel::timerEvent(QTimerEvent *)
 			repaint();
 		} else {
 			QString min;
-			// use real time-string "mm:ss" (according to locale!) for displaying rest-time
+			// use real time-string "mm:ss" (according to locale!) for displaying remaining time
 			int h = (seconds / 3600);
 			int m = (seconds - h*3600) / 60;
 			int s = (seconds - h*3600 - m*60);
 			QTime tim(h, m, s);
 			min = KGlobal::locale()->formatTime(tim, true);
 			// FIXME: how to strip hours from returned string?
-			setToolTip(i18n("%1 left").arg(min));
+			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
 		}
 	} else {
 		if (ready) {
@@ -281,22 +282,17 @@ void TopLevel::timerEvent(QTimerEvent *)
 	}
 }
 
-/* menu-slot: tea selected */
+/* menu-slot: tea selected in tea-menu */
 void TopLevel::teaSelected(int index)
 {
 	if (index >=0 && index < (int)teas.count()) {
 		for (unsigned int i=0; i < teas.count(); i++)
 			menu->setItemChecked(i, (int)i == index);
 
+		current_selected = index;
 		KConfig *config = kapp->config();
 		config->setGroup("General");
-		config->writeEntry("Tea", index);
-
-		bool ok;
-		teatime = (*times.at(index)).toInt(&ok);
-		if (!ok)
-			teatime = 300;		// FIXME: this really neccessary?
-		current_tea = index;
+		config->writeEntry("Tea", current_selected);
 	}
 }
 
@@ -316,16 +312,16 @@ void TopLevel::enable_controls() {
 
 /* config-slot: item in tea-list selected */
 void TopLevel::listBoxItemSelected(int id) {
-  if (id >= 0) {
-  	// item selected, display its properties on right side
-  	nameEdit->setText(listbox->item(id)->text());
-  	timeEdit->setValue((*ntimes.at(id)).toInt());
-  } else {
-  	// no item selected anymore, so clear right side
-	nameEdit->setText("");
-	timeEdit->setValue(1);
-  }
-  enable_controls();
+	if (id >= 0) {
+  		// item selected, display its properties on right side
+  		nameEdit->setText(listbox->item(id)->text());
+  		timeEdit->setValue((*ntimes.at(id)).toInt());
+	} else {
+  		// no item selected anymore, so clear right side
+		nameEdit->setText("");
+		timeEdit->setValue(1);
+	}
+	enable_controls();
 }
 
 /* config-slot: name of a tea edited */
@@ -338,12 +334,12 @@ void TopLevel::nameEditTextChanged(const QString& newText) {
 
 /* config-slot: time for a tea changed */
 void TopLevel::spinBoxValueChanged(const QString& newText) {
-  int index = listbox->currentItem();
-  if (index != -1) {
-	QString str = newText.left(newText.length() - timeEdit->suffix().length());  // strip suffix
-  	QStringList::Iterator it = ntimes.at(index);
-	*it = str;
-  }
+	int index = listbox->currentItem();
+	if (index != -1) {
+		QString str = newText.left(newText.length() - timeEdit->suffix().length());  // strip suffix
+  		QStringList::Iterator it = ntimes.at(index);
+		*it = str;
+	}
 }
 
 /* config-slot: "new" button clicked */
@@ -365,51 +361,51 @@ void TopLevel::newButtonClicked() {
 
 /* config-slot: "delete" button clicked */
 void TopLevel::delButtonClicked() {
-  int index = listbox->currentItem();
-  if (index != -1) {
-	// remove Time for this tea first, so listbox-update gets it right
-	QStringList::Iterator it = ntimes.at(index);
-	ntimes.remove(it);
-  	listbox->removeItem(index);
-	if (listbox->count() == 0)
-		disable_properties();
-	enable_controls();
-	// FIXME: if 'current_tea' tea has been deleted, reset current_tea to ?
-  }
+	int index = listbox->currentItem();
+	if (index != -1) {
+		// remove Time for this tea first, so listbox-update gets it right
+		QStringList::Iterator it = ntimes.at(index);
+		ntimes.remove(it);
+  		listbox->removeItem(index);
+		if (listbox->count() == 0)
+			disable_properties();
+		enable_controls();
+		// FIXME: if 'current_selected' tea has been deleted, reset current_selected to ?
+	}
 }
 
 /* config-slot: "up" button clicked */
 void TopLevel::upButtonClicked() {
-  int index = listbox->currentItem();
-  if (index != -1) {
-  	// selected item is at index, move up
-  	QListBoxItem *item = listbox->item(index-1);
-	listbox->takeItem(item);
-	listbox->insertItem(item, index);
-	// also move Time!
-	QStringList::Iterator it = ntimes.at(index);
-	QString str = *it;
-	*it = *ntimes.at(index-1);
-	*ntimes.at(index-1) = str;
-	enable_controls();
-  }
+	int index = listbox->currentItem();
+	if (index != -1) {
+  		// selected item is at index, move up
+  		QListBoxItem *item = listbox->item(index-1);
+		listbox->takeItem(item);
+		listbox->insertItem(item, index);
+		// also move Time!
+		QStringList::Iterator it = ntimes.at(index);
+		QString str = *it;
+		*it = *ntimes.at(index-1);
+		*ntimes.at(index-1) = str;
+		enable_controls();
+	}
 }
 
 /* config-slot: "down" button clicked */
 void TopLevel::downButtonClicked() {
-  int index = listbox->currentItem();
-  if (index != -1) {
-  	// selected item is at index, move down
-  	QListBoxItem *item = listbox->item(index+1);
-	listbox->takeItem(item);
-	listbox->insertItem(item, index);
-	// also move Time!
-	QStringList::Iterator it = ntimes.at(index);
-	QString str = *it;
-	*it = *ntimes.at(index+1);
-	*ntimes.at(index+1) = str;
-	enable_controls();
-  }
+	int index = listbox->currentItem();
+	if (index != -1) {
+  		// selected item is at index, move down
+  		QListBoxItem *item = listbox->item(index+1);
+		listbox->takeItem(item);
+		listbox->insertItem(item, index);
+		// also move Time!
+		QStringList::Iterator it = ntimes.at(index);
+		QString str = *it;
+		*it = *ntimes.at(index+1);
+		*ntimes.at(index+1) = str;
+		enable_controls();
+	}
 }
 
 void TopLevel::disable_properties() {
@@ -552,11 +548,15 @@ void TopLevel::config()
 
     // and store to config
     KConfig *config = kapp->config();
+    // remove old-style entries (if present)
+    if (config->hasKey("UserTea"))
+    	config->deleteEntry("UserTea");
+
     config->setGroup("General");
     config->writeEntry("Beep", beeping);
     config->writeEntry("Popup", popping);
     config->writeEntry("Action", action);
-    config->writeEntry("Tea", current_tea);
+    config->writeEntry("Tea", current_selected);
 
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
@@ -573,19 +573,18 @@ void TopLevel::config()
     }
     // and delete all non-used tea-definitions from config
     // (assuming non-broken config)
+    // FIXME: maybe better just deep-remove whole "Teas"-group, then write anew?
+    QString key2;
     while (1) {
     	key.sprintf("Tea%d Name", index);
-	if (config->hasKey(key)) {
+	key2.sprintf("Tea%d Time", index);
+	if (config->hasKey(key) || config->hasKey(key2)) {
 		config->deleteEntry(key);
-		key.sprintf("Tea%d Time", index);
 		config->deleteEntry(key);
 	} else
 		break;
 	index++;
     }
-    // also remove old-style entries (if present)
-    if (config->hasKey("UserTea"))
-    	config->deleteEntry("UserTea");
 
     config->sync();
   }
@@ -593,14 +592,14 @@ void TopLevel::config()
 
 void TopLevel::help()
 {
-    kapp->invokeHelp();
+	kapp->invokeHelp();
 }
 
 void TopLevel::setToolTip(const QString &text)
 {
-    if (lasttip == text)
-        return;
-    lasttip = text;
-    QToolTip::remove(this);
-    QToolTip::add(this, text);
+	if (lasttip == text)
+        	return;
+	lasttip = text;
+	QToolTip::remove(this);
+	QToolTip::add(this, text);
 }

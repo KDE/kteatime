@@ -61,18 +61,20 @@ private slots:
 
 private:
 
-    bool running, ready, frame1;
+    QStringList teas, times;		// lists of tea-names and -times
+    QStringList ntimes;			// copy of 'times', for working during configuring
 
-    QStringList teas, times;
-    QStringList ntimes;
-    int seconds, teatime, current_tea;
+    bool running, ready, frame1;
+    int current_selected;		// index of currently +selected+ tea in menu
+    int seconds;			// variable for counting down seconds
+    QString current_name;		// name of currently +running+ tea
 
     bool beeping, popping;
     QString action;
 
-    QPopupMenu *menu;
     QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
 
+    QPopupMenu *menu;
     QListBox *listbox;
     QLineEdit *nameEdit;
     KIntSpinBox *timeEdit;
