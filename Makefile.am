@@ -13,7 +13,7 @@ kteatime_LDADD = $(LIB_KDEUI)
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kteatime_SOURCES) && mv messages.po ../po/kteatime.pot
 
-appsdir = $(kde_appsdir)/Utilities 
+appsdir = $(kde_appsdir)/Utilities
 apps_DATA = kteatime.desktop
 
 install-data-local: 
