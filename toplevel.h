@@ -73,7 +73,7 @@ private:
 	};
 	QValueVector<tea_struct> teas;      // list of tea-names and times
 
-	bool running, ready, firstFrame;
+	bool running, ready, firstFrame, listempty;
 	int seconds;                        // variable for counting down seconds
 
 	unsigned current_selected;          // index of currently +selected+ tea in menu

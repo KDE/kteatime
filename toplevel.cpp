@@ -101,6 +101,8 @@ TopLevel::TopLevel() : KSystemTray()
 	if (current_selected >= teas.count())
 		current_selected = 0;
 
+	listempty = (teas.count() == 0);
+
 
 	startAct = new KAction("&Start", "1rightarrow", 0,
 	                       this, SLOT(start()), actionCollection(), "start");
@@ -263,7 +265,6 @@ void TopLevel::timerEvent(QTimerEvent *)
 			repaint();
 		} else {
 			// timer not yet run out; just update Tooltip appropriately
-			// FIXME: how to strip hours from returned string?
 			QString min = int2time(seconds);
 			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
 		}
@@ -311,7 +312,7 @@ void TopLevel::rebuildTeaMenus() {
 	}
 
 	// now select 'current' tea
-	if (teas.count() > 0)
+	if (!listempty)
 		menu->setItemChecked(current_selected, true);   // all others aren't checked,
 		                                                // because we just added them
 }
@@ -358,7 +359,7 @@ void TopLevel::teaStartSelected(int index)
 /* menu-slot: "start" selected in menu */
 void TopLevel::start()
 {
-	if (teas.count() > 0) {
+	if (!listempty > 0) {
 		current_name = teas[current_selected].name;     // remember name of current tea
 		seconds = teas[current_selected].time;          // initialize time for current tea
 
@@ -462,7 +463,6 @@ void TopLevel::delButtonClicked() {
 	if (listbox->currentItem()) {
 		if (listbox->currentItem() == current_item)
 			current_item = listbox->firstChild();
-		// FIXME: what if this was last item?
 		delete listbox->currentItem();
 
 		if (listbox->childCount() == 0)
@@ -625,18 +625,20 @@ void TopLevel::config()
 
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItems are inserted at the top
-  for (int i=teas.count()-1; i>=0; i--) {  // FIXME: use unsigned
+  for (int i=teas.count()-1; i>=0; i--) {
     TeaListItem *item = new TeaListItem(listbox);
 	item->setName(teas[i].name);
 	item->setTime(teas[i].time);
     if ((unsigned int)i == current_selected)
-		current_item = item;
+      current_item = item;
   }
-  listbox->setSelected(listbox->firstChild(), true);
+
   // select first entry in listbox; if no entries present then disable right side
-  if (listbox->childCount() == 0) {
+  if (listempty) {
     enable_controls();
     disable_properties();
+  } else {
+    listbox->setSelected(listbox->firstChild(), true);
   }
 
   connect(dlg, SIGNAL(helpClicked()), SLOT(help()));
@@ -670,6 +672,8 @@ void TopLevel::config()
         current_selected = i;
       i++;
     }
+
+    listempty = (teas.count() == 0);
 
     rebuildTeaMenus();
 
