@@ -42,6 +42,7 @@ Comment[zh_CN]=KDE 煮茶器
 [tea]
 Name=Tea is ready
 Name[bg]=Чаят е готов
+Name[br]=Prest eo ar te
 Name[ca]=El te està fet
 Name[cs]=Čaj je připraven
 Name[cy]=Mae'r te yn barod
@@ -79,6 +80,7 @@ Name[xx]=xxTea is readyxx
 Name[zh_CN]=茶沏好了
 Comment=Tea is ready
 Comment[bg]=Чаят е готов
+Comment[br]=Prest eo ar te
 Comment[ca]=El te està fet
 Comment[cs]=Čaj je připraven
 Comment[cy]=Mae'r te yn barod
