@@ -1,6 +1,7 @@
 [!Global!]
 IconName=kteatime
 Comment=The KDE Tea Cooker
+Comment[ar]=طابخ شاي KDE
 Comment[bg]=Програма за приготвяне на чай
 Comment[ca]=El cuiner de te de KDE
 Comment[cs]=Samovar pro KDE
@@ -47,6 +48,7 @@ Comment[zh_CN]=KDE 煮茶器
 
 [tea]
 Name=Tea is ready
+Name[ar]=الشاي جاهز
 Name[bg]=Чаят е готов
 Name[ca]=El te està fet
 Name[cs]=Čaj je připraven
@@ -90,6 +92,7 @@ Name[wa]=Li té est presse
 Name[xx]=xxTea is readyxx
 Name[zh_CN]=茶沏好了
 Comment=Tea is ready
+Comment[ar]=الشاي جاهز
 Comment[bg]=Чаят е готов
 Comment[ca]=El te està fet
 Comment[cs]=Čaj je připraven
