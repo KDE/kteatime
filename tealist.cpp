@@ -14,12 +14,10 @@
 QString int2time(int time)
 {
 	QString str;
-	if (time / 60) {
-		str.append(i18n("%1min").arg(time / 60));
-		str.append(" ");
-	}
+	if (time / 60)
+		str.append(i18n("%1 min").arg(time / 60));
 	if (time % 60)
-		str.append(i18n("%1s").arg(time % 60));
+		str.append(i18n("%1 s").arg(time % 60));
 	return str;
 }
 
