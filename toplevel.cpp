@@ -10,7 +10,6 @@
 
 #include <qcheckbox.h>
 #include <qdialog.h>
-#include <qframe.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
@@ -28,6 +27,7 @@
 #include <knotifyclient.h>
 #include <kwin.h>
 #include <knuminput.h>
+#include <kseparator.h> 
 
 #include "toplevel.h"
 #include <kdialogbase.h>
@@ -224,31 +224,32 @@ void TopLevel::config()
                                      KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
                                      KDialogBase::Ok,
                                      this, "config", true);
+  QWidget *page = dlg->plainPage();
 
-  QVBoxLayout *box = new QVBoxLayout(dlg->plainPage(),4,8);
+  QVBoxLayout *box = new QVBoxLayout(page,4,8);
 
   QGridLayout *grid = new QGridLayout(5,2);
   box->addLayout(grid);
 
-  KIntSpinBox *spin = new KIntSpinBox(1,10000,10, 1, 10, dlg->plainPage());
+  KIntSpinBox *spin = new KIntSpinBox(1,10000,10, 1, 10, page);
   spin->setFixedHeight(spin->sizeHint().height());
 
-  QLabel *l = new QLabel(spin, i18n("Your Tea Time (s):"), dlg->plainPage());
+  QLabel *l = new QLabel(spin, i18n("Your Tea Time (s):"), page);
   l->setFixedSize(l->sizeHint());
 
   grid->addWidget(l,0,0);
   grid->addWidget(spin,0,1);
 
-  QLineEdit *actionEdit = new QLineEdit(dlg->plainPage());
-  l = new QLabel(actionEdit, i18n("Action:"), dlg->plainPage());
+  QLineEdit *actionEdit = new QLineEdit(page);
+  l = new QLabel(actionEdit, i18n("Action:"), page);
   l->setMinimumSize(l->sizeHint());
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
 
   grid->addWidget(l,1,0);
   grid->addWidget(actionEdit,1,1);
 
-  QCheckBox *beep = new QCheckBox(i18n("Beep"), dlg->plainPage());
-  QCheckBox *popup = new QCheckBox(i18n("Popup"), dlg->plainPage());
+  QCheckBox *beep = new QCheckBox(i18n("Beep"), page);
+  QCheckBox *popup = new QCheckBox(i18n("Popup"), page);
   beep->setFixedHeight(beep->sizeHint().height());
   popup->setFixedHeight(popup->sizeHint().height());
 
@@ -257,10 +258,9 @@ void TopLevel::config()
 
   grid->setRowStretch(4,1);
 
-  QFrame *f = new QFrame(dlg->plainPage());
-  f->setFrameStyle(QFrame::HLine | QFrame::Raised);
+  KSeparator *hline = new KSeparator( KSeparator::HLine, page);
   box->addStretch(1);
-  box->addWidget(f);
+  box->addWidget(hline);
 
   connect(dlg, SIGNAL(helpClicked()), SLOT(help()));
 
