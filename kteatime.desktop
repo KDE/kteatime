@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=The Tea Cooker
-Name[af]=DIE TEE KOOKER
 Name[az]=Çaycı
 Name[bg]=Приготвяне на чай
 Name[br]=Ar pod te
@@ -39,6 +38,7 @@ Name[sr]=Kuvar za čaj
 Name[sv]=Tekokaren
 Name[tr]=Çaycı
 Name[vi]=Ấm pha trà 
+Name[xh]=Umpheki weti
 Name[zh_CN.GB2312]=煮茶器
 Exec=kteatime
 Icon=kteatime
