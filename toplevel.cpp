@@ -26,6 +26,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <knotifyclient.h>
 #include <kwin.h>
 
 #include "toplevel.h"
@@ -170,7 +171,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 
       // invoke action
       if (beeping)
-        kapp->beep();
+        KNotifyClient::beep();
       if (!action.isEmpty())
         system(QFile::encodeName(action));
       if (popping)
