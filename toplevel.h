@@ -81,7 +81,7 @@ private slots:
 
 private:
 
-	static const int DEFAULT_TEA_TIME = 3*60;
+	static const int DEFAULT_TEA_TIME;
 
 	struct tea_struct {
 		QString name;

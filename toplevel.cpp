@@ -58,6 +58,8 @@
 #include "toplevel.moc"
 
 
+const int TopLevel::DEFAULT_TEA_TIME = 3*60;
+
 TopLevel::TopLevel() : KSystemTray()
 {
 	setBackgroundMode(X11ParentRelative);   // what for?
