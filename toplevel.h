@@ -36,6 +36,8 @@
 #include <qpixmap.h>
 
 class KAction;
+class KDialogBase;
+class QCheckBox;
 class TimeEdit;
 
 class TopLevel : public KSystemTray
@@ -114,6 +116,9 @@ private:
 	QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
 
 	QString lastTip;
+	KDialogBase *anondlg, *confdlg;
+	TimeEdit *anon_time;
+	QCheckBox *eventEnable, *popupEnable, *actionEnable, *visEnable;
 };
 
 #endif

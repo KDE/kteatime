@@ -60,6 +60,7 @@
 
 const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 
+
 TopLevel::TopLevel() : KSystemTray()
 {
 	setBackgroundMode(X11ParentRelative);   // what for?
@@ -174,6 +175,9 @@ TopLevel::TopLevel() : KSystemTray()
 	teaNotReadyPixmap = loadIcon("tea_not_ready");
 	teaAnim1Pixmap = loadIcon("tea_anim1");
 	teaAnim2Pixmap = loadIcon("tea_anim2");
+
+	confdlg = 0L;
+	anondlg = 0L;
 
 	stop();                         // reset timer, disable some menu entries, etc.
 }
@@ -459,33 +463,40 @@ void TopLevel::stop()
 /* open dialog to start an 'anonymous' tea */
 void TopLevel::anonymous()
 {
-	KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Anonymous Tea"),
-	                                   KDialogBase::Ok | KDialogBase::Cancel,
-	                                   KDialogBase::Ok, this, "anonymous", true);
-	QWidget *page = dlg->plainPage();
-	QBoxLayout *top_box = new QVBoxLayout(page);
-	QBoxLayout *prop_box = new QHBoxLayout(top_box);
-	QVBox *propleft = new QVBox(page);
-	prop_box->addWidget(propleft);
-	QVBox *propright = new QVBox(page);
-	prop_box->addWidget(propright);
+	if (!anondlg) {
+		// FIXME: dialog appears centered on screen, but should be near systray icon!
+		anondlg = new KDialogBase(KDialogBase::Plain, i18n("Anonymous Tea"),
+		                          KDialogBase::Ok | KDialogBase::Cancel,
+		                          KDialogBase::Ok, this, "anonymous", true);
+		QWidget *page = anondlg->plainPage();
+		QBoxLayout *top_box = new QVBoxLayout(page);
+		QBoxLayout *prop_box = new QHBoxLayout(top_box);
+		QVBox *propleft = new QVBox(page);
+		prop_box->addWidget(propleft);
+		QVBox *propright = new QVBox(page);
+		prop_box->addWidget(propright);
 
-	TimeEdit *time = new TimeEdit(propright);
-	time->setFixedHeight(time->sizeHint().height());
-	time->setValue(DEFAULT_TEA_TIME);
-	QLabel *l = new QLabel(time, i18n("Tea time:"), propleft);
-	l->setFixedSize(l->sizeHint());
+		anon_time = new TimeEdit(propright);
+		anon_time->setFixedHeight(anon_time->sizeHint().height());
+		anon_time->setValue(DEFAULT_TEA_TIME);
+		QLabel *l = new QLabel(anon_time, i18n("Tea time:"), propleft);
+		l->setFixedSize(l->sizeHint());
 
-	top_box->addStretch();
+		top_box->addStretch();
 
-	time->setFocus();
+		anon_time->setFocus();
+	} else {
+		// FIXME: do what here?
+		// reset time to DEFAULT_TEA_TIME?
+		// (why? - better use LRU, and save that to config)
+	}
 
-	if (dlg->exec() == QDialog::Accepted) {
+	if (anondlg->exec() == QDialog::Accepted) {
 		shooting = true;
 		if (!listempty)
 			menu->setItemChecked(current_selected, false);  // no item is to be checked
 		current_name = i18n("tea");                         // some generic tea name
-		startSeconds = time->value();
+		startSeconds = anon_time->value();
 		seconds = startSeconds;
 		percentDone = 0;
 		start();
@@ -633,122 +644,127 @@ void TopLevel::confButtonClicked()
 
 void TopLevel::config()
 {
-  KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure Tea Cooker"),
-                     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
-                     KDialogBase::Ok, this, "config", true);
-  QWidget *page = dlg->plainPage();
-  // FIXME: enforce sensible initial/default size of dialog
-  // FIXME: modal is ok, but can avoid always-on-top?
+  if (!confdlg) {
+    confdlg = new KDialogBase(KDialogBase::Plain, i18n("Configure Tea Cooker"),
+                              KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
+                              KDialogBase::Ok, this, "config", true);
+    QWidget *page = confdlg->plainPage();
+    // FIXME: enforce sensible initial/default size of dialog
+    // FIXME: modal is ok, but can avoid always-on-top?
 
-  QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);    // whole config-stuff
-  QBoxLayout *box = new QHBoxLayout(top_box);           // list + properties
+    QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);    // whole config-stuff
+    QBoxLayout *box = new QHBoxLayout(top_box);           // list + properties
 
-  /* left side - tea list and list-modifying buttons */
-  QBoxLayout *leftside = new QVBoxLayout(box);
-  QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
-  leftside->addWidget(listgroup, 0, 0);
+    /* left side - tea list and list-modifying buttons */
+    QBoxLayout *leftside = new QVBoxLayout(box);
+    QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
+    leftside->addWidget(listgroup, 0, 0);
 
-  listbox = new QListView(listgroup, "listBox");
-  listbox->addColumn(i18n("Name"));
-  listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
-  listbox->addColumn(i18n("Time"));
-  listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
-  listbox->setSorting(-1);
-  connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
+    listbox = new QListView(listgroup, "listBox");
+    listbox->addColumn(i18n("Name"));
+    listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+    listbox->addColumn(i18n("Time"));
+    listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
+    listbox->setSorting(-1);
+    connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
-  // now buttons for constructing tea-list
-  QWidget *listgroup_widget = new QWidget(listgroup);
-  QBoxLayout *hbox = new QHBoxLayout(listgroup_widget);
-  hbox->setSpacing(4);
-  btn_new = new QPushButton(QString::null, listgroup_widget);
-  QToolTip::add(btn_new, i18n("New"));
-  btn_new->setPixmap(SmallIcon("filenew"));
-  btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
-  connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
-  hbox->addWidget(btn_new);
+    // now buttons for editing the tea-list
+    QWidget *listgroup_widget = new QWidget(listgroup);
+    QBoxLayout *hbox = new QHBoxLayout(listgroup_widget);
+    hbox->setSpacing(4);
+    btn_new = new QPushButton(QString::null, listgroup_widget);
+    QToolTip::add(btn_new, i18n("New"));
+    btn_new->setPixmap(SmallIcon("filenew"));
+    btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
+    connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
+    hbox->addWidget(btn_new);
 
-  btn_del = new QPushButton(QString::null, listgroup_widget);
-  QToolTip::add(btn_del, i18n("Delete"));
-  btn_del->setPixmap(SmallIcon("editdelete"));
-  btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
-  connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
-  hbox->addWidget(btn_del);
+    btn_del = new QPushButton(QString::null, listgroup_widget);
+    QToolTip::add(btn_del, i18n("Delete"));
+    btn_del->setPixmap(SmallIcon("editdelete"));
+    btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
+    connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
+    hbox->addWidget(btn_del);
 
-  btn_up = new QPushButton(QString::null, listgroup_widget);
-  QToolTip::add(btn_up, i18n("Up"));
-  btn_up->setPixmap(SmallIcon("up"));
-  btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
-  connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
-  hbox->addWidget(btn_up);
+    btn_up = new QPushButton(QString::null, listgroup_widget);
+    QToolTip::add(btn_up, i18n("Up"));
+    btn_up->setPixmap(SmallIcon("up"));
+    btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
+    connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
+    hbox->addWidget(btn_up);
 
-  btn_down = new QPushButton(QString::null, listgroup_widget);
-  QToolTip::add(btn_down, i18n("Down"));
-  btn_down->setPixmap(SmallIcon("down"));
-  btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
-  connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
-  hbox->addWidget(btn_down);
+    btn_down = new QPushButton(QString::null, listgroup_widget);
+    QToolTip::add(btn_down, i18n("Down"));
+    btn_down->setPixmap(SmallIcon("down"));
+    btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
+    connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
+    hbox->addWidget(btn_down);
 
-  hbox->addStretch(10);
+    hbox->addStretch(10);
 
-  /* right side - tea properties */
-  QBoxLayout *rightside = new QVBoxLayout(box);
-  editgroup = new QGroupBox(2, Vertical, i18n("Tea Properties"), page);
-  rightside->addWidget(editgroup, 0, 0);
-  QHBox *propbox = new QHBox(editgroup);
+    /* right side - tea properties */
+    QBoxLayout *rightside = new QVBoxLayout(box);
+    editgroup = new QGroupBox(2, Vertical, i18n("Tea Properties"), page);
+    rightside->addWidget(editgroup, 0, 0);
+    QHBox *propbox = new QHBox(editgroup);
 
-  // FIXME: - must enforce correct vertical alignment of each label-editor pair
-  //          (better use one HBox for each label-editor pair?)
-  QVBox *propleft = new QVBox(propbox);
-  QVBox *propright = new QVBox(propbox);
-  nameEdit = new QLineEdit(propright);
-  nameEdit->setFixedHeight(nameEdit->sizeHint().height());
-  nameEdit->setAlignment(QLineEdit::AlignLeft);
-  QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
-  l->setFixedSize(l->sizeHint());
-  connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
+    // FIXME: - must enforce correct vertical alignment of each label-editor pair
+    //          (better use one HBox for each label-editor pair?)
+    QVBox *propleft = new QVBox(propbox);
+    QVBox *propright = new QVBox(propbox);
+    nameEdit = new QLineEdit(propright);
+    nameEdit->setFixedHeight(nameEdit->sizeHint().height());
+    nameEdit->setAlignment(QLineEdit::AlignLeft);
+    QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
+    l->setFixedSize(l->sizeHint());
+    connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
-  timeEdit = new TimeEdit(propright);
-  timeEdit->setFixedHeight(timeEdit->sizeHint().height());
-  l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
-  l->setFixedSize(l->sizeHint());
-  connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
+    timeEdit = new TimeEdit(propright);
+    timeEdit->setFixedHeight(timeEdit->sizeHint().height());
+    l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
+    l->setFixedSize(l->sizeHint());
+    connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
 
-  /* bottom - timeout actions */
-  QGroupBox *actiongroup = new QGroupBox(4, Vertical, i18n("Action"), page);
-  top_box->addWidget(actiongroup, 0, 0);
+    /* bottom - timeout actions */
+    QGroupBox *actiongroup = new QGroupBox(4, Vertical, i18n("Action"), page);
+    top_box->addWidget(actiongroup, 0, 0);
 
-  QWidget *actionconf_widget = new QWidget(actiongroup);
-  QBoxLayout *actionconf_hbox = new QHBoxLayout(actionconf_widget);
-  btn_conf = new QPushButton(i18n("Configure Events..."), actionconf_widget);
-  actionconf_hbox->addWidget(btn_conf);
-  connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
-  actionconf_hbox->addStretch(10);
+    QWidget *actionconf_widget = new QWidget(actiongroup);
+    QBoxLayout *actionconf_hbox = new QHBoxLayout(actionconf_widget);
+    btn_conf = new QPushButton(i18n("Configure Events..."), actionconf_widget);
+    actionconf_hbox->addWidget(btn_conf);
+    connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
+    actionconf_hbox->addStretch(10);
 
-  QCheckBox *eventEnable = new QCheckBox(i18n("Event"), actiongroup);
-  QCheckBox *popupEnable = new QCheckBox(i18n("Popup"), actiongroup);
-  eventEnable->setFixedHeight(eventEnable->sizeHint().height());
-  popupEnable->setFixedHeight(popupEnable->sizeHint().height());
+    eventEnable = new QCheckBox(i18n("Event"), actiongroup);
+    popupEnable = new QCheckBox(i18n("Popup"), actiongroup);
+    eventEnable->setFixedHeight(eventEnable->sizeHint().height());
+    popupEnable->setFixedHeight(popupEnable->sizeHint().height());
 
-  QHBox *actionbox = new QHBox(actiongroup);
-  QCheckBox *actionEnable = new QCheckBox(actionbox);
-//  FIXME: add text to this line:
-//  QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
-  actionEdit = new QLineEdit(actionbox);
-  actionEdit->setFixedHeight(actionEdit->sizeHint().height());
-  QToolTip::add(actionEdit, i18n("Enter command here; '%t' will be replaced with name of steeping tea"));
-  connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
-  rightside->addStretch();
+    QHBox *actionbox = new QHBox(actiongroup);
+    actionEnable = new QCheckBox(actionbox);
+//    FIXME: add text to this line:
+//    QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
+    actionEdit = new QLineEdit(actionbox);
+    actionEdit->setFixedHeight(actionEdit->sizeHint().height());
+    QToolTip::add(actionEdit, i18n("Enter command here; '%t' will be replaced with name of steeping tea"));
+    connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
+    rightside->addStretch();
 
-  // single checkbox
-  QCheckBox *visEnable = new QCheckBox(i18n("Visualize progress in icon tray"), page);
-  top_box->addWidget(visEnable, 0, 0);
+    // single checkbox
+    visEnable = new QCheckBox(i18n("Visualize progress in icon tray"), page);
+    top_box->addWidget(visEnable, 0, 0);
 
 
-  // let listbox claim all remaining vertical space
-  top_box->setStretchFactor(box, 10);
+    // let listbox claim all remaining vertical space
+    top_box->setStretchFactor(box, 10);
+
+    connect(confdlg, SIGNAL(helpClicked()), SLOT(help()));
+  }
 
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItems are inserted at the top
+  listbox->clear();
   for (int i=teas.count()-1; i>=0; i--) {
     TeaListItem *item = new TeaListItem(listbox);
     item->setName(teas[i].name);
@@ -761,11 +777,11 @@ void TopLevel::config()
   if (listempty) {
     enable_controls();
     disable_properties();
+    nameEdit->setText("");
+    timeEdit->setValue(1);
   } else {
     listbox->setSelected(listbox->firstChild(), true);
   }
-
-  connect(dlg, SIGNAL(helpClicked()), SLOT(help()));
 
   // -------------------------
 
@@ -776,7 +792,7 @@ void TopLevel::config()
   actionEdit->setEnabled(useAction);
   visEnable->setChecked(useTrayVis);
 
-  if (dlg->exec() == QDialog::Accepted)
+  if (confdlg->exec() == QDialog::Accepted)
   {
     // activate new settings
     useNotify = eventEnable->isChecked();
