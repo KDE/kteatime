@@ -14,10 +14,10 @@
 #include "toplevel.h"
 
 
-static const char *description =
+static const char description[] =
 	I18N_NOOP("KDE utility for making a fine cup of tea");
 
-static const char *version = "v1.0.0";
+static const char version[] = "v1.0.0";
 
 int main(int argc, char *argv[])
 {
