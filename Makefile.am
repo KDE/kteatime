@@ -3,7 +3,7 @@ INCLUDES= $(all_includes)
 
 bin_PROGRAMS = kteatime
 
-kteatime_SOURCES = main.cpp toplevel.cpp tealist.cpp
+kteatime_SOURCES = main.cpp toplevel.cpp tealist.cpp timeedit.cpp
 
 kteatime_METASOURCES = AUTO
 kteatime_LDFLAGS = $(all_libraries) $(KDE_RPATH)

@@ -23,6 +23,7 @@
 
 class QPixmap;
 class KAction;
+class TimeEdit;
 
 class TopLevel : public KSystemTray
 {
@@ -88,7 +89,7 @@ private:
 	QPopupMenu *menu, *steeping_menu, *start_menu;
 	QListView *listbox;
 	QLineEdit *nameEdit, *actionEdit;
-	KIntSpinBox *timeEdit;
+	TimeEdit *timeEdit;
 	QGroupBox *editgroup;
 	QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
 

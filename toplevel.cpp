@@ -43,6 +43,7 @@
 #include <knotifydialog.h>
 
 #include "tealist.h"
+#include "timeedit.h"
 #include "toplevel.h"
 #include "toplevel.moc"
 
@@ -587,8 +588,7 @@ void TopLevel::config()
   l->setFixedSize(l->sizeHint());
   connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
-  timeEdit = new KIntSpinBox(1, 10000, 10, 1, 10, propright);
-  timeEdit->setSuffix(i18n(" s"));
+  timeEdit = new TimeEdit(propright);
   timeEdit->setFixedHeight(timeEdit->sizeHint().height());
   l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
   l->setFixedSize(l->sizeHint());

@@ -4,6 +4,7 @@
 	- using convenience class TeaListItem instead of QListViewItem
 	- small optimization: don't use lastitem() of listbox (which traverses whole list),
 	  work with itemBelow() instead
+	- using custom TimeEdit-widget for entering times with minutes and seconds
 	(patches provided by Daniel Teske)
 
 2003-03-07  (external)
