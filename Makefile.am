@@ -15,6 +15,6 @@ KDE_ICON = kteatime
 messages:
 	$(XGETTEXT) $(kteatime_SOURCES) -o $(podir)/kteatime.pot
 
-appsdir = $(kde_appsdir)/Utilities
+appsdir = $(kde_appsdir)/Toys
 apps_DATA = kteatime.desktop
 
