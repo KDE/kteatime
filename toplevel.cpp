@@ -17,13 +17,14 @@
 #include <qcursor.h>
 
 #include <kconfig.h>
+#include <khelpmenu.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <knotifyclient.h>
 #include <knuminput.h>
 #include <kseparator.h>
-
+#include <kpopupmenu.h>
 #include "toplevel.h"
 #include "toplevel.moc"
 #include <kdialogbase.h>
@@ -69,10 +70,14 @@ TopLevel::TopLevel()
     menu->setItemChecked(i, i == num);
   teatime = (*times.at(num)).toInt();
 
+  KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
+  KPopupMenu* helpMnu = help->menu();
+
   menu->insertSeparator();
   menu->insertItem(SmallIcon("1rightarrow"), i18n("&Start"), this, SLOT(start()));
   menu->insertSeparator();
   menu->insertItem(SmallIcon("configure"), i18n("&Configure..."), this, SLOT(config()));
+  menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
   menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 
   beeping = config->readBoolEntry("Beep", true);
