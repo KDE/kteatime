@@ -657,7 +657,7 @@ void TopLevel::config()
   actionconf_hbox->addStretch(10);
 
   QCheckBox *eventEnable = new QCheckBox(i18n("Event"), actiongroup);
-  QCheckBox *popupEnable = new QCheckBox(i18n("Permanent Popup"), actiongroup);
+  QCheckBox *popupEnable = new QCheckBox(i18n("Popup"), actiongroup);
   eventEnable->setFixedHeight(eventEnable->sizeHint().height());
   popupEnable->setFixedHeight(popupEnable->sizeHint().height());
 
