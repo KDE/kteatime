@@ -51,7 +51,7 @@ TopLevel::TopLevel()
   teas.append(i18n("Fruit Tea (8 min)")); n.setNum(480); times.append(n);
 
   num = config->readNumEntry("UserTea", 150);
-  n.sprintf(i18n("Other tea (%is)"), num);
+  n = i18n("Other tea (%1s)").arg(num);
   teas.append(n); n.setNum(num); times.append(n);
 
   for (QStringList::ConstIterator it = teas.begin(); it != teas.end(); it++)
@@ -294,7 +294,7 @@ void TopLevel::config()
     times.remove(teas.last());
     QString n,n2;
     num = spin->value();
-    n.sprintf(i18n("Other tea (%is)"), num);
+    n = i18n("Other tea (%1s)").arg(num);
     teas.append(n); n2.setNum(num); times.append(n2);
     menu->changeItem(n, teas.count()-1);
 
