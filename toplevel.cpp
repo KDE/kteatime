@@ -585,20 +585,23 @@ void TopLevel::newButtonClicked() {
 /* config-slot: "delete" button clicked */
 void TopLevel::delButtonClicked() {
 	if (listbox->currentItem()) {
-		if (listbox->currentItem() == current_item) {
-			// am deleting current tea (ie. the one active in menu)
-			current_item = listbox->firstChild();
-			// note: is 0 if there is no child left
-		}
-		delete listbox->currentItem();
+		TeaListItem *curritem = static_cast<TeaListItem *>(listbox->currentItem());
 
-		if (listbox->childCount() == 0) {
-			// no childs left
+		if (listbox->childCount() == 1) {
+			// no childs left after we've deleted this item
+			listbox->setSelected(listbox->currentItem(), false);
 			nameEdit->setText("");
 			timeEdit->setValue(0);
 			disable_properties();
-		} else
-			listbox->setSelected(listbox->currentItem(), true); // select new current item
+		} else {
+			// select new current item
+			if (listbox->firstChild() != curritem)
+				listbox->setSelected(listbox->firstChild(), true);
+			else
+				listbox->setSelected(listbox->firstChild()->nextSibling(), true);
+		}
+
+		delete curritem;
 		enable_controls();
 	}
 }
