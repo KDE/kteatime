@@ -157,7 +157,7 @@ TopLevel::TopLevel() : KSystemTray()
 	usePopup = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
-	useTrayVis = false; // FIXME: read from config (and store!)
+	useTrayVis = true; // FIXME: read from config (and store!)
 
 	mugPixmap = new QPixmap(UserIcon("mug"));
 	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
@@ -629,8 +629,8 @@ void TopLevel::confButtonClicked()
 void TopLevel::config()
 {
   KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure Tea Cooker"),
-				     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
-				     KDialogBase::Ok, this, "config", true);
+                     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
+                     KDialogBase::Ok, this, "config", true);
   QWidget *page = dlg->plainPage();
   // FIXME: enforce sensible initial/default size of dialog
   // FIXME: modal is ok, but can avoid always-on-top?
@@ -742,8 +742,8 @@ void TopLevel::config()
   // this is done backwards because QListViewItems are inserted at the top
   for (int i=teas.count()-1; i>=0; i--) {
     TeaListItem *item = new TeaListItem(listbox);
-	item->setName(teas[i].name);
-	item->setTime(teas[i].time);
+    item->setName(teas[i].name);
+    item->setTime(teas[i].time);
     if ((unsigned int)i == current_selected)
       current_item = item;
   }
@@ -778,11 +778,11 @@ void TopLevel::config()
 
     // Copy over teas and times from the QListView
     int i = 0;
-	teas.clear();
-	teas.resize(listbox->childCount());
+    teas.clear();
+    teas.resize(listbox->childCount());
     for (QListViewItemIterator it(listbox); it.current() != 0; it++) {
       teas[i].name = static_cast<TeaListItem *>(it.current())->name();
-	  teas[i].time = static_cast<TeaListItem *>(it.current())->time();
+      teas[i].time = static_cast<TeaListItem *>(it.current())->time();
       if (it.current() == current_item)
         current_selected = i;
       i++;
@@ -805,7 +805,7 @@ void TopLevel::config()
     config->writeEntry("Action", action);
     config->writeEntry("Tea", current_selected);
     // first get rid of all previous tea-entries from config, then write anew
-    config->deleteGroup("Teas", true);			// deep remove of whole group
+    config->deleteGroup("Teas", true);          // deep remove of whole group
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
     QString key;
