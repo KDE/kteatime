@@ -15,10 +15,17 @@
 // - save state of current_tea to config on every exit
 // - when saving config, remove remaining teas from config!
 // - beep() doesn't work?!
+//   --> currently using "KDE system notification -> "special event"
+//   --> better define own event? (and own sound - Teekessel? :)
+// - print name of preparing tea in tooltip
 // - display times in Menu nicer (not in seconds but maybe just "nn:yy"?)
 // - some more tidying of configure-dialog (eg. initial size)
+// - check that changing config doesn't influence current running timer
 // - check for memory leaks
 // - make config-reading bullet-proof
+// - better get 'teatime' immediately before starting timer, not
+//   when menu-item is selected?
+// - DCOP interface
 // - have a closer look at i18n
 // - transform into full-fledged "kooking" application? :-)
 
