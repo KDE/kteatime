@@ -42,6 +42,7 @@
 #include <kaction.h>
 #include <knotifydialog.h>
 
+#include "tealist.h"
 #include "toplevel.h"
 #include "toplevel.moc"
 
@@ -53,7 +54,6 @@ TopLevel::TopLevel() : KSystemTray()
 	unsigned int num;
 
 	teas.clear();
-	times.clear();
 
 	KConfig *config = kapp->config();
 	config->setGroup("Teas");
@@ -61,29 +61,39 @@ TopLevel::TopLevel() : KSystemTray()
 	if (config->hasKey("Number")) {
 		// assuming this is a new-style config
 		num = config->readNumEntry("Number", 0);
-		times.resize(num);
 		teas.resize(num);
+		QString tempstr;
 		for (unsigned int index=1; index<=num; index++) {
 			key.sprintf("Tea%d Time", index);
-			times[index-1] = config->readEntry(key, NULL);
+			tempstr = config->readEntry(key, NULL);
+			teas[index-1].time = tempstr.toInt();
   			key.sprintf("Tea%d Name", index);
-			teas[index-1] = config->readEntry(key, NULL);
+			teas[index-1].name = config->readEntry(key, NULL);
 			// FIXME: check for non-existence!
   		}
 		config->setGroup("General");
 	} else {
 		// either old-style config or first start, so provide some sensible defaults
 		// (which are the same as in old-style kteatime)
-		teas.append(i18n("Black Tea")); n.setNum(180); times.append(n);
-		teas.append(i18n("Earl Grey")); n.setNum(300); times.append(n);
-		teas.append(i18n("Fruit Tea")); n.setNum(480); times.append(n);
+		tea_struct temp;
+		temp.name = i18n("Black Tea");
+		temp.time = 180;
+		teas.append(temp);
+		temp.name = i18n("Earl Grey");
+		temp.time = 300;
+		teas.append(temp);
+		temp.name = i18n("Fruit Tea");
+		temp.time = 480;
+		teas.append(temp);
+
 		// switch back to old-style default group
 		config->setGroup(NULL);
 		// look for old-style "UserTea"-entry and add that one also
 		if (config->hasKey("UserTea")) {
 			num = config->readNumEntry("UserTea", 150);
-			n = i18n("Other Tea");
-			teas.append(n); n.setNum(num); times.append(n);
+			temp.name = i18n("Other Tea");
+			temp.time = num;
+			teas.append(temp);
 		}
 	}
 	current_selected = config->readNumEntry("Tea", 0);
@@ -252,14 +262,8 @@ void TopLevel::timerEvent(QTimerEvent *)
 			repaint();
 		} else {
 			// timer not yet run out; just update Tooltip appropriately
-			QString min;
-			// use real time-string "mm:ss" (according to locale!) for displaying remaining time
-			int h = (seconds / 3600);
-			int m = (seconds - h*3600) / 60;
-			int s = (seconds - h*3600 - m*60);
-			QTime tim(h, m, s);
-			min = KGlobal::locale()->formatTime(tim, true);
 			// FIXME: how to strip hours from returned string?
+			QString min = int2time(seconds);
 			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
 		}
 	} else {
@@ -294,15 +298,11 @@ void TopLevel::rebuildTeaMenus() {
 	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
-	for (unsigned i=0; i<teas.count(); i++) {
+	for (QValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); it++) {
 		// construct string with name and steeping time
-		QString str = teas[i];
-		uint total_seconds = times[i].toUInt();
+		QString str = it->name;
 		str.append(" (");
-		if (total_seconds / 60)
-			str.append(i18n("%1min").arg(total_seconds / 60));
-		if (total_seconds % 60)
-			str.append(i18n("%1s").arg(total_seconds % 60));
+		str.append(int2time(it->time));
 		str.append(")");
 
 		start_menu->insertItem(str, id, index);     // add to left-click menu
@@ -358,8 +358,8 @@ void TopLevel::teaStartSelected(int index)
 void TopLevel::start()
 {
 	if (teas.count() > 0) {
-		current_name = teas[current_selected];          // remember name of current tea
-		seconds = times[current_selected].toInt();      // initialize time for current tea
+		current_name = teas[current_selected].name;     // remember name of current tea
+		seconds = teas[current_selected].time;          // initialize time for current tea
 
 		killTimers();
 		startTimer(1000);                               // 1000ms = 1s (sufficient resolution)
@@ -386,6 +386,7 @@ void TopLevel::stop()
 	setToolTip(i18n("The Tea Cooker"));
 	repaint();
 }
+
 
 
 //
@@ -420,8 +421,8 @@ void TopLevel::enable_properties() {
 void TopLevel::listBoxItemSelected() {
 	if (listbox->currentItem()) {
 		// item selected, display its properties on right side
-		nameEdit->setText(listbox->currentItem()->text(0));
-		timeEdit->setValue(listbox->currentItem()->text(1).toInt());
+		nameEdit->setText(static_cast<TeaListItem *>(listbox->currentItem())->name());
+		timeEdit->setValue(static_cast<TeaListItem *>(listbox->currentItem())->time());
 		enable_controls();
 	}
 }
@@ -429,19 +430,18 @@ void TopLevel::listBoxItemSelected() {
 /* config-slot: name of a tea edited */
 void TopLevel::nameEditTextChanged(const QString& newText) {
 	listbox->blockSignals(TRUE);
-	listbox->currentItem()->setText(0, newText);
+	static_cast<TeaListItem *>(listbox->currentItem())->setName(newText);
 	listbox->blockSignals(FALSE);
 }
 
 /* config-slot: time for a tea changed */
-void TopLevel::spinBoxValueChanged(const QString& newText) {
-	QString str = newText.left(newText.length() - timeEdit->suffix().length());  // strip suffix
-	listbox->currentItem()->setText(1, str);
+void TopLevel::spinBoxValueChanged(int v) {
+	static_cast<TeaListItem *>(listbox->currentItem())->setTime(v);
 }
 
 /* config-slot: "new" button clicked */
 void TopLevel::newButtonClicked() {
-	QListViewItem* item = new QListViewItem(listbox, listbox->currentItem());
+	TeaListItem* item = new TeaListItem(listbox, listbox->currentItem());
 	listbox->setCurrentItem(item);
 
 	nameEdit->setText(i18n("New Tea"));
@@ -519,8 +519,8 @@ void TopLevel::config()
   // FIXME: enforce sensible initial/default size of dialog
   // FIXME: modal is ok, but can avoid always-on-top?
 
-  QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);	// whole config-stuff
-  QBoxLayout *box = new QHBoxLayout(top_box);		// list + properties
+  QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);    // whole config-stuff
+  QBoxLayout *box = new QHBoxLayout(top_box);           // list + properties
 
   /* left side - tea list and list-modifying buttons */
   QBoxLayout *leftside = new QVBoxLayout(box);
@@ -592,7 +592,7 @@ void TopLevel::config()
   timeEdit->setFixedHeight(timeEdit->sizeHint().height());
   l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
   l->setFixedSize(l->sizeHint());
-  connect(timeEdit, SIGNAL(valueChanged(const QString&)), SLOT(spinBoxValueChanged(const QString&)) );
+  connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
 
   /* bottom - timeout actions */
   QGroupBox *actiongroup = new QGroupBox(4, Vertical, i18n("Action"), page);
@@ -624,9 +624,9 @@ void TopLevel::config()
   // now add all defined teas (and their times) to the listview
   // this is done backwards because QListViewItems are inserted at the top
   for (int i=teas.count()-1; i>=0; i--) {  // FIXME: use unsigned
-    QListViewItem* item = new QListViewItem(listbox);
-    item->setText(0, teas[i]);
-    item->setText(1, times[i]);
+    TeaListItem *item = new TeaListItem(listbox);
+	item->setName(teas[i].name);
+	item->setTime(teas[i].time);
     if (i == current_selected)
 		current_item = item;
   }
@@ -656,17 +656,14 @@ void TopLevel::config()
     action = actionEdit->text();
 
     teas.clear();
-    times.clear();
 
     // Copy over teas and times from the QListView
     int i = 0;
-	times.clear();
 	teas.clear();
-	times.resize(listbox->childCount());
 	teas.resize(listbox->childCount());
     for (QListViewItemIterator it(listbox); it.current() != 0; it++) {
-      teas[i] = it.current()->text(0);
-      times[i] = it.current()->text(1);
+      teas[i].name = static_cast<TeaListItem *>(it.current())->name();
+	  teas[i].time = static_cast<TeaListItem *>(it.current())->time();
       if (it.current() == current_item)
         current_selected = i;
       i++;
@@ -691,14 +688,12 @@ void TopLevel::config()
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
     QString key;
-	QValueVector<QString>::ConstIterator ti = times.begin();
     int index = 1;
-	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+    for (QValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
       key.sprintf("Tea%d Name", index);
-      config->writeEntry(key, *it);
+      config->writeEntry(key, it->name);
       key.sprintf("Tea%d Time", index);
-      config->writeEntry(key, *ti);
-      ti++;
+      config->writeEntry(key, it->time);
       index++;
     }
 
