@@ -39,6 +39,7 @@
 TopLevel::TopLevel()
   : QWidget()
 {
+  setBackgroundMode(X11ParentRelative);
   QString n;
   unsigned int num;
 
