@@ -1,14 +1,25 @@
+- create SVG icon(s) (or at least a 32x32 version for "About KTeaTime")
+- Rename "shooting"
+- Rename "Event" to "Notification"
+- nicer placement of "Configure events" button:
+  "Configure Events..." --> move to same line as "Event" and rename to "Configure..."?
+  (and/or have a look at KStdAction::configureNotifications()!)
+  (common is "Configure &Notifications..." btw.)
+   [which gets translated in kdelibs.ps to "&Benachrichtigungen festlegen..."]
+   [[more often, "einrichten" is used for "configure"]]
+- use "readPathEntry()" instead of "readEntry()" (expands/replaces $HOME)
+
+- have a look at memory consumption; seems too high for me..
+- adapt kteatime.docbook to new century...
 - save default time for "anonymous" to config
 - in configure-window: add "Execute: "-label in front of "action"-text edit
-- nicer placement of "Configure events" button
 - KNotifyClient: "Execute" not capable of %t substitution?
   (--> hence no replacement for my own "Execute: " action)
 - KNotifyClient: passive popup cannot(?) have no timeout
   (--> hence no replacement for my own "Popup" action)
-- when tea is steeping, the tooltip disappears too quick (after max. 1s) [bug #55103]
 - when steeping, display "stop <teaname>" on left-click, not just "stop"
   (not easy when using KAction in a simple way?)
-- use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
+- use QMovie for tea-is-finished-icon instead of two alternating pixmaps?
 
 
 internals:
@@ -21,7 +32,7 @@ internals:
 - somehow make double-click with left button start 'current' tea
   without displaying start_menu?
 - figure out how to use KAction for "quit"-entry of menu
-  (somehow doesn't work as intended..)
+  (somehow doesn't work as expected..)
 - some more tidying of configure-dialog
   (eg. initial position!, initial size)
 - DCOP interface?
@@ -38,8 +49,10 @@ internals:
 
   - This needs another approach to entering timeouts, since they'll often be
     needed just once -> eg. popup "Enter timeout:"-window on leftclick?
-  - Must be able to run arbitrary amounts of parallel timers then!
+  - Must be able to run arbitrary amounts of parallel timers!
+    (difficult to use 'useTrayVis' then..)
   - Should be able to enter timeouts not just as seconds, but in any unit.
+  - option for "popup reminder every X minutes"
   - Allow periodical timouts (eg. "Take this medication every 2 hours")
     (if not clicked away, add count to window)
 --> better start new application and let people migrate to it from KTeaTime

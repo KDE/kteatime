@@ -1,15 +1,24 @@
-/* -------------------------------------------------------------
-
-   toplevel.cpp
-
-   (C) 1998-1999 by Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
-
-   Some additions by Martin Willers <willers@xm-arts.de>, 2002,2003
-
-   With contributions from Daniel Teske <teske@bigfoot.com>, and
-   Jackson Dunstan <jdunstan@digipen.edu>
-
- ------------------------------------------------------------- */
+/*
+ *   This file is part of the KTeaTime application.
+ *
+ *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
+ *   Copyright (C) 2002-2003  Martin Willers (willers@xm-arts.de)
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
 
 #include <stdlib.h>
 #include <assert.h>
@@ -125,7 +134,7 @@ TopLevel::TopLevel() : KSystemTray()
 	start_menu->setCheckable(true);     // menu isn't tickable, but this gives some add. spacing
 	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
 
-	rebuildTeaMenus();		// populate tops of menus with tea-entries from config
+	rebuildTeaMenus();      // populate tops of menus with tea-entries from config
 
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
 	KPopupMenu* helpMnu = help->menu();
@@ -157,14 +166,14 @@ TopLevel::TopLevel() : KSystemTray()
 	usePopup = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
-	useTrayVis = false; // FIXME: read from config (and store!)
+	useTrayVis = config->readBoolEntry("UseTrayVis", true);
 
 	mugPixmap = new QPixmap(UserIcon("mug"));
 	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
 	teaAnim1Pixmap = new QPixmap(UserIcon("tea_anim1"));
 	teaAnim2Pixmap = new QPixmap(UserIcon("tea_anim2"));
 
-	stop();				// reset timer, disable some menu entries, etc.
+	stop();                         // reset timer, disable some menu entries, etc.
 }
 
 /* slot: signal shutDown() from KApplication */
@@ -188,7 +197,6 @@ TopLevel::~TopLevel()
 	delete steeping_menu;
 	delete start_menu;
 	// FIXME: must delete more (like all the QWidgets in config-window)?
-	//        (or the QPixmaps?)
 }
 
 
@@ -197,7 +205,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 {
 	if (event->button() == LeftButton) {
 		if (ready) {
-			stop();			// reset tooltip and stop animation
+			stop();                         // reset tooltip and stop animation
 		} else {
 			if (running)
 				steeping_menu->popup(QCursor::pos());
@@ -206,7 +214,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 		}
 	} else if (event->button() == RightButton)
 		menu->popup(QCursor::pos());
-//	else if (event->button() == MidButton)	// currently unused
+//	else if (event->button() == MidButton)  // currently unused
 }
 
 /** Handle paintEvent (ie. animate icon) */
@@ -236,7 +244,7 @@ void TopLevel::paintEvent(QPaintEvent *)
 		// extend mask
 		QBitmap mask = *(base.mask());
 		QPainter pm(&mask);
-		pm.setBrush(Qt::color1);                            // mask "colour"
+		pm.setBrush(Qt::color1);                            // fill with "foreground-colour"
 		pm.setPen(Qt::NoPen);                               // no border needed/wanted
 		pm.drawPie(0+1, 9+1, 11, 11, 90*16, -360*16);       // full circle of small size
 		pm.drawPie(0, 9, 13, 13, 90*16, percentDone*16);    // pie part of big size
@@ -301,11 +309,11 @@ void TopLevel::timerEvent(QTimerEvent *)
 			setToolTip(teaMessage);
 			repaint();
 		} else {
-			// timer not yet run out; just update tray-icon...
+			// timer not yet run out; just update tray-icon (if configured)...
 			if (useTrayVis) {
 				int pDone = (360 * (startSeconds - seconds)) / startSeconds;
-//				printf("seconds = %d, pDone = %d, percentDone = %d\n", seconds, pDone, percentDone);
 				if (pDone - percentDone > 8) {
+					// update icon not every second, but only if somewhat noticable
 					percentDone = pDone;
 					repaint();
 				}
@@ -330,7 +338,6 @@ void TopLevel::setToolTip(const QString &text)
 	if (lastTip == text)
 		return;
 	// don't remove Tooltip if (probably) still showing
-	// (it doesn't update then, though)
 	if (!this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
 		lastTip = text;
 		QToolTip::remove(this);
@@ -649,7 +656,6 @@ void TopLevel::config()
   listbox->addColumn(i18n("Time"));
   listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
   listbox->setSorting(-1);
-
   connect(listbox, SIGNAL(selectionChanged()), SLOT(listBoxItemSelected()));
 
   // now buttons for constructing tea-list
@@ -735,6 +741,11 @@ void TopLevel::config()
   connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
   rightside->addStretch();
 
+  // single checkbox
+  QCheckBox *visEnable = new QCheckBox(i18n("Visualize progress in icon tray"), page);
+  top_box->addWidget(visEnable, 0, 0);
+
+
   // let listbox claim all remaining vertical space
   top_box->setStretchFactor(box, 10);
 
@@ -765,6 +776,7 @@ void TopLevel::config()
   actionEnable->setChecked(useAction);
   actionEdit->setText(action);
   actionEdit->setEnabled(useAction);
+  visEnable->setChecked(useTrayVis);
 
   if (dlg->exec() == QDialog::Accepted)
   {
@@ -773,6 +785,7 @@ void TopLevel::config()
     usePopup = popupEnable->isChecked();
     useAction = actionEnable->isChecked();
     action = actionEdit->text();
+    useTrayVis = visEnable->isChecked();
 
     teas.clear();
 
@@ -804,6 +817,7 @@ void TopLevel::config()
     config->writeEntry("UseAction", useAction);
     config->writeEntry("Action", action);
     config->writeEntry("Tea", current_selected);
+    config->writeEntry("UseTrayVis", useTrayVis);
     // first get rid of all previous tea-entries from config, then write anew
     config->deleteGroup("Teas", true);          // deep remove of whole group
     config->setGroup("Teas");

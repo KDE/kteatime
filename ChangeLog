@@ -1,3 +1,8 @@
+2003-08-23  Martin Willers <willers@xm-arts.de>
+	- added option to visualize steeping progress in tray icon
+	- some work towards unified source headers
+	- bumped version number
+
 2003-08-22  Martin Willers <willers@xm-arts.de>
 	- fix ToolTip disappearing prematurely
 	(patch by "Ivan")
