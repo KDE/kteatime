@@ -57,6 +57,7 @@ private slots:
     void delButtonClicked();
     void upButtonClicked();
     void downButtonClicked();
+	void confButtonClicked();
     void enable_menuEntries();
     void disable_properties();
     void enable_properties();
@@ -84,7 +85,7 @@ private:
     QLineEdit *nameEdit, *actionEdit;
     KIntSpinBox *timeEdit;
     QGroupBox *editgroup;
-    QPushButton *btn_new, *btn_del, *btn_up, *btn_down;
+    QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
 
     QString lastTip;
 };

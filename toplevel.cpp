@@ -40,6 +40,7 @@
 #include <kpopupmenu.h>
 #include <kdialogbase.h>
 #include <kaction.h>
+#include <knotifydialog.h>
 
 #include "toplevel.h"
 #include "toplevel.moc"
@@ -238,10 +239,10 @@ void TopLevel::timerEvent(QTimerEvent *)
 //				                         "kopete_event.wav");
 			}
 			if (useAction && (!action.isEmpty())) {
-        QString cmd = action;
-        cmd.replace("%t", current_name);
+                QString cmd = action;
+                cmd.replace("%t", current_name);
 				system(QFile::encodeName(cmd));
-      }
+            }
 			if (popping)
 				KPassivePopup::message(i18n("The Tea Cooker"),
 				                       teaMessage, *teaAnim1Pixmap, this, "popup", 0);
@@ -502,6 +503,12 @@ void TopLevel::help()
 	kapp->invokeHelp();
 }
 
+/* config-slot: "configure" button clicked */
+void TopLevel::confButtonClicked()
+{
+	KNotifyDialog::configure(btn_conf);
+}
+
 
 void TopLevel::config()
 {
@@ -588,14 +595,21 @@ void TopLevel::config()
   connect(timeEdit, SIGNAL(valueChanged(const QString&)), SLOT(spinBoxValueChanged(const QString&)) );
 
   /* bottom - timeout actions */
-  QGroupBox *actiongroup = new QGroupBox(3, Vertical, i18n("Action"), page);
+  QGroupBox *actiongroup = new QGroupBox(4, Vertical, i18n("Action"), page);
   top_box->addWidget(actiongroup, 0, 0);
+
+  QWidget *actionconf_widget = new QWidget(actiongroup);
+  QBoxLayout *actionconf_hbox = new QHBoxLayout(actionconf_widget);
+  btn_conf = new QPushButton(i18n("Configure events"), actionconf_widget);
+  actionconf_hbox->addWidget(btn_conf);
+  connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
+  actionconf_hbox->addStretch(10);
 
   QHBox *actionbox = new QHBox(actiongroup);
   QCheckBox *actionEnable = new QCheckBox(actionbox);
   actionEdit = new QLineEdit(actionbox);
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
-  QToolTip::add(actionEdit, i18n("%t: Tea Sort"));
+  QToolTip::add(actionEdit, i18n("Enter command here; '%t' will be replaced with name of steeping tea"));
   connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
 
   QCheckBox *beep = new QCheckBox(i18n("Beep"), actiongroup);

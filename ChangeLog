@@ -1,3 +1,10 @@
+2003-03-14  Martin Willers <willers@xm-arts.de>
+	- added "Configure event" button for quick access to kcontrol
+	(patch provided by Daniel Teske)
+
+2003-03-07  (external)
+	- Implement place holder for tea sort like requested in #54551
+
 2003-02-23  Martin Willers <willers@xm-arts.de>
 	- "beep" option now uses KNotify::event()
 	  (need own "steeping" sound now)

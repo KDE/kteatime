@@ -8,7 +8,8 @@ kteatime_SOURCES = main.cpp toplevel.cpp
 kteatime_METASOURCES = AUTO
 kteatime_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-kteatime_LDADD = $(LIB_KDEUI) 
+# LIB_KIO needed for KNotifyDialog
+kteatime_LDADD = $(LIB_KDEUI) $(LIB_KIO)
 
 KDE_ICON = kteatime
 
