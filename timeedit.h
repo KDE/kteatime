@@ -14,6 +14,10 @@
 class QBoxLayout;
 
 
+/**
+ * @short   A spinbox that wraps around after reaching minValue resp. maxValue.
+ * @author  Daniel Teske
+ */
 class WrappingSpinBox : public QSpinBox
 {
 	Q_OBJECT
@@ -31,6 +35,10 @@ signals:
 };
 
 
+/**
+ * @short   A widget for entering a timeout in minutes and seconds.
+ * @author  Daniel Teske
+ */
 class TimeEdit : public QWidget
 {
 	Q_OBJECT
