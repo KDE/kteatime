@@ -3,16 +3,20 @@
   --> use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 - remember geometry of config-dialog (and its QListView!)
   (or at least: x-maximize QListView's titles)
-- display tea-menu on left-click for one-click select&start
-  (above "Cancel current" if already running)
+- somehow make double-click with left button start 'current' tea
+  without displaying start_menu?
+- add "custom time"-entry to menu -> popup small window for entering
+  "anonymous" tea-name and -time
 - try to keep valid 'current_selected' index when shuffling tea-list
 
-- somehow strip hours from KLocale::formatTime()-returned string
+- figure out how to use KAction for "quit"-entry of menu
+  (somehow doesn't work as intended..)
+- strip hours from KLocale::formatTime()-returned string
   in locale-respecting way
-- beep() shouldn't use "special event" from "KDE system notifications",
-  but define some own event? (and use own "steeping"-sample?)
 - some more tidying of configure-dialog
   (eg. initial position!, initial size)
+- beep() shouldn't use "special event" from "KDE system notifications",
+  but define some own event? (and use own "steeping"-sample?)
 - DCOP interface?
 - have a closer look at i18n-dos and -donts
 - use KAction for enable/disable widgets?
@@ -32,4 +36,3 @@
   - Allow periodical timouts (eg. "Take this medication every 2 hours")
     (if not clicked away, add count to window)
 --> better start new application and let people migrate to it from KTeaTime
-

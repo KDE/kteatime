@@ -42,12 +42,13 @@ protected:
 private slots:
 
     void teaSelected(int index);
+    void teaStartSelected(int index);
     void start();
     void stop();
     void config();
     void help();
     void setToolTip(const QString &text);
-    void rebuildTeaMenu();
+    void rebuildTeaMenus();
 
     void listBoxItemSelected();
     void nameEditTextChanged(const QString& newText);
@@ -78,7 +79,7 @@ private:
     QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
 
 	KAction *startAct, *stopAct, *confAct;
-    QPopupMenu *menu, *steeping_menu;
+    QPopupMenu *menu, *steeping_menu, *start_menu;
     QListView *listbox;
     QLineEdit *nameEdit, *actionEdit;
     KIntSpinBox *timeEdit;

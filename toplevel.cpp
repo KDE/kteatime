@@ -4,7 +4,10 @@
 
    (C) 1998-1999 by Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
 
-       Some additions by Martin Willers <willers@xm-arts.de>, 2002
+   Some additions by Martin Willers <willers@xm-arts.de>, 2002,2003
+
+   With contributions from Daniel Teske <teske@bigfoot.com>, and
+   Jackson Dunstan <jdunstan@digipen.edu>
 
  ------------------------------------------------------------- */
 
@@ -37,12 +40,14 @@
 #include <kpopupmenu.h>
 #include <kdialogbase.h>
 #include <kaction.h>
+
 #include "toplevel.h"
 #include "toplevel.moc"
 
+
 TopLevel::TopLevel() : KSystemTray()
 {
-	setBackgroundMode(X11ParentRelative);
+	setBackgroundMode(X11ParentRelative);   // what for?
 	QString n, key;
 	unsigned int num;
 
@@ -62,7 +67,7 @@ TopLevel::TopLevel() : KSystemTray()
 			times[index-1] = config->readEntry(key, NULL);
   			key.sprintf("Tea%d Name", index);
 			teas[index-1] = config->readEntry(key, NULL);
-			// FIXME: check for non-existent!
+			// FIXME: check for non-existence!
   		}
 		config->setGroup("General");
 	} else {
@@ -81,22 +86,28 @@ TopLevel::TopLevel() : KSystemTray()
 		}
 	}
 	current_selected = config->readNumEntry("Tea", 0);
-	// sanity-check for this is done on rebuildTeaMenu()
+	// sanity-check for this is done on rebuildTeaMenus()
 
 
 	startAct = new KAction("&Start", "1rightarrow", 0,
-	                                this, SLOT(start()), actionCollection(), "start");
+	                       this, SLOT(start()), actionCollection(), "start");
 	stopAct = new KAction("Sto&p", "cancel", 0,
-	                               this, SLOT(stop()), actionCollection(), "stop");
+	                      this, SLOT(stop()), actionCollection(), "stop");
 	confAct = new KAction("&Configure...", "configure", 0,
-	                               this, SLOT(config()), actionCollection(), "configure");
+	                      this, SLOT(config()), actionCollection(), "configure");
+//	KAction *quitAct = actionCollection()->action("file_quit");
 
-	// create app menu
+	// create app menu (displayed on right-click)
 	menu = new QPopupMenu();
 	menu->setCheckable(true);
 	connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
-	rebuildTeaMenu();		// populate top of menu with tea-entries from config
+	// this menu will be displayed when no tea is steeping, and left mouse button is clicked
+	start_menu = new QPopupMenu();
+	start_menu->setCheckable(true);
+	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
+
+	rebuildTeaMenus();		// populate tops of menus with tea-entries from config
 
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
 	KPopupMenu* helpMnu = help->menu();
@@ -108,11 +119,18 @@ TopLevel::TopLevel() : KSystemTray()
 	confAct->plug(menu);
 	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
+//	quitAct->plug(menu);    // FIXME: this doesn't seem to work with above definition of quitAct?
+	                        //        (need special 'quit'-method?)
 
+	// this menu will be displayed when a tea is steeping, and left mouse button is clicked
 	steeping_menu = new QPopupMenu();
 //	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &cancel current"), this, SLOT(stop()));
 	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
 
+//	start_menu->insertSeparator();
+//	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
+
+	// read remaining entries from config-file
 	beeping = config->readBoolEntry("Beep", true);
 	popping = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
@@ -136,6 +154,7 @@ void TopLevel::queryExit()
 */
 
 
+/** Destructor */
 TopLevel::~TopLevel()
 {
 	delete menu;
@@ -144,10 +163,13 @@ TopLevel::~TopLevel()
 	delete teaAnim1Pixmap;
 	delete teaAnim2Pixmap;
 	delete steeping_menu;
+	delete start_menu;
 	// FIXME: must delete more (like all the QWidgets in config-window)?
+	//        (or the QPixmaps?)
 }
 
 
+/** Handle mousePressEvent */
 void TopLevel::mousePressEvent(QMouseEvent *event)
 {
 	if (event->button() == LeftButton) {
@@ -156,8 +178,8 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 		} else {
 			if (running)
 				steeping_menu->popup(QCursor::pos());
-			else if (!running)
-				start();
+			else
+				start_menu->popup(QCursor::pos());
 		}
 	} else if (event->button() == RightButton)
 		menu->popup(QCursor::pos());
@@ -165,6 +187,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 }
 
 
+/** Handle paintEvent (ie. animate icon if tea is finished) */
 void TopLevel::paintEvent(QPaintEvent *)
 {
 	QPixmap *pm;
@@ -189,12 +212,15 @@ void TopLevel::paintEvent(QPaintEvent *)
 }
 
 
+/** Check timer and initiate appropriate action if finished */
 void TopLevel::timerEvent(QTimerEvent *)
 {
 	if (running) {
+		// a tea is steeping; must count down
 		seconds--;
 
 		if (seconds <= 0) {
+			// timer has run out; notify user
 			running = false;
 			ready = true;
 			enable_menuEntries();
@@ -212,6 +238,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			setToolTip(teaMessage);
 			repaint();
 		} else {
+			// timer not yet run out; just update Tooltip appropriately
 			QString min;
 			// use real time-string "mm:ss" (according to locale!) for displaying remaining time
 			int h = (seconds / 3600);
@@ -223,6 +250,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
 		}
 	} else {
+		// no tea is steeping; just animate icon
 		if (ready) {
 			firstFrame = !firstFrame;
 			repaint();
@@ -230,6 +258,8 @@ void TopLevel::timerEvent(QTimerEvent *)
 	}
 }
 
+
+/** update ToolTip */
 void TopLevel::setToolTip(const QString &text)
 {
 	if (lastTip == text)
@@ -239,16 +269,21 @@ void TopLevel::setToolTip(const QString &text)
 	QToolTip::add(this, text);
 }
 
-void TopLevel::rebuildTeaMenu() {
-	// first remove all current tea-entries from menu, these can be identified by their positive id
-	while (menu->idAt(0) >= 0)
-		menu->removeItemAt(0);
 
-	// now add new tea-entries to top of menu
+/** add all configured teas to both menus */
+void TopLevel::rebuildTeaMenus() {
+	// first remove all current tea-entries from menus; these can be identified by their positive id
+	while (menu->idAt(0) >= 0)
+		menu->removeItemAt(0);          // remove from right-click menu
+	while (start_menu->idAt(0) >= 0)
+		start_menu->removeItemAt(0);    // remove from left-click menu
+
+	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
 	QValueVector<QString>::ConstIterator ti = times.begin();
-	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++) {
+	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++,ti++) {
+		// construct string with name and steeping time
 		QString str = *it;
 		uint total_seconds = (*ti).toUInt();
 		str.append(" (");
@@ -257,18 +292,21 @@ void TopLevel::rebuildTeaMenu() {
 		if (total_seconds % 60)
 			str.append(i18n("%1s").arg(total_seconds % 60));
 		str.append(")");
-		menu->insertItem(str, id++, index++);
-		ti++;
+
+		start_menu->insertItem(str, id, index);     // add to left-click menu
+		menu->insertItem(str, id++, index++);       // add to right-click menu
 	}
 
 	// now select 'current' tea
-	if (current_selected >= teas.count())
+	if (current_selected >= (int)teas.count())
 		current_selected = -1;
-	for (unsigned int i=0; i < teas.count(); i++)
-		menu->setItemChecked(i, i == current_selected);
+	for (unsigned int i=0; i < teas.count(); i++) {
+		menu->setItemChecked(i, (int)i == current_selected);
+		start_menu->setItemChecked(i, (int)i == current_selected);
+	}
 }
 
-/* enable/disable "start" and "stop" menu-entries according to current running-state */
+/* enable/disable menu-entries according to current running-state */
 void TopLevel::enable_menuEntries()
 {
 	for (int index=0; menu->idAt(index) >= 0; index++) {
@@ -285,13 +323,27 @@ void TopLevel::enable_menuEntries()
 void TopLevel::teaSelected(int index)
 {
 	if (index >=0 && index < (int)teas.count()) {
+		// tick new active item in +both+ menus
 		menu->setItemChecked(current_selected, false);
 		menu->setItemChecked(index, true);
+		start_menu->setItemChecked(current_selected, false);
+		start_menu->setItemChecked(index, true);
 
 		current_selected = index;
 		KConfig *config = kapp->config();
 		config->setGroup("General");
 		config->writeEntry("Tea", current_selected);
+	}
+	// all other entries of this menu have custom handlers
+}
+
+/* start_menu-slot: tea selected (and activated!) in tea-menu */
+void TopLevel::teaStartSelected(int index)
+{
+	if (index >=0 && index < (int)teas.count()) {
+		teaSelected(index);
+
+		start();
 	}
 }
 
@@ -610,7 +662,7 @@ void TopLevel::config()
         current_name = *(teas.begin());
     }
 
-    rebuildTeaMenu();
+    rebuildTeaMenus();
 
     // and store to config
     KConfig *config = kapp->config();
