@@ -1,5 +1,12 @@
 - bug: pressing "add new tea" in config-dialogue somehow corrupts one of the
   other teas and prints "New Tea" +twice+ in list
+  -> this seems to be fixed, but still:
+     1. select entry #2 (of 3)
+     2. click on "new tea"
+     --> "New Tea"-entry appears as new #1  (should appear as #2 or #3!)
+     3. click on "new tea" again
+     --> "New Tea"-entry appears where it should
+- bug(?): I haven't seen the icon being animated for a long time!
 
 - somehow strip hours from KLocale::formatTime()-returned string
   in locale-respecting way
@@ -7,8 +14,8 @@
   but define some own event? (and use own "steeping"-sample?)
 - some more tidying of configure-dialog
   (eg. initial position!, initial size, don't stretch buttons)
-- display tea-menu on left-click? maybe on middle-click?
-  (and offer "Cancel current" if already running)
+- display tea-menu on left-click for one-click select&start
+  (and offer "Cancel current" if already running -- already done)
 - try to keep valid 'current_selected' index when shuffling tea-menu
 - use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 - DCOP interface?
