@@ -307,7 +307,7 @@ void TopLevel::start()
 		repaint();
 	}
 	else
-		KMessageBox::error(this, i18n("There is no tea to start steeping."), i18n("No Tea"));
+		KMessageBox::error(this, i18n("There is no tea to begin steeping."), i18n("No Tea"));
 }
 
 /* menu-slot: "stop" selected in menu */

@@ -15,7 +15,7 @@
 
 
 static const char *description =
-	I18N_NOOP("KDE utility for making fine cup of tea");
+	I18N_NOOP("KDE utility for making a fine cup of tea");
 
 static const char *version = "v1.0.0";
 
