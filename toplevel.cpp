@@ -64,20 +64,21 @@ TopLevel::TopLevel() : KSystemTray()
   			key.sprintf("Tea%d Name", index);
 			teas.append(config->readEntry(key, NULL));
   		}
+		config->setGroup("General");
 	} else {
 		// either old-style config or first start, so provide some sensible defaults
 		teas.append(i18n("Black Tea")); n.setNum(180); times.append(n);
 		teas.append(i18n("Earl Grey")); n.setNum(300); times.append(n);
 		teas.append(i18n("Fruit Tea")); n.setNum(480); times.append(n);
+		// switch back to old-style default group
+		config->setGroup(NULL);
 		// look for old-style "UserTea"-entry and add that one also
-		config->setGroup(NULL);			// switch back to old-style default group first
 		if (config->hasKey("UserTea")) {
 			num = config->readNumEntry("UserTea", 150);
 			n = i18n("Other Tea");
 			teas.append(n); n.setNum(num); times.append(n);
 		}
 	}
-	config->setGroup("General");
 	current_selected = config->readNumEntry("Tea", 0);
 	// sanity-check for this is done on rebuildTeaMenu()
 
@@ -190,8 +191,8 @@ void TopLevel::timerEvent(QTimerEvent *)
 			if (!action.isEmpty())
 				system(QFile::encodeName(action));
 			if (popping)
-				KMessageBox::information(0, i18n("The tea is now ready!"));
-			setToolTip(i18n("The tea is now ready!"));
+				KMessageBox::information(0, i18n("The %1 is now ready!").arg(current_name));
+			setToolTip(i18n("The %1 is now ready!").arg(current_name));
 			repaint();
 		} else {
 			QString min;
@@ -305,9 +306,9 @@ void TopLevel::stop()
 }
 
 
-/*
- * Configure-window handling
- */
+//
+// Configure-window handling
+//
 
 
 /* enable/disable buttons for editing listbox */
@@ -442,9 +443,8 @@ void TopLevel::help()
 void TopLevel::config()
 {
   KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure The Tea Cooker"),
-                                     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
-                                     KDialogBase::Ok,
-                                     this, "config", true);
+				     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
+				     KDialogBase::Ok, this, "config", true);
   QWidget *page = dlg->plainPage();
   // FIXME: enforce sensible initial/default size of dialog
   // FIXME: modal is ok, but can avoid always-on-top?

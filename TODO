@@ -1,16 +1,17 @@
 
-- beep() shouldn't use "special event" from "KDE system notifications",
-  but define some own event? (and use own sample?)
 - somehow strip hours from KLocale::formatTime()-returned string
   in locale-respecting way
 - display times in Menu nicer (same as in tooltip!)
+
+- beep() shouldn't use "special event" from "KDE system notifications",
+  but define some own event? (and use own sample?)
 - maybe use 2-column QListBox in config-window to display time next to name?
 - some more tidying of configure-dialog
   (eg. initial position!, initial size, don't stretch buttons)
-- use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 - display tea-menu on left-click? maybe on middle-click?
   (and offer "just cancel current" if already running)
 - try to keep valid 'current_selected' index when shuffling tea-menu
+- use QMovie for tea_is_finished-icon instead of two alternating pixmaps?
 - DCOP interface?
 - have a closer look at i18n-dos and -donts
 - use KAction for enable/disable widgets?
