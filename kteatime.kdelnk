@@ -1,0 +1,10 @@
+# KDE Config File 
+[KDE Desktop Entry]
+Name=The Tea Cooker
+Name[de]=Der Tee-Kocher
+Exec=kteatime
+Icon=kteatime.xpm
+Type=Application
+Comment=
+Terminal=0
+MiniIcon=kteatime.xpm
