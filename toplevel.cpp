@@ -110,6 +110,8 @@ TopLevel::TopLevel() : KSystemTray()
 	                      this, SLOT(stop()), actionCollection(), "stop");
 	confAct = new KAction("&Configure...", "configure", 0,
 	                      this, SLOT(config()), actionCollection(), "configure");
+	anonAct = new KAction("&Anonymous...", 0, 0,
+	                      this, SLOT(anonymous()), actionCollection(), "anonymous");
 //	KAction *quitAct = actionCollection()->action("file_quit");
 
 	// create app menu (displayed on right-click)
@@ -127,7 +129,11 @@ TopLevel::TopLevel() : KSystemTray()
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
 	KPopupMenu* helpMnu = help->menu();
 
+	start_menu->insertSeparator();
+	anonAct->plug(start_menu);
+
 	menu->insertSeparator();
+	anonAct->plug(menu);
 	startAct->plug(menu);
 	stopAct->plug(menu);
 	menu->insertSeparator();
@@ -239,6 +245,12 @@ void TopLevel::timerEvent(QTimerEvent *)
 			running = false;
 			ready = true;
 			enable_menuEntries();
+			if (shooting) {
+				// re-check current tea
+				shooting = false;
+				if (!listempty)
+					menu->setItemChecked(current_selected, true);
+			}
 
 			QString teaMessage = i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
@@ -328,6 +340,7 @@ void TopLevel::enable_menuEntries()
 	startAct->setEnabled(!running);     // "start" entry
 	stopAct->setEnabled(running);       // "stop" entry
 	confAct->setEnabled(!running);      // "configuration" entry
+	anonAct->setEnabled(!running);      // "anonymous" entry
 }
 
 /* menu-slot: tea selected in tea-menu */
@@ -360,8 +373,11 @@ void TopLevel::teaStartSelected(int index)
 void TopLevel::start()
 {
 	if (!listempty > 0) {
-		current_name = teas[current_selected].name;     // remember name of current tea
-		seconds = teas[current_selected].time;          // initialize time for current tea
+		if (!shooting) {
+			current_name = teas[current_selected].name;     // remember name of current tea
+			seconds = teas[current_selected].time;          // initialize time for current tea
+		}
+		// else both are already defined by dialog handler
 
 		killTimers();
 		startTimer(1000);                               // 1000ms = 1s (sufficient resolution)
@@ -384,10 +400,52 @@ void TopLevel::stop()
 	running = false;
 	ready = false;
 	enable_menuEntries();                               // disable "top", enable "start"
+	if (shooting) {
+		// re-check current tea
+		shooting = false;
+		if (!listempty)
+			menu->setItemChecked(current_selected, true);
+	}
 
 	setToolTip(i18n("The Tea Cooker"));
 	repaint();
 }
+
+/* open dialog to start an 'anonymous' tea */
+void TopLevel::anonymous()
+{
+	KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Anonymous Tea"),
+	                                   KDialogBase::Ok | KDialogBase::Cancel,
+	                                   KDialogBase::Ok, this, "anonymous", true);
+	QWidget *page = dlg->plainPage();
+	QBoxLayout *top_box = new QVBoxLayout(page);
+	QBoxLayout *prop_box = new QHBoxLayout(top_box);
+	QVBox *propleft = new QVBox(page);
+	prop_box->addWidget(propleft);
+	QVBox *propright = new QVBox(page);
+	prop_box->addWidget(propright);
+
+	TimeEdit *time = new TimeEdit(propright);
+	time->setFixedHeight(time->sizeHint().height());
+	time->setValue(3*60);                       // 3min default
+	                                            // FIXME: save this default to config?
+	QLabel *l = new QLabel(time, i18n("Tea time:"), propleft);
+	l->setFixedSize(l->sizeHint());
+
+	top_box->addStretch();
+
+	time->setFocus();
+
+	if (dlg->exec() == QDialog::Accepted) {
+		shooting = true;
+		if (!listempty)
+			menu->setItemChecked(current_selected, false);  // no item is to be checked
+		current_name = i18n("tea");                         // some generic tea name
+		seconds = time->value();
+		start();
+	}
+}
+
 
 
 

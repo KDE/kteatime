@@ -48,6 +48,7 @@ private slots:
 	void stop();
 	void config();
 	void help();
+	void anonymous();
 	void setToolTip(const QString &text);
 	void rebuildTeaMenus();
 
@@ -79,13 +80,14 @@ private:
 	unsigned current_selected;          // index of currently +selected+ tea in menu
 	QListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
 	QString current_name;               // name of currently +running+ tea (if any)
+	bool shooting;                      // anonymous tea currently steeping?
 
 	bool beeping, popping, useAction;
 	QString action;
 
 	QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
 
-	KAction *startAct, *stopAct, *confAct;
+	KAction *startAct, *stopAct, *confAct, *anonAct;
 	QPopupMenu *menu, *steeping_menu, *start_menu;
 	QListView *listbox;
 	QLineEdit *nameEdit, *actionEdit;
