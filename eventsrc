@@ -1,6 +1,7 @@
 [!Global!]
 IconName=kteatime
 Comment=The KDE Tea Cooker
+Comment[bg]=Програма за приготвяне на чай
 Comment[cs]=Samovar pro KDE
 Comment[da]=KDE's tekoger
 Comment[hu]=KDE teafőző
@@ -12,6 +13,7 @@ Comment[wa]=Li fjheu di té di KDE
 
 [tea]
 Name=Tea is ready
+Name[bg]=Чаят е готов
 Name[cs]=Čaj je připraven
 Name[da]=Teen er klar
 Name[hu]=Kész a tea!
@@ -21,6 +23,7 @@ Name[sv]=Teet är klart
 Name[tr]=Çay hazır
 Name[wa]=Li té est presse
 Comment=Tea is ready
+Comment[bg]=Чаят е готов
 Comment[cs]=Čaj je připraven
 Comment[da]=Teen er klar
 Comment[hu]=Kész a tea!
