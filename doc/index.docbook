@@ -1,9 +1,9 @@
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
  <!ENTITY kappname "&kteatime;">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE">
- <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
- %ents;
+ 
+ 
 ]>
 
 <book lang="&language;">
@@ -127,7 +127,7 @@ below:</para>
 <screenshot>
 <screeninfo>The &kteatime; configuration dialog box.</screeninfo>
 <mediaobject>
-<imageobject><imagedata fileref="config.png" format="PNG"></imageobject>
+<imageobject><imagedata fileref="config.png" format="PNG"/></imageobject>
 <textobject><phrase>The &kteatime; configuration dialog
 box.</phrase></textobject>
 </mediaobject>
@@ -206,3 +206,4 @@ sgml-minimize-attributes: nil
 sgml-general-insert-case: lower
 End:
 -->
+
