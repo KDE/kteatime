@@ -10,13 +10,22 @@
 #include <ktmainwindow.h>
 #include <kwm.h>
 #include <kapp.h>
+#include <klocale.h>
+#include <kcmdlineargs.h>
 
 #include "toplevel.h"
 
 
+static const char *description = 
+	I18N_NOOP("KDE utility for making fine cup of tea");
+
+static const char *version = "v0.0.1";
+
 int main(int argc, char *argv[])
 {
-  KApplication app(argc, argv, "kteatime");
+  KCmdLineArgs::init(argc, argv, "kteatime", description, version);
+
+  KApplication app;
 
   TopLevel *toplevel=0;
 
