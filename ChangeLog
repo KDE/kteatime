@@ -1,6 +1,7 @@
 2003-04-10  Martin Willers <willers@xm-arts.de>
 	- have now proper wrapping time-edit widget
 	- added facility to start steeping an 'anonymous' tea
+	- using new KDE 3.1.1 method for positioning KNotifyClient
 	(based on patches provided by Daniel Teske)
 
 2003-03-14  Martin Willers <willers@xm-arts.de>

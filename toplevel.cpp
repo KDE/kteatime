@@ -152,8 +152,8 @@ TopLevel::TopLevel() : KSystemTray()
 //	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
 
 	// read remaining entries from config-file
-	beeping = config->readBoolEntry("Beep", true);
-	popping = config->readBoolEntry("Popup", true);
+	useNotify = config->readBoolEntry("Beep", true);    // "Beep" should really be named "Notify"
+	usePopup = config->readBoolEntry("Popup", true);
 	useAction = config->readBoolEntry("UseAction", true);
 	action = config->readEntry("Action");
 
@@ -254,22 +254,15 @@ void TopLevel::timerEvent(QTimerEvent *)
 
 			QString teaMessage = i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
-			if (beeping) {
-//				KNotifyClient::beep();          // this doesn't seem to work?!
-				KNotifyClient::event("tea");
-
-				// maybe use this instead (do I really need my own 'eventsrc' file?)
-//				KNotifyClient::userEvent("Tea is ready",
-//				                         KNotifyClient::Sound,
-//				                         KNotifyClient::Notification,
-//				                         "kopete_event.wav");
+			if (useNotify) {
+				KNotifyClient::event(winId(), "tea", teaMessage);
 			}
 			if (useAction && (!action.isEmpty())) {
-                QString cmd = action;
-                cmd.replace("%t", current_name);
+				QString cmd = action;
+				cmd.replace("%t", current_name);
 				system(QFile::encodeName(cmd));
-            }
-			if (popping)
+			}
+			if (usePopup)
 				KPassivePopup::message(i18n("The Tea Cooker"),
 				                       teaMessage, *teaAnim1Pixmap, this, "popup", 0);
 				// FIXME: does auto-deletion work without timeout?
@@ -663,10 +656,10 @@ void TopLevel::config()
   connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
   actionconf_hbox->addStretch(10);
 
-  QCheckBox *beep = new QCheckBox(i18n("Event"), actiongroup);
-  QCheckBox *popup = new QCheckBox(i18n("Permanent Popup"), actiongroup);
-  beep->setFixedHeight(beep->sizeHint().height());
-  popup->setFixedHeight(popup->sizeHint().height());
+  QCheckBox *eventEnable = new QCheckBox(i18n("Event"), actiongroup);
+  QCheckBox *popupEnable = new QCheckBox(i18n("Permanent Popup"), actiongroup);
+  eventEnable->setFixedHeight(eventEnable->sizeHint().height());
+  popupEnable->setFixedHeight(popupEnable->sizeHint().height());
 
   QHBox *actionbox = new QHBox(actiongroup);
   QCheckBox *actionEnable = new QCheckBox(actionbox);
@@ -703,8 +696,8 @@ void TopLevel::config()
 
   // -------------------------
 
-  beep->setChecked(beeping);
-  popup->setChecked(popping);
+  eventEnable->setChecked(useNotify);
+  popupEnable->setChecked(usePopup);
   actionEnable->setChecked(useAction);
   actionEdit->setText(action);
   actionEdit->setEnabled(useAction);
@@ -712,8 +705,8 @@ void TopLevel::config()
   if (dlg->exec() == QDialog::Accepted)
   {
     // activate new settings
-    beeping = beep->isChecked();
-    popping = popup->isChecked();
+    useNotify = eventEnable->isChecked();
+    usePopup = popupEnable->isChecked();
     useAction = actionEnable->isChecked();
     action = actionEdit->text();
 
@@ -742,8 +735,8 @@ void TopLevel::config()
       config->deleteEntry("UserTea");
 
     config->setGroup("General");
-    config->writeEntry("Beep", beeping);
-    config->writeEntry("Popup", popping);
+    config->writeEntry("Beep", useNotify);
+    config->writeEntry("Popup", usePopup);
     config->writeEntry("UseAction", useAction);
     config->writeEntry("Action", action);
     config->writeEntry("Tea", current_selected);

@@ -82,7 +82,7 @@ private:
 	QString current_name;               // name of currently +running+ tea (if any)
 	bool shooting;                      // anonymous tea currently steeping?
 
-	bool beeping, popping, useAction;
+	bool useNotify, usePopup, useAction;
 	QString action;
 
 	QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
