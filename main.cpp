@@ -25,6 +25,7 @@
  */
 
 #include <kwin.h>
+#include <kstartupinfo.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
@@ -53,7 +54,7 @@ int main(int argc, char *argv[])
   toplevel.show();
 
   app.setTopWidget(&toplevel);
-  KWin::appStarted();
+  KStartupInfo::appStarted();
 
   return app.exec();
 }
