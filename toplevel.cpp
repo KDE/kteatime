@@ -6,31 +6,31 @@
 
  ------------------------------------------------------------- */
 
+#include <qcheckbox.h>
+#include <qdialog.h>
+#include <qframe.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qlined.h>
+#include <qmenudata.h>
+#include <qpainter.h>
+#include <qpopupmenu.h>
+#include <qpushbutton.h>
+#include <qspinbox.h>
+#include <qtooltip.h>
+
+#include <kconfig.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kmessagebox.h>
+#include <kwm.h>
 
 #include "toplevel.h"
-#include <qpainter.h>
-#include <qmenudata.h>
-#include "kiconloader.h"
-#include <kconfig.h>
-#include <qtooltip.h>
-#include <qdialog.h>
-#include <qpushbutton.h>
-#include <qcheckbox.h>
-#include <qlined.h>
-#include <qspinbox.h>
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qframe.h>
-#include <qmessagebox.h>
-#include <klocale.h>
-#include <kwm.h>
-#include <qpopupmenu.h>
 
 #include "mug.xpm"
 #include "bag.xpm"
 #include "tea1.xpm"
 #include "tea2.xpm"
-
 
 TopLevel::TopLevel() 
   : KTMainWindow()
@@ -180,7 +180,7 @@ void TopLevel::timerEvent(QTimerEvent *)
       if (!action.isEmpty())
         system(action.data());
       if (popping)
-        QMessageBox::information(0,i18n("The Tea Cooker"),i18n("The tea is now ready!"), i18n("OK"));
+        KMessageBox::information(0, i18n("The tea is now ready!"));
 
       repaint();
     }
