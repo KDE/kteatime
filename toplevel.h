@@ -71,8 +71,9 @@ private:
     bool running, ready, firstFrame;
     int seconds;                        // variable for counting down seconds
 
-	int current_selected;               // index of currently +selected+ tea in menu
-    QString current_name;               // name of currently +running+ tea
+	unsigned current_selected;          // index of currently +selected+ tea in menu
+	QListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
+    QString current_name;               // name of currently +running+ tea (if any)
 
     bool beeping, popping, useAction;
     QString action;

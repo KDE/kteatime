@@ -87,7 +87,8 @@ TopLevel::TopLevel() : KSystemTray()
 		}
 	}
 	current_selected = config->readNumEntry("Tea", 0);
-	// sanity-check for this is done on rebuildTeaMenus()
+	if (current_selected >= teas.count())
+		current_selected = 0;
 
 
 	startAct = new KAction("&Start", "1rightarrow", 0,
@@ -293,11 +294,10 @@ void TopLevel::rebuildTeaMenus() {
 	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
-	QValueVector<QString>::ConstIterator ti = times.begin();
-	for (QValueVector<QString>::ConstIterator it = teas.begin(); it != teas.end(); it++,ti++) {
+	for (unsigned i=0; i<teas.count(); i++) {
 		// construct string with name and steeping time
-		QString str = *it;
-		uint total_seconds = (*ti).toUInt();
+		QString str = teas[i];
+		uint total_seconds = times[i].toUInt();
 		str.append(" (");
 		if (total_seconds / 60)
 			str.append(i18n("%1min").arg(total_seconds / 60));
@@ -310,10 +310,9 @@ void TopLevel::rebuildTeaMenus() {
 	}
 
 	// now select 'current' tea
-	if (current_selected >= (int)teas.count())
-		current_selected = -1;
-	for (unsigned int i=0; i < teas.count(); i++)
-		menu->setItemChecked(i, (int)i == current_selected);
+	if (teas.count() > 0)
+		menu->setItemChecked(current_selected, true);   // all others aren't checked,
+		                                                // because we just added them
 }
 
 /* enable/disable menu-entries according to current running-state */
@@ -332,8 +331,8 @@ void TopLevel::enable_menuEntries()
 /* menu-slot: tea selected in tea-menu */
 void TopLevel::teaSelected(int index)
 {
-	if (index >=0 && index < (int)teas.count()) {
-		// tick new active item in +both+ menus
+	if (index >=0 && (unsigned int)index < teas.count()) {
+		// tick new active item in menu
 		menu->setItemChecked(current_selected, false);
 		menu->setItemChecked(index, true);
 
@@ -348,7 +347,7 @@ void TopLevel::teaSelected(int index)
 /* start_menu-slot: tea selected (and activated!) in tea-menu */
 void TopLevel::teaStartSelected(int index)
 {
-	if (index >=0 && index < (int)teas.count()) {
+	if (index >=0 && (unsigned int)index < teas.count()) {
 		teaSelected(index);
 
 		start();
@@ -358,13 +357,12 @@ void TopLevel::teaStartSelected(int index)
 /* menu-slot: "start" selected in menu */
 void TopLevel::start()
 {
-	if (current_selected >= 0)
-	{
+	if (teas.count() > 0) {
 		current_name = teas[current_selected];          // remember name of current tea
 		seconds = times[current_selected].toInt();      // initialize time for current tea
 
 		killTimers();
-		startTimer(1000);
+		startTimer(1000);                               // 1000ms = 1s (sufficient resolution)
 
 		running = true;
 		ready = false;
@@ -404,9 +402,8 @@ void TopLevel::enable_controls() {
 	btn_del->setEnabled(haveSelection);
 	btn_up->setEnabled(haveSelection && !amFirst);
 	btn_down->setEnabled(haveSelection && !amLast);
-	if (haveSelection) {
+	if (haveSelection)
 		listbox->ensureItemVisible(listbox->currentItem());
-	}
 }
 
 /* disable right side of configure-window */
@@ -421,8 +418,7 @@ void TopLevel::enable_properties() {
 
 /* config-slot: item in tea-list selected */
 void TopLevel::listBoxItemSelected() {
-	if (listbox->currentItem())
-	{
+	if (listbox->currentItem()) {
 		// item selected, display its properties on right side
 		nameEdit->setText(listbox->currentItem()->text(0));
 		timeEdit->setValue(listbox->currentItem()->text(1).toInt());
@@ -453,15 +449,19 @@ void TopLevel::newButtonClicked() {
 
 	nameEdit->setFocus();
 
-	if (listbox->childCount() == 1)
+	if (listbox->childCount() == 1) {
 		enable_properties();
+		current_item = item;
+	}
 	enable_controls();
 }
 
 /* config-slot: "delete" button clicked */
 void TopLevel::delButtonClicked() {
-	if (listbox->currentItem())
-	{
+	if (listbox->currentItem()) {
+		if (listbox->currentItem() == current_item)
+			current_item = listbox->firstChild();
+		// FIXME: what if this was last item?
 		delete listbox->currentItem();
 
 		if (listbox->childCount() == 0)
@@ -473,7 +473,7 @@ void TopLevel::delButtonClicked() {
 
 /* config-slot: "up" button clicked */
 void TopLevel::upButtonClicked() {
-	QListViewItem* item = listbox->selectedItem();
+	QListViewItem* item = listbox->currentItem();
 
 	if (item && item->itemAbove())
 		item->itemAbove()->moveItem(item);
@@ -483,7 +483,7 @@ void TopLevel::upButtonClicked() {
 
 /* config-slot: "down" button clicked */
 void TopLevel::downButtonClicked() {
-	QListViewItem* item = listbox->selectedItem();
+	QListViewItem* item = listbox->currentItem();
 
 	if (item && item->itemBelow())
 		item->moveItem(item->itemBelow());
@@ -503,7 +503,7 @@ void TopLevel::help()
 	kapp->invokeHelp();
 }
 
-/* config-slot: "configure" button clicked */
+/* config-slot: "Configure events" button clicked */
 void TopLevel::confButtonClicked()
 {
 	KNotifyDialog::configure(btn_conf);
@@ -622,15 +622,15 @@ void TopLevel::config()
   top_box->setStretchFactor(box, 10);
 
   // now add all defined teas (and their times) to the listview
-  // this is done backwards because QListViewItems are inserted at the end
-  for (int i=teas.count()-1; i>=0; i--)
-  {
+  // this is done backwards because QListViewItems are inserted at the top
+  for (int i=teas.count()-1; i>=0; i--) {  // FIXME: use unsigned
     QListViewItem* item = new QListViewItem(listbox);
     item->setText(0, teas[i]);
     item->setText(1, times[i]);
     if (i == current_selected)
-      listbox->setSelected(item, true);
+		current_item = item;
   }
+  listbox->setSelected(listbox->firstChild(), true);
   // select first entry in listbox; if no entries present then disable right side
   if (listbox->childCount() == 0) {
     enable_controls();
@@ -660,28 +660,16 @@ void TopLevel::config()
 
     // Copy over teas and times from the QListView
     int i = 0;
-    current_name = QString::null;
-    current_selected = 0;
 	times.clear();
 	teas.clear();
 	times.resize(listbox->childCount());
 	teas.resize(listbox->childCount());
-    for (QListViewItemIterator it(listbox); it.current() != 0; it++)
-    {
+    for (QListViewItemIterator it(listbox); it.current() != 0; it++) {
       teas[i] = it.current()->text(0);
       times[i] = it.current()->text(1);
-      if (it.current()->isSelected())
-      {
+      if (it.current() == current_item)
         current_selected = i;
-        current_name = it.current()->text(0);
-      }
       i++;
-    }
-    if (current_selected == 0) {
-      if (teas.empty())
-        current_selected = -1;
-      else
-        current_name = *(teas.begin());
     }
 
     rebuildTeaMenus();
