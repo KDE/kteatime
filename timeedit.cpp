@@ -129,3 +129,9 @@ void TimeEdit::spinBoxValueChanged(int v)
 
 	emit valueChanged(this->value());
 }
+
+/** SLOT (overloading QSpinBox): set focus */
+void TimeEdit::setFocus()
+{
+	minuteBox->setFocus();
+}

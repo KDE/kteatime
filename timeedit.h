@@ -40,6 +40,8 @@ public:
 	void setValue(int value);
 	int value();
 
+public slots:
+	void setFocus();
 
 private slots:
 	void spinBoxValueChanged(int);
