@@ -5,6 +5,8 @@
    (C) 2003 by Daniel Teske (teske@bigfoot.com)
 
  ------------------------------------------------------------- */
+#ifndef _TIMEEDIT_H_
+#define _TIMEEDIT_H_
 
 #include <qspinbox.h>
 #include <qwidget.h>
@@ -57,3 +59,5 @@ protected:
 	WrappingSpinBox *secondBox;
 	QBoxLayout* layout;
 };
+
+#endif

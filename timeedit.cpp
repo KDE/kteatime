@@ -11,7 +11,7 @@
 #include <qlayout.h>
 
 #include "timeedit.h"
-
+#include "timeedit.moc"
 
 WrappingSpinBox::WrappingSpinBox(int minValue, int maxValue, int step, QWidget *parent, const char *name)
 	: QSpinBox(minValue, maxValue, step, parent, name)

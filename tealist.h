@@ -5,6 +5,8 @@
    (C) 2003 by Daniel Teske (teske@bigfoot.com)
 
  ------------------------------------------------------------- */
+#ifndef _TEALIST_H_
+#define _TEALIST_H_
 
 #include <qstring.h>
 
@@ -32,3 +34,4 @@ private:
 
 
 QString int2time(int t);
+#endif
