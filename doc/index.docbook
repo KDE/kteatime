@@ -179,7 +179,7 @@ url="http://www.kde.org">http://www.kde.org</ulink>.</para>
 </sect1>
 
 <sect1 id="compilation-and-installation">
-<title>Compilation and installation</title>
+<title>Compilation and Installation</title>
 
 <para>In order to compile and install &kteatime; on your system, type the
 following in the base directory of the kdetoys distribution:</para>
