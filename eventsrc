@@ -23,8 +23,10 @@ Comment[sr]=KDE Чајник
 Comment[sv]=KDE:s tekokare
 Comment[tr]=Çay Pişirici
 Comment[uk]=Запарювач чаю KDE
+Comment[uz]=KDE чой дамловчи
 Comment[wa]=Li fjheu di té di KDE
 Comment[xx]=xxThe KDE Tea Cookerxx
+Comment[zh_CN]=KDE 煮茶器
 
 [tea]
 Name=Tea is ready
@@ -50,8 +52,10 @@ Name[sr]=Чај је готов
 Name[sv]=Teet är klart
 Name[tr]=Çay hazır
 Name[uk]=Чай готовий
+Name[uz]=Чой таёр
 Name[wa]=Li té est presse
 Name[xx]=xxTea is readyxx
+Name[zh_CN]=茶沏好了
 Comment=Tea is ready
 Comment[bg]=Чаят е готов
 Comment[ca]=El te està fet
@@ -75,8 +79,10 @@ Comment[sr]=Чај је готов
 Comment[sv]=Teet är klart
 Comment[tr]=Çay hazır
 Comment[uk]=Чай готовий
+Comment[uz]=Чой таёр
 Comment[wa]=Li té est presse
 Comment[xx]=xxTea is readyxx
+Comment[zh_CN]=茶沏好了
 default_sound=KDE_Notify.wav
 default_presentation=1
 
