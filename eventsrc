@@ -4,7 +4,9 @@ Comment=The KDE Tea Cooker
 
 [tea]
 Name=Tea is ready
+Name[sv]=Teet är klart
 Comment=Tea is ready
+Comment[sv]=Teet är klart
 default_sound=KDE_Notify.wav
 default_presentation=1
 
