@@ -261,7 +261,7 @@ void TopLevel::config()
   box->addLayout(hbox);
   hbox->addStretch();
 
-  QPushButton *ok = new QPushButton(i18n("Ok"),dlg);
+  QPushButton *ok = new QPushButton(i18n("OK"),dlg);
   ok->setDefault(true);
   QPushButton *cancel = new QPushButton(i18n("Cancel"), dlg);
   connect(ok, SIGNAL(pressed()), dlg, SLOT(accept()));
