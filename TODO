@@ -16,5 +16,3 @@
 
 - check for memory leaks
 - make config-reading bullet-proof
-- use "bubble" for tea-ready-notification (see Kopete)
-  --> wait until available in kdelibs

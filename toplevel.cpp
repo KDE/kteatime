@@ -23,26 +23,21 @@
 #include <qpushbutton.h>
 #include <qgroupbox.h>
 #include <qheader.h>
+#include <qpixmap.h>
 
 #include <kconfig.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <kpassivepopup.h>
 #include <knotifyclient.h>
 #include <knuminput.h>
 #include <kseparator.h>
 #include <kpopupmenu.h>
+#include <kdialogbase.h>
 #include "toplevel.h"
 #include "toplevel.moc"
-#include <kdialogbase.h>
-
-#include "mug.xpm"
-#include "bag.xpm"
-#include "tea1.xpm"
-#include "tea2.xpm"
-
-
 
 TopLevel::TopLevel() : KSystemTray()
 {
@@ -109,10 +104,10 @@ TopLevel::TopLevel() : KSystemTray()
 	popping = config->readBoolEntry("Popup", true);
 	action = config->readEntry("Action");
 
-	mugPixmap = new QPixmap(mug);
-	bagPixmap = new QPixmap(bag);
-	tea1Pixmap = new QPixmap(tea1);
-	tea2Pixmap = new QPixmap(tea2);
+	mugPixmap = new QPixmap(UserIcon("mug"));
+	teaNotReadyPixmap = new QPixmap(UserIcon("tea_not_ready"));
+	teaAnim1Pixmap = new QPixmap(UserIcon("tea_anim1"));
+	teaAnim2Pixmap = new QPixmap(UserIcon("tea_anim2"));
 
 	stop();				// reset timer, disable some menu entries, etc.
 }
@@ -131,9 +126,9 @@ TopLevel::~TopLevel()
 {
 	delete menu;
 	delete mugPixmap;
-	delete bagPixmap;
-	delete tea1Pixmap;
-	delete tea2Pixmap;
+	delete teaNotReadyPixmap;
+	delete teaAnim1Pixmap;
+	delete teaAnim2Pixmap;
 	// FIXME: must delete more (like all the QWidgets in config-window)?
 }
 
@@ -160,13 +155,13 @@ void TopLevel::paintEvent(QPaintEvent *)
 	QPixmap *pm;
 
 	if (running)
-		pm = bagPixmap;
+		pm = teaNotReadyPixmap;
 	else {
 		if (ready) {
-			if (frame1)
-				pm = tea1Pixmap;
+			if (firstFrame)
+				pm = teaAnim1Pixmap;
 			else
-				pm = tea2Pixmap;
+				pm = teaAnim2Pixmap;
 		} else
 			pm = mugPixmap;
 	}
@@ -189,14 +184,17 @@ void TopLevel::timerEvent(QTimerEvent *)
 			ready = true;
 			enable_menuEntries();
 
+			QString teaMessage = 
+			    i18n("The %1 is now ready!").arg(current_name);
 			// invoke action
 			if (beeping)
 				KNotifyClient::beep();
 			if (!action.isEmpty())
 				system(QFile::encodeName(action));
 			if (popping)
-				KMessageBox::information(0, i18n("The %1 is now ready!").arg(current_name));
-			setToolTip(i18n("The %1 is now ready!").arg(current_name));
+				KPassivePopup::message(i18n("The Tea Cooker"),
+				                       teaMessage, *teaNotReadyPixmap, this);
+			setToolTip(teaMessage);
 			repaint();
 		} else {
 			QString min;
@@ -211,7 +209,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 		}
 	} else {
 		if (ready) {
-			frame1 = !frame1;
+			firstFrame = !firstFrame;
 			repaint();
 		}
 	}
@@ -219,9 +217,9 @@ void TopLevel::timerEvent(QTimerEvent *)
 
 void TopLevel::setToolTip(const QString &text)
 {
-	if (lasttip == text)
+	if (lastTip == text)
         	return;
-	lasttip = text;
+	lastTip = text;
 	QToolTip::remove(this);
 	QToolTip::add(this, text);
 }

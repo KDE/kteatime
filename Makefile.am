@@ -12,9 +12,13 @@ kteatime_LDADD = $(LIB_KDEUI)
 
 KDE_ICON = kteatime
 
+pics_DATA = mug.png tea_not_ready.png tea_anim1.png tea_anim2.png
+picsdir = $(kde_datadir)/kteatime/pics
+
 messages:
 	$(XGETTEXT) $(kteatime_SOURCES) -o $(podir)/kteatime.pot
 
 appsdir = $(kde_appsdir)/Toys
 apps_DATA = kteatime.desktop
 
+EXTRA_DIST = $(pics_DATA)

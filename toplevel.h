@@ -13,7 +13,6 @@
 #include <kapplication.h>
 #include <qpopupmenu.h>
 #include <qtimer.h>
-#include <qpixmap.h>
 #include <qlineedit.h>
 #include <qstringlist.h>
 #include <qlistview.h>
@@ -21,6 +20,8 @@
 #include <qgroupbox.h>
 #include <knuminput.h>
 #include <ksystemtray.h>
+
+class QPixmap;
 
 class TopLevel : public KSystemTray
 {
@@ -64,7 +65,7 @@ private:
 
     QStringList teas, times;		// lists of tea-names and -times
 
-    bool running, ready, frame1;
+    bool running, ready, firstFrame;
     int current_selected;		// index of currently +selected+ tea in menu
     int seconds;			// variable for counting down seconds
     QString current_name;		// name of currently +running+ tea
@@ -72,7 +73,7 @@ private:
     bool beeping, popping;
     QString action;
 
-    QPixmap *mugPixmap, *bagPixmap, *tea1Pixmap, *tea2Pixmap;
+    QPixmap *mugPixmap, *teaNotReadyPixmap, *teaAnim1Pixmap, *teaAnim2Pixmap;
 
     QPopupMenu *menu, *steeping_menu;
     QListView *listbox;
@@ -81,7 +82,7 @@ private:
     QGroupBox *editgroup;
     QPushButton *btn_new, *btn_del, *btn_up, *btn_down;
 
-    QString lasttip;
+    QString lastTip;
 };
 
 #endif
