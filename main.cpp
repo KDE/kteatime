@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
   KWM::setDockWindow(toplevel->winId());
   toplevel->show();
 
-  app.enableSessionManagement( TRUE );
   app.setTopWidget(new QWidget);
 
   return app.exec();
