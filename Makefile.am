@@ -13,6 +13,8 @@ kteatime_LDADD = $(LIB_KDEUI) $(LIB_KIO)
 
 KDE_ICON = kteatime
 
+KDE_OPTIONS = nofinal
+
 appsdata_DATA = eventsrc
 appsdatadir = $(kde_datadir)/kteatime
 
