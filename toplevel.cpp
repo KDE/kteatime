@@ -397,7 +397,7 @@ void TopLevel::stop()
 /* enable/disable buttons for editing listbox */
 void TopLevel::enable_controls() {
 	bool amFirst = (listbox->currentItem() == listbox->firstChild());
-	bool amLast = (listbox->currentItem() == listbox->lastItem());
+	bool amLast = (!listbox->currentItem()->itemBelow());   // itemBelow() returns returns NULL if last
 	bool haveSelection = (listbox->currentItem() != 0);
 
 	btn_del->setEnabled(haveSelection);
