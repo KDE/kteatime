@@ -7,7 +7,7 @@
  ------------------------------------------------------------- */
 
 
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 #include <kwm.h>
 #include <kapp.h>
 
