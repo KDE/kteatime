@@ -30,6 +30,7 @@
 #include <kwin.h>
 
 #include "toplevel.h"
+#include <kdialogbase.h>
 
 #include "mug.xpm"
 #include "bag.xpm"
@@ -214,34 +215,35 @@ void TopLevel::teaSelected(int index)
 
 void TopLevel::config()
 {
-  QDialog *dlg = new QDialog(this, "", true);
-  dlg->setCaption(i18n("Configure The Tea Cooker"));
-  dlg->resize(320,180);
+  KDialogBase *dlg = new KDialogBase(KDialogBase::Plain, i18n("Configure The Tea Cooker"),
+                                     KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
+                                     KDialogBase::Ok,
+                                     this, "config", true);
 
-  QVBoxLayout *box = new QVBoxLayout(dlg,4,8);
+  QVBoxLayout *box = new QVBoxLayout(dlg->plainPage(),4,8);
 
   QGridLayout *grid = new QGridLayout(5,2);
   box->addLayout(grid);
 
-  QSpinBox *spin = new QSpinBox(1,10000,10,dlg);
+  QSpinBox *spin = new QSpinBox(1,10000,10,dlg->plainPage());
   spin->setFixedHeight(spin->sizeHint().height());
 
-  QLabel *l = new QLabel(spin, i18n("Your Tea Time (s):"), dlg);
+  QLabel *l = new QLabel(spin, i18n("Your Tea Time (s):"), dlg->plainPage());
   l->setFixedSize(l->sizeHint());
 
   grid->addWidget(l,0,0);
   grid->addWidget(spin,0,1);
 
-  QLineEdit *actionEdit = new QLineEdit(dlg);
-  l = new QLabel(actionEdit, i18n("Action:"), dlg);
+  QLineEdit *actionEdit = new QLineEdit(dlg->plainPage());
+  l = new QLabel(actionEdit, i18n("Action:"), dlg->plainPage());
   l->setMinimumSize(l->sizeHint());
   actionEdit->setFixedHeight(actionEdit->sizeHint().height());
 
   grid->addWidget(l,1,0);
   grid->addWidget(actionEdit,1,1);
 
-  QCheckBox *beep = new QCheckBox(i18n("Beep"), dlg);
-  QCheckBox *popup = new QCheckBox(i18n("Popup"), dlg);
+  QCheckBox *beep = new QCheckBox(i18n("Beep"), dlg->plainPage());
+  QCheckBox *popup = new QCheckBox(i18n("Popup"), dlg->plainPage());
   beep->setFixedHeight(beep->sizeHint().height());
   popup->setFixedHeight(popup->sizeHint().height());
 
@@ -250,27 +252,12 @@ void TopLevel::config()
 
   grid->setRowStretch(4,1);
 
-  QFrame *f = new QFrame(dlg);
+  QFrame *f = new QFrame(dlg->plainPage());
   f->setFrameStyle(QFrame::HLine | QFrame::Raised);
   box->addStretch(1);
   box->addWidget(f);
 
-  QHBoxLayout *hbox = new QHBoxLayout();
-  box->addLayout(hbox);
-  hbox->addStretch();
-
-  QPushButton *ok = new QPushButton(i18n("OK"),dlg);
-  ok->setDefault(true);
-  QPushButton *cancel = new QPushButton(i18n("Cancel"), dlg);
-  connect(ok, SIGNAL(pressed()), dlg, SLOT(accept()));
-  connect(cancel, SIGNAL(pressed()), dlg, SLOT(reject()));
-  ok->setFixedSize(ok->sizeHint());
-  cancel->setFixedSize(cancel->sizeHint());
-
-  hbox->addWidget(ok);
-  hbox->addWidget(cancel);
-
-  box->activate();
+  connect(dlg, SIGNAL(helpClicked()), SLOT(help()));
 
   // -------------------------
 
@@ -307,4 +294,9 @@ void TopLevel::config()
     config->writeEntry("Action",action);
 
   }
+}
+
+void TopLevel::help()
+{
+    kapp->invokeHelp();
 }

@@ -36,6 +36,7 @@ private slots:
   void teaSelected(int index);
   void start();
   void config();
+  void help();
 
 private:
 
