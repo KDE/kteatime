@@ -1,11 +1,14 @@
 [!Global!]
 IconName=kteatime
 Comment=The KDE Tea Cooker
+Comment[hu]=KDE teafőző
 
 [tea]
 Name=Tea is ready
+Name[hu]=Kész a tea!
 Name[sv]=Teet är klart
 Comment=Tea is ready
+Comment[hu]=Kész a tea!
 Comment[sv]=Teet är klart
 default_sound=KDE_Notify.wav
 default_presentation=1
