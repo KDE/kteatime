@@ -7,7 +7,7 @@
  ------------------------------------------------------------- */
 
 #include <klocale.h>
-#include <qlistview.h>
+#include <q3listview.h>
 #include "tealist.h"
 
 
@@ -22,14 +22,14 @@ QString int2time(int time)
 }
 
 
-TeaListItem::TeaListItem(QListView * parent)
-    :QListViewItem(parent)
+TeaListItem::TeaListItem(Q3ListView * parent)
+    :Q3ListViewItem(parent)
 {
 
 }
 
-TeaListItem::TeaListItem(QListView * parent, QListViewItem *after)
-    :QListViewItem(parent, after)
+TeaListItem::TeaListItem(Q3ListView * parent, Q3ListViewItem *after)
+    :Q3ListViewItem(parent, after)
 {
 
 }
@@ -40,14 +40,14 @@ TeaListItem::~TeaListItem()
 
 void TeaListItem::setTime(int t)
 {
-	QListViewItem::setText(1, int2time(t));
+	Q3ListViewItem::setText(1, int2time(t));
 	tim = t;
 }
 
 void TeaListItem::setName(const QString &n)
 {
 	nam = n;
-	QListViewItem::setText(0, n);
+	Q3ListViewItem::setText(0, n);
 }
 
 QString TeaListItem::name()

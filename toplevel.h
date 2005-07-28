@@ -24,13 +24,17 @@
 #define TOPLEVEL_H
 
 #include <kapplication.h>
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <qtimer.h>
 #include <qlineedit.h>
-#include <qvaluevector.h>
-#include <qlistview.h>
+#include <q3valuevector.h>
+#include <q3listview.h>
 #include <qpushbutton.h>
-#include <qgroupbox.h>
+#include <q3groupbox.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QTimerEvent>
+#include <QPaintEvent>
 #include <knuminput.h>
 #include <ksystemtray.h>
 #include <qpixmap.h>
@@ -89,15 +93,15 @@ private:
 		QString name;
 		int time;
 	};
-	QValueVector<tea_struct> teas;      // list of tea-names and times
+	Q3ValueVector<tea_struct> teas;      // list of tea-names and times
 
 	bool running, ready, firstFrame, listempty;
 	int seconds;                        // variable for counting down seconds
 	int startSeconds;                   // steeping time for current tea
 	int percentDone;                    // ok, this isn't really "per 100", but "per 360"
 
-	unsigned current_selected;          // index of currently +selected+ tea in menu
-	QListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
+	int current_selected;          // index of currently +selected+ tea in menu
+	Q3ListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
 	QString current_name;               // name of currently +running+ tea (if any)
 	bool shooting;                      // anonymous tea currently steeping?
 
@@ -108,11 +112,11 @@ private:
 	QPixmap mugPixmap, teaNotReadyPixmap, teaAnim1Pixmap, teaAnim2Pixmap;
 
 	KAction *startAct, *stopAct, *confAct, *anonAct;
-	QPopupMenu *menu, *steeping_menu, *start_menu;
-	QListView *listbox;
+	Q3PopupMenu *menu, *steeping_menu, *start_menu;
+	Q3ListView *listbox;
 	QLineEdit *nameEdit, *actionEdit;
 	TimeEdit *timeEdit;
-	QGroupBox *editgroup;
+	Q3GroupBox *editgroup;
 	QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
 
 	QString lastTip;

@@ -10,16 +10,16 @@
 
 #include <qstring.h>
 
-class QListView;
-class QListViewItem;
+class Q3ListView;
+class Q3ListViewItem;
 
 
-class TeaListItem : public QListViewItem
+class TeaListItem : public Q3ListViewItem
 {
 
 public:
-	TeaListItem(QListView *parent);
-	TeaListItem(QListView *parent, QListViewItem *after);
+	TeaListItem(Q3ListView *parent);
+	TeaListItem(Q3ListView *parent, Q3ListViewItem *after);
 	~TeaListItem();
 
 	int time();

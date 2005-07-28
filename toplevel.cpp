@@ -25,19 +25,28 @@
 
 #include <qcheckbox.h>
 #include <qlayout.h>
-#include <qhbox.h>
-#include <qvbox.h>
+#include <q3hbox.h>
+
 #include <qlineedit.h>
 #include <qpainter.h>
 #include <qtooltip.h>
 #include <qfile.h>
 #include <qcursor.h>
 #include <qpushbutton.h>
-#include <qgroupbox.h>
-#include <qheader.h>
+#include <q3groupbox.h>
+#include <q3header.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
-
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <QBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QTimerEvent>
+#include <QVBoxLayout>
+#include <Q3PopupMenu>
+#include <QMouseEvent>
+#include <QAbstractEventDispatcher>
 #include <kconfig.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
@@ -63,7 +72,7 @@ const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 
 TopLevel::TopLevel() : KSystemTray()
 {
-	setBackgroundMode(X11ParentRelative);   // what for?
+	setBackgroundMode(Qt::X11ParentRelative);   // what for?
 	QString n, key;
 	unsigned int num;
 
@@ -128,12 +137,12 @@ TopLevel::TopLevel() : KSystemTray()
 //	KAction *quitAct = actionCollection()->action("file_quit");
 
 	// create app menu (displayed on right-click)
-	menu = new QPopupMenu();
+	menu = new Q3PopupMenu();
 	menu->setCheckable(true);
 	connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
 	// this menu will be displayed when no tea is steeping, and left mouse button is clicked
-	start_menu = new QPopupMenu();
+	start_menu = new Q3PopupMenu();
 	start_menu->setCheckable(true);     // menu isn't tickable, but this gives some add. spacing
 	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
 
@@ -157,7 +166,7 @@ TopLevel::TopLevel() : KSystemTray()
 	                        //        (need special 'quit'-method?)
 
 	// this menu will be displayed when a tea is steeping, and left mouse button is clicked
-	steeping_menu = new QPopupMenu();
+	steeping_menu = new Q3PopupMenu();
 //	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &Cancel Current"), this, SLOT(stop()));
 	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
 
@@ -205,7 +214,7 @@ TopLevel::~TopLevel()
 /** Handle mousePressEvent */
 void TopLevel::mousePressEvent(QMouseEvent *event)
 {
-	if (event->button() == LeftButton) {
+	if (event->button() == Qt::LeftButton) {
 		if (ready) {
 			stop();                         // reset tooltip and stop animation
 		} else {
@@ -214,7 +223,7 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 			else
 				start_menu->popup(QCursor::pos());
 		}
-	} else if (event->button() == RightButton)
+	} else if (event->button() == Qt::RightButton)
 		menu->popup(QCursor::pos());
 //	else if (event->button() == MidButton)  // currently unused
 }
@@ -244,7 +253,7 @@ void TopLevel::paintEvent(QPaintEvent *)
 	QPixmap base(*pm);                                      // make copy of base pixmap
 	if (useTrayVis && running) {
 		// extend mask
-		QBitmap mask = *(base.mask());
+		QBitmap mask = (base.mask());
 		QPainter pm(&mask);
 		pm.setBrush(Qt::color1);                            // fill with "foreground-colour"
 		pm.setPen(Qt::NoPen);                               // no border needed/wanted
@@ -361,7 +370,7 @@ void TopLevel::rebuildTeaMenus() {
 	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
-	for (QValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); ++it) {
+	for (Q3ValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); ++it) {
 		// construct string with name and steeping time
 		QString str = it->name;
 		str.append(" (");
@@ -395,7 +404,7 @@ void TopLevel::enable_menuEntries()
 /* menu-slot: tea selected in tea-menu */
 void TopLevel::teaSelected(int index)
 {
-	if (index >=0 && (unsigned int)index < teas.count()) {
+	if (index >=0 && index < teas.count()) {
 		// tick new active item in menu
 		menu->setItemChecked(current_selected, false);
 		menu->setItemChecked(index, true);
@@ -411,7 +420,7 @@ void TopLevel::teaSelected(int index)
 /* start_menu-slot: tea selected (and activated!) in tea-menu */
 void TopLevel::teaStartSelected(int index)
 {
-	if (index >=0 && (unsigned int)index < teas.count()) {
+	if (index >=0 && index < teas.count()) {
 		teaSelected(index);
 
 		start();
@@ -432,7 +441,7 @@ void TopLevel::start()
 		}
 		// else both are already defined by dialog handler
 
-		killTimers();
+		QAbstractEventDispatcher::instance()->unregisterTimers(this);
 		startTimer(1000);                               // 1000ms = 1s (sufficient resolution)
 
 		running = true;
@@ -446,8 +455,8 @@ void TopLevel::start()
 /* menu-slot: "stop" selected in menu */
 void TopLevel::stop()
 {
-	killTimers();
-
+	QAbstractEventDispatcher::instance()->unregisterTimers(this);
+		
 	running = false;
 	ready = false;
 	enable_menuEntries();                               // disable "top", enable "start"
@@ -473,9 +482,13 @@ void TopLevel::anonymous()
 		QWidget *page = anondlg->plainPage();
 		QBoxLayout *top_box = new QVBoxLayout(page);
 		QBoxLayout *prop_box = new QHBoxLayout(top_box);
-		QVBox *propleft = new QVBox(page);
+		QWidget *propleft = new QWidget(page);
+		QVBoxLayout *vboxLayout1 = new QVBoxLayout(propleft);
+		propleft->setLayout(vboxLayout1);
 		prop_box->addWidget(propleft);
-		QVBox *propright = new QVBox(page);
+		QWidget *propright = new QWidget(page);
+		QVBoxLayout *vboxLayout2 = new QVBoxLayout(propright);
+		propright->setLayout(vboxLayout2);
 		prop_box->addWidget(propright);
 
 		anon_time = new TimeEdit(propright);
@@ -610,7 +623,7 @@ void TopLevel::delButtonClicked() {
 
 /* config-slot: "up" button clicked */
 void TopLevel::upButtonClicked() {
-	QListViewItem* item = listbox->currentItem();
+	Q3ListViewItem* item = listbox->currentItem();
 
 	if (item && item->itemAbove())
 		item->itemAbove()->moveItem(item);
@@ -620,7 +633,7 @@ void TopLevel::upButtonClicked() {
 
 /* config-slot: "down" button clicked */
 void TopLevel::downButtonClicked() {
-	QListViewItem* item = listbox->currentItem();
+	Q3ListViewItem* item = listbox->currentItem();
 
 	if (item && item->itemBelow())
 		item->moveItem(item->itemBelow());
@@ -662,10 +675,10 @@ void TopLevel::config()
 
     /* left side - tea list and list-modifying buttons */
     QBoxLayout *leftside = new QVBoxLayout(box);
-    QGroupBox *listgroup = new QGroupBox(2, Vertical, i18n("Tea List"), page);
+    Q3GroupBox *listgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea List"), page);
     leftside->addWidget(listgroup, 0, 0);
 
-    listbox = new QListView(listgroup, "listBox");
+    listbox = new Q3ListView(listgroup, "listBox");
     listbox->addColumn(i18n("Name"));
     listbox->header()->setClickEnabled(false, listbox->header()->count()-1);
     listbox->addColumn(i18n("Time"));
@@ -709,17 +722,23 @@ void TopLevel::config()
 
     /* right side - tea properties */
     QBoxLayout *rightside = new QVBoxLayout(box);
-    editgroup = new QGroupBox(2, Vertical, i18n("Tea Properties"), page);
+    editgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea Properties"), page);
     rightside->addWidget(editgroup, 0, 0);
-    QHBox *propbox = new QHBox(editgroup);
+    QWidget *propbox = new QWidget(editgroup);
+    QHBoxLayout *hboxLayout3 = new QHBoxLayout(propbox);
+    propbox->setLayout(hboxLayout3);
 
     // FIXME: - must enforce correct vertical alignment of each label-editor pair
     //          (better use one HBox for each label-editor pair?)
-    QVBox *propleft = new QVBox(propbox);
-    QVBox *propright = new QVBox(propbox);
+    QWidget *propleft = new QWidget(propbox);
+    QVBoxLayout *vboxLayout4 = new QVBoxLayout(propleft);
+    propleft->setLayout(vboxLayout4);
+    QWidget *propright = new QWidget(propbox);
+    QVBoxLayout *vboxLayout5 = new QVBoxLayout(propright);
+    propright->setLayout(vboxLayout5);
     nameEdit = new QLineEdit(propright);
     nameEdit->setFixedHeight(nameEdit->sizeHint().height());
-    nameEdit->setAlignment(QLineEdit::AlignLeft);
+    nameEdit->setAlignment(Qt::AlignLeft);
     QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
     l->setFixedSize(l->sizeHint());
     connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
@@ -731,7 +750,7 @@ void TopLevel::config()
     connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
 
     /* bottom - timeout actions */
-    QGroupBox *actiongroup = new QGroupBox(4, Vertical, i18n("Action"), page);
+    Q3GroupBox *actiongroup = new Q3GroupBox(4, Qt::Vertical, i18n("Action"), page);
     top_box->addWidget(actiongroup, 0, 0);
 
     QWidget *actionconf_widget = new QWidget(actiongroup);
@@ -746,7 +765,9 @@ void TopLevel::config()
     eventEnable->setFixedHeight(eventEnable->sizeHint().height());
     popupEnable->setFixedHeight(popupEnable->sizeHint().height());
 
-    QHBox *actionbox = new QHBox(actiongroup);
+    QWidget *actionbox = new QWidget(actiongroup);
+    QHBoxLayout *hboxLayout6 = new QHBoxLayout(actionbox);
+    actionbox->setLayout(hboxLayout6);
     actionEnable = new QCheckBox(actionbox);
 //    FIXME: add text to this line:
 //    QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
@@ -774,7 +795,7 @@ void TopLevel::config()
     TeaListItem *item = new TeaListItem(listbox);
     item->setName(teas[i].name);
     item->setTime(teas[i].time);
-    if ((unsigned int)i == current_selected)
+    if (i == current_selected)
       current_item = item;
   }
 
@@ -812,7 +833,7 @@ void TopLevel::config()
     int i = 0;
     teas.clear();
     teas.resize(listbox->childCount());
-    for (QListViewItemIterator it(listbox); it.current() != 0; ++it) {
+    for (Q3ListViewItemIterator it(listbox); it.current() != 0; ++it) {
       teas[i].name = static_cast<TeaListItem *>(it.current())->name();
       teas[i].time = static_cast<TeaListItem *>(it.current())->time();
       if (it.current() == current_item)
@@ -843,7 +864,7 @@ void TopLevel::config()
     config->writeEntry("Number", teas.count());
     QString key;
     int index = 1;
-    for (QValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
+    for (Q3ValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
       key.sprintf("Tea%d Name", index);
       config->writeEntry(key, it->name);
       key.sprintf("Tea%d Time", index);
