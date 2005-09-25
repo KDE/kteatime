@@ -370,7 +370,7 @@ void TopLevel::rebuildTeaMenus() {
 	// now add new tea-entries to top of menus
 	int id = 0;
 	int index = 0;
-	for (Q3ValueVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); ++it) {
+	for (QVector<tea_struct>::ConstIterator it=teas.begin(); it != teas.end(); ++it) {
 		// construct string with name and steeping time
 		QString str = it->name;
 		str.append(" (");
@@ -864,7 +864,7 @@ void TopLevel::config()
     config->writeEntry("Number", teas.count());
     QString key;
     int index = 1;
-    for (Q3ValueVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
+    for (QVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
       key.sprintf("Tea%d Name", index);
       config->writeEntry(key, it->name);
       key.sprintf("Tea%d Time", index);

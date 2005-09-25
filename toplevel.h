@@ -93,7 +93,7 @@ private:
 		QString name;
 		int time;
 	};
-	Q3ValueVector<tea_struct> teas;      // list of tea-names and times
+	QVector<tea_struct> teas;      // list of tea-names and times
 
 	bool running, ready, firstFrame, listempty;
 	int seconds;                        // variable for counting down seconds
