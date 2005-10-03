@@ -28,7 +28,7 @@
 #include <kstartupinfo.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
-
+#include <klocale.h>
 #include "toplevel.h"
 
 

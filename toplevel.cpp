@@ -56,10 +56,11 @@
 #include <knotifyclient.h>
 #include <knuminput.h>
 #include <kseparator.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kdialogbase.h>
 #include <kaction.h>
 #include <knotifydialog.h>
+#include <ktoolinvocation.h>
 
 #include "tealist.h"
 #include "timeedit.h"
@@ -149,7 +150,7 @@ TopLevel::TopLevel() : KSystemTray()
 	rebuildTeaMenus();      // populate tops of menus with tea-entries from config
 
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
-	KPopupMenu* helpMnu = help->menu();
+	KMenu* helpMnu = help->menu();
 
 	start_menu->insertSeparator();
 	anonAct->plug(start_menu);
@@ -456,7 +457,7 @@ void TopLevel::start()
 void TopLevel::stop()
 {
 	QAbstractEventDispatcher::instance()->unregisterTimers(this);
-		
+
 	running = false;
 	ready = false;
 	enable_menuEntries();                               // disable "top", enable "start"
@@ -650,7 +651,7 @@ void TopLevel::actionEnableToggled(bool on)
 /* config-slot: "help" button clicked */
 void TopLevel::help()
 {
-	kapp->invokeHelp();
+    KToolInvocation::invokeHelp();
 }
 
 /* config-slot: "Configure Events..." button clicked */
