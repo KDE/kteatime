@@ -61,6 +61,7 @@
 #include <kaction.h>
 #include <knotifydialog.h>
 #include <ktoolinvocation.h>
+#include <kglobal.h>
 
 #include "tealist.h"
 #include "timeedit.h"
@@ -79,7 +80,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	teas.clear();
 
-	KConfig *config = kapp->config();
+	KConfig *config = KGlobal::config();
 	config->setGroup("Teas");
 
 	if (config->hasKey("Number")) {
@@ -196,7 +197,7 @@ TopLevel::TopLevel() : KSystemTray()
 /* (not currently needed)
 void TopLevel::queryExit()
 {
-	KConfig *config = kapp->config();
+	KConfig *config = KGlobal::config();
 //	config->sync();
 }
 */
@@ -411,7 +412,7 @@ void TopLevel::teaSelected(int index)
 		menu->setItemChecked(index, true);
 
 		current_selected = index;
-		KConfig *config = kapp->config();
+		KConfig *config = KGlobal::config();
 		config->setGroup("General");
 		config->writeEntry("Tea", current_selected);
 	}
@@ -847,7 +848,7 @@ void TopLevel::config()
     rebuildTeaMenus();
 
     // and store to config
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     // remove old-style entries from default-group (if present)
     if (config->hasKey("UserTea"))
       config->deleteEntry("UserTea");
