@@ -44,7 +44,6 @@
 #include <QLabel>
 #include <QTimerEvent>
 #include <QVBoxLayout>
-#include <Q3PopupMenu>
 #include <QMouseEvent>
 #include <QAbstractEventDispatcher>
 #include <kconfig.h>
@@ -139,12 +138,12 @@ TopLevel::TopLevel() : KSystemTray()
 //	KAction *quitAct = actionCollection()->action("file_quit");
 
 	// create app menu (displayed on right-click)
-	menu = new Q3PopupMenu();
+	menu = new QMenu();
 	menu->setCheckable(true);
 	connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
 	// this menu will be displayed when no tea is steeping, and left mouse button is clicked
-	start_menu = new Q3PopupMenu();
+	start_menu = new QMenu();
 	start_menu->setCheckable(true);     // menu isn't tickable, but this gives some add. spacing
 	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
 
@@ -168,7 +167,7 @@ TopLevel::TopLevel() : KSystemTray()
 	                        //        (need special 'quit'-method?)
 
 	// this menu will be displayed when a tea is steeping, and left mouse button is clicked
-	steeping_menu = new Q3PopupMenu();
+	steeping_menu = new QMenu();
 //	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &Cancel Current"), this, SLOT(stop()));
 	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
 

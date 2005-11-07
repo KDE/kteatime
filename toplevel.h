@@ -24,7 +24,7 @@
 #define TOPLEVEL_H
 
 #include <kapplication.h>
-#include <q3popupmenu.h>
+#include <QMenu>
 #include <qtimer.h>
 #include <qlineedit.h>
 #include <q3valuevector.h>
@@ -112,7 +112,7 @@ private:
 	QPixmap mugPixmap, teaNotReadyPixmap, teaAnim1Pixmap, teaAnim2Pixmap;
 
 	KAction *startAct, *stopAct, *confAct, *anonAct;
-	Q3PopupMenu *menu, *steeping_menu, *start_menu;
+	QMenu *menu, *steeping_menu, *start_menu;
 	Q3ListView *listbox;
 	QLineEdit *nameEdit, *actionEdit;
 	TimeEdit *timeEdit;
