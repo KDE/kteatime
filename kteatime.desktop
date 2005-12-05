@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KTeaTime
+Name[mk]=КЧајник
 Name[mt]=It-Tè lest
 Name[sv]=Teet är klart
 Name[ta]= கேதேநீர் நேரம்
@@ -23,7 +24,7 @@ GenericName[he]=מבשל התה
 GenericName[hu]=Teafőző
 GenericName[is]=Te hitarinn
 GenericName[it]=Teiera
-GenericName[mk]=Готвач на Чај
+GenericName[mk]=Чајник
 GenericName[mt]=Il-Kitla tat-Tè
 GenericName[nb]=Tekoker
 GenericName[nl]=Theezetter
