@@ -23,9 +23,7 @@
 &Lauri.Watts; &Lauri.Watts.mail;
 <!-- <contrib>Reviewer</contrib> -->
 </othercredit>
-
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
-
 </authorgroup>
 
 <copyright>
@@ -89,7 +87,7 @@ tea.</para></note>
 <title>Menu Options</title>
 
 <para>The following section describes the menu options that are available in
-KTeaTime.</para>
+&kteatime;.</para>
 
 <sect1 id="select-your-tea">
 <title>Select Your Tea</title>
@@ -135,7 +133,7 @@ contains an action that will be executed when the time is up.  Any valid system
 command can be entered into this box.  Probably, you will want to leave it
 blank.</para>
 
-<para>The two checkboxes at the bottom are built-in actions that will be
+<para>The two check boxes at the bottom are built-in actions that will be
 executed when the time is up.  If <guilabel>Beep</guilabel> is selected, the
 system alarm will sound.  If <guilabel>Popup</guilabel> is selected, a popup
 dialog box will appear alerting you to the fact that your tea is now
@@ -153,6 +151,7 @@ ready.</para>
 
 <para>Documentation by &Michael.Korman; &Michael.Korman.mail;</para>
 
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;               <!-- FDL: do not remove -->
 &underGPL;        	 <!-- GPL License -->
 
