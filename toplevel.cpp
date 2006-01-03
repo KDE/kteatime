@@ -175,11 +175,11 @@ TopLevel::TopLevel() : KSystemTray()
 //	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
 
 	// read remaining entries from config-file
-	useNotify = config->readBoolEntry("Beep", true);    // "Beep" should really be named "Notify"
-	usePopup = config->readBoolEntry("Popup", true);
-	useAction = config->readBoolEntry("UseAction", true);
+	useNotify = config->readEntry("Beep", QVariant(true)).toBool();    // "Beep" should really be named "Notify"
+	usePopup = config->readEntry("Popup", QVariant(true)).toBool();
+	useAction = config->readEntry("UseAction", QVariant(true)).toBool();
 	action = config->readEntry("Action");
-	useTrayVis = config->readBoolEntry("UseTrayVis", true);
+	useTrayVis = config->readEntry("UseTrayVis", QVariant(true)).toBool();
 
 	mugPixmap = loadIcon("mug");
 	teaNotReadyPixmap = loadIcon("tea_not_ready");
