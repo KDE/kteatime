@@ -89,10 +89,10 @@ TopLevel::TopLevel() : KSystemTray()
 		QString tempstr;
 		for (unsigned int index=1; index<=num; ++index) {
 			key.sprintf("Tea%d Time", index);
-			tempstr = config->readEntry(key, NULL);
+			tempstr = config->readEntry(key, QString());
 			teas[index-1].time = tempstr.toInt();
   			key.sprintf("Tea%d Name", index);
-			teas[index-1].name = config->readEntry(key, NULL);
+			teas[index-1].name = config->readEntry(key, QString());
 			// FIXME: check for non-existence!
   		}
 		config->setGroup("General");
