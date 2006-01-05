@@ -691,28 +691,28 @@ void TopLevel::config()
     QWidget *listgroup_widget = new QWidget(listgroup);
     QBoxLayout *hbox = new QHBoxLayout(listgroup_widget);
     hbox->setSpacing(4);
-    btn_new = new QPushButton(QString(), listgroup_widget);
+    btn_new = new QPushButton(QString::null, listgroup_widget);
     btn_new->setToolTip( i18n("New"));
     btn_new->setPixmap(SmallIcon("filenew"));
     btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
     hbox->addWidget(btn_new);
 
-    btn_del = new QPushButton(QString(), listgroup_widget);
+    btn_del = new QPushButton(QString::null, listgroup_widget);
     btn_del->setToolTip( i18n("Delete"));
     btn_del->setIconSet(SmallIconSet("editdelete"));
     btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
     hbox->addWidget(btn_del);
 
-    btn_up = new QPushButton(QString(), listgroup_widget);
+    btn_up = new QPushButton(QString::null, listgroup_widget);
     btn_up->setToolTip( i18n("Up"));
     btn_up->setIconSet(SmallIconSet("up"));
     btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
     connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
     hbox->addWidget(btn_up);
 
-    btn_down = new QPushButton(QString(), listgroup_widget);
+    btn_down = new QPushButton(QString::null, listgroup_widget);
     btn_down->setToolTip( i18n("Down"));
     btn_down->setIconSet(SmallIconSet("down"));
     btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
