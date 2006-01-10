@@ -316,7 +316,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			}
 			if (usePopup)
 				KPassivePopup::message(i18n("The Tea Cooker"),
-				                       teaMessage, teaAnim1Pixmap, this, "popup", 0);
+				                       teaMessage, teaAnim1Pixmap, this, 0);
 				// FIXME: does auto-deletion work without timeout?
 			setToolTip(teaMessage);
 			repaint();
@@ -860,7 +860,7 @@ void TopLevel::config()
     config->writeEntry("Tea", current_selected);
     config->writeEntry("UseTrayVis", useTrayVis);
     // first get rid of all previous tea-entries from config, then write anew
-    config->deleteGroup("Teas", true);          // deep remove of whole group
+    config->deleteGroup("Teas");          // deep remove of whole group
     config->setGroup("Teas");
     config->writeEntry("Number", teas.count());
     QString key;
