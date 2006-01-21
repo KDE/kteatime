@@ -84,7 +84,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	if (config->hasKey("Number")) {
 		// assuming this is a new-style config
-		num = config->readNumEntry("Number", 0);
+		num = config->readEntry("Number", 0);
 		teas.resize(num);
 		QString tempstr;
 		for (unsigned int index=1; index<=num; ++index) {
@@ -114,13 +114,13 @@ TopLevel::TopLevel() : KSystemTray()
 		config->setGroup(NULL);
 		// look for old-style "UserTea"-entry and add that one also
 		if (config->hasKey("UserTea")) {
-			num = config->readNumEntry("UserTea", 150);
+			num = config->readEntry("UserTea", 150);
 			temp.name = i18n("Other Tea");
 			temp.time = num;
 			teas.append(temp);
 		}
 	}
-	current_selected = config->readNumEntry("Tea", 0);
+	current_selected = config->readEntry("Tea", 0);
 	if (current_selected >= teas.count())
 		current_selected = 0;
 
