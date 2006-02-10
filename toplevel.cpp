@@ -354,7 +354,6 @@ void TopLevel::setToolTip(const QString &text, bool force)
 	// FIXME: this isn't too nice: currently mouse must stay outside for >1s for update to occur
 	if (force || !this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
 		lastTip = text;
-		QToolTip::remove(this);
 		this->setToolTip( text);
 	}
 }
