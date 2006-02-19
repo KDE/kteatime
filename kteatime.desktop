@@ -3,6 +3,7 @@ Encoding=UTF-8
 Name=KTeaTime
 Name[x-test]=xxKTeaTimexx
 GenericName=Tea Cooker
+GenericName[fr]=Préparateur de thé
 GenericName[x-test]=xxTea Cookerxx
 Exec=kteatime
 Icon=kteatime
