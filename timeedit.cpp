@@ -15,8 +15,8 @@
 #include "timeedit.h"
 #include "timeedit.moc"
 
-WrappingSpinBox::WrappingSpinBox(int minValue, int maxValue, int step, QWidget *parent, const char *name)
-	: QSpinBox(minValue, maxValue, step, parent, name)
+WrappingSpinBox::WrappingSpinBox(int minimum, int maximum, int step, QWidget *parent, const char *name)
+	: QSpinBox(minimum, maximum, step, parent, name)
 {
 }
 
@@ -112,7 +112,7 @@ int TimeEdit::value()
 /** SLOT: Handle wrap-up of seconds-box */
 void TimeEdit::wrappedUp()
 {
-	if (minuteBox->value() != minuteBox->maxValue()) {
+	if (minuteBox->value() != minuteBox->maximum()) {
 		minuteBox->stepUp();
 	} else {
 		secondBox->setValue(58);    // ugly: must cater for wrapping-first
@@ -123,7 +123,7 @@ void TimeEdit::wrappedUp()
 void TimeEdit::wrappedDown()
 {
 	// well, the "if" should always be true
-	if (minuteBox->value() != minuteBox->minValue()) {
+	if (minuteBox->value() != minuteBox->minimum()) {
 		minuteBox->stepDown();
 	} else {
 		secondBox->setValue(0);

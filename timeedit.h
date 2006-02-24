@@ -17,7 +17,7 @@ class QBoxLayout;
 
 
 /**
- * @short   A spinbox that wraps around after reaching minValue resp. maxValue.
+ * @short   A spinbox that wraps around after reaching minimum resp. maximum.
  * @author  Daniel Teske
  */
 class WrappingSpinBox : public QSpinBox
@@ -25,7 +25,7 @@ class WrappingSpinBox : public QSpinBox
 	Q_OBJECT
 
 public:
-	WrappingSpinBox(int minValue, int maxValue, int step = 1, QWidget *parent=0, const char *name=0);
+	WrappingSpinBox(int minimum, int maximum, int step = 1, QWidget *parent=0, const char *name=0);
 	~WrappingSpinBox();
 
 	void stepUp();
