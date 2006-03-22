@@ -15,7 +15,7 @@ kde4_automoc(${kteatime_SRCS})
 
 kde4_add_executable(kteatime ${kteatime_SRCS})
 
-target_link_libraries(kteatime  ${KDE4_KIO_LIBRARIES} )
+target_link_libraries(kteatime  ${KDE4_KIO_LIBS} )
 
 install_targets(/bin kteatime )
 
