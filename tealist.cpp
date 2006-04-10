@@ -15,9 +15,9 @@ QString int2time(int time)
 {
 	QString str;
 	if (time / 60)
-		str.append(i18n("%1 min").arg(time / 60));
+		str.append(i18n("%1 min", time / 60));
 	if (time % 60)
-		str.append(i18n("%1 s").arg(time % 60));
+		str.append(i18n("%1 s", time % 60));
 	return str;
 }
 

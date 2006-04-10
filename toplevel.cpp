@@ -304,7 +304,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 					menu->setItemChecked(current_selected, true);
 			}
 
-			QString teaMessage = i18n("The %1 is now ready!").arg(current_name);
+			QString teaMessage = i18n("The %1 is now ready!", current_name);
 			// invoke action
 			if (useNotify) {
 				KNotifyClient::event(winId(), "tea", teaMessage);
@@ -332,7 +332,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			}
 			// ...and Tooltip
 			QString min = int2time(seconds);
-			setToolTip(i18n("%1 left for %2").arg(min).arg(current_name));
+			setToolTip(i18n("%1 left for %2", min, current_name));
 		}
 	} else {
 		// no tea is steeping; just animate icon
