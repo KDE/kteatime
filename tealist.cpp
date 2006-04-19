@@ -17,7 +17,10 @@ QString int2time(int time)
 	if (time / 60)
 		str.append(i18n("%1 min").arg(time / 60));
 	if (time % 60)
-		str.append(i18n("%1 s").arg(time % 60));
+          if (str.isEmpty())
+            str.append(i18n("%1 s").arg(time % 60));
+          else
+            str.append(i18n(" %1 s").arg(time % 60));
 	return str;
 }
 
