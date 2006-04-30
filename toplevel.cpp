@@ -73,8 +73,7 @@ const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 
 TopLevel::TopLevel() : KSystemTray()
 {
-	setBackgroundMode(Qt::X11ParentRelative);   // what for?
-	QString n, key;
+        QString n, key;
 	unsigned int num;
 
 	teas.clear();
