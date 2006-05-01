@@ -21,7 +21,5 @@ appsdatadir = $(kde_datadir)/kteatime
 kteatimeicondir = $(kde_datadir)/kteatime/icons
 kteatimeicon_ICON = AUTO
 
-messages:
-	$(XGETTEXT) $(kteatime_SOURCES) -o $(podir)/kteatime.pot
 
 xdg_apps_DATA = kteatime.desktop
