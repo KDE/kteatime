@@ -669,11 +669,14 @@ void TopLevel::config()
     // FIXME: enforce sensible initial/default size of dialog
     // FIXME: modal is ok, but can avoid always-on-top?
 
-    QBoxLayout *top_box = new QVBoxLayout(page, 0, 8);    // whole config-stuff
-    QBoxLayout *box = new QHBoxLayout(top_box);           // list + properties
+    QBoxLayout *top_box = new QVBoxLayout(page);    // whole config-stuff
+    top_box->setSpacing( 8 );
+    QBoxLayout *box = new QHBoxLayout();           // list + properties
+    top_box->addItem( box );
 
     /* left side - tea list and list-modifying buttons */
-    QBoxLayout *leftside = new QVBoxLayout(box);
+    QBoxLayout *leftside = new QVBoxLayout();
+    box->addItem( leftside );
     Q3GroupBox *listgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea List"), page);
     leftside->addWidget(listgroup, 0, 0);
 
@@ -720,7 +723,8 @@ void TopLevel::config()
     hbox->addStretch(10);
 
     /* right side - tea properties */
-    QBoxLayout *rightside = new QVBoxLayout(box);
+    QBoxLayout *rightside = new QVBoxLayout();
+    box->addItem( rightside );
     editgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea Properties"), page);
     rightside->addWidget(editgroup, 0, 0);
     QWidget *propbox = new QWidget(editgroup);
