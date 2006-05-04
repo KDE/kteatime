@@ -479,8 +479,9 @@ void TopLevel::anonymous()
 		                          KDialogBase::Ok | KDialogBase::Cancel,
 		                          KDialogBase::Ok, this, "anonymous", true);
 		QWidget *page = anondlg->plainPage();
-		QBoxLayout *top_box = new QVBoxLayout(page);
-		QBoxLayout *prop_box = new QHBoxLayout(top_box);
+		QBoxLayout *top_box = new QVBoxLayout( page );
+		QBoxLayout *prop_box = new QHBoxLayout();
+                top_box->addItem( prop_box );
 		QWidget *propleft = new QWidget(page);
 		QVBoxLayout *vboxLayout1 = new QVBoxLayout(propleft);
 		propleft->setLayout(vboxLayout1);
