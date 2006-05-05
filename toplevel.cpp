@@ -126,14 +126,14 @@ TopLevel::TopLevel() : KSystemTray()
 	listempty = (teas.count() == 0);
 
 
-	startAct = new KAction(i18n("&Start"), "1rightarrow", 0,
-	                       this, SLOT(start()), actionCollection(), "start");
+	startAct = new KAction(KIcon("1rightarrow"), i18n("&Start"), actionCollection(), "start");
+	connect(startAct, SIGNAL(triggered(bool)), SLOT(start()));
 	stopAct = new KAction(KIcon("cancel"), i18n("Sto&p"), actionCollection(), "stop");
 	connect(stopAct, SIGNAL(triggered(bool)), SLOT(stop()));
 	confAct = new KAction(KIcon("configure"), i18n("&Configure..."), actionCollection(), "configure");
 	connect(confAct, SIGNAL(triggered(bool)), SLOT(config()));
-	anonAct = new KAction(i18n("&Anonymous..."), 0, 0,
-	                      this, SLOT(anonymous()), actionCollection(), "anonymous");
+	anonAct = new KAction(i18n("&Anonymous..."), actionCollection(), "anonymous");
+	connect(anonAct, SIGNAL(triggered(bool)), SLOT(anonymous()));
 //	KAction *quitAct = actionCollection()->action("file_quit");
 
 	// create app menu (displayed on right-click)
