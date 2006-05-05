@@ -128,10 +128,10 @@ TopLevel::TopLevel() : KSystemTray()
 
 	startAct = new KAction(i18n("&Start"), "1rightarrow", 0,
 	                       this, SLOT(start()), actionCollection(), "start");
-	stopAct = new KAction(i18n("Sto&p"), "cancel", 0,
-	                      this, SLOT(stop()), actionCollection(), "stop");
-	confAct = new KAction(i18n("&Configure..."), "configure", 0,
-	                      this, SLOT(config()), actionCollection(), "configure");
+	stopAct = new KAction(KIcon("cancel"), i18n("Sto&p"), actionCollection(), "stop");
+	connect(stopAct, SIGNAL(triggered(bool)), SLOT(stop()));
+	confAct = new KAction(KIcon("configure"), i18n("&Configure..."), actionCollection(), "configure");
+	connect(confAct, SIGNAL(triggered(bool)), SLOT(config()));
 	anonAct = new KAction(i18n("&Anonymous..."), 0, 0,
 	                      this, SLOT(anonymous()), actionCollection(), "anonymous");
 //	KAction *quitAct = actionCollection()->action("file_quit");
