@@ -152,14 +152,14 @@ TopLevel::TopLevel() : KSystemTray()
 	KMenu* helpMnu = help->menu();
 
 	start_menu->insertSeparator();
-	anonAct->plug(start_menu);
+	start_menu->addAction( anonAct );
 
 	menu->insertSeparator();
-	anonAct->plug(menu);
-	startAct->plug(menu);
-	stopAct->plug(menu);
+	menu->addAction( anonAct );
+	menu->addAction( startAct );
+	menu->addAction( stopAct );
 	menu->insertSeparator();
-	confAct->plug(menu);
+	menu->addAction( confAct );
 	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 //	quitAct->plug(menu);    // FIXME: this doesn't seem to work with above definition of quitAct?
@@ -168,7 +168,7 @@ TopLevel::TopLevel() : KSystemTray()
 	// this menu will be displayed when a tea is steeping, and left mouse button is clicked
 	steeping_menu = new QMenu();
 //	steeping_menu->insertItem(SmallIcon("cancel"), i18n("Just &Cancel Current"), this, SLOT(stop()));
-	stopAct->plug(steeping_menu);   // FIXME: can provide different text for this incarnation?
+	steeping_menu->addAction( stopAct );   // FIXME: can provide different text for this incarnation?
 
 //	start_menu->insertSeparator();
 //	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
