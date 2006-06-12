@@ -2,7 +2,7 @@
 
    timeedit.cpp
 
-   (C) 2003 by Daniel Teske (teske@bigfoot.com)
+   Copyright 2003 by Daniel Teske (teske@bigfoot.com)
 
  ------------------------------------------------------------- */
 

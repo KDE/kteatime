@@ -324,7 +324,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			if (useTrayVis) {
 				int pDone = (360 * (startSeconds - seconds)) / startSeconds;
 				if (pDone - percentDone > 8) {
-					// update icon not every second, but only if somewhat noticable
+					// update icon not every second, but only if somewhat noticeable
 					percentDone = pDone;
 					repaint();
 				}
@@ -566,9 +566,9 @@ void TopLevel::nameEditTextChanged(const QString& newText) {
 	/* this method also gets called when the last TeaListItem has been deleted
 	 * (to clear the name edit widget), so check for empty listbox */
 	if (listbox->currentItem() != NULL) {
-		listbox->blockSignals(TRUE);
+		listbox->blockSignals(true);
 		static_cast<TeaListItem *>(listbox->currentItem())->setName(newText);
-		listbox->blockSignals(FALSE);
+		listbox->blockSignals(false);
 	}
 }
 
@@ -603,7 +603,7 @@ void TopLevel::delButtonClicked() {
 		TeaListItem *curritem = static_cast<TeaListItem *>(listbox->currentItem());
 
 		if (listbox->childCount() == 1) {
-			// no childs left after we've deleted this item
+			// no children left after we've deleted this item
 			listbox->setSelected(listbox->currentItem(), false);
 			nameEdit->setText("");
 			timeEdit->setValue(0);
