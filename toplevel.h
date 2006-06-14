@@ -40,7 +40,7 @@
 #include <qpixmap.h>
 
 class KAction;
-class KDialogBase;
+class KDialog;
 class QCheckBox;
 class TimeEdit;
 
@@ -120,7 +120,7 @@ private:
 	QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
 
 	QString lastTip;
-	KDialogBase *anondlg, *confdlg;
+	KDialog *anondlg, *confdlg;
 	TimeEdit *anon_time;
 	QCheckBox *eventEnable, *popupEnable, *actionEnable, *visEnable;
 };

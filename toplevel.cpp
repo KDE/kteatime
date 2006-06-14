@@ -56,7 +56,7 @@
 #include <knuminput.h>
 #include <kseparator.h>
 #include <kmenu.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <kaction.h>
 #include <knotifydialog.h>
 #include <ktoolinvocation.h>
@@ -475,10 +475,13 @@ void TopLevel::anonymous()
 {
 	if (!anondlg) {
 		// FIXME: dialog appears centered on screen, but should be near systray icon!
-		anondlg = new KDialogBase(KDialogBase::Plain, i18n("Anonymous Tea"),
-		                          KDialogBase::Ok | KDialogBase::Cancel,
-		                          KDialogBase::Ok, this, "anonymous", true);
-		QWidget *page = anondlg->plainPage();
+		anondlg = new KDialog(this);
+                anondlg->setCaption( i18n("Anonymous Tea") );
+                anondlg->setButtons( KDialog::Ok | KDialog::Cancel );
+                anondlg->setDefaultButton( KDialog::Ok );
+                anondlg->setModal( true );
+		QWidget *page = new QWidget( this );
+                anondlg->setMainWidget( page );
 		QBoxLayout *top_box = new QVBoxLayout( page );
 		QBoxLayout *prop_box = new QHBoxLayout();
                 top_box->addItem( prop_box );
@@ -663,10 +666,13 @@ void TopLevel::confButtonClicked()
 void TopLevel::config()
 {
   if (!confdlg) {
-    confdlg = new KDialogBase(KDialogBase::Plain, i18n("Configure Tea Cooker"),
-                              KDialogBase::Ok|KDialogBase::Cancel|KDialogBase::Help,
-                              KDialogBase::Ok, this, "config", true);
-    QWidget *page = confdlg->plainPage();
+    confdlg = new KDialog(this);
+    confdlg->setCaption( i18n("Configure Tea Cooker") );
+    confdlg->setButtons( KDialog::Ok|KDialog::Cancel|KDialog::Help );
+    confdlg->setDefaultButton( KDialog::Ok );
+
+    QWidget *page = new QWidget( this );
+    confdlg->setMainWidget( page );
     // FIXME: enforce sensible initial/default size of dialog
     // FIXME: modal is ok, but can avoid always-on-top?
 
