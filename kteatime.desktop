@@ -50,6 +50,7 @@ GenericName[tg]=ЧойДамКардан
 GenericName[tr]=Çaycı
 GenericName[uk]=Приготування чаю
 GenericName[zh_CN]=煮茶器
+GenericName[zh_TW]=煮茶器
 Exec=kteatime
 Icon=kteatime
 Type=Application
