@@ -16,14 +16,14 @@ kde4_add_executable(kteatime ${kteatime_SRCS})
 
 target_link_libraries(kteatime  ${KDE4_KIO_LIBS} )
 
-install_targets(/bin kteatime )
+install(TARGETS kteatime  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kteatime.desktop )
-install_files( ${DATA_INSTALL_DIR}/kteatime/icons FILES  )
-install_files( ${DATA_INSTALL_DIR}/kteatime FILES eventsrc )
+install( FILES kteatime.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES   DESTINATION ${DATA_INSTALL_DIR}/kteatime/icons)
+install( FILES eventsrc  DESTINATION ${DATA_INSTALL_DIR}/kteatime)
 
 kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
 
