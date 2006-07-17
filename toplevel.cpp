@@ -138,12 +138,10 @@ TopLevel::TopLevel() : KSystemTray()
 
 	// create app menu (displayed on right-click)
 	menu = new QMenu();
-	menu->setCheckable(true);
 	connect(menu, SIGNAL(activated(int)), this, SLOT(teaSelected(int)));
 
 	// this menu will be displayed when no tea is steeping, and left mouse button is clicked
 	start_menu = new QMenu();
-	start_menu->setCheckable(true);     // menu isn't tickable, but this gives some add. spacing
 	connect(start_menu, SIGNAL(activated(int)), this, SLOT(teaStartSelected(int)));
 
 	rebuildTeaMenus();      // populate tops of menus with tea-entries from config
@@ -151,14 +149,14 @@ TopLevel::TopLevel() : KSystemTray()
 	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
 	KMenu* helpMnu = help->menu();
 
-	start_menu->insertSeparator();
+	start_menu->addSeparator();
 	start_menu->addAction( anonAct );
 
-	menu->insertSeparator();
+	menu->addSeparator();
 	menu->addAction( anonAct );
 	menu->addAction( startAct );
 	menu->addAction( stopAct );
-	menu->insertSeparator();
+	menu->addSeparator();
 	menu->addAction( confAct );
 	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
