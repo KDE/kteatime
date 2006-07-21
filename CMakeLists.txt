@@ -22,7 +22,6 @@ install(TARGETS kteatime  DESTINATION ${BIN_INSTALL_DIR} )
 ########### install files ###############
 
 install( FILES kteatime.desktop  DESTINATION ${XDG_APPS_DIR})
-install( FILES   DESTINATION ${DATA_INSTALL_DIR}/kteatime/icons)
 install( FILES eventsrc  DESTINATION ${DATA_INSTALL_DIR}/kteatime)
 
 kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
