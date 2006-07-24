@@ -50,10 +50,10 @@ int main(int argc, char *argv[])
   KApplication app;
 
   TopLevel toplevel;
-  KWin::setSystemTrayWindowFor(toplevel.winId(), 0);
+  // KWin::setSystemTrayWindowFor(toplevel.winId(), 0);
   toplevel.show();
 
-  app.setTopWidget(&toplevel);
+  //app.setTopWidget(&toplevel);
   KStartupInfo::appStarted();
 
   return app.exec();

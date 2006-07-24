@@ -71,7 +71,7 @@
 const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 
 
-TopLevel::TopLevel() : KSystemTray()
+TopLevel::TopLevel() : KSystemTrayIcon()
 {
         QString n, key;
 	unsigned int num;
@@ -125,7 +125,6 @@ TopLevel::TopLevel() : KSystemTray()
 
 	listempty = (teas.count() == 0);
 
-
 	startAct = new KAction(KIcon("1rightarrow"), i18n("&Start"), actionCollection(), "start");
 	connect(startAct, SIGNAL(triggered(bool)), SLOT(start()));
 	stopAct = new KAction(KIcon("cancel"), i18n("Sto&p"), actionCollection(), "stop");
@@ -135,6 +134,9 @@ TopLevel::TopLevel() : KSystemTray()
 	anonAct = new KAction(i18n("&Anonymous..."), actionCollection(), "anonymous");
 	connect(anonAct, SIGNAL(triggered(bool)), SLOT(anonymous()));
 //	KAction *quitAct = actionCollection()->action("file_quit");
+
+        connect( this, SIGNAL( activated( QSystemTrayIcon::ActivationReason ) ),
+                 SLOT( slotActivated( QSystemTrayIcon::ActivationReason ) ) );
 
 	// create app menu (displayed on right-click)
 	menu = new QMenu();
@@ -146,7 +148,7 @@ TopLevel::TopLevel() : KSystemTray()
 
 	rebuildTeaMenus();      // populate tops of menus with tea-entries from config
 
-	KHelpMenu* help = new KHelpMenu(this, KGlobal::instance()->aboutData(), false);
+	KHelpMenu* help = new KHelpMenu(0, KGlobal::instance()->aboutData(), false);
 	KMenu* helpMnu = help->menu();
 
 	start_menu->addSeparator();
@@ -172,16 +174,16 @@ TopLevel::TopLevel() : KSystemTray()
 //	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
 
 	// read remaining entries from config-file
-	useNotify = config->readEntry("Beep", QVariant(true)).toBool();    // "Beep" should really be named "Notify"
-	usePopup = config->readEntry("Popup", QVariant(true)).toBool();
+	useNotify = config->readEntry("Beep", true);    // "Beep" should really be named "Notify"
+	usePopup = config->readEntry("Popup", false );
 	useAction = config->readEntry("UseAction", QVariant(true)).toBool();
 	action = config->readEntry("Action");
 	useTrayVis = config->readEntry("UseTrayVis", QVariant(true)).toBool();
 
-	mugPixmap = loadIcon("mug");
-	teaNotReadyPixmap = loadIcon("tea_not_ready");
-	teaAnim1Pixmap = loadIcon("tea_anim1");
-	teaAnim2Pixmap = loadIcon("tea_anim2");
+	mugPixmap = loadIcon("mug").pixmap();
+	teaNotReadyPixmap = loadIcon("tea_not_ready").pixmap();
+	teaAnim1Pixmap = loadIcon("tea_anim1").pixmap();
+	teaAnim2Pixmap = loadIcon("tea_anim2").pixmap();
 
 	confdlg = 0L;
 	anondlg = 0L;
@@ -210,9 +212,10 @@ TopLevel::~TopLevel()
 
 
 /** Handle mousePressEvent */
-void TopLevel::mousePressEvent(QMouseEvent *event)
+void TopLevel::slotActivated(QSystemTrayIcon::ActivationReason reason)
 {
-	if (event->button() == Qt::LeftButton) {
+	if (reason == Trigger )
+        {
 		if (ready) {
 			stop();                         // reset tooltip and stop animation
 		} else {
@@ -221,13 +224,10 @@ void TopLevel::mousePressEvent(QMouseEvent *event)
 			else
 				start_menu->popup(QCursor::pos());
 		}
-	} else if (event->button() == Qt::RightButton)
-		menu->popup(QCursor::pos());
-//	else if (event->button() == MidButton)  // currently unused
+	}
 }
 
-/** Handle paintEvent (ie. animate icon) */
-void TopLevel::paintEvent(QPaintEvent *)
+void TopLevel::repaint()
 {
 	QPixmap *pm = &mugPixmap;
 
@@ -274,12 +274,7 @@ void TopLevel::paintEvent(QPaintEvent *)
 	// FIXME: some optimizations (eg. store pre-drawn QPixmap with small circle)
 	//        (and use drawEllipse() instead of drawPie() for small circle!)
 
-	// set new tray icon
-	QPainter p(this);
-	int x = 1 + (12 - pm->width()/2);
-	int y = 1 + (12 - pm->height()/2);
-	p.drawPixmap(x, y, base);
-	p.end();
+        setIcon( *pm );
 }
 
 /** Check timer and initiate appropriate action if finished */
@@ -304,7 +299,9 @@ void TopLevel::timerEvent(QTimerEvent *)
 			QString teaMessage = i18n("The %1 is now ready!", current_name);
 			// invoke action
 			if (useNotify) {
-				KNotifyClient::event(winId(), "tea", teaMessage);
+#warning KSystemTrayIcon is no widget, consider using showMessage
+                            //KNotifyClient::event(0, "tea", teaMessage);
+                            showMessage( i18n( "The Tea Cooker" ), teaMessage );
 			}
 			if (useAction && (!action.isEmpty())) {
 				QString cmd = action;
@@ -313,7 +310,7 @@ void TopLevel::timerEvent(QTimerEvent *)
 			}
 			if (usePopup)
 				KPassivePopup::message(i18n("The Tea Cooker"),
-				                       teaMessage, teaAnim1Pixmap, this, 0);
+				                       teaMessage, teaAnim1Pixmap, ( QWidget* )0, 0);
 				// FIXME: does auto-deletion work without timeout?
 			setToolTip(teaMessage);
 			repaint();
@@ -339,22 +336,6 @@ void TopLevel::timerEvent(QTimerEvent *)
 		}
 	}
 }
-
-/** update ToolTip */
-void TopLevel::setToolTip(const QString &text, bool force)
-{
-	// don't update if text hasn't changed
-	if (lastTip == text)
-		return;
-
-	// don't remove Tooltip if (probably - can't know for sure?) currently showing
-	// FIXME: this isn't too nice: currently mouse must stay outside for >1s for update to occur
-	if (force || !this->hasMouse() || (lastTip == i18n("The Tea Cooker"))) {
-		lastTip = text;
-		this->setToolTip( text);
-	}
-}
-
 
 /** add all configured teas to both menus */
 void TopLevel::rebuildTeaMenus() {
@@ -382,6 +363,8 @@ void TopLevel::rebuildTeaMenus() {
 	if (!listempty)
 		menu->setItemChecked(current_selected, true);   // all others aren't checked,
 		                                                // because we just added them
+
+        setContextMenu( menu );
 }
 
 /* enable/disable menu-entries according to current running-state */
@@ -428,7 +411,7 @@ void TopLevel::teaStartSelected(int index)
 void TopLevel::start()
 {
 	if (listempty && !shooting) {
-		KMessageBox::error(this, i18n("There is no tea to begin steeping."), i18n("No Tea"));
+		KMessageBox::error(0, i18n("There is no tea to begin steeping."), i18n("No Tea"));
 	} else {
 		if (!shooting) {
 			current_name = teas[current_selected].name;     // remember name of current tea
@@ -464,7 +447,7 @@ void TopLevel::stop()
 			menu->setItemChecked(current_selected, true);
 	}
 
-	setToolTip(i18n("The Tea Cooker"), true);
+	setToolTip(i18n("The Tea Cooker"));
 	repaint();
 }
 
@@ -473,32 +456,19 @@ void TopLevel::anonymous()
 {
 	if (!anondlg) {
 		// FIXME: dialog appears centered on screen, but should be near systray icon!
-		anondlg = new KDialog(this);
+		anondlg = new KDialog(0);
                 anondlg->setCaption( i18n("Anonymous Tea") );
                 anondlg->setButtons( KDialog::Ok | KDialog::Cancel );
                 anondlg->setDefaultButton( KDialog::Ok );
                 anondlg->setModal( true );
-		QWidget *page = new QWidget( this );
-                anondlg->setMainWidget( page );
-		QBoxLayout *top_box = new QVBoxLayout( page );
-		QBoxLayout *prop_box = new QHBoxLayout();
-                top_box->addItem( prop_box );
-		QWidget *propleft = new QWidget(page);
-		QVBoxLayout *vboxLayout1 = new QVBoxLayout(propleft);
-		propleft->setLayout(vboxLayout1);
-		prop_box->addWidget(propleft);
-		QWidget *propright = new QWidget(page);
-		QVBoxLayout *vboxLayout2 = new QVBoxLayout(propright);
-		propright->setLayout(vboxLayout2);
-		prop_box->addWidget(propright);
 
-		anon_time = new TimeEdit(propright);
+                KHBox *page = new KHBox( anondlg );
+                anondlg->setMainWidget( page );
+
+                new QLabel(anon_time, i18n("Tea time:"), page);
+		anon_time = new TimeEdit(page);
 		anon_time->setFixedHeight(anon_time->sizeHint().height());
 		anon_time->setValue(DEFAULT_TEA_TIME);
-		QLabel *l = new QLabel(anon_time, i18n("Tea time:"), propleft);
-		l->setFixedSize(l->sizeHint());
-
-		top_box->addStretch();
 
 		anon_time->setFocus();
 	} else {
@@ -664,12 +634,12 @@ void TopLevel::confButtonClicked()
 void TopLevel::config()
 {
   if (!confdlg) {
-    confdlg = new KDialog(this);
+    confdlg = new KDialog(0);
     confdlg->setCaption( i18n("Configure Tea Cooker") );
     confdlg->setButtons( KDialog::Ok|KDialog::Cancel|KDialog::Help );
     confdlg->setDefaultButton( KDialog::Ok );
 
-    QWidget *page = new QWidget( this );
+    QWidget *page = new QWidget( 0 );
     confdlg->setMainWidget( page );
     // FIXME: enforce sensible initial/default size of dialog
     // FIXME: modal is ok, but can avoid always-on-top?

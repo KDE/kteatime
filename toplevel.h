@@ -36,7 +36,7 @@
 #include <QTimerEvent>
 #include <QPaintEvent>
 #include <knuminput.h>
-#include <ksystemtray.h>
+#include <ksystemtrayicon.h>
 #include <qpixmap.h>
 
 class KAction;
@@ -44,7 +44,7 @@ class KDialog;
 class QCheckBox;
 class TimeEdit;
 
-class TopLevel : public KSystemTray
+class TopLevel : public KSystemTrayIcon
 {
 	Q_OBJECT
 
@@ -54,13 +54,11 @@ public:
 	~TopLevel();
 
 protected:
-
-	void paintEvent(QPaintEvent *);
-	void mousePressEvent(QMouseEvent *);
 	void timerEvent(QTimerEvent *);
 
 private slots:
 
+        void repaint();
 	void teaSelected(int index);
 	void teaStartSelected(int index);
 	void start();
@@ -68,8 +66,8 @@ private slots:
 	void config();
 	void help();
 	void anonymous();
-	void setToolTip(const QString &text, bool force=false);
 	void rebuildTeaMenus();
+	void slotActivated(QSystemTrayIcon::ActivationReason);
 
 	void listBoxItemSelected();
 	void nameEditTextChanged(const QString& newText);
