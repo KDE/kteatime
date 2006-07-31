@@ -37,6 +37,7 @@
 #include <q3header.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
+#include <knotifyconfigwidget.h>
 //Added by qt3to4:
 #include <QPaintEvent>
 #include <QBoxLayout>
@@ -627,7 +628,7 @@ void TopLevel::help()
 /* config-slot: "Configure Events..." button clicked */
 void TopLevel::confButtonClicked()
 {
-	KNotifyDialog::configure(btn_conf);
+	KNotifyConfigWidget::configure(btn_conf);
 }
 
 

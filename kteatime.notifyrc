@@ -1,16 +1,16 @@
-[!Global!]
+[Global]
 IconName=kteatime
 Comment=The KDE Tea Cooker
 Comment[fr]=Le préparateur de thé de KDE
 Comment[x-test]=xxThe KDE Tea Cookerxx
 
-[tea]
+[Event/tea]
 Name=Tea is ready
 Name[fr]=Le thé est prêt
 Name[x-test]=xxTea is readyxx
 Comment=Tea is ready
 Comment[fr]=Le thé est prêt
 Comment[x-test]=xxTea is readyxx
-default_sound=KDE_Notify.wav
-default_presentation=1
+Sound=KDE_Notify.wav
+Action=Sound
 
