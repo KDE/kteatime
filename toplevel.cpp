@@ -161,7 +161,9 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 	menu->addAction( stopAct );
 	menu->addSeparator();
 	menu->addAction( confAct );
-	menu->insertItem(SmallIcon("help"), i18n("&Help"), helpMnu);
+        helpMnu->setIcon( SmallIcon("help") );
+        helpMnu->setTitle( i18n("&Help") );
+	menu->addMenu(helpMnu);
 	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
 //	quitAct->plug(menu);    // FIXME: this doesn't seem to work with above definition of quitAct?
 	                        //        (need special 'quit'-method?)
