@@ -62,7 +62,7 @@
 #include <knotifydialog.h>
 #include <ktoolinvocation.h>
 #include <kglobal.h>
-
+#include <kicon.h> 
 #include "tealist.h"
 #include "timeedit.h"
 #include "toplevel.h"
