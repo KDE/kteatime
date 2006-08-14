@@ -24,8 +24,8 @@ install(TARGETS kteatime  DESTINATION ${BIN_INSTALL_DIR} )
 install( FILES kteatime.desktop  DESTINATION ${XDG_APPS_DIR})
 install( FILES kteatime.notifyrc  DESTINATION ${DATA_INSTALL_DIR}/kteatime)
 
-kde4_install_icons( ${ICON_INSTALL_DIR} hicolor )
-kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
+kde4_install_icons( ${ICON_INSTALL_DIR}  )
+kde4_install_icons( ${ICON_INSTALL_DIR}  )
 
 
 
