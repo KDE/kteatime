@@ -51,8 +51,8 @@ void WrappingSpinBox::stepDown()
 // -------------------------------------------------------------------------
 
 
-TimeEdit::TimeEdit(QWidget* parent, const char* name)
-    : QWidget(parent, name)
+TimeEdit::TimeEdit(QWidget* parent)
+    : QWidget(parent)
 {
 	layout = new QHBoxLayout(this);
 	minuteBox = new QSpinBox(0, 300, 1, this);
