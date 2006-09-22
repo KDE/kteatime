@@ -706,27 +706,31 @@ void TopLevel::config()
     editgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea Properties"), page);
     rightside->addWidget(editgroup, 0, 0);
     QWidget *propbox = new QWidget(editgroup);
-    QHBoxLayout *hboxLayout3 = new QHBoxLayout(propbox);
+    QHBoxLayout *hboxLayout3 = new QHBoxLayout;
     propbox->setLayout(hboxLayout3);
 
     // FIXME: - must enforce correct vertical alignment of each label-editor pair
     //          (better use one HBox for each label-editor pair?)
     QWidget *propleft = new QWidget(propbox);
-    QVBoxLayout *vboxLayout4 = new QVBoxLayout(propleft);
+    QVBoxLayout *vboxLayout4 = new QVBoxLayout;
     propleft->setLayout(vboxLayout4);
     QWidget *propright = new QWidget(propbox);
-    QVBoxLayout *vboxLayout5 = new QVBoxLayout(propright);
+    QVBoxLayout *vboxLayout5 = new QVBoxLayout;
     propright->setLayout(vboxLayout5);
-    nameEdit = new QLineEdit(propright);
+    nameEdit = new QLineEdit;
+    vboxLayout5->addWidget( nameEdit );
     nameEdit->setFixedHeight(nameEdit->sizeHint().height());
     nameEdit->setAlignment(Qt::AlignLeft);
-    QLabel *l = new QLabel(nameEdit, i18n("Name:"), propleft);
+    QLabel *l = new QLabel(nameEdit, i18n("Name:"));
+    vboxLayout4->addWidget( l );
     l->setFixedSize(l->sizeHint());
     connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
-    timeEdit = new TimeEdit(propright);
+    timeEdit = new TimeEdit;
+    vboxLayout5->addWidget( timeEdit );
     timeEdit->setFixedHeight(timeEdit->sizeHint().height());
-    l = new QLabel(timeEdit, i18n("Tea time:"), propleft);
+    l = new QLabel(timeEdit, i18n("Tea time:"));
+    vboxLayout4->addWidget( l );
     l->setFixedSize(l->sizeHint());
     connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
 

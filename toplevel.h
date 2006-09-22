@@ -27,7 +27,6 @@
 #include <QMenu>
 #include <qtimer.h>
 #include <qlineedit.h>
-#include <q3valuevector.h>
 #include <q3listview.h>
 #include <qpushbutton.h>
 #include <q3groupbox.h>
