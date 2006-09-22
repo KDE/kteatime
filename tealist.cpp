@@ -53,12 +53,12 @@ void TeaListItem::setName(const QString &n)
 	Q3ListViewItem::setText(0, n);
 }
 
-QString TeaListItem::name()
+QString TeaListItem::name() const
 {
 	return nam;
 }
 
-int TeaListItem::time()
+int TeaListItem::time() const
 {
 	return tim;
 }

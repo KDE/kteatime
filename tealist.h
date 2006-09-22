@@ -22,8 +22,8 @@ public:
 	TeaListItem(Q3ListView *parent, Q3ListViewItem *after);
 	~TeaListItem();
 
-	int time();
-	QString name();
+	int time() const;
+	QString name() const;
 	void setTime(int v);
 	void setName(const QString &n);
 

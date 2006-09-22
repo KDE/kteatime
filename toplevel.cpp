@@ -62,7 +62,7 @@
 #include <knotifydialog.h>
 #include <ktoolinvocation.h>
 #include <kglobal.h>
-#include <kicon.h> 
+#include <kicon.h>
 #include "tealist.h"
 #include "timeedit.h"
 #include "toplevel.h"
@@ -747,12 +747,16 @@ void TopLevel::config()
     popupEnable->setFixedHeight(popupEnable->sizeHint().height());
 
     QWidget *actionbox = new QWidget(actiongroup);
-    QHBoxLayout *hboxLayout6 = new QHBoxLayout(actionbox);
+    QHBoxLayout *hboxLayout6 = new QHBoxLayout;
     actionbox->setLayout(hboxLayout6);
-    actionEnable = new QCheckBox(actionbox);
+    actionEnable = new QCheckBox;
+    hboxLayout6->addWidget( actionEnable );
+
 //    FIXME: add text to this line:
 //    QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
-    actionEdit = new QLineEdit(actionbox);
+    actionEdit = new QLineEdit;
+    hboxLayout6->addWidget( actionEdit );
+    actionbox->setLayout( hboxLayout6 );
     actionEdit->setFixedHeight(actionEdit->sizeHint().height());
     actionEdit->setToolTip( i18n("Enter command here; '%t' will be replaced with name of steeping tea"));
     connect(actionEnable, SIGNAL(toggled(bool)), SLOT(actionEnableToggled(bool)));
