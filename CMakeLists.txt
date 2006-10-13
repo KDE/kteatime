@@ -10,7 +10,7 @@ set(kteatime_SRCS
    tealist.cpp 
    timeedit.cpp )
 
-kde4_automoc(${kteatime_SRCS})
+kde4_automoc(kteatime ${kteatime_SRCS})
 
 kde4_add_executable(kteatime ${kteatime_SRCS})
 
