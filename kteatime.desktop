@@ -11,5 +11,5 @@ Type=Application
 Terminal=false
 DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Amusement;
