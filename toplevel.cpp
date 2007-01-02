@@ -59,7 +59,6 @@
 #include <kmenu.h>
 #include <kdialog.h>
 #include <kaction.h>
-#include <knotifydialog.h>
 #include <ktoolinvocation.h>
 #include <kglobal.h>
 #include <kicon.h>
@@ -67,7 +66,7 @@
 #include "timeedit.h"
 #include "toplevel.h"
 #include "toplevel.moc"
-
+#include <Q3ListViewItem>
 
 const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 

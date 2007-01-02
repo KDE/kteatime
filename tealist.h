@@ -9,9 +9,8 @@
 #define TEALIST_H
 
 #include <qstring.h>
-
+#include <Q3ListViewItem>
 class Q3ListView;
-class Q3ListViewItem;
 
 
 class TeaListItem : public Q3ListViewItem
