@@ -53,7 +53,6 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kpassivepopup.h>
-#include <knotifyclient.h>
 #include <knuminput.h>
 #include <kseparator.h>
 #include <kmenu.h>
