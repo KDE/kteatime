@@ -58,6 +58,7 @@
 #include <kmenu.h>
 #include <kdialog.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <ktoolinvocation.h>
 #include <kglobal.h>
 #include <kicon.h>
@@ -124,13 +125,20 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 
 	listempty = (teas.count() == 0);
 
-	startAct = new KAction(KIcon("1rightarrow"), i18n("&Start"), actionCollection(), "start");
+	startAct = actionCollection()->addAction("start");
+	startAct->setIcon(KIcon("1rightarrow"));
+	startAct->setText(i18n("&Start"));
 	connect(startAct, SIGNAL(triggered(bool)), SLOT(start()));
-	stopAct = new KAction(KIcon("cancel"), i18n("Sto&p"), actionCollection(), "stop");
+	stopAct = actionCollection()->addAction("stop");
+	stopAct->setIcon(KIcon("cancel"));
+	stopAct->setText(i18n("Sto&p"));
 	connect(stopAct, SIGNAL(triggered(bool)), SLOT(stop()));
-	confAct = new KAction(KIcon("configure"), i18n("&Configure..."), actionCollection(), "configure");
+	confAct = actionCollection()->addAction("configure");
+	confAct->setIcon(KIcon("configure"));
+	confAct->setText(i18n("&Configure..."));
 	connect(confAct, SIGNAL(triggered(bool)), SLOT(config()));
-	anonAct = new KAction(i18n("&Anonymous..."), actionCollection(), "anonymous");
+	anonAct = actionCollection()->addAction("anonymous");
+	anonAct->setText(i18n("&Anonymous..."));
 	connect(anonAct, SIGNAL(triggered(bool)), SLOT(anonymous()));
 //	KAction *quitAct = actionCollection()->action("file_quit");
 

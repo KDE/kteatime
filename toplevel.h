@@ -108,7 +108,7 @@ private:
 
 	QPixmap mugPixmap, teaNotReadyPixmap, teaAnim1Pixmap, teaAnim2Pixmap;
 
-	KAction *startAct, *stopAct, *confAct, *anonAct;
+	QAction *startAct, *stopAct, *confAct, *anonAct;
 	QMenu *menu, *steeping_menu, *start_menu;
 	Q3ListView *listbox;
 	QLineEdit *nameEdit, *actionEdit;
