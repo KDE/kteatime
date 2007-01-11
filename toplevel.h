@@ -23,7 +23,6 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#include <kapplication.h>
 #include <QMenu>
 #include <qtimer.h>
 #include <qlineedit.h>

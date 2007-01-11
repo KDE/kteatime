@@ -30,7 +30,7 @@
 #include <kaboutdata.h>
 #include <klocale.h>
 #include "toplevel.h"
-
+#include <kapplication.h>
 
 static const char description[] =
     I18N_NOOP("KDE utility for making a fine cup of tea");

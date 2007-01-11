@@ -37,6 +37,7 @@
 #include <q3header.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
+#include <kapplication.h>
 #include <knotifyconfigwidget.h>
 //Added by qt3to4:
 #include <QPaintEvent>
