@@ -309,7 +309,9 @@ void TopLevel::timerEvent(QTimerEvent *)
 			QString teaMessage = i18n("The %1 is now ready!", current_name);
 			// invoke action
 			if (useNotify) {
+#ifdef __GNUC__
 #warning KSystemTrayIcon is no widget, consider using showMessage
+#endif
                             //KNotifyClient::event(0, "tea", teaMessage);
                             showMessage( i18n( "The Tea Cooker" ), teaMessage );
 			}
