@@ -2,6 +2,7 @@
 IconName=kteatime
 Comment=The KDE Tea Cooker
 Comment[ar]=طابخ شاي KDE
+Comment[be]=Прыгатаўленне гарбаты пры дапамозе KDE
 Comment[bg]=Програма за приготвяне на чай
 Comment[bn]=কে.ডি.ই.'র চায়ের কেটলি
 Comment[br]=Pod te KDE
@@ -59,6 +60,7 @@ Comment[zh_TW]=KDE 煮茶器
 [tea]
 Name=Tea is ready
 Name[ar]=الشاي جاهز
+Name[be]=Гарбата гатова
 Name[bg]=Чаят е готов
 Name[bn]=চা প্রস্তুত
 Name[br]=Prest eo an te
@@ -113,6 +115,7 @@ Name[zh_CN]=茶沏好了
 Name[zh_TW]=茶煮好了
 Comment=Tea is ready
 Comment[ar]=الشاي جاهز
+Comment[be]=Гарбата гатова
 Comment[bg]=Чаят е готов
 Comment[bn]=অই চা গরমমম!!!
 Comment[br]=Prest eo an te
