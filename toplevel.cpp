@@ -79,7 +79,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 
 	teas.clear();
 
-	KConfig *config = KGlobal::config();
+	KSharedConfig::Ptr config = KGlobal::config();
 	config->setGroup("Teas");
 
 	if (config->hasKey("Number")) {
@@ -156,7 +156,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 
 	rebuildTeaMenus();      // populate tops of menus with tea-entries from config
 
-	KHelpMenu* help = new KHelpMenu(0, KGlobal::instance()->aboutData(), false);
+	KHelpMenu* help = new KHelpMenu(0, KGlobal::mainComponent().aboutData(), false);
 	KMenu* helpMnu = help->menu();
 
 	start_menu->addSeparator();
@@ -205,7 +205,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 /* (not currently needed)
 void TopLevel::queryExit()
 {
-	KConfig *config = KGlobal::config();
+	KSharedConfig::Ptr config = KGlobal::config();
 //	config->sync();
 }
 */
@@ -402,7 +402,7 @@ void TopLevel::teaSelected(int index)
 		menu->setItemChecked(index, true);
 
 		current_selected = index;
-		KConfig *config = KGlobal::config();
+		KSharedConfig::Ptr config = KGlobal::config();
 		config->setGroup("General");
 		config->writeEntry("Tea", current_selected);
 	}
@@ -844,7 +844,7 @@ void TopLevel::config()
     rebuildTeaMenus();
 
     // and store to config
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     // remove old-style entries from default-group (if present)
     if (config->hasKey("UserTea"))
       config->deleteEntry("UserTea");
