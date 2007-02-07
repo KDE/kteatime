@@ -17,7 +17,7 @@ class TeaListItem : public Q3ListViewItem
 {
 
 public:
-	TeaListItem(Q3ListView *parent);
+	explicit TeaListItem(Q3ListView *parent);
 	TeaListItem(Q3ListView *parent, Q3ListViewItem *after);
 	~TeaListItem();
 

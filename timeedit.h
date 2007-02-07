@@ -45,7 +45,7 @@ class TimeEdit : public QWidget
 	Q_OBJECT
 
 public:
-	TimeEdit(QWidget* parent = 0);
+	explicit TimeEdit(QWidget* parent = 0);
 	~TimeEdit();
 
 	void setValue(int value);
