@@ -79,23 +79,22 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 
 	teas.clear();
 
-	KSharedConfig::Ptr config = KGlobal::config();
-	config->setGroup("Teas");
+	KConfigGroup config(KGlobal::config(), "Teas");
 
-	if (config->hasKey("Number")) {
+	if (config.hasKey("Number")) {
 		// assuming this is a new-style config
-		num = config->readEntry("Number", 0);
+		num = config.readEntry("Number", 0);
 		teas.resize(num);
 		QString tempstr;
 		for (unsigned int index=1; index<=num; ++index) {
 			key.sprintf("Tea%d Time", index);
-			tempstr = config->readEntry(key, QString());
+			tempstr = config.readEntry(key, QString());
 			teas[index-1].time = tempstr.toInt();
   			key.sprintf("Tea%d Name", index);
-			teas[index-1].name = config->readEntry(key, QString());
+			teas[index-1].name = config.readEntry(key, QString());
 			// FIXME: check for non-existence!
   		}
-		config->setGroup("General");
+		config.changeGroup("General");
 	} else {
 		// either old-style config or first start, so provide some sensible defaults
 		// (which are the same as in old-style kteatime)
@@ -111,16 +110,16 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 		teas.append(temp);
 
 		// switch back to old-style default group
-		config->setGroup(NULL);
+		config.changeGroup(QString());
 		// look for old-style "UserTea"-entry and add that one also
-		if (config->hasKey("UserTea")) {
-			num = config->readEntry("UserTea", 150);
+		if (config.hasKey("UserTea")) {
+			num = config.readEntry("UserTea", 150);
 			temp.name = i18n("Other Tea");
 			temp.time = num;
 			teas.append(temp);
 		}
 	}
-	current_selected = config->readEntry("Tea", 0);
+	current_selected = config.readEntry("Tea", 0);
 	if (current_selected >= teas.count())
 		current_selected = 0;
 
@@ -184,11 +183,11 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 //	startAct->plug(start_menu);     // FIXME: include "start" entry here for quick access to current tea?
 
 	// read remaining entries from config-file
-	useNotify = config->readEntry("Beep", true);    // "Beep" should really be named "Notify"
-	usePopup = config->readEntry("Popup", false );
-	useAction = config->readEntry("UseAction", QVariant(true)).toBool();
-	action = config->readEntry("Action");
-	useTrayVis = config->readEntry("UseTrayVis", QVariant(true)).toBool();
+	useNotify = config.readEntry("Beep", true);    // "Beep" should really be named "Notify"
+	usePopup = config.readEntry("Popup", false );
+	useAction = config.readEntry("UseAction", QVariant(true)).toBool();
+	action = config.readEntry("Action");
+	useTrayVis = config.readEntry("UseTrayVis", QVariant(true)).toBool();
 
 	mugPixmap = loadIcon("mug").pixmap();
 	teaNotReadyPixmap = loadIcon("tea_not_ready").pixmap();
@@ -206,7 +205,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 void TopLevel::queryExit()
 {
 	KSharedConfig::Ptr config = KGlobal::config();
-//	config->sync();
+//	config.sync();
 }
 */
 
@@ -402,9 +401,8 @@ void TopLevel::teaSelected(int index)
 		menu->setItemChecked(index, true);
 
 		current_selected = index;
-		KSharedConfig::Ptr config = KGlobal::config();
-		config->setGroup("General");
-		config->writeEntry("Tea", current_selected);
+		KConfigGroup config( KGlobal::config(), "General");
+		config.writeEntry("Tea", current_selected);
 	}
 	// all other entries of this menu have custom handlers
 }
@@ -844,32 +842,32 @@ void TopLevel::config()
     rebuildTeaMenus();
 
     // and store to config
-    KSharedConfig::Ptr config = KGlobal::config();
+    KConfigGroup config( KGlobal::config(), QString() );
     // remove old-style entries from default-group (if present)
-    if (config->hasKey("UserTea"))
-      config->deleteEntry("UserTea");
+    if (config.hasKey("UserTea"))
+      config.deleteEntry("UserTea");
 
-    config->setGroup("General");
-    config->writeEntry("Beep", useNotify);
-    config->writeEntry("Popup", usePopup);
-    config->writeEntry("UseAction", useAction);
-    config->writeEntry("Action", action);
-    config->writeEntry("Tea", current_selected);
-    config->writeEntry("UseTrayVis", useTrayVis);
+    config.changeGroup("General");
+    config.writeEntry("Beep", useNotify);
+    config.writeEntry("Popup", usePopup);
+    config.writeEntry("UseAction", useAction);
+    config.writeEntry("Action", action);
+    config.writeEntry("Tea", current_selected);
+    config.writeEntry("UseTrayVis", useTrayVis);
     // first get rid of all previous tea-entries from config, then write anew
-    config->deleteGroup("Teas");          // deep remove of whole group
-    config->setGroup("Teas");
-    config->writeEntry("Number", teas.count());
+    config.changeGroup( "Teas" );
+    config.deleteGroup();          // deep remove of whole group
+    config.writeEntry("Number", teas.count());
     QString key;
     int index = 1;
     for (QVector<tea_struct>::ConstIterator it = teas.begin(); it != teas.end(); ++it) {
       key.sprintf("Tea%d Name", index);
-      config->writeEntry(key, it->name);
+      config.writeEntry(key, it->name);
       key.sprintf("Tea%d Time", index);
-      config->writeEntry(key, it->time);
+      config.writeEntry(key, it->time);
       index++;
     }
 
-    config->sync();
+    config.sync();
   }
 }
