@@ -185,9 +185,9 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 	// read remaining entries from config-file
 	useNotify = config.readEntry("Beep", true);    // "Beep" should really be named "Notify"
 	usePopup = config.readEntry("Popup", false );
-	useAction = config.readEntry("UseAction", QVariant(true)).toBool();
+	useAction = config.readEntry("UseAction", true);
 	action = config.readEntry("Action");
-	useTrayVis = config.readEntry("UseTrayVis", QVariant(true)).toBool();
+	useTrayVis = config.readEntry("UseTrayVis", true);
 
 	mugPixmap = loadIcon("mug").pixmap();
 	teaNotReadyPixmap = loadIcon("tea_not_ready").pixmap();
