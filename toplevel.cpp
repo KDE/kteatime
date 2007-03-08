@@ -126,7 +126,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 	listempty = (teas.count() == 0);
 
 	startAct = actionCollection()->addAction("start");
-	startAct->setIcon(KIcon("1rightarrow"));
+	startAct->setIcon(KIcon("arrow-right"));
 	startAct->setText(i18n("&Start"));
 	connect(startAct, SIGNAL(triggered(bool)), SLOT(start()));
 	stopAct = actionCollection()->addAction("stop");
@@ -167,10 +167,10 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 	menu->addAction( stopAct );
 	menu->addSeparator();
 	menu->addAction( confAct );
-        helpMnu->setIcon( SmallIcon("help") );
+        helpMnu->setIcon( SmallIcon("help-contents") );
         helpMnu->setTitle( i18n("&Help") );
 	menu->addMenu(helpMnu);
-	menu->insertItem(SmallIcon("exit"), i18n("Quit"), kapp, SLOT(quit()));
+	menu->insertItem(SmallIcon("application-exit"), i18n("Quit"), kapp, SLOT(quit()));
 //	quitAct->plug(menu);    // FIXME: this doesn't seem to work with above definition of quitAct?
 	                        //        (need special 'quit'-method?)
 
@@ -679,28 +679,28 @@ void TopLevel::config()
     hbox->setSpacing(4);
     btn_new = new QPushButton(QString::null, listgroup_widget);
     btn_new->setToolTip( i18n("New"));
-    btn_new->setPixmap(SmallIcon("filenew"));
+    btn_new->setPixmap(SmallIcon("document-new"));
     btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
     hbox->addWidget(btn_new);
 
     btn_del = new QPushButton(QString::null, listgroup_widget);
     btn_del->setToolTip( i18n("Delete"));
-    btn_del->setIcon(KIcon("editdelete"));
+    btn_del->setIcon(KIcon("edit-delete"));
     btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
     hbox->addWidget(btn_del);
 
     btn_up = new QPushButton(QString::null, listgroup_widget);
     btn_up->setToolTip( i18n("Up"));
-    btn_up->setIcon(KIcon("up"));
+    btn_up->setIcon(KIcon("go-up"));
     btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
     connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
     hbox->addWidget(btn_up);
 
     btn_down = new QPushButton(QString::null, listgroup_widget);
     btn_down->setToolTip( i18n("Down"));
-    btn_down->setIcon(KIcon("down"));
+    btn_down->setIcon(KIcon("go-down"));
     btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
     connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
     hbox->addWidget(btn_down);
