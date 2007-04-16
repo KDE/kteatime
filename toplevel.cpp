@@ -25,7 +25,6 @@
 
 #include <qcheckbox.h>
 #include <qlayout.h>
-#include <q3hbox.h>
 
 #include <qlineedit.h>
 #include <qpainter.h>
@@ -37,8 +36,8 @@
 #include <q3header.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
-#include <kapplication.h>
 #include <knotifyconfigwidget.h>
+#include <kapplication.h>
 //Added by qt3to4:
 #include <QPaintEvent>
 #include <QBoxLayout>
