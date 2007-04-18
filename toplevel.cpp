@@ -20,9 +20,9 @@
  *
  */
 
+#include "toplevel.h"
 #include "tealist.h"
 #include "timeedit.h"
-#include "toplevel.h"
 #include "toplevel.moc"
 
 #include <stdlib.h>
