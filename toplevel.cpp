@@ -185,7 +185,7 @@ TopLevel::TopLevel() : KSystemTrayIcon()
 	// read remaining entries from config-file
 	useNotify = config.readEntry("Beep", true);    // "Beep" should really be named "Notify"
 	usePopup = config.readEntry("Popup", false );
-	useAction = config.readEntry("UseAction", true);
+	useAction = config.readEntry("UseAction", false);
 	action = config.readEntry("Action");
 	useTrayVis = config.readEntry("UseTrayVis", true);
 
@@ -680,28 +680,24 @@ void TopLevel::config()
     btn_new = new QPushButton(listgroup_widget);
     btn_new->setToolTip( i18n("New"));
     btn_new->setPixmap(SmallIcon("document-new"));
-    btn_new->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_new, SIGNAL(clicked()), SLOT(newButtonClicked()));
     hbox->addWidget(btn_new);
 
     btn_del = new QPushButton(listgroup_widget);
     btn_del->setToolTip( i18n("Delete"));
     btn_del->setIcon(KIcon("edit-delete"));
-    btn_del->setMinimumSize(btn_new->sizeHint() * 1.2);
     connect(btn_del, SIGNAL(clicked()), SLOT(delButtonClicked()));
     hbox->addWidget(btn_del);
 
     btn_up = new QPushButton(listgroup_widget);
     btn_up->setToolTip( i18n("Up"));
     btn_up->setIcon(KIcon("go-up"));
-    btn_up->setMinimumSize(btn_up->sizeHint() * 1.2);
     connect(btn_up, SIGNAL(clicked()), SLOT(upButtonClicked()));
     hbox->addWidget(btn_up);
 
     btn_down = new QPushButton(listgroup_widget);
     btn_down->setToolTip( i18n("Down"));
     btn_down->setIcon(KIcon("go-down"));
-    btn_down->setMinimumSize(btn_down->sizeHint() * 1.2);
     connect(btn_down, SIGNAL(clicked()), SLOT(downButtonClicked()));
     hbox->addWidget(btn_down);
 
@@ -760,11 +756,8 @@ void TopLevel::config()
     QWidget *actionbox = new QWidget(actiongroup);
     QHBoxLayout *hboxLayout6 = new QHBoxLayout;
     actionbox->setLayout(hboxLayout6);
-    actionEnable = new QCheckBox;
+    actionEnable = new QCheckBox( i18n( "Execute:" ), actionbox );
     hboxLayout6->addWidget( actionEnable );
-
-//    FIXME: add text to this line:
-//    QLabel *actionLabel = new QLabel(i18n("Execute: "), actiongroup);
     actionEdit = new QLineEdit;
     hboxLayout6->addWidget( actionEdit );
     actionbox->setLayout( hboxLayout6 );
