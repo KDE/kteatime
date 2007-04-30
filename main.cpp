@@ -24,7 +24,7 @@
  *
  */
 
-#include <kwm.h>
+#include <kwindowsystem.h>
 #include <kstartupinfo.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
   KApplication app;
 
   TopLevel toplevel;
-  // KWM::setSystemTrayWindowFor(toplevel.winId(), 0);
+  // KWindowSystem::setSystemTrayWindowFor(toplevel.winId(), 0);
   toplevel.show();
 
   //app.setTopWidget(&toplevel);
