@@ -73,16 +73,18 @@ TimeEdit::TimeEdit(QWidget* parent)
     : QWidget(parent)
 {
 	layout = new QHBoxLayout(this);
+    layout->setSpacing( 5 );
+    layout->setMargin( 0 );
 	minuteBox = new QSpinBox(0, 300, 1, this);
 //	minuteBox->setFixedSize(minuteBox->sizeHint());
 
-	QLabel* min = new QLabel(i18n(" min"), this);
+	QLabel* min = new QLabel(i18n("min"), this);
 	min->setFixedSize(min->sizeHint());
 	secondBox = new WrappingSpinBox(0, 59, 1, this);
 	secondBox->setWrapping(true);
 //	secondBox->setFixedSize(secondBox->sizeHint());
 
-	QLabel* sec = new QLabel(i18n(" sec"),this);
+	QLabel* sec = new QLabel(i18n("sec"),this);
 	sec->setFixedSize(sec->sizeHint());
 
 	layout->addWidget(minuteBox);

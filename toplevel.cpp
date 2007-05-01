@@ -43,6 +43,7 @@
 #include <qbitmap.h>
 #include <knotifyconfigwidget.h>
 #include <kapplication.h>
+#include <QGridLayout>
 //Added by qt3to4:
 #include <QPaintEvent>
 #include <QBoxLayout>
@@ -656,11 +657,15 @@ void TopLevel::config()
 
     QBoxLayout *top_box = new QVBoxLayout(page);    // whole config-stuff
     top_box->setSpacing( 8 );
+    top_box->setMargin(0);
     QBoxLayout *box = new QHBoxLayout();           // list + properties
+    box->setSpacing(8);
+    box->setMargin(0);
     top_box->addItem( box );
 
     /* left side - tea list and list-modifying buttons */
     QBoxLayout *leftside = new QVBoxLayout();
+    leftside->setMargin(0);
     box->addItem( leftside );
     Q3GroupBox *listgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea List"), page);
     leftside->addWidget(listgroup, 0, 0);
@@ -676,6 +681,7 @@ void TopLevel::config()
     // now buttons for editing the tea-list
     QWidget *listgroup_widget = new QWidget(listgroup);
     QBoxLayout *hbox = new QHBoxLayout(listgroup_widget);
+    hbox->setMargin(0);
     hbox->setSpacing(4);
     btn_new = new QPushButton(listgroup_widget);
     btn_new->setToolTip( i18n("New"));
@@ -705,44 +711,36 @@ void TopLevel::config()
 
     /* right side - tea properties */
     QBoxLayout *rightside = new QVBoxLayout();
+    rightside->setMargin(0);
     box->addItem( rightside );
     editgroup = new Q3GroupBox(2, Qt::Vertical, i18n("Tea Properties"), page);
-    rightside->addWidget(editgroup, 0, 0);
+    rightside->addWidget(editgroup);
     QWidget *propbox = new QWidget(editgroup);
-    QHBoxLayout *hboxLayout3 = new QHBoxLayout;
-    propbox->setLayout(hboxLayout3);
-
-    // FIXME: - must enforce correct vertical alignment of each label-editor pair
-    //          (better use one HBox for each label-editor pair?)
-    QWidget *propleft = new QWidget(propbox);
-    QVBoxLayout *vboxLayout4 = new QVBoxLayout;
-    propleft->setLayout(vboxLayout4);
-    QWidget *propright = new QWidget(propbox);
-    QVBoxLayout *vboxLayout5 = new QVBoxLayout;
-    propright->setLayout(vboxLayout5);
-    nameEdit = new QLineEdit;
-    vboxLayout5->addWidget( nameEdit );
-    nameEdit->setFixedHeight(nameEdit->sizeHint().height());
-    nameEdit->setAlignment(Qt::AlignLeft);
+    QGridLayout *gridLayout1 = new QGridLayout();
+    propbox->setLayout(gridLayout1);
     QLabel *l = new QLabel(nameEdit, i18n("Name:"));
-    vboxLayout4->addWidget( l );
     l->setFixedSize(l->sizeHint());
+    gridLayout1->addWidget(l, 0, 0);
+    nameEdit = new QLineEdit;
+    nameEdit->setFixedHeight(nameEdit->sizeHint().height());
+    gridLayout1->addWidget(nameEdit, 0, 1, Qt::AlignLeft);
     connect(nameEdit, SIGNAL(textChanged(const QString&)), SLOT(nameEditTextChanged(const QString&)) );
 
-    timeEdit = new TimeEdit;
-    vboxLayout5->addWidget( timeEdit );
-    timeEdit->setFixedHeight(timeEdit->sizeHint().height());
     l = new QLabel(timeEdit, i18n("Tea time:"));
-    vboxLayout4->addWidget( l );
     l->setFixedSize(l->sizeHint());
+    gridLayout1->addWidget(l, 1, 0);
+    timeEdit = new TimeEdit;
+    timeEdit->setFixedHeight(timeEdit->sizeHint().height());
+    gridLayout1->addWidget(timeEdit, 1, 1);
     connect(timeEdit, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)));
 
     /* bottom - timeout actions */
     Q3GroupBox *actiongroup = new Q3GroupBox(4, Qt::Vertical, i18n("Action"), page);
-    top_box->addWidget(actiongroup, 0, 0);
+    top_box->addWidget(actiongroup);
 
     QWidget *actionconf_widget = new QWidget(actiongroup);
     QBoxLayout *actionconf_hbox = new QHBoxLayout(actionconf_widget);
+    actionconf_hbox->setMargin(0);
     btn_conf = new QPushButton(i18n("Configure Events..."), actionconf_widget);
     actionconf_hbox->addWidget(btn_conf);
     connect(btn_conf, SIGNAL(clicked()), SLOT(confButtonClicked()));
@@ -755,6 +753,7 @@ void TopLevel::config()
 
     QWidget *actionbox = new QWidget(actiongroup);
     QHBoxLayout *hboxLayout6 = new QHBoxLayout;
+    hboxLayout6->setMargin(0);
     actionbox->setLayout(hboxLayout6);
     actionEnable = new QCheckBox( i18n( "Execute:" ), actionbox );
     hboxLayout6->addWidget( actionEnable );
