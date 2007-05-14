@@ -14,7 +14,7 @@ kde4_automoc(${kteatime_SRCS})
 
 kde4_add_executable(kteatime ${kteatime_SRCS})
 
-target_link_libraries(kteatime  ${KDE4_KIO_LIBS} ${KDE4_KNOTIFYCONFIG_LIBS} )
+target_link_libraries(kteatime  ${KDE4_KIO_LIBS} ${KDE4_KNOTIFYCONFIG_LIBS} ${QT_QT3SUPPORT_LIBRARY})
 
 install(TARGETS kteatime  DESTINATION ${BIN_INSTALL_DIR} )
 
