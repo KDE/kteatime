@@ -37,7 +37,6 @@
 #include <ksystemtrayicon.h>
 #include <qpixmap.h>
 
-class KAction;
 class KDialog;
 class QCheckBox;
 class TimeEdit;
