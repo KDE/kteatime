@@ -39,12 +39,12 @@ static const char version[] = "v1.1.0";
 
 int main(int argc, char *argv[])
 {
-  KAboutData aboutData( "kteatime", I18N_NOOP("KTeaTime"),
-    version, description, KAboutData::License_GPL,
-    "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n(c) 2002-2003, Martin Willers");
-  aboutData.addAuthor("Matthias Hoelzer-Kluepfel",0, "hoelzer@kde.org");
-  aboutData.addAuthor("Martin Willers", 0, "willers@xm-arts.de");
-  aboutData.addCredit("Daniel Teske", I18N_NOOP("Many patches"), "teske@bigfoot.com");
+  KAboutData aboutData( "kteatime", 0, ki18n("KTeaTime"),
+    version, ki18n(description), KAboutData::License_GPL,
+    ki18n("(c) 1998-1999, Matthias Hoelzer-Kluepfel\n(c) 2002-2003, Martin Willers"));
+  aboutData.addAuthor(ki18n("Matthias Hoelzer-Kluepfel"),KLocalizedString(), "hoelzer@kde.org");
+  aboutData.addAuthor(ki18n("Martin Willers"), KLocalizedString(), "willers@xm-arts.de");
+  aboutData.addCredit(ki18n("Daniel Teske"), ki18n("Many patches"), "teske@bigfoot.com");
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KApplication app;
