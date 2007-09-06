@@ -29,9 +29,10 @@
 #include "timeedit.moc"
 
 #include <klocale.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <QHBoxLayout>
+
+#include <QtGui/QLabel>
+#include <QtGui/QLayout>
+#include <QtGui/QHBoxLayout>
 
 WrappingSpinBox::WrappingSpinBox(int minimum, int maximum, int step, QWidget *parent, const char *name)
 	: QSpinBox(minimum, maximum, step, parent, name)

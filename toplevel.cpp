@@ -28,31 +28,30 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include <qcheckbox.h>
-#include <qlayout.h>
+#include <QtGui/QCheckBox>
+#include <QtGui/QLayout>
+#include <QtGui/QLineEdit>
+#include <QtGui/QPainter>
+#include <QtCore/QFile>
+#include <QtGui/QCursor>
+#include <QtGui/QPushButton>
+#include <Qt3Support/Q3GroupBox>
+#include <Qt3Support/Q3Header>
+#include <QtGui/QPixmap>
+#include <QtGui/QBitmap>
+#include <QtGui/QGridLayout>
+#include <QtGui/QPaintEvent>
+#include <QtGui/QBoxLayout>
+#include <QtGui/QHBoxLayout>
+#include <QtGui/QLabel>
+#include <QtCore/QTimerEvent>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QMouseEvent>
+#include <QtCore/QAbstractEventDispatcher>
+#include <Qt3Support/Q3ListViewItem>
 
-#include <qlineedit.h>
-#include <qpainter.h>
-
-#include <qfile.h>
-#include <qcursor.h>
-#include <qpushbutton.h>
-#include <q3groupbox.h>
-#include <q3header.h>
-#include <qpixmap.h>
-#include <qbitmap.h>
 #include <knotifyconfigwidget.h>
 #include <kapplication.h>
-#include <QGridLayout>
-//Added by qt3to4:
-#include <QPaintEvent>
-#include <QBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QTimerEvent>
-#include <QVBoxLayout>
-#include <QMouseEvent>
-#include <QAbstractEventDispatcher>
 #include <kconfig.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
@@ -68,7 +67,6 @@
 #include <ktoolinvocation.h>
 #include <kglobal.h>
 #include <kicon.h>
-#include <Q3ListViewItem>
 
 const int TopLevel::DEFAULT_TEA_TIME = 3*60;
 

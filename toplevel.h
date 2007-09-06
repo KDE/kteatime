@@ -23,19 +23,19 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#include <QMenu>
-#include <qtimer.h>
-#include <qlineedit.h>
-#include <q3listview.h>
-#include <qpushbutton.h>
-#include <q3groupbox.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QTimerEvent>
-#include <QPaintEvent>
+#include <QtGui/QMenu>
+#include <QtCore/QTimer>
+#include <QtGui/QLineEdit>
+#include <Qt3Support/Q3ListView>
+#include <QtGui/QPushButton>
+#include <Qt3Support/Q3GroupBox>
+#include <QtGui/QMouseEvent>
+#include <QtCore/QTimerEvent>
+#include <QtGui/QPaintEvent>
+#include <QtGui/QPixmap>
+
 #include <knuminput.h>
 #include <ksystemtrayicon.h>
-#include <qpixmap.h>
 
 class KDialog;
 class QCheckBox;

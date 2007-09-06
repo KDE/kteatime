@@ -28,7 +28,8 @@
 #include "tealist.h"
 
 #include <klocale.h>
-#include <q3listview.h>
+
+#include <Qt3Support/Q3ListView>
 
 QString int2time(int time)
 {

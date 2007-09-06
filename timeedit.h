@@ -28,9 +28,9 @@
 #ifndef TIMEEDIT_H
 #define TIMEEDIT_H
 
-#include <qspinbox.h>
-#include <qwidget.h>
-#include <QBoxLayout>
+#include <QtGui/QSpinBox>
+#include <QtGui/qwidget.h>
+#include <QtGui/QBoxLayout>
 
 class QBoxLayout;
 

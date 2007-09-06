@@ -28,10 +28,10 @@
 #ifndef TEALIST_H
 #define TEALIST_H
 
-#include <qstring.h>
-#include <Q3ListViewItem>
-class Q3ListView;
+#include <QtCore/QString>
+#include <Qt3Support/Q3ListViewItem>
 
+class Q3ListView;
 
 class TeaListItem : public Q3ListViewItem
 {
