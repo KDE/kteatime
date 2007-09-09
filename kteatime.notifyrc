@@ -4,7 +4,7 @@ Comment=The KDE Tea Cooker
 Comment[fr]=Le préparateur de thé de KDE
 Comment[x-test]=xxThe KDE Tea Cookerxx
 
-[Event/tea]
+[Event/ready]
 Name=Tea is ready
 Name[fr]=Le thé est prêt
 Name[x-test]=xxTea is readyxx
@@ -14,3 +14,9 @@ Comment[x-test]=xxTea is readyxx
 Sound=KDE_Notify.wav
 Action=Sound
 
+[Event/reminder]
+Name=Tea is getting lonely.
+Name[x-test]=xxTea is getting lonelyxx
+Comment=Tea is getting lonely.
+Sound=KDE_Notify.wav
+Action=Sound 

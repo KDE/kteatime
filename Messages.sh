@@ -1,2 +1,3 @@
 #! /bin/sh
-$XGETTEXT *.cpp -o $podir/kteatime.pot
+$EXTRACTRC `find . -name \*.ui`          >  rc.cpp
+$XGETTEXT *.cpp *.h -o $podir/kteatime.pot

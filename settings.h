@@ -1,13 +1,5 @@
 /*
- *   KTeaTime - A tea timer.
- *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
- *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
- *   Copyright (c) 2003 Daniel Teske <teske@bigfoot.com>
- *   Copyright (c) 2007 Stefan Böhmann <ebrief@hilefoks.org>
- *
- *   With contributions from Daniel Teske <teske@bigfoot.com>, and
- *   Jackson Dunstan <jdunstan@digipen.edu>
- *   (and possibly others, as well)
+ *   Copyright (c)  2007 Stefan Böhmann <ebrief@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -24,51 +16,67 @@
  *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef TIMEEDIT_H
-#define TIMEEDIT_H
+#ifndef SETTINGS_H
+#define SETTINGS_H
 
-#include "ui_timeedit.h"
+#include "ui_settings.h"
+
+#include <QObject>
 
 class QCloseEvent;
 class TopLevel;
+class TeaListModel;
+class Tea;
 
 
 
 /**
- * @short Class for wrapping the ui file for the timeedit dialog.
+ * @short Class for wrapping the ui file for the settings dialog.
  *
  * @author Stefan Böhmann <ebrief@hilefoks.org>
  */
-class TimeEditUI : public QFrame, public Ui::TimeEditWidget
+class SettingsUI : public QFrame, public Ui::SettingsWidget
 {
     Q_OBJECT
     public:
-        TimeEditUI(QWidget *parent=0);
+        SettingsUI(QWidget *parent=0);
 };
 
 
+
 /**
- * @short the timeedit dialog.
+ * @short the settings dialog
  *
  * @author Stefan Böhmann <ebrief@hilefoks.org>
  */
-class TimeEditDialog : public KDialog
+class SettingsDialog : public KDialog
 {
     Q_OBJECT
-
     public:
-        TimeEditDialog(TopLevel *toplevel);
-        ~TimeEditDialog();
+        SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
+        ~SettingsDialog();
+
 
     private:
-        TimeEditUI *m_ui;
+        SettingsUI *m_ui;
         TopLevel *m_toplevel;
+        TeaListModel *m_model;
+        void moveSelectedItem(bool moveup);
 
 
     private slots:
-        void checkOkButtonState();
+        void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
         void accept();
+        void checkPopupButtonState(bool b);
+        void confButtonClicked();
+
+        void newButtonClicked();
+        void removeButtonClicked();
+        void upButtonClicked();
+        void downButtonClicked();
+
+        void nameValueChanged(const QString &text);
+        void timeValueChanged();
 };
 
 #endif
-

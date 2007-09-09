@@ -1,8 +1,9 @@
 /*
  *   This file is part of the KTeaTime application.
  *
- *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
- *   Copyright (C) 2002-2003  Martin Willers (willers@xm-arts.de)
+ *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
+ *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
+ *   Copyright (c) 2007       Stefan Böhmann <ebrief@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,107 +18,93 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- *
  */
-
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#include <QtGui/QMenu>
-#include <QtCore/QTimer>
-#include <QtGui/QLineEdit>
-#include <Qt3Support/Q3ListView>
-#include <QtGui/QPushButton>
-#include <Qt3Support/Q3GroupBox>
-#include <QtGui/QMouseEvent>
-#include <QtCore/QTimerEvent>
-#include <QtGui/QPaintEvent>
-#include <QtGui/QPixmap>
+#include "tea.h"
 
-#include <knuminput.h>
-#include <ksystemtrayicon.h>
+#include <QIcon>
+#include <QPixmap>
+#include <KSystemTrayIcon>
 
-class KDialog;
-class QCheckBox;
-class TimeEdit;
 
+class QAction;
+class QActionGroup;
+class KHelpMenu;
+class KPassivePopup;
+class KAboutData;
+
+
+
+/**
+ * @short the main class for KTeatime
+ *
+ * @author Stefan Böhmann <ebrief@hilefoks.org>
+ */
 class TopLevel : public KSystemTrayIcon
 {
-	Q_OBJECT
+    Q_OBJECT
 
-public:
+    public:
+        explicit TopLevel(const KAboutData *aboutData, const QString &icon="kteatime", QWidget *parent=0);
+        ~TopLevel();
+        void setTeaList(QList<Tea> tealist);
+        void runTea(Tea tea);
 
-	TopLevel();
-	~TopLevel();
+    private:
+        void checkState();
+        void loadConfig();
+        void loadTeaMenuItems();
+        QPoint calculatePopupPoint();
+        void repaintTrayIcon();
 
-protected:
-	void timerEvent(QTimerEvent *);
+        QList<Tea> m_tealist;
+        QAction *m_stopAct, *m_confAct, *m_anonAct, *m_exitAct;
+        QActionGroup *m_teaActionGroup;
 
-private slots:
+        KHelpMenu *m_helpMenu;
+        QTimer *m_timer;
+        KPassivePopup *m_popup;
 
-        void repaint();
-	void teaSelected(int index);
-	void teaStartSelected(int index);
-	void start();
-	void stop();
-	void config();
-	void help();
-	void anonymous();
-	void rebuildTeaMenus();
-	void slotActivated(QSystemTrayIcon::ActivationReason);
+        int m_runningTeaTime;
+        int m_nextNotificationTime;
+        Tea m_runningTea;
 
-	void listBoxItemSelected();
-	void nameEditTextChanged(const QString& newText);
-	void spinBoxValueChanged(int v);
-	void newButtonClicked();
-	void delButtonClicked();
-	void upButtonClicked();
-	void downButtonClicked();
-	void confButtonClicked();
-	void enable_menuEntries();
-	void disable_properties();
-	void enable_properties();
-	void enable_controls();
-	void actionEnableToggled(bool on);
+        /** should we use notifications defined by KNotification */
+        bool m_usenotification;
 
-private:
+        /** should we show a popup for events */
+        bool m_usepopup;
 
-	static const int DEFAULT_TEA_TIME;
+        /** auto hide the popup? */
+        bool m_autohide;
 
-	struct tea_struct {
-		QString name;
-		int time;
-	};
-	QVector<tea_struct> teas;      // list of tea-names and times
+        /** time after the popup should be hide. */
+        int m_autohidetime;
 
-	bool running, ready, firstFrame, listempty;
-	int seconds;                        // variable for counting down seconds
-	int startSeconds;                   // steeping time for current tea
-	int percentDone;                    // ok, this isn't really "per 100", but "per 360"
+        /** remind us about a ready tea? */
+        bool m_usereminder;
 
-	int current_selected;          // index of currently +selected+ tea in menu
-	Q3ListViewItem *current_item;        // ptr to currently +selected+ tea in ListView
-	QString current_name;               // name of currently +running+ tea (if any)
-	bool shooting;                      // anonymous tea currently steeping?
+        /** the time bedween remind events */
+        int m_remindertime;
 
-	bool useNotify, usePopup, useAction;
-	QString action;
-	bool useTrayVis;                    // visualize progress in tray icon
+        /** use a visual effect in the system tray icon. */
+        bool m_usevisualize;
 
-	QPixmap mugPixmap, teaNotReadyPixmap, teaAnim1Pixmap, teaAnim2Pixmap;
+        const QIcon m_icon;
 
-	QAction *startAct, *stopAct, *confAct, *anonAct;
-	QMenu *menu, *steeping_menu, *start_menu;
-	Q3ListView *listbox;
-	QLineEdit *nameEdit, *actionEdit;
-	TimeEdit *timeEdit;
-	Q3GroupBox *editgroup;
-	QPushButton *btn_new, *btn_del, *btn_up, *btn_down, *btn_conf;
+        QPixmap m_pix;
 
-	QString lastTip;
-	KDialog *anondlg, *confdlg;
-	TimeEdit *anon_time;
-	QCheckBox *eventEnable, *popupEnable, *actionEnable, *visEnable;
+    private slots:
+	void runTea(QAction *a);
+        void showSettingsDialog();
+        void showTimeEditDialog();
+        void timerEvent();
+        void cancelTea();
+        void showPopup(QSystemTrayIcon::ActivationReason reason);
 };
 
+
 #endif
+

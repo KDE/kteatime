@@ -1,9 +1,9 @@
 /*
  *   KTeaTime - A tea timer.
- *
- *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
- *   Copyright (C) 2002-2003  Martin Willers (willers@xm-arts.de)
- *   Copyright (C) 2003       Daniel Teske (teske@bigfoot.com)
+ *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
+ *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
+ *   Copyright (c) 2003 Daniel Teske <teske@bigfoot.com>
+ *   Copyright (c) 2007 Stefan Böhmann <ebrief@hilefoks.org>
  *
  *   With contributions from Daniel Teske <teske@bigfoot.com>, and
  *   Jackson Dunstan <jdunstan@digipen.edu>
@@ -22,148 +22,86 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- *
  */
 
 #include "timeedit.h"
-#include "timeedit.moc"
+#include "toplevel.h"
+#include "tea.h"
 
-#include <klocale.h>
+#include <QCloseEvent>
+#include <QDesktopWidget>
 
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QHBoxLayout>
 
-WrappingSpinBox::WrappingSpinBox(int minimum, int maximum, int step, QWidget *parent, const char *name)
-	: QSpinBox(minimum, maximum, step, parent, name)
+TimeEditUI::TimeEditUI(QWidget *parent): QFrame(parent)
 {
-}
-
-WrappingSpinBox::~WrappingSpinBox()
-{
+    setupUi(this);
 }
 
 
-/** Overloaded QSpinBox method */
-void WrappingSpinBox::stepUp()
+TimeEditDialog::TimeEditDialog(TopLevel *toplevel): KDialog(), m_toplevel(toplevel)
 {
-	bool wrap = false;
-	if (value() == 59)
-		wrap = true;
-	if (wrap)
-		emit wrapUp();              // must wrap first (to avoid double-step-up)
-	QSpinBox::stepUp();
+    setCaption(i18n("Anonymous Tea"));
+
+    setButtonWhatsThis(KDialog::Ok, i18n("Start a new anonymous tea with the in this dialog configured time."));
+    setButtonWhatsThis(KDialog::Cancel, i18n("Close this dialog without starting a new tea."));
+
+    m_ui = new TimeEditUI(this);
+    setMainWidget(m_ui);
+
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup group(config, "AnonymousTeaDialog");
+
+    int time=group.readEntry("AnonymousTeaTime", 180);
+
+    m_ui->minutes->setValue((time%(60*60))/60);
+    m_ui->seconds->setValue(time%60);
+
+    restoreDialogSize(group);
+
+    QDesktopWidget desktop;
+    int x=group.readEntry("AnonymousTeaDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
+    int y=group.readEntry("AnonymousTeaDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
+
+    if(x<0) x=0;
+    else if(x>desktop.screenGeometry().width()-width()) x=desktop.screenGeometry().width()-width();
+
+    if(y<0) y=0;
+    else if(y>desktop.screenGeometry().height()-height()) y=desktop.screenGeometry().height()-height();
+
+    move(QPoint(x,y));
+
+    connect( m_ui->minutes, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
+    connect( m_ui->seconds, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
 }
 
-/** Overloaded QSpinBox method */
-void WrappingSpinBox::stepDown()
+
+TimeEditDialog::~TimeEditDialog()
 {
-	bool wrap = false;
-	if (value() == 0)
-		wrap = true;
-	QSpinBox::stepDown();
-	if (wrap)
-		emit wrapDown();
+    delete m_ui;
 }
 
 
-// -------------------------------------------------------------------------
-
-
-TimeEdit::TimeEdit(QWidget* parent)
-    : QWidget(parent)
+void TimeEditDialog::checkOkButtonState()
 {
-	layout = new QHBoxLayout(this);
-    layout->setSpacing( 5 );
-    layout->setMargin( 0 );
-	minuteBox = new QSpinBox(0, 300, 1, this);
-//	minuteBox->setFixedSize(minuteBox->sizeHint());
-
-	QLabel* min = new QLabel(i18n("min"), this);
-	min->setFixedSize(min->sizeHint());
-	secondBox = new WrappingSpinBox(0, 59, 1, this);
-	secondBox->setWrapping(true);
-//	secondBox->setFixedSize(secondBox->sizeHint());
-
-	QLabel* sec = new QLabel(i18n("sec"),this);
-	sec->setFixedSize(sec->sizeHint());
-
-	layout->addWidget(minuteBox);
-	layout->addWidget(min);
-
-	layout->addWidget(secondBox);
-	layout->addWidget(sec);
-
-	connect(minuteBox, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)) );
-	connect(secondBox, SIGNAL(valueChanged(int)), SLOT(spinBoxValueChanged(int)) );
-	connect(secondBox, SIGNAL(wrapUp()), SLOT(wrappedUp()));
-	connect(secondBox, SIGNAL(wrapDown()), SLOT(wrappedDown()));
+    enableButtonOk( m_ui->minutes->value() || m_ui->seconds->value() );
 }
 
-TimeEdit::~TimeEdit()
+
+void TimeEditDialog::accept()
 {
+    hide();
+
+    int time=m_ui->seconds->value();
+    time+=m_ui->minutes->value()*60;
+
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup group(config, "AnonymousTeaDialog");
+    group.writeEntry("AnonymousTeaTime", time);
+    saveDialogSize(group);
+
+    group.writeEntry("AnonymousTeaDialogXPos", x());
+    group.writeEntry("AnonymousTeaDialogYPos", y());
+
+    m_toplevel->runTea(Tea(i18n("Anonymous Tea"), m_ui->minutes->value()*60 + m_ui->seconds->value()) );
 }
 
-/** Set to specified number of seconds. */
-void TimeEdit::setValue(int val)
-{
-	if (val < 0)
-		return;
-
-	// block signals to avoid receiption of valueChanged()
-	// between changing of minutes and seconds
-	secondBox->blockSignals(true);
-	minuteBox->blockSignals(true);
-
-	secondBox->setValue(val % 60);
-	minuteBox->setValue(val / 60);
-
-	secondBox->blockSignals(false);
-	minuteBox->blockSignals(false);
-
-	emit valueChanged(value());
-}
-
-/** Return current value in seconds. */
-int TimeEdit::value()
-{
-	return minuteBox->value()*60 + secondBox->value();
-}
-
-/** SLOT: Handle wrap-up of seconds-box */
-void TimeEdit::wrappedUp()
-{
-	if (minuteBox->value() != minuteBox->maximum()) {
-		minuteBox->stepUp();
-	} else {
-		secondBox->setValue(58);    // ugly: must cater for wrapping-first
-	}
-}
-
-/** SLOT: Handle wrap-down of seconds-box */
-void TimeEdit::wrappedDown()
-{
-	// well, the "if" should always be true
-	if (minuteBox->value() != minuteBox->minimum()) {
-		minuteBox->stepDown();
-	} else {
-		secondBox->setValue(0);
-	}
-}
-
-/** SLOT: Handle any change in minutes of seconds */
-void TimeEdit::spinBoxValueChanged(int)
-{
-	if (value() == 0) {
-		secondBox->stepUp();        // this will give another spinBoxValueChanged() invocation
-		return;
-	}
-
-	emit valueChanged(value());
-}
-
-/** SLOT (overloading QSpinBox): set focus */
-void TimeEdit::setFocus()
-{
-	minuteBox->setFocus();
-}

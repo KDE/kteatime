@@ -1,3 +1,10 @@
+2007-08-20  Stefan Böhmann <ebrief@hilefoks.org>
+	- ported to KDE4
+	- now using .ui files
+	- implemented reminder function
+	- implemented command-line argument
+	- bumped version number to 1.2.0
+
 2003-11-02  Martin Willers <willers@xm-arts.de>
 	- bugfix: opening the configuration dialog was leaking memory
 	- workaround for Qt bug(?): deleting teas didn't update QListView properly (fixes #63840)

@@ -1,8 +1,9 @@
 /*
  *   KTeaTime - A tea timer.
  *
- *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel (hoelzer@kde.org)
- *   Copyright (C) 2002-2003  Martin Willers (willers@xm-arts.de)
+ *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
+ *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
+ *   Copyright (c) 2007       Stefan Böhmann <ebrief@hilefoks.org>
  *
  *   With contributions from Daniel Teske <teske@bigfoot.com>, and
  *   Jackson Dunstan <jdunstan@digipen.edu>
@@ -21,40 +22,47 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- *
  */
 
-#include <kwindowsystem.h>
-#include <kstartupinfo.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <klocale.h>
 #include "toplevel.h"
-#include <kapplication.h>
 
-static const char description[] =
-    I18N_NOOP("KDE utility for making a fine cup of tea");
+#include <KApplication>
+#include <KAboutData>
+#include <KCmdLineArgs>
 
-static const char version[] = "v1.1.0";
 
-int main(int argc, char *argv[])
+static const char description[] = I18N_NOOP("KDE utility for making a fine cup of tea.");
+static const char version[] = "v1.2.0";
+
+
+int main (int argc, char *argv[])
 {
-  KAboutData aboutData( "kteatime", 0, ki18n("KTeaTime"),
-    version, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 1998-1999, Matthias Hoelzer-Kluepfel\n(c) 2002-2003, Martin Willers"));
-  aboutData.addAuthor(ki18n("Matthias Hoelzer-Kluepfel"),KLocalizedString(), "hoelzer@kde.org");
-  aboutData.addAuthor(ki18n("Martin Willers"), KLocalizedString(), "willers@xm-arts.de");
-  aboutData.addCredit(ki18n("Daniel Teske"), ki18n("Many patches"), "teske@bigfoot.com");
-  KCmdLineArgs::init( argc, argv, &aboutData );
+    KAboutData aboutData( "kteatime", 0, ki18n("KTeaTime"), version, ki18n(description), KAboutData::License_GPL,
+        ki18n("(c) 1998-1999, Matthias Hoelzer-Kluepfel\n(c) 2002-2003, Martin Willers\n(c) 2007, Stefan Böhmann"));
+    aboutData.addAuthor(ki18n("Matthias Hoelzer-Kluepfel"), KLocalizedString(), "hoelzer@kde.org");
+    aboutData.addAuthor(ki18n("Martin Willers"), KLocalizedString(), "willers@xm-arts.de");
+    aboutData.addAuthor(ki18n("Stefan Böhmann"), KLocalizedString(), "ebrief@hilefoks.org");
+    aboutData.addCredit(ki18n("Daniel Teske"), ki18n("Many patches"), "teske@bigfoot.com");
 
-  KApplication app;
+    KCmdLineArgs::init( argc, argv, &aboutData );
 
-  TopLevel toplevel;
-  // KWindowSystem::setSystemTrayWindowFor(toplevel.winId(), 0);
-  toplevel.show();
+    KCmdLineOptions options;
+    options.add("a <seconds>", ki18n("Start a new anonymous tea"));
+    KCmdLineArgs::addCmdLineOptions(options);
 
-  //app.setTopWidget(&toplevel);
-  KStartupInfo::appStarted();
+    KApplication app;
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-  return app.exec();
+    TopLevel *toplevel=new TopLevel(&aboutData);
+    if(args->isSet("a")) {
+        int time=args->getOption("a").toInt();
+        if(time>0)
+            toplevel->runTea(Tea(i18n("Anonymous Tea"), time));
+    }
+    args->clear();
+
+    toplevel->show();
+
+    return app.exec();
 }
+
