@@ -279,8 +279,8 @@ void TopLevel::timerEvent()
     }
     else {
         --m_runningTeaTime;
-        setToolTip(i18n("%1 left for %2.", Tea::int2time(m_runningTeaTime, true), m_runningTea.name()));
-        m_popup->setView(title, i18n("%1 left for %2.", Tea::int2time(m_runningTeaTime, true), m_runningTea.name()), m_pix);
+        setToolTip(i18nc("%1 is the time, %2 is the name of the tea", "%1 left for %2.", Tea::int2time(m_runningTeaTime, true), m_runningTea.name()));
+        m_popup->setView(title, i18nc("%1 is the time, %2 is the name of the tea", "%1 left for %2.", Tea::int2time(m_runningTeaTime, true), m_runningTea.name()), m_pix);
     }
 
     if(m_usevisualize)
