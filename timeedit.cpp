@@ -42,7 +42,7 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel): KDialog(), m_toplevel(toplev
 {
     setCaption(i18n("Anonymous Tea"));
 
-    setButtonWhatsThis(KDialog::Ok, i18n("Start a new anonymous tea with the in this dialog configured time."));
+    setButtonWhatsThis(KDialog::Ok, i18n("Start a new anonymous tea with the time configured in this dialog."));
     setButtonWhatsThis(KDialog::Cancel, i18n("Close this dialog without starting a new tea."));
 
     m_ui = new TimeEditUI(this);
