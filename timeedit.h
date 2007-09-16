@@ -29,7 +29,6 @@
 
 #include "ui_timeedit.h"
 
-class QCloseEvent;
 class TopLevel;
 
 

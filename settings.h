@@ -23,7 +23,6 @@
 
 #include <QObject>
 
-class QCloseEvent;
 class TopLevel;
 class TeaListModel;
 class Tea;
