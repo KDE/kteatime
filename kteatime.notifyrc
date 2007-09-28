@@ -121,7 +121,7 @@ Sound=KDE_Notify.wav
 Action=Sound
 
 [Event/reminder]
-Name=Tea is getting lonely.
+Name=Tea is getting lonely
 Name[ga]=Tá uaigneas ag teacht ar an tae.
 Name[ja]=お茶があなたを待っています
 Name[sv]=Teet känner sig övergivet.
