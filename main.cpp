@@ -47,17 +47,23 @@ int main (int argc, char *argv[])
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KCmdLineOptions options;
-    options.add("a <seconds>", ki18n("Start a new anonymous tea"));
+    options.add("t");
+    options.add("time <seconds>", ki18n("Start a new tea with this time."));
+    options.add("n");
+    options.add("name <name>", ki18n("Use this name instead of \"Anonymous Tea\" for the tea started with %1.").subs("--time"));
+
     KCmdLineArgs::addCmdLineOptions(options);
 
     KApplication app;
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
     TopLevel *toplevel=new TopLevel(&aboutData);
-    if(args->isSet("a")) {
-        int time=args->getOption("a").toInt();
-        if(time>0)
-            toplevel->runTea(Tea(i18n("Anonymous Tea"), time));
+    
+    if(args->isSet("time")) {
+        int time=args->getOption("time").toInt();
+        if(time>0) {
+	    toplevel->runTea(Tea(args->isSet("name") ? args->getOption("name") : i18n("Anonymous Tea"), time));
+        }
     }
     args->clear();
 
