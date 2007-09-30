@@ -125,6 +125,10 @@ Action=Sound
 
 [Event/reminder]
 Name=Tea is getting lonely
+Name[de]=Ihr Tee ist einsam
+Name[ga]=Tá uaigneas ag teacht ar an tae
+Name[ja]=お茶があなたを待っています
+Name[sv]=Teet känner sig övergivet
 Comment=Tea is getting lonely.
 Comment[de]=Ihr Tee ist einsam
 Comment[ga]=Tá uaigneas ag teacht ar an tae.
