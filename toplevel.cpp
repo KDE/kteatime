@@ -312,16 +312,22 @@ void TopLevel::loadConfig()
 }
 
 
-void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason) {
-    if(QSystemTrayIcon::Trigger==reason)
+void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason) 
+{
+    if(reason==QSystemTrayIcon::Context) {
+        m_popup->setVisible(false);
+    }
+    else if(reason==QSystemTrayIcon::Trigger || reason==QSystemTrayIcon::DoubleClick) {
         if(m_popup->isVisible())
             m_popup->setVisible(false);
         else
             m_popup->show(calculatePopupPoint());
+    }
 }
 
 
-QPoint TopLevel::calculatePopupPoint() {
+QPoint TopLevel::calculatePopupPoint() 
+{
     QPoint pos=geometry().topLeft();
 
     int x=pos.x();
