@@ -128,7 +128,6 @@ void TopLevel::checkState() {
     bool state=m_runningTeaTime!=0;
     m_teaActionGroup->setEnabled(!state);
     m_stopAct->setEnabled(state);
-    m_confAct->setEnabled(!state);
     m_anonAct->setEnabled(!state);
 
     if(!state) {
