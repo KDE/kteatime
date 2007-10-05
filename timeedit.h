@@ -3,7 +3,7 @@
  *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
  *   Copyright (c) 2003 Daniel Teske <teske@bigfoot.com>
- *   Copyright (c) 2007 Stefan Böhmann <ebrief@hilefoks.org>
+ *   Copyright (c) 2007 Stefan Böhmann <kde@hilefoks.org>
  *
  *   With contributions from Daniel Teske <teske@bigfoot.com>, and
  *   Jackson Dunstan <jdunstan@digipen.edu>
@@ -36,7 +36,7 @@ class TopLevel;
 /**
  * @short Class for wrapping the ui file for the timeedit dialog.
  *
- * @author Stefan Böhmann <ebrief@hilefoks.org>
+ * @author Stefan Böhmann <kde@hilefoks.org>
  */
 class TimeEditUI : public QFrame, public Ui::TimeEditWidget
 {
@@ -49,7 +49,7 @@ class TimeEditUI : public QFrame, public Ui::TimeEditWidget
 /**
  * @short the timeedit dialog.
  *
- * @author Stefan Böhmann <ebrief@hilefoks.org>
+ * @author Stefan Böhmann <kde@hilefoks.org>
  */
 class TimeEditDialog : public KDialog
 {

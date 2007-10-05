@@ -1,7 +1,7 @@
-2007-09-29  Stefan Böhmann <ebrief@hilefoks.org>
+2007-09-29  Stefan Böhmann <kde@hilefoks.org>
 	- added/improved command-line arguments to start a tea (like requested in #144708).
 
-2007-08-20  Stefan Böhmann <ebrief@hilefoks.org>
+2007-08-20  Stefan Böhmann <kde@hilefoks.org>
 	- ported to KDE4
 	- now using .ui files
 	- implemented reminder function

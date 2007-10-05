@@ -3,7 +3,7 @@
  *
  *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
- *   Copyright (c) 2007       Stefan Böhmann <ebrief@hilefoks.org>
+ *   Copyright (c) 2007       Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

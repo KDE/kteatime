@@ -1,5 +1,5 @@
 /*
- *   Copyright (c)  2007 Stefan Böhmann <ebrief@hilefoks.org>
+ *   Copyright (c)  2007 Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ class Tea;
 /**
  * @short Class for wrapping the ui file for the settings dialog.
  *
- * @author Stefan Böhmann <ebrief@hilefoks.org>
+ * @author Stefan Böhmann <kde@hilefoks.org>
  */
 class SettingsUI : public QFrame, public Ui::SettingsWidget
 {
@@ -46,7 +46,7 @@ class SettingsUI : public QFrame, public Ui::SettingsWidget
 /**
  * @short the settings dialog
  *
- * @author Stefan Böhmann <ebrief@hilefoks.org>
+ * @author Stefan Böhmann <kde@hilefoks.org>
  */
 class SettingsDialog : public KDialog
 {

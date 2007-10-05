@@ -1,4 +1,5 @@
 <ui version="4.0" >
+ <author>Stefan Böhmann</author>
  <class>SettingsWidget</class>
  <widget class="QWidget" name="SettingsWidget" >
   <property name="geometry" >
@@ -393,6 +394,7 @@
    <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
+ <includes/>
  <resources/>
  <connections>
   <connection>

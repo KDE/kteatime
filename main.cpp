@@ -3,7 +3,7 @@
  *
  *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
- *   Copyright (c) 2007       Stefan Böhmann <ebrief@hilefoks.org>
+ *   Copyright (c) 2007       Stefan Böhmann <kde@hilefoks.org>
  *
  *   With contributions from Daniel Teske <teske@bigfoot.com>, and
  *   Jackson Dunstan <jdunstan@digipen.edu>
@@ -41,7 +41,7 @@ int main (int argc, char *argv[])
         ki18n("(c) 1998-1999, Matthias Hoelzer-Kluepfel\n(c) 2002-2003, Martin Willers\n(c) 2007, Stefan Böhmann"));
     aboutData.addAuthor(ki18n("Matthias Hoelzer-Kluepfel"), KLocalizedString(), "hoelzer@kde.org");
     aboutData.addAuthor(ki18n("Martin Willers"), KLocalizedString(), "willers@xm-arts.de");
-    aboutData.addAuthor(ki18n("Stefan Böhmann"), KLocalizedString(), "ebrief@hilefoks.org");
+    aboutData.addAuthor(ki18n("Stefan Böhmann"), KLocalizedString(), "kde@hilefoks.org");
     aboutData.addCredit(ki18n("Daniel Teske"), ki18n("Many patches"), "teske@bigfoot.com");
 
     KCmdLineArgs::init( argc, argv, &aboutData );
