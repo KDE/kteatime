@@ -99,8 +99,8 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas): KDia
     m_ui->upButton->setEnabled(false);
     m_ui->downButton->setEnabled(false);
 
-    m_ui->newButton->setIcon(KIcon("document-new"));
-    m_ui->removeButton->setIcon(KIcon("mail-delete"));
+    m_ui->newButton->setIcon(KIcon("edit-add"));
+    m_ui->removeButton->setIcon(KIcon("edit-delete"));
     m_ui->upButton->setIcon(KIcon("arrow-up"));
     m_ui->downButton->setIcon(KIcon("arrow-down"));
 
