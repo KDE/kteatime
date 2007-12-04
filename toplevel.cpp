@@ -140,6 +140,17 @@ void TopLevel::checkState() {
 void TopLevel::setTeaList(QList<Tea> tealist) {
     m_tealist=tealist;
 
+    // Save list...
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup tealistGroup(config, "Tealist");
+
+    for(int i=0; i<m_tealist.size(); ++i) {
+        tealistGroup.writeEntry(QString("Tea%1 Time").arg(i), m_tealist.at(i).time());
+        tealistGroup.writeEntry(QString("Tea%1 Name").arg(i), m_tealist.at(i).name());
+    }
+    tealistGroup.config()->sync();
+
+
     foreach(QAction* a, m_teaActionGroup->actions()) {
         m_teaActionGroup->removeAction(a);
     }
@@ -312,7 +323,7 @@ void TopLevel::loadConfig()
 }
 
 
-void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason) 
+void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason==QSystemTrayIcon::Context) {
         m_popup->setVisible(false);
@@ -326,7 +337,7 @@ void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
 }
 
 
-QPoint TopLevel::calculatePopupPoint() 
+QPoint TopLevel::calculatePopupPoint()
 {
     QPoint pos=geometry().topLeft();
 
