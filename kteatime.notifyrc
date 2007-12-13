@@ -144,6 +144,7 @@ Action=Sound
 [Event/reminder]
 Name=Tea is getting lonely
 Name[ca]=El te està quedant abandonat
+Name[cs]=Čaj se cítí osamocen
 Name[de]=Ihr Tee ist einsam
 Name[el]=Το τσάι παραμένει παρατημένο
 Name[eo]=La teo eksentiĝas soleca
@@ -164,6 +165,7 @@ Name[zh_CN]=茶都凉了
 Name[zh_TW]=茶煮好了，怎麼沒人喝
 Comment=Tea is getting lonely.
 Comment[ca]=El te està quedant abandonat.
+Comment[cs]=Čaj se cítí osamocen.
 Comment[de]=Ihr Tee ist einsam
 Comment[el]=Το τσάι παραμένει παρατημένο.
 Comment[eo]=La teo eksentiĝas soleca.
