@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KTeaTime
+Name[bn]=কে-টী-টাইম
 Name[hr]=KVrijeme za čaj
 Name[mk]=КЧајник
 Name[ne]=केचिया समय
@@ -11,6 +12,7 @@ Name[x-test]=xxKTeaTimexx
 GenericName=Tea Cooker
 GenericName[be]=Прыгатаўленне гарбаты
 GenericName[bg]=Приготвяне на чай
+GenericName[bn]=চায়ের কেটলি
 GenericName[br]=Ar pod te
 GenericName[ca]=El cuiner de te
 GenericName[cs]=Vařič čaje
@@ -48,6 +50,7 @@ GenericName[pt]=Cozinheiro de Chá
 GenericName[pt_BR]=Hora do Chá
 GenericName[ro]=Ceainic
 GenericName[ru]=Приготовление чая
+GenericName[sk]=Varič čaju
 GenericName[sl]=Kuhalnik čaja
 GenericName[sr]=Чајник
 GenericName[sr@latin]=Čajnik
