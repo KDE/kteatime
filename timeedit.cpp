@@ -28,7 +28,6 @@
 #include "toplevel.h"
 #include "tea.h"
 
-#include <QCloseEvent>
 #include <QDesktopWidget>
 
 

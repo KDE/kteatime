@@ -21,7 +21,6 @@
 
 #include "ui_settings.h"
 
-#include <QObject>
 
 class TopLevel;
 class TeaListModel;

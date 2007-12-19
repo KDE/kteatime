@@ -20,7 +20,6 @@
 #include "toplevel.h"
 #include "tealistmodel.h"
 
-#include <QCloseEvent>
 #include <QHashIterator>
 #include <QString>
 #include <QDesktopWidget>
