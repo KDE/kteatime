@@ -100,7 +100,7 @@ class TopLevel : public KSystemTrayIcon
 	void runTea(QAction *a);
         void showSettingsDialog();
         void showTimeEditDialog();
-        void timerEvent();
+        void teaTimeEvent();
         void cancelTea();
         void showPopup(QSystemTrayIcon::ActivationReason reason);
 };

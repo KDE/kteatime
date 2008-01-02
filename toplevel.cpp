@@ -103,7 +103,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
 
     m_timer = new QTimer(this);
 
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(timerEvent()));
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(teaTimeEvent()));
     connect(m_stopAct, SIGNAL(triggered(bool)), this, SLOT(cancelTea()));
     connect(m_confAct, SIGNAL(triggered(bool)), this, SLOT(showSettingsDialog()));
     connect(m_anonAct, SIGNAL(triggered(bool)), this, SLOT(showTimeEditDialog()));
@@ -249,7 +249,7 @@ void TopLevel::repaintTrayIcon()
 }
 
 
-void TopLevel::timerEvent()
+void TopLevel::teaTimeEvent()
 {
     QString title=i18n("The Tea Cooker");
 
