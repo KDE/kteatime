@@ -145,7 +145,7 @@ Comment[wa]=Li té est presse
 Comment[x-test]=xxTea is readyxx
 Comment[zh_CN]=茶沏好了
 Comment[zh_TW]=茶煮好了
-Sound=KDE_Notify.wav
+Sound=KDE-Sys-App-Message.ogg
 Action=Sound
 
 [Event/reminder]
@@ -199,5 +199,5 @@ Comment[uk]=Час остигає.
 Comment[x-test]=xxTea is getting lonely.xx
 Comment[zh_CN]=茶都凉了
 Comment[zh_TW]=茶煮好了，怎麼沒人喝
-Sound=KDE_Notify.wav
+Sound=KDE-Sys-App-Special.ogg
 Action=Sound
