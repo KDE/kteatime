@@ -1,1 +1,1 @@
-add_subdirectoy(icons)
+add_subdirectory(icons)
