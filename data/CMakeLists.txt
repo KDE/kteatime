@@ -1,0 +1,1 @@
+add_subdirectoy(icons)
