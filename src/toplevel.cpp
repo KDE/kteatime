@@ -174,7 +174,7 @@ void TopLevel::setTeaList(QList<Tea> tealist) {
 
 void TopLevel::loadTeaMenuItems() {
     int i=0;
-    foreach(Tea t, m_tealist) {
+    foreach(const Tea &t, m_tealist) {
         QString s;
         s.append(t.name());
         s.append(i18n(" ("));
