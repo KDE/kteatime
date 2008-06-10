@@ -69,3 +69,4 @@ X-DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Amusement;
+OnlyShowIn=KDE;
