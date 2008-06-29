@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=KTeaTime
 Name[ar]=برنامج تحضير الشاي KTeaTime
 Name[bn]=কে-টী-টাইম
@@ -70,4 +69,4 @@ Terminal=false
 DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
-Categories=Qt;KDE;Amusement;
+Categories=Qt;KDE;Utility;Amusement;
