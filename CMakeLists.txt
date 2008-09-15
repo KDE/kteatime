@@ -2,6 +2,3 @@ project(kteatime)
 
 ADD_SUBDIRECTORY(data)
 ADD_SUBDIRECTORY(src)
-#if(PLASMA_FOUND)
-#    ADD_SUBDIRECTORY(plasma)
-#endif(PLASMA_FOUND)
