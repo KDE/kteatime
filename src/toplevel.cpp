@@ -176,10 +176,7 @@ void TopLevel::loadTeaMenuItems() {
     int i=0;
     foreach(const Tea &t, m_tealist) {
         QString s;
-        s.append(t.name());
-        s.append(i18n(" ("));
-        s.append(t.timeToString());
-        s.append(i18n(")"));
+        s = i18n("%1 (%2)", t.name(),t.timeToString()); 
         QAction *a=contextMenu()->addAction(s);
         a->setData(++i);
         m_teaActionGroup->addAction(a);
