@@ -131,7 +131,7 @@ void TopLevel::checkState() {
     m_anonAct->setEnabled(!state);
 
     if(!state) {
-        m_popup->setView(i18n("The Tea Cooker"), i18n("No running tea."), m_pix);
+        m_popup->setView(i18n("The Tea Cooker"), i18n("No steeping tea."), m_pix);
         setToolTip(i18n("The Tea Cooker"));
     }
 }
