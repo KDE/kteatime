@@ -55,7 +55,7 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel): KDialog(), m_toplevel(toplev
     m_ui->minutes->setValue((time%(60*60))/60);
     m_ui->seconds->setValue(time%60);
 
-    m_ui->minutes->setFocus(Qt::ShortcutFocusReason);
+    m_ui->minutes->setFocus();
 
     restoreDialogSize(group);
 
