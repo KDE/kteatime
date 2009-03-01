@@ -81,6 +81,7 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas): KDia
 
     m_ui->autohideSpinBox->setValue(autohidetime);
     m_ui->reminderSpinBox->setValue(remindertime);
+    updateSpinBoxSuffix();
 
     m_ui->notificationButton->setEnabled(noti);
     m_ui->autohideCheckBox->setEnabled(popup);
@@ -114,6 +115,8 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas): KDia
     connect(m_ui->teaNameEdit, SIGNAL(textChanged(const QString&)), this, SLOT(nameValueChanged(const QString&)) );
     connect(m_ui->minutesSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
     connect(m_ui->secondsSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
+    connect(m_ui->autohideSpinBox, SIGNAL(valueChanged(int)), this, SLOT(updateSpinBoxSuffix()) );
+    connect(m_ui->reminderSpinBox, SIGNAL(valueChanged(int)), this, SLOT(updateSpinBoxSuffix()) );
 }
 
 
@@ -272,5 +275,12 @@ void SettingsDialog::nameValueChanged(const QString &text)
     QModelIndexList items = m_ui->tealistTreeView->selectionModel()->selection().indexes();
     if(!items.isEmpty())
         m_model->setData(m_model->index(items.at(0).row(), 0), text, Qt::EditRole);
+}
+
+
+void SettingsDialog::updateSpinBoxSuffix()
+{
+    m_ui->autohideSpinBox->setSuffix(QString(" ") + i18np("second", "seconds", m_ui->autohideSpinBox->value()));
+    m_ui->reminderSpinBox->setSuffix(QString(" ") + i18np("second", "seconds", m_ui->reminderSpinBox->value()));
 }
 

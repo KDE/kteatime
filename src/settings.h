@@ -75,6 +75,7 @@ class SettingsDialog : public KDialog
 
         void nameValueChanged(const QString &text);
         void timeValueChanged();
+        void updateSpinBoxSuffix();
 };
 
 #endif
