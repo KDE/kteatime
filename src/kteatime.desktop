@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KTeaTime
+Name[af]=KTeeTyd
 Name[bn]=কে-টী-টাইম
 Name[hne]=के-टी-टाइम
 Name[hr]=KVrijeme za čaj
@@ -14,6 +15,7 @@ Name[ta]= கேதேநீர் நேரம்
 Name[tg]=КВақтиЧой
 Name[x-test]=xxKTeaTimexx
 GenericName=Tea Cooker
+GenericName[af]=Tee Koker
 GenericName[be]=Прыгатаўленне гарбаты
 GenericName[bg]=Приготвяне на чай
 GenericName[bn]=চায়ের কেটলি
