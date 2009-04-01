@@ -36,7 +36,7 @@
         <item>
          <widget class="QToolButton" name="newButton">
           <property name="text">
-           <string>N</string>
+           <string comment="KDE::DoNotExtract">N</string>
           </property>
           <property name="icon">
            <iconset>
@@ -54,7 +54,7 @@
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>D</string>
+           <string comment="KDE::DoNotExtract">D</string>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
@@ -67,7 +67,7 @@
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>U</string>
+           <string comment="KDE::DoNotExtract">U</string>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
@@ -83,7 +83,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>D</string>
+           <string comment="KDE::DoNotExtract">D</string>
           </property>
           <property name="icon">
            <iconset>
