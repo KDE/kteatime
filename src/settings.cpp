@@ -280,7 +280,7 @@ void SettingsDialog::nameValueChanged(const QString &text)
 
 void SettingsDialog::updateSpinBoxSuffix()
 {
-    m_ui->autohideSpinBox->setSuffix(QString(" ") + i18ncp("Auto hide popup after", "second", "seconds", m_ui->autohideSpinBox->value()));
-    m_ui->reminderSpinBox->setSuffix(QString(" ") + i18ncp("Reminder every", "second", "seconds", m_ui->reminderSpinBox->value()));
+    m_ui->autohideSpinBox->setSuffix(i18ncp("Auto hide popup after", " second", " seconds", m_ui->autohideSpinBox->value()));
+    m_ui->reminderSpinBox->setSuffix(i18ncp("Reminder every", " second", " seconds", m_ui->reminderSpinBox->value()));
 }
 
