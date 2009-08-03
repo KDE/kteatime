@@ -62,10 +62,10 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
 
     restoreDialogSize( group );
 
+    QDesktopWidget desktop;
     int x = group.readEntry( "AnonymousTeaDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
     int y = group.readEntry( "AnonymousTeaDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
 
-    QDesktopWidget desktop;
     x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
     x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
     move( QPoint( x, y ) );

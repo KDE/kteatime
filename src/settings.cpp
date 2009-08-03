@@ -56,10 +56,10 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
 
     restoreDialogSize( group );
 
+    QDesktopWidget desktop;
     int x=group.readEntry( "SettingsDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
     int y=group.readEntry( "SettingsDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
 
-    QDesktopWidget desktop;
     x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
     x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
     move( QPoint( x, y ) );
