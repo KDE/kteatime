@@ -3,7 +3,7 @@
  *
  *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
- *   Copyright (c) 2007       Stefan Böhmann <kde@hilefoks.org>
+ *   Copyright (c) 2007-2009  Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -47,10 +47,18 @@ class TopLevel : public KSystemTrayIcon
     Q_OBJECT
 
     public:
-        explicit TopLevel(const KAboutData *aboutData, const QString &icon="kteatime", QWidget *parent=0);
+        explicit TopLevel(const KAboutData *aboutData, const QString &icon = "kteatime", QWidget *parent = 0);
         ~TopLevel();
-        void setTeaList(QList<Tea> tealist);
-        void runTea(Tea tea);
+        void setTeaList(const QList<Tea> &tealist);
+        void runTea(const Tea &tea);
+
+    private slots:
+        void runTea(QAction *a);
+        void showSettingsDialog();
+        void showTimeEditDialog();
+        void teaTimeEvent();
+        void cancelTea();
+        void showPopup(QSystemTrayIcon::ActivationReason reason);
 
     private:
         void checkState();
@@ -59,6 +67,7 @@ class TopLevel : public KSystemTrayIcon
         QPoint calculatePopupPoint();
         void repaintTrayIcon();
 
+    private:
         QList<Tea> m_tealist;
         QAction *m_stopAct, *m_confAct, *m_anonAct, *m_exitAct;
         QActionGroup *m_teaActionGroup;
@@ -95,14 +104,6 @@ class TopLevel : public KSystemTrayIcon
         const QIcon m_icon;
 
         QPixmap m_pix;
-
-    private slots:
-	void runTea(QAction *a);
-        void showSettingsDialog();
-        void showTimeEditDialog();
-        void teaTimeEvent();
-        void cancelTea();
-        void showPopup(QSystemTrayIcon::ActivationReason reason);
 };
 
 

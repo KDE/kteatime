@@ -2,8 +2,8 @@
  *   KTeaTime - A tea timer.
  *   Copyright (C) 1998-1999  Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  *   Copyright (C) 2002-2003  Martin Willers <willers@xm-arts.de>
- *   Copyright (c) 2003 Daniel Teske <teske@bigfoot.com>
- *   Copyright (c) 2007 Stefan Böhmann <kde@hilefoks.org>
+ *   Copyright (c) 2003       Daniel Teske <teske@bigfoot.com>
+ *   Copyright (c) 2007-2009  Stefan Böhmann <kde@hilefoks.org>
  *
  *   With contributions from Daniel Teske <teske@bigfoot.com>, and
  *   Jackson Dunstan <jdunstan@digipen.edu>
@@ -42,7 +42,7 @@ class TimeEditUI : public QFrame, public Ui::TimeEditWidget
 {
     Q_OBJECT
     public:
-        TimeEditUI(QWidget *parent=0);
+        TimeEditUI(QWidget *parent = 0);
 };
 
 
@@ -59,14 +59,13 @@ class TimeEditDialog : public KDialog
         TimeEditDialog(TopLevel *toplevel);
         ~TimeEditDialog();
 
-    private:
-        TimeEditUI *m_ui;
-        TopLevel *m_toplevel;
-
-
     private slots:
         void checkOkButtonState();
         void accept();
+
+    private:
+        TimeEditUI *ui;
+        TopLevel *m_toplevel;
 };
 
 #endif

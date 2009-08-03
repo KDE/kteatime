@@ -1,5 +1,5 @@
 /*
- *   Copyright (c) 2007 Stefan Böhmann <kde@hilefoks.org>
+ *   Copyright (c) 2007-2009  Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class TeaListModel : public QAbstractTableModel
          * @param teas the initial list of teas to manage.
          * @param parent the parent object.
          */
-        explicit TeaListModel(const QList<Tea> &teas, QObject *parent=0);
+        explicit TeaListModel(const QList<Tea> &teas, QObject *parent = 0);
 
         /**
          * Returns the index of the item in the model specified by the given row, column and parent index.
@@ -48,7 +48,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return @ref QModelIndex with the index of the item.
          */
-        QModelIndex index(int row, int column, const QModelIndex & parent=QModelIndex()) const;
+        QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const;
 
         /**
          * Returns the number of rows.
@@ -56,7 +56,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return the number of rows.
          */
-        int rowCount(const QModelIndex &parent=QModelIndex()) const;
+        int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
         /**
          * Returns the number of columns.
@@ -64,7 +64,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return the number of columns.
          */
-        int columnCount(const QModelIndex &parent=QModelIndex()) const;
+        int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
         /**
          * Returns the data stored under the given role for the item referred to by the index.
@@ -73,7 +73,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return the specified data.
          */
-        QVariant data(const QModelIndex &index, int role=Qt::DisplayRole) const;
+        QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
         /**
          * Sets the role data for the item at index to value.
@@ -83,7 +83,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return if successful true, otherwise false.
          */
-        bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
+        bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
 
         /**
          * Returns the data for the given role and section in the header with the specified orientation.
@@ -93,7 +93,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return the specified data.
          */
-        QVariant headerData(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const;
+        QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
         /**
          * inserts rows into the model before the given one.
@@ -104,7 +104,7 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return true if the rows were successfully inserted, otherwise false.
          */
-        bool insertRows(int row, int count, const QModelIndex &parent=QModelIndex());
+        bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
         /**
          * removes rows from the model, starting with the given row.
@@ -114,16 +114,14 @@ class TeaListModel : public QAbstractTableModel
          *
          * @return true if the rows were successfully removed, otherwise false.
          */
-        bool removeRows(int row, int count, const QModelIndex &parent=QModelIndex());
+        bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
         /**
          * Returns the whole list of teas.
          *
          * @return list of teas.
          */
-        inline QList<Tea> getTeaList() const {
-            return m_tealist;
-        }
+        const QList<Tea> getTeaList() const;
 
     private:
         QList<Tea> m_tealist;

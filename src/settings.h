@@ -1,5 +1,5 @@
 /*
- *   Copyright (c)  2007 Stefan Böhmann <kde@hilefoks.org>
+ *   Copyright (c) 2007-2009  Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -15,7 +15,6 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
@@ -54,14 +53,6 @@ class SettingsDialog : public KDialog
         SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
         ~SettingsDialog();
 
-
-    private:
-        SettingsUI *m_ui;
-        TopLevel *m_toplevel;
-        TeaListModel *m_model;
-        void moveSelectedItem(bool moveup);
-
-
     private slots:
         void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
         void accept();
@@ -76,6 +67,14 @@ class SettingsDialog : public KDialog
         void nameValueChanged(const QString &text);
         void timeValueChanged();
         void updateSpinBoxSuffix();
+
+    private:
+        void moveSelectedItem(bool moveup);
+
+    private:
+        SettingsUI *ui;
+        TopLevel *m_toplevel;
+        TeaListModel *m_model;
 };
 
 

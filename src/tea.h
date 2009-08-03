@@ -1,5 +1,5 @@
 /*
- *   Copyright (c) 2007  Stefan Böhmann <kde@hilefoks.org>
+ *   Copyright (c) 2007-2009  Stefan Böhmann <kde@hilefoks.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -19,8 +19,6 @@
 #define TEA_H
 
 #include <QString>
-#include <klocalizedstring.h>
-
 
 
 /**
@@ -35,27 +33,33 @@ class Tea {
           * @param name the name of this tea.
           * @param time the tea time in seconds.
           */
-        inline Tea(const QString name=i18n("Anonymous Tea"), const unsigned time=180) : m_name(name), m_time(time)
-        {
-        }
+        Tea(const QString &name = QString(), const unsigned time = 180);
 
         /**
          * Returns the name of this tea.
          *
          * @return the name of this tea.
          */
-        inline QString name() const {
-            return m_name;
-        }
+        QString name() const;
+
+        /**
+         * Set the name of this the.
+         * @param name the new name for this tea.
+         */
+        void setName(const QString &name);
 
         /**
          * Returns the time for this tea in seconds.
          *
          * @return the time for this tea in seconds.
          */
-        inline unsigned time() const {
-            return m_time;
-        }
+        unsigned time() const;
+
+        /**
+         * Set the time of this tea.
+         * @param time the new time for this tea in seconds.
+         */
+        void setTime(const unsigned time);
 
         /**
          * Returns the time for this tea as a @ref QString.
@@ -63,25 +67,8 @@ class Tea {
          *
          * @return the time for this tea as a @ref QString.
          */
-        inline QString timeToString(const bool longdesc=false) const {
-            return int2time(m_time, longdesc);
-        }
+        QString timeToString(const bool longdesc = false) const;
 
-        /**
-         * Set the name of this the.
-         * @param name the new name for this tea.
-         */
-        inline void setName(const QString name) {
-            m_name=name;
-        }
-
-        /**
-         * Set the time of this tea.
-         * @param time the new time for this tea in seconds.
-         */
-        inline void setTime(const unsigned time)	{
-            m_time=time;
-        }
 
         /**
          * Returns a formatted @ref QString for the given time.
