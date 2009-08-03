@@ -176,7 +176,7 @@ void TopLevel::loadTeaMenuItems() {
     int i=0;
     foreach(const Tea &t, m_tealist) {
         QString s;
-        s = i18nc("%1 - name of the tea, %2 - the predefined time for the tea", "%1 (%2)", t.name(),t.timeToString()); 
+        s = i18nc("%1 - name of the tea, %2 - the predefined time for the tea", "%1 (%2)", t.name(),t.timeToString());
         QAction *a=contextMenu()->addAction(s);
         a->setData(++i);
         m_teaActionGroup->addAction(a);
@@ -365,3 +365,5 @@ QPoint TopLevel::calculatePopupPoint()
     return QPoint(x,y);
 }
 
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
+// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

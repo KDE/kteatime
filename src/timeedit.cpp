@@ -106,3 +106,6 @@ void TimeEditDialog::accept()
     m_toplevel->runTea(Tea(i18n("Anonymous Tea"), m_ui->minutes->value()*60 + m_ui->seconds->value()) );
 }
 
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
+// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+s
