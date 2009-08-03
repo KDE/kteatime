@@ -56,25 +56,13 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
 
     restoreDialogSize( group );
 
-    QDesktopWidget desktop;
     int x=group.readEntry( "SettingsDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
     int y=group.readEntry( "SettingsDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
 
-    if( x < 0 ) {
-        x = 0;
-    }
-    else if( x > desktop.screenGeometry().width() - width() ) {
-        x = desktop.screenGeometry().width() - width();
-    }
-
-    if( y < 0 ) {
-        y = 0;
-    }
-    else if( y > desktop.screenGeometry().height() - height() ) {
-        y = desktop.screenGeometry().height() - height();
-    }
-
-    move( QPoint( x,y ) );
+    QDesktopWidget desktop;
+    x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
+    x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
+    move( QPoint( x, y ) );
 
     bool noti=group.readEntry( "UseNotification", true );
     bool popup=group.readEntry( "UsePopup", true );

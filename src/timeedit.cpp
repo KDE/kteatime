@@ -62,25 +62,13 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
 
     restoreDialogSize( group );
 
-    QDesktopWidget desktop;
     int x = group.readEntry( "AnonymousTeaDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
     int y = group.readEntry( "AnonymousTeaDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
 
-    if( x < 0 ) {
-        x = 0;
-    }
-    else if( x > desktop.screenGeometry().width() - width() ) {
-        x = desktop.screenGeometry().width() - width();
-    }
-
-    if( y < 0 ) {
-        y = 0;
-    }
-    else if( y > desktop.screenGeometry().height() - height() ) {
-        y = desktop.screenGeometry().height() - height();
-    }
-
-    move( QPoint( x,y ) );
+    QDesktopWidget desktop;
+    x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
+    x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
+    move( QPoint( x, y ) );
 
     connect( ui->minutes, SIGNAL( valueChanged(int) ), this, SLOT( checkOkButtonState() ) );
     connect( ui->seconds, SIGNAL( valueChanged(int) ), this, SLOT( checkOkButtonState() ) );
