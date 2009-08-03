@@ -30,20 +30,7 @@
 #include "ui_timeedit.h"
 
 class TopLevel;
-
-
-
-/**
- * @short Class for wrapping the ui file for the timeedit dialog.
- *
- * @author Stefan Böhmann <kde@hilefoks.org>
- */
-class TimeEditUI : public QFrame, public Ui::TimeEditWidget
-{
-    Q_OBJECT
-    public:
-        TimeEditUI(QWidget *parent = 0);
-};
+class TimeEditUI;
 
 
 /**

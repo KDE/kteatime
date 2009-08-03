@@ -24,21 +24,7 @@
 class TopLevel;
 class TeaListModel;
 class Tea;
-
-
-
-/**
- * @short Class for wrapping the ui file for the settings dialog.
- *
- * @author Stefan Böhmann <kde@hilefoks.org>
- */
-class SettingsUI : public QFrame, public Ui::SettingsWidget
-{
-    Q_OBJECT
-    public:
-        SettingsUI(QWidget *parent=0);
-};
-
+class SettingsUI;
 
 
 /**

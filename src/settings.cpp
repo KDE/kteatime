@@ -27,11 +27,19 @@
 #include <knotifyconfigwidget.h>
 
 
-SettingsUI::SettingsUI(QWidget *parent)
-  : QFrame(parent)
+
+class SettingsUI : public QWidget, public Ui::SettingsWidget
 {
-    setupUi(this);
-}
+    Q_OBJECT
+
+    public:
+        SettingsUI(QWidget *parent = 0)
+          : QWidget( parent )
+        {
+            setupUi( this );
+        }
+};
+
 
 
 
@@ -297,3 +305,6 @@ void SettingsDialog::updateSpinBoxSuffix()
 
 // kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
 // vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+
+#include "settings.moc"
+#include "moc_settings.cpp"
