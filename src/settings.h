@@ -52,7 +52,6 @@ class SettingsDialog : public KDialog
 
         void nameValueChanged(const QString &text);
         void timeValueChanged();
-        void updateSpinBoxSuffix();
 
     private:
         void moveSelectedItem(bool moveup);

@@ -88,7 +88,8 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
 
     ui->autohideSpinBox->setValue( autohidetime );
     ui->reminderSpinBox->setValue( remindertime );
-    updateSpinBoxSuffix();
+    ui->autohideSpinBox->setSuffix( ki18ncp( "Auto hide popup after", " second", " seconds") );
+    ui->reminderSpinBox->setSuffix( ki18ncp( "Reminder every", " second", " seconds") );
 
     ui->notificationButton->setEnabled( noti );
     ui->autohideCheckBox->setEnabled( popup );
@@ -121,8 +122,6 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     connect( ui->teaNameEdit, SIGNAL( textChanged(QString) ), this, SLOT( nameValueChanged(QString) ) );
     connect( ui->minutesSpin, SIGNAL( valueChanged(int) ), this, SLOT( timeValueChanged() ) );
     connect( ui->secondsSpin, SIGNAL( valueChanged(int) ), this, SLOT( timeValueChanged() ) );
-    connect( ui->autohideSpinBox, SIGNAL( valueChanged(int) ), this, SLOT( updateSpinBoxSuffix() ) );
-    connect( ui->reminderSpinBox, SIGNAL( valueChanged(int) ), this, SLOT( updateSpinBoxSuffix() ) );
 }
 
 
@@ -293,13 +292,6 @@ void SettingsDialog::nameValueChanged(const QString &text)
     if( !items.isEmpty() ) {
         m_model->setData( m_model->index( items.at(0).row(), 0 ), text, Qt::EditRole );
     }
-}
-
-
-void SettingsDialog::updateSpinBoxSuffix()
-{
-    ui->autohideSpinBox->setSuffix( i18ncp( "Auto hide popup after", " second", " seconds", ui->autohideSpinBox->value() ) );
-    ui->reminderSpinBox->setSuffix( i18ncp( "Reminder every", " second", " seconds", ui->reminderSpinBox->value() ) );
 }
 
 
