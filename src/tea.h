@@ -33,7 +33,7 @@ class Tea {
           * @param name the name of this tea.
           * @param time the tea time in seconds.
           */
-        Tea(const QString &name = QString(), const unsigned time = 180);
+        explicit Tea(const QString &name = QString(), const unsigned time = 180);
 
         /**
          * Returns the name of this tea.
