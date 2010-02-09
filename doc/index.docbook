@@ -90,7 +90,7 @@
 <title>Start the Tea Timer</title>
 
 <para>To start the tea timer select a tea from the context menu. As confirmation that you have indeed started 
-the timeer, a clock visualizing the remaining time is displayed in the panel icon.</para></sect1>
+the timer, a clock visualizing the remaining time is displayed in the panel icon.</para></sect1>
 
 <sect1 id="configure">
 <title><guimenuitem>Configure</guimenuitem></title>
