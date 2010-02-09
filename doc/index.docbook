@@ -33,8 +33,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2006-10-25</date>
-<releaseinfo>1.1.0</releaseinfo>
+<date>2010-02-07</date>
+<releaseinfo>1.2.1</releaseinfo>
 
 <abstract>
 <para>This Handbook describes &kteatime;, the &kde; Tea Cooker.</para>
@@ -87,9 +87,10 @@
 </sect1>
 
 <sect1 id="start">
-<title>Start</title>
+<title>Start the Tea Timer</title>
 
-<para>This menu item will start the tea timer for the tea marked above. As confirmation that you have indeed selected <guimenuitem>Start</guimenuitem>, the panel icon will change into a filled mug.</para></sect1>
+<para>To start the tea timer select a tea from the context menu. As confirmation that you have indeed started 
+the timer, a clock visualizing the remaining time is displayed in the panel icon.</para></sect1>
 
 <sect1 id="configure">
 <title><guimenuitem>Configure</guimenuitem></title>
@@ -107,9 +108,9 @@ box.</phrase></textobject>
 
 <para>As shown in the picture, you may add new entries for other tea or change names, times and the order of existing entries. This is useful if you are brewing a cup of tea that is not on the list or if you do not agree with the predefined times. To edit one entry, mark it in the <guilabel>Tea List</guilabel> on the left and change the values in the <guilabel>Tea Properties</guilabel> on the right.</para>
 
-<para>The box below is the <guilabel>Action</guilabel> field. Here you can define an action that will be executed when the time is up. The button <guibutton>Configure Events...</guibutton> brings up the &kde; Notification Settings for &kteatime;. The <guilabel>Event</guilabel> check box below enables the event selected in the &kde; Notification Settings. If <guilabel>Popup</guilabel> is selected, a message box will appear alerting you to the fact that your tea is ready. The third check box can hold any valid system command. Probably, you will want to leave it blank.</para>
+<para>The box below is the <guilabel>Action</guilabel> field. Here you can define an action that will be executed when the time is up.  The <guilabel>Notification</guilabel> check box enables the event selected in the &kde; Notification Settings. The button <guibutton>Configure Notifications...</guibutton> brings up the &kde; Notification Settings for &kteatime;. If <guilabel>Popup</guilabel> is selected, a message box will appear alerting you to the fact that your tea is ready.</para>
 
-<para>If you enable the check box labeled <guilabel>Visualize progress in icon tray</guilabel>, the progress will be shown as a little animated pie chart inside the icon.</para>
+<para>If you enable the check box labeled <guilabel>Visualize progress in icon tray</guilabel>, the progress will be shown as a little animated clock inside the icon.</para>
 
 </sect1>
 </chapter>
