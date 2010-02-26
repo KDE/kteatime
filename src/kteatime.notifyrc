@@ -1,6 +1,11 @@
 [Global]
 IconName=kteatime
 Comment=Tea Cooker
+Comment[pt]=Cozinheiro de Chá
+Comment[pt_BR]=Hora do chá
+Comment[ru]=Приготовление чая
+Comment[uk]=Приготування чаю
+Comment[x-test]=xxTea Cookerxx
 
 [Event/ready]
 Name=Tea is ready
