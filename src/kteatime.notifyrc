@@ -1,6 +1,7 @@
 [Global]
 IconName=kteatime
 Comment=Tea Cooker
+Comment[nds]=Teekaker
 Comment[pt]=Cozinheiro de Chá
 Comment[pt_BR]=Hora do chá
 Comment[ru]=Приготовление чая
