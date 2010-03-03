@@ -68,7 +68,7 @@
 <sect1 id="timing-your-tea">
 <title>Timing Your Tea</title>
 
-<para>Upon starting, the panel icon will be that of an empty tea mug. If you click on the mug and select your tea, the icon will change to a filled mug. After the specified time, the tea will be finished, and a suitable message box will be shown. At this point, you can close the message box by clicking on it and reset the timer by clicking on the icon. The mug will be shown as empty again.</para>
+<para>Upon starting, the panel icon will be that of an tea mug. If you click with the &RMB; on the mug and select your tea, an animated clock  visualizing the remaining time is displayed on the the icon. After the specified time, the tea will be finished, and a suitable message box will be shown. At this point, you can close the message box by clicking on it. This resets also the timer and the clock on the mug disappears again.</para>
 
 <note><para>The timer should only be reset by those who really enjoy tea.</para></note>
 
