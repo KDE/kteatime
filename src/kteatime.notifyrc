@@ -1,9 +1,11 @@
 [Global]
 IconName=kteatime
 Comment=Tea Cooker
+Comment[bg]=Приготвяне на чай
 Comment[de]=Teekocher
 Comment[en_GB]=Tea Cooker
 Comment[et]=Teekann
+Comment[hr]=Pomoćnik pri kuhanju čaja
 Comment[is]=Te-hitarinn
 Comment[nds]=Teekaker
 Comment[pt]=Cozinheiro de Chá
