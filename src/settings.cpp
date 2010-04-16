@@ -48,12 +48,17 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
 {
     setCaption( i18n( "Configure Tea Cooker" ) );
 
-    setButtons( Ok | Cancel | Help );
+    setButtons( Ok | Cancel | Help | Reset );
+    setButtonText( KDialog::Reset, i18n( "Configure &amp;Notifications..." ) );
+    setButtonToolTip( KDialog::Reset,  i18n( "Configure notifications" ) );
+    setButtonIcon( KDialog::Reset, KIcon( "preferences-desktop-notification" ) );
+
     setHelp( "configure" );
 
     setButtonWhatsThis( KDialog::Ok,     i18n( "Save changes and close dialog." ) );
     setButtonWhatsThis( KDialog::Cancel, i18n( "Close dialog without saving changes." ) );
     setButtonWhatsThis( KDialog::Help,   i18n( "Show help page for this dialog." ) );
+    setButtonWhatsThis( KDialog::Reset,  i18n( "Configure notifications" ) );
 
     ui = new SettingsUI( this );
     setMainWidget( ui );
@@ -71,7 +76,6 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
     move( QPoint( x, y ) );
 
-    bool noti=group.readEntry( "UseNotification", true );
     bool popup=group.readEntry( "UsePopup", true );
     bool autohide=group.readEntry( "PopupAutoHide", false );
     int autohidetime=group.readEntry( "PopupAutoHideTime", 30 );
@@ -79,7 +83,6 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     int remindertime=group.readEntry( "ReminderTime", 60 );
     bool vis=group.readEntry( "UseVisualize", true );
 
-    ui->notificationCheckBox->setChecked( noti );
     ui->popupCheckBox->setChecked( popup );
     ui->autohideCheckBox->setChecked( autohide );
     ui->reminderCheckBox->setChecked( reminder );
@@ -90,7 +93,6 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     ui->autohideSpinBox->setSuffix( ki18ncp( "Auto hide popup after", " second", " seconds") );
     ui->reminderSpinBox->setSuffix( ki18ncp( "Reminder every", " second", " seconds") );
 
-    ui->notificationButton->setEnabled( noti );
     ui->autohideCheckBox->setEnabled( popup );
     ui->autohideSpinBox->setEnabled( autohide );
     ui->reminderSpinBox->setEnabled( reminder );
@@ -111,7 +113,7 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     ui->downButton->setIcon( KIcon( "arrow-down" ) );
 
     connect( ui->popupCheckBox, SIGNAL( toggled(bool) ), this, SLOT( checkPopupButtonState(bool) ) );
-    connect( ui->notificationButton, SIGNAL( clicked() ), this, SLOT( confButtonClicked() ) );
+    connect( this, SIGNAL( resetClicked() ), this, SLOT( confButtonClicked() ) );
 
     connect( ui->newButton, SIGNAL( clicked() ), this, SLOT(newButtonClicked()) );
     connect( ui->removeButton, SIGNAL( clicked() ), this, SLOT(removeButtonClicked()) );
@@ -141,7 +143,6 @@ void SettingsDialog::accept()
     hide();
     saveDialogSize(group);
 
-    group.writeEntry( "UseNotification",   ui->notificationCheckBox->checkState() == Qt::Checked );
     group.writeEntry( "UsePopup",          ui->popupCheckBox->checkState() == Qt::Checked );
     group.writeEntry( "PopupAutoHide",     ui->autohideCheckBox->checkState() == Qt::Checked );
     group.writeEntry( "PopupAutoHideTime", ui->autohideSpinBox->value() );

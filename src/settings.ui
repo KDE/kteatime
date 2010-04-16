@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>599</width>
-    <height>538</height>
+    <height>535</height>
    </rect>
   </property>
   <layout class="QGridLayout">
@@ -198,50 +198,7 @@
      <property name="title">
       <string>Action</string>
      </property>
-     <layout class="QVBoxLayout">
-      <item>
-       <layout class="QHBoxLayout">
-        <item>
-         <widget class="QCheckBox" name="notificationCheckBox">
-          <property name="text">
-           <string>Notification</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="notificationButton">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="text">
-           <string>Configure &amp;Notifications...</string>
-          </property>
-          <property name="default">
-           <bool>false</bool>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>1</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QCheckBox" name="popupCheckBox">
         <property name="text">
@@ -366,9 +323,6 @@
         </item>
        </layout>
       </item>
-      <item>
-       <layout class="QHBoxLayout"/>
-      </item>
      </layout>
     </widget>
    </item>
@@ -386,45 +340,24 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+  </customwidget>
+  <customwidget>
    <class>KButtonGroup</class>
    <extends>QGroupBox</extends>
    <header>kbuttongroup.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
   </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
  </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>notificationCheckBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>notificationButton</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>88</x>
-     <y>303</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>314</x>
-     <y>300</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>autohideCheckBox</sender>
    <signal>toggled(bool)</signal>

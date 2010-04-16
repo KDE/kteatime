@@ -270,11 +270,8 @@ void TopLevel::teaTimeEvent()
         if( m_usepopup ) {
             showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
         }
-
-        if( m_usenotification ) {
-            KNotification::event( "ready", content, m_pix );
-        }
-
+        
+        KNotification::event( "ready", content, m_pix );
 
         if( m_usereminder && m_remindertime > 0 ) {
             m_popup->setView( title, content, m_pix );
@@ -328,7 +325,6 @@ void TopLevel::loadConfig()
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup( config, "General" );
 
-    m_usenotification=generalGroup.readEntry( "UseNotification", true );
     m_usepopup=generalGroup.readEntry( "UsePopup", true );
     m_autohide=generalGroup.readEntry( "PopupAutoHide", false );
     m_autohidetime=generalGroup.readEntry( "PopupAutoHideTime", 30 );

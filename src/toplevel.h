@@ -77,9 +77,6 @@ class TopLevel : public KSystemTrayIcon
         int m_nextNotificationTime;
         Tea m_runningTea;
 
-        /** should we use notifications defined by KNotification */
-        bool m_usenotification;
-
         /** should we show a popup for events */
         bool m_usepopup;
 
