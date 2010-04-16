@@ -25,12 +25,14 @@
 
 int main (int argc, char *argv[])
 {
+    QApplication::setQuitOnLastWindowClosed( false );
+
     KAboutData aboutData( "kteatime", 0, ki18n( "KTeaTime" ), "1.2.1",
                           ki18n( "KDE utility for making a fine cup of tea." ),
                           KAboutData::License_GPL,
                           ki18n( "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n "
                                  "(c) 2002-2003, Martin Willers\n "
-                                 "(c) 2007-2009, Stefan Böhmann"
+                                 "(c) 2007-2010, Stefan Böhmann"
                                )
                         );
 

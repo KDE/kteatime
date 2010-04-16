@@ -44,8 +44,6 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_icon( loadIcon( icon ) ),
     m_pix( loadIcon( icon ).pixmap( QSize( 22, 22 ) ) )
 {
-    QApplication::setQuitOnLastWindowClosed( false );
-
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup tealistGroup( config, "Tealist" );
 
