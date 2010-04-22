@@ -24,6 +24,7 @@ Comment[sr@latin]=Čajnik
 Comment[sv]=Tekokaren
 Comment[uk]=Приготування чаю
 Comment[x-test]=xxTea Cookerxx
+Comment[zh_TW]=煮茶器
 
 [Event/ready]
 Name=Tea is ready
