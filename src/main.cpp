@@ -25,8 +25,6 @@
 
 int main (int argc, char *argv[])
 {
-    QApplication::setQuitOnLastWindowClosed( false );
-
     KAboutData aboutData( "kteatime", 0, ki18n( "KTeaTime" ), "1.2.1",
                           ki18n( "KDE utility for making a fine cup of tea." ),
                           KAboutData::License_GPL,
@@ -52,6 +50,8 @@ int main (int argc, char *argv[])
     KCmdLineArgs::addCmdLineOptions( options );
 
     KApplication app;
+    QApplication::setQuitOnLastWindowClosed( false );
+
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
     TopLevel *toplevel=new TopLevel( &aboutData );
