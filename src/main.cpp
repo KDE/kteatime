@@ -65,7 +65,7 @@ int main (int argc, char *argv[])
     if(args->isSet("time")) {
         const int time=args->getOption( "time" ).toInt();
         if( time > 0 ) {
-            const Tea tea( args->isSet("name") ? args->getOption("name") : i18n( "Anonymous Tea" ) );
+            const Tea tea( args->isSet("name") ? args->getOption("name") : i18n( "Anonymous Tea" ), time );
 
             toplevel->runTea( tea );
         }
