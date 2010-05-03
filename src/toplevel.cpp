@@ -288,8 +288,12 @@ void TopLevel::teaTimeEvent()
         m_popup->setView( title, content, m_pix );
 
         if( m_runningTeaTime == m_nextNotificationTime ) {
-            showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
+            if( m_usepopup ) {
+                showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
+            }
+
             KNotification::event( "reminder", content, m_pix );
+ 
             m_nextNotificationTime -= m_remindertime;
         }
         --m_runningTeaTime;
