@@ -35,7 +35,7 @@ Comment[zh_TW]=煮茶器
 [Event/ready]
 Name=Tea is ready
 Name[be]=Гарбата гатова
-Name[bg]=Чайът е готов
+Name[bg]=Чаят е готов
 Name[bn]=চা প্রস্তুত
 Name[br]=Prest eo an te
 Name[ca]=El te està llest
@@ -97,7 +97,7 @@ Name[zh_CN]=茶沏好了
 Name[zh_TW]=茶煮好了
 Comment=Tea is ready
 Comment[be]=Гарбата гатова
-Comment[bg]=Чайът е готов
+Comment[bg]=Чаят е готов
 Comment[bn]=অই চা গরমমম!!!
 Comment[br]=Prest eo an te
 Comment[ca]=El te està llest
@@ -163,7 +163,7 @@ Action=Sound
 
 [Event/reminder]
 Name=Tea is getting lonely
-Name[bg]=Чайът изстива
+Name[bg]=Чаят изстива
 Name[ca]=El te està quedant abandonat
 Name[ca@valencia]=El te està quedant abandonat
 Name[cs]=Čaj se cítí osamocen
@@ -213,7 +213,7 @@ Name[x-test]=xxTea is getting lonelyxx
 Name[zh_CN]=茶都凉了
 Name[zh_TW]=茶煮好了，怎麼沒人喝
 Comment=Tea is getting lonely.
-Comment[bg]=Чайът изстива...
+Comment[bg]=Чаят изстива...
 Comment[ca]=El te està quedant abandonat.
 Comment[ca@valencia]=El te està quedant abandonat.
 Comment[cs]=Čaj se cítí osamocen.
