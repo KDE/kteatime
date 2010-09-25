@@ -44,7 +44,7 @@ class TopLevel : public KSystemTrayIcon
     Q_OBJECT
 
     public:
-        explicit TopLevel(const KAboutData *aboutData, const QString &icon = "kteatime", QWidget *parent = 0);
+        explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = 0);
         ~TopLevel();
         void setTeaList(const QList<Tea> &tealist);
         void runTea(const Tea &tea);

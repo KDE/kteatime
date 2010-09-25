@@ -67,19 +67,19 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_teaActionGroup=new QActionGroup( this );
 
     // build the context menu
-    m_stopAct = new QAction( "stop", this );
-    m_stopAct->setIcon( KIcon( "edit-delete" ) );
+    m_stopAct = new QAction( QLatin1String( "stop" ), this );
+    m_stopAct->setIcon( KIcon( QLatin1String(  "edit-delete" ) ) );
     m_stopAct->setText( i18n( "&Stop" ) );
     m_stopAct->setEnabled( false );
 
-    m_confAct = new QAction( "configure", this );
-    m_confAct->setIcon(KIcon( "configure" ) );
+    m_confAct = new QAction( QLatin1String( "configure" ), this );
+    m_confAct->setIcon(KIcon( QLatin1String(  "configure" ) ) );
     m_confAct->setText(i18n( "&Configure..." ) );
 
-    m_anonAct = new QAction( "anonymous", this );
+    m_anonAct = new QAction( QLatin1String( "anonymous" ), this );
     m_anonAct->setText(i18n( "&Anonymous..." ) );
 
-    m_exitAct = actionCollection()->action(KStandardAction::name( KStandardAction::Quit ) );
+    m_exitAct = actionCollection()->action( QLatin1String( KStandardAction::name( KStandardAction::Quit ) ));
     m_exitAct->setShortcut( 0 ); // Not sure if it is correct.
 
     m_helpMenu = new KHelpMenu( 0, aboutData, false );
@@ -144,8 +144,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     KConfigGroup tealistGroup( config, "Tealist" );
 
     for(int i=0; i<m_tealist.size(); ++i) {
-        tealistGroup.writeEntry(QString( "Tea%1 Time" ).arg( i ), m_tealist.at( i ).time() );
-        tealistGroup.writeEntry(QString( "Tea%1 Name" ).arg( i ), m_tealist.at( i ).name() );
+        tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Time" ) ).arg( i ), m_tealist.at( i ).time() );
+        tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Name" ) ).arg( i ), m_tealist.at( i ).name() );
     }
     tealistGroup.config()->sync();
 
@@ -268,8 +268,8 @@ void TopLevel::teaTimeEvent()
         if( m_usepopup ) {
             showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
         }
-        
-        KNotification::event( "ready", content, m_pix );
+
+        KNotification::event( QLatin1String( "ready" ), content, m_pix );
 
         if( m_usereminder && m_remindertime > 0 ) {
             m_popup->setView( title, content, m_pix );
@@ -292,8 +292,8 @@ void TopLevel::teaTimeEvent()
                 showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
             }
 
-            KNotification::event( "reminder", content, m_pix );
- 
+            KNotification::event( QLatin1String( "reminder" ), content, m_pix );
+
             m_nextNotificationTime -= m_remindertime;
         }
         --m_runningTeaTime;

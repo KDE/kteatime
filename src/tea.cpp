@@ -82,7 +82,7 @@ QString Tea::int2time(const int time, const bool longdesc)
 
     if( (time % year) / day ) {
         if( !str.isEmpty() ) {
-            str.append( ' ' );
+            str.append( QLatin1Char( ' ' ) );
         }
 
         if( longdesc ) {
@@ -95,7 +95,7 @@ QString Tea::int2time(const int time, const bool longdesc)
 
     if( (time % day) / hour ) {
         if( !str.isEmpty() ) {
-            str.append( ' ' );
+            str.append( QLatin1Char( ' ' ) );
         }
 
         if( longdesc ) {
@@ -108,7 +108,7 @@ QString Tea::int2time(const int time, const bool longdesc)
 
     if( (time % hour) / min ) {
         if( !str.isEmpty() ) {
-            str.append( ' ' );
+            str.append( QLatin1Char( ' ' ) );
         }
 
         if( longdesc ) {
@@ -121,7 +121,7 @@ QString Tea::int2time(const int time, const bool longdesc)
 
     if( time % min ) {
         if( !str.isEmpty() ) {
-            str.append( ' ' );
+            str.append( QLatin1Char( ' ' ) );
         }
 
         if( longdesc ) {

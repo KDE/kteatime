@@ -45,7 +45,7 @@ int main (int argc, char *argv[])
     options.add( "t" );
     options.add( "time <seconds>", ki18n( "Start a new tea with this time." ) );
     options.add( "n");
-    options.add( "name <name>", ki18n( "Use this name for the tea started with %1." ).subs( "--time" ) );
+    options.add( "name <name>", ki18n( "Use this name for the tea started with %1." ).subs( QLatin1String("--time") ) );
 
     KCmdLineArgs::addCmdLineOptions( options );
 

@@ -51,9 +51,9 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     setButtons( Ok | Cancel | Help | Reset );
     setButtonText( KDialog::Reset, i18n( "Configure &amp;Notifications..." ) );
     setButtonToolTip( KDialog::Reset,  i18n( "Configure notifications" ) );
-    setButtonIcon( KDialog::Reset, KIcon( "preferences-desktop-notification" ) );
+    setButtonIcon( KDialog::Reset, KIcon( QLatin1String(  "preferences-desktop-notification" ) ) );
 
-    setHelp( "configure" );
+    setHelp( QLatin1String("configure") );
 
     setButtonWhatsThis( KDialog::Ok,     i18n( "Save changes and close dialog." ) );
     setButtonWhatsThis( KDialog::Cancel, i18n( "Close dialog without saving changes." ) );
@@ -107,10 +107,10 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     ui->upButton->setEnabled( false );
     ui->downButton->setEnabled( false );
 
-    ui->newButton->setIcon( KIcon( "list-add" ) );
-    ui->removeButton->setIcon( KIcon( "edit-delete" ) );
-    ui->upButton->setIcon( KIcon( "arrow-up" ) );
-    ui->downButton->setIcon( KIcon( "arrow-down" ) );
+    ui->newButton->setIcon( KIcon( QLatin1String(  "list-add" ) ) );
+    ui->removeButton->setIcon( KIcon( QLatin1String(  "edit-delete" ) ) );
+    ui->upButton->setIcon( KIcon( QLatin1String(  "arrow-up" ) ) );
+    ui->downButton->setIcon( KIcon( QLatin1String(  "arrow-down" ) ) );
 
     connect( ui->popupCheckBox, SIGNAL( toggled(bool) ), this, SLOT( checkPopupButtonState(bool) ) );
     connect( this, SIGNAL( resetClicked() ), this, SLOT( confButtonClicked() ) );
