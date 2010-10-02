@@ -128,4 +128,4 @@ Terminal=false
 X-DocPath=kteatime/index.html
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
-Categories=Qt;KDE;Game;Amusement;
+Categories=Qt;KDE;Utility;
