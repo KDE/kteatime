@@ -25,7 +25,7 @@
 
 int main (int argc, char *argv[])
 {
-    KAboutData aboutData( "kteatime", 0, ki18n( "KTeaTime" ), "1.2.1",
+    KAboutData aboutData( "kteatime", 0, ki18n( "KTeaTime" ), "1.2.2",
                           ki18n( "KDE utility for making a fine cup of tea." ),
                           KAboutData::License_GPL,
                           ki18n( "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n "
@@ -34,10 +34,31 @@ int main (int argc, char *argv[])
                                )
                         );
 
-    aboutData.addAuthor( ki18n( "Matthias Hoelzer-Kluepfel" ), KLocalizedString(), "hoelzer@kde.org");
-    aboutData.addAuthor( ki18n( "Martin Willers" ), KLocalizedString(), "willers@xm-arts.de");
-    aboutData.addAuthor( ki18n( "Stefan Böhmann" ), KLocalizedString(), "kde@hilefoks.org");
-    aboutData.addCredit( ki18n( "Daniel Teske" ), ki18n( "Many patches" ), "teske@bigfoot.com");
+    aboutData.addAuthor(
+        ki18n( "Stefan Böhmann" ),
+        ki18n( "Current maintainer" ),
+        "kde@hilefoks.org",
+        "http://www.hilefoks.org",
+        "hilefoks"
+    );
+
+    aboutData.addAuthor(
+        ki18n( "Matthias Hoelzer-Kluepfel" ),
+        KLocalizedString(),
+        "hoelzer@kde.org"
+    );
+
+    aboutData.addAuthor(
+        ki18n( "Martin Willers" ),
+        KLocalizedString(),
+        "willers@xm-arts.de"
+    );
+
+    aboutData.addCredit(
+        ki18n( "Daniel Teske" ),
+        ki18n( "Many patches" ),
+        "teske@bigfoot.com"
+    );
 
     KCmdLineArgs::init( argc, argv, &aboutData );
 
