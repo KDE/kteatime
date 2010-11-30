@@ -143,6 +143,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup tealistGroup( config, "Tealist" );
 
+    tealistGroup.deleteGroup();
+
     for(int i=0; i<m_tealist.size(); ++i) {
         tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Time" ) ).arg( i ), m_tealist.at( i ).time() );
         tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Name" ) ).arg( i ), m_tealist.at( i ).name() );
