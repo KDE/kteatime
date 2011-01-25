@@ -23,7 +23,7 @@
 
 #include <QIcon>
 #include <QPixmap>
-#include <KSystemTrayIcon>
+#include <KStatusNotifierItem>
 
 
 class QAction;
@@ -39,7 +39,7 @@ class KAboutData;
  *
  * @author Stefan Böhmann <kde@hilefoks.org>
  */
-class TopLevel : public KSystemTrayIcon
+class TopLevel : public KStatusNotifierItem
 {
     Q_OBJECT
 
@@ -55,14 +55,14 @@ class TopLevel : public KSystemTrayIcon
         void showTimeEditDialog();
         void teaTimeEvent();
         void cancelTea();
-        void showPopup(QSystemTrayIcon::ActivationReason reason);
+        void showPopup(bool active, const QPoint& point);
 
     private:
         void checkState();
         void loadConfig();
         void loadTeaMenuItems();
-        QPoint calculatePopupPoint();
         void repaintTrayIcon();
+        void setTooltipText(const QString& content);
 
     private:
         QList<Tea> m_tealist;
@@ -94,10 +94,6 @@ class TopLevel : public KSystemTrayIcon
 
         /** use a visual effect in the system tray icon. */
         bool m_usevisualize;
-
-        const QIcon m_icon;
-
-        QPixmap m_pix;
 };
 
 

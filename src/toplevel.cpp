@@ -38,12 +38,14 @@
 
 
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
-  : KSystemTrayIcon( loadIcon(icon), parent ),
+  : KStatusNotifierItem( parent ),
+    m_popup( new KPassivePopup ),
     m_runningTeaTime( 0 ),
-    m_nextNotificationTime( 0 ),
-    m_icon( loadIcon( icon ) ),
-    m_pix( loadIcon( icon ).pixmap( QSize( 22, 22 ) ) )
+    m_nextNotificationTime( 0 )
 {
+    setIconByName(icon);
+    setCategory(ApplicationStatus);
+    setStatus(Active);
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup tealistGroup( config, "Tealist" );
 
@@ -94,10 +96,6 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     contextMenu()->addMenu( m_helpMenu->menu() );
     contextMenu()->addAction( m_exitAct );
 
-
-    m_popup = new KPassivePopup();
-    m_popup->setAutoDelete( false );
-
     m_timer = new QTimer( this );
 
     connect( m_timer, SIGNAL( timeout() ), this, SLOT( teaTimeEvent() ) );
@@ -105,8 +103,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     connect( m_confAct, SIGNAL( triggered(bool) ), this, SLOT( showSettingsDialog() ) );
     connect( m_anonAct, SIGNAL( triggered(bool) ), this, SLOT( showTimeEditDialog() ) );
     connect( contextMenu(), SIGNAL( triggered(QAction*) ), this, SLOT( runTea(QAction*) ) );
-    connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason) ),
-             this, SLOT( showPopup(QSystemTrayIcon::ActivationReason) ) );
+    connect ( this, SIGNAL( activateRequested(bool,QPoint) ), this, SLOT( showPopup(bool,QPoint) ) );
 
     loadConfig();
     checkState();
@@ -130,8 +127,7 @@ void TopLevel::checkState() {
     m_anonAct->setEnabled( !state );
 
     if( !state ) {
-        m_popup->setView( i18n( "The Tea Cooker" ), i18n( "No steeping tea." ), m_pix );
-        setToolTip( i18n( "The Tea Cooker" ) );
+        setTooltipText( i18n( "No steeping tea." ) );
     }
 }
 
@@ -231,28 +227,12 @@ void TopLevel::runTea(const Tea &tea)
 
 void TopLevel::repaintTrayIcon()
 {
-     m_pix = m_icon.pixmap( QSize( 22, 22 ) );
-
-    if( m_runningTeaTime == 0 ) {
-        setIcon( m_icon );
+    if( m_runningTeaTime != 0 && m_usevisualize) {
+        setOverlayIconByName ( QLatin1String("task-ongoing") );
     }
-    else {
-        QPainter p( &m_pix );
-        p.setRenderHint( QPainter::Antialiasing );
-
-        p.setBrush( QColor( 0, 255, 0, 190 ) );
-        QRectF rectangle( 2, geometry().height()-12, 10, 10 );
-        p.drawPie( rectangle, 90*16, 360*16 );
-
-        if( m_runningTeaTime > 0 ) {
-            p.setBrush( QColor(255, 0, 0, 190) );
-            p.drawPie( rectangle, 90*16, -( 360*16 / m_runningTea.time() * m_runningTeaTime ) );
-        }
-        else if( (m_runningTeaTime * -1) % 2 == 0 ) {
-           p.setBrush( QColor( 255, 0, 0, 190 ) );
-           p.drawPie( rectangle, 90*16, -360*16 );
-        }
-        setIcon( m_pix );
+    else
+    {
+        setOverlayIconByName ( QString() );
     }
 }
 
@@ -268,33 +248,31 @@ void TopLevel::teaTimeEvent()
 
         //NOTICE Timeout is set to ~24 days when no auto hide is request. Ok - nearly the same...
         if( m_usepopup ) {
-            showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
+            showMessage( title, content, iconName(), m_autohide ? m_autohidetime*1000 : 2100000000 );
         }
 
-        KNotification::event( QLatin1String( "ready" ), content, m_pix );
+        KNotification::event( QLatin1String( "ready" ), content );
 
         if( m_usereminder && m_remindertime > 0 ) {
-            m_popup->setView( title, content, m_pix );
-            setToolTip( content );
+            setTooltipText( content );
 
             m_timer->start( 1000 );
             m_nextNotificationTime -= m_remindertime;
             --m_runningTeaTime;
         }
         checkState();
+        repaintTrayIcon();
     }
     else if(m_runningTeaTime<0) {
         QString content = i18n( "%1 is ready since %2!", m_runningTea.name(), Tea::int2time( m_runningTeaTime*-1, true ) );
-        setToolTip( content );
-
-        m_popup->setView( title, content, m_pix );
+        setTooltipText( content );
 
         if( m_runningTeaTime == m_nextNotificationTime ) {
             if( m_usepopup ) {
-                showMessage( title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime*1000 : 2100000000 );
+                showMessage( title, content, iconName(), m_autohide ? m_autohidetime*1000 : 2100000000 );
             }
 
-            KNotification::event( QLatin1String( "reminder" ), content, m_pix );
+            KNotification::event( QLatin1String( "reminder" ), content );
 
             m_nextNotificationTime -= m_remindertime;
         }
@@ -302,8 +280,7 @@ void TopLevel::teaTimeEvent()
     }
     else {
         --m_runningTeaTime;
-        setToolTip( i18nc( "%1 is the time, %2 is the name of the tea", "%1 left for %2.", Tea::int2time( m_runningTeaTime, true ), m_runningTea.name() ) );
-        m_popup->setView( title, i18nc( "%1 is the time, %2 is the name of the tea", "%1 left for %2.", Tea::int2time( m_runningTeaTime, true ), m_runningTea.name() ), m_pix );
+        setTooltipText( i18nc( "%1 is the time, %2 is the name of the tea", "%1 left for %2.", Tea::int2time( m_runningTeaTime, true ), m_runningTea.name() ) );
     }
 
     if( m_usevisualize ) {
@@ -317,10 +294,7 @@ void TopLevel::cancelTea()
     m_timer->stop();
     m_runningTeaTime = 0;
     checkState();
-
-    if( m_usevisualize ) {
-        repaintTrayIcon();
-    }
+    repaintTrayIcon();
 }
 
 
@@ -338,57 +312,36 @@ void TopLevel::loadConfig()
 }
 
 
-void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
+void TopLevel::showPopup(bool active, const QPoint& point)
 {
-    if( reason == QSystemTrayIcon::Context ) {
-        m_popup->setVisible( false );
+    Q_UNUSED( active )
+    if ( m_popup->isVisible() )
+    {
+        m_popup->hide();
     }
-    else if( reason == QSystemTrayIcon::Trigger || reason == QSystemTrayIcon::DoubleClick ) {
-        if( m_popup->isVisible() ) {
-            m_popup->setVisible( false );
+    else
+    {
+        QPoint p = point;
+        QRect r = KGlobalSettings::desktopGeometry( p );
+        QSize popupSize = m_popup->minimumSizeHint();
+        if ( p.x() + popupSize.width() > r.right() )
+        {
+            p.rx() -= popupSize.width();
         }
-        else {
-            m_popup->show( calculatePopupPoint() );
+        if ( p.y() + popupSize.height() > r.bottom() )
+        {
+            p.ry() -= popupSize.height();
         }
+        m_popup->show( p );
     }
 }
 
 
-QPoint TopLevel::calculatePopupPoint()
+void TopLevel::setTooltipText(const QString& content)
 {
-    QPoint pos = geometry().topLeft();
-
-    int x = pos.x();
-    int y = pos.y();
-    int w = m_popup->minimumSizeHint().width();
-    int h = m_popup->minimumSizeHint().height();
-
-    QRect r = KGlobalSettings::desktopGeometry( QPoint( x+w/2, y+h/2 ) );
-
-    if( x < r.center().x() ) {
-        x += geometry().width();
-    }
-    else {
-        x -= w;
-    }
-
-    if( (y+h) > r.bottom() ) {
-        y = r.bottom() - h;
-    }
-
-    if( (x+w) > r.right() ) {
-        x = r.right() - w;
-    }
-
-    if( y < r.top() ) {
-        y = r.top();
-    }
-
-    if( x < r.left() ) {
-        x = r.left();
-    }
-
-    return QPoint( x,y );
+    const QString title = i18n( "The Tea Cooker" );
+    setToolTip( iconName(), title, content );
+    m_popup->setView( title, content, KIcon( iconName() ).pixmap( 22,22 ) );
 }
 
 

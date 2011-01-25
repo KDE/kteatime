@@ -87,8 +87,6 @@ int main (int argc, char *argv[])
     }
     args->clear();
 
-    toplevel->show();
-
     return app.exec();
 }
 
