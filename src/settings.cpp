@@ -263,7 +263,7 @@ void SettingsDialog::updateSelection(const QItemSelection &selected, const QItem
     }
 
     ui->teaNameEdit->setText( name );
-    ui->minutesSpin->setValue( (time % ( 60 * 60 ) ) / 60 );
+    ui->minutesSpin->setValue( time / 60 );
     ui->secondsSpin->setValue( time % 60 );
 }
 

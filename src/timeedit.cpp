@@ -55,7 +55,7 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
 
     int time=group.readEntry( "AnonymousTeaTime", 180 );
 
-    ui->minutes->setValue( ( time % ( 60 * 60 ) ) / 60 );
+    ui->minutes->setValue( time / 60 );
     ui->seconds->setValue( time % 60 );
 
     ui->minutes->setFocus( Qt::ShortcutFocusReason );
