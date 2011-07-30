@@ -100,8 +100,8 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     m_model=new TeaListModel( teas, this );
     ui->tealistTreeView->setModel( m_model );
 
-    connect( ui->tealistTreeView->selectionModel(), SIGNAL( selectionChanged(QItemSelection, QItemSelection) ),
-             this, SLOT( updateSelection(QItemSelection,QItemSelection) ) );
+    connect( ui->tealistTreeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+             this, SLOT(updateSelection(QItemSelection,QItemSelection)) );
 
     ui->removeButton->setEnabled( false );
     ui->upButton->setEnabled( false );
@@ -112,17 +112,17 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     ui->upButton->setIcon( KIcon( QLatin1String(  "arrow-up" ) ) );
     ui->downButton->setIcon( KIcon( QLatin1String(  "arrow-down" ) ) );
 
-    connect( ui->popupCheckBox, SIGNAL( toggled(bool) ), this, SLOT( checkPopupButtonState(bool) ) );
-    connect( this, SIGNAL( resetClicked() ), this, SLOT( confButtonClicked() ) );
+    connect( ui->popupCheckBox, SIGNAL(toggled(bool)), this, SLOT(checkPopupButtonState(bool)) );
+    connect( this, SIGNAL(resetClicked()), this, SLOT(confButtonClicked()) );
 
-    connect( ui->newButton, SIGNAL( clicked() ), this, SLOT(newButtonClicked()) );
-    connect( ui->removeButton, SIGNAL( clicked() ), this, SLOT(removeButtonClicked()) );
-    connect( ui->upButton, SIGNAL( clicked() ), this, SLOT(upButtonClicked()) );
-    connect( ui->downButton, SIGNAL( clicked() ), this, SLOT(downButtonClicked()) );
+    connect( ui->newButton, SIGNAL(clicked()), this, SLOT(newButtonClicked()) );
+    connect( ui->removeButton, SIGNAL(clicked()), this, SLOT(removeButtonClicked()) );
+    connect( ui->upButton, SIGNAL(clicked()), this, SLOT(upButtonClicked()) );
+    connect( ui->downButton, SIGNAL(clicked()), this, SLOT(downButtonClicked()) );
 
-    connect( ui->teaNameEdit, SIGNAL( textChanged(QString) ), this, SLOT( nameValueChanged(QString) ) );
-    connect( ui->minutesSpin, SIGNAL( valueChanged(int) ), this, SLOT( timeValueChanged() ) );
-    connect( ui->secondsSpin, SIGNAL( valueChanged(int) ), this, SLOT( timeValueChanged() ) );
+    connect( ui->teaNameEdit, SIGNAL(textChanged(QString)), this, SLOT(nameValueChanged(QString)) );
+    connect( ui->minutesSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
+    connect( ui->secondsSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
 }
 
 

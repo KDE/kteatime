@@ -70,8 +70,8 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
     x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
     move( QPoint( x, y ) );
 
-    connect( ui->minutes, SIGNAL( valueChanged(int) ), this, SLOT( checkOkButtonState() ) );
-    connect( ui->seconds, SIGNAL( valueChanged(int) ), this, SLOT( checkOkButtonState() ) );
+    connect( ui->minutes, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
+    connect( ui->seconds, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
 }
 
 
