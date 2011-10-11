@@ -87,7 +87,10 @@ int main (int argc, char *argv[])
     }
     args->clear();
 
-    return app.exec();
+    int ret = app.exec();
+    
+    delete toplevel;
+    return ret;
 }
 
 
