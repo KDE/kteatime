@@ -1,6 +1,7 @@
 [Global]
 IconName=kteatime
 Comment=Tea Cooker
+Comment[ar]=طنجرة الشاي
 Comment[bg]=Приготвяне на чай
 Comment[bs]=Kuhač čaja
 Comment[ca]=El cuiner de te
@@ -50,6 +51,7 @@ Comment[zh_TW]=煮茶器
 
 [Event/ready]
 Name=Tea is ready
+Name[ar]=الشاي جاهز
 Name[be]=Гарбата гатова
 Name[bg]=Чаят е готов
 Name[bn]=চা প্রস্তুত
@@ -115,6 +117,7 @@ Name[x-test]=xxTea is readyxx
 Name[zh_CN]=茶沏好了
 Name[zh_TW]=茶煮好了
 Comment=Tea is ready
+Comment[ar]=الشاي جاهز
 Comment[be]=Гарбата гатова
 Comment[bg]=Чаят е готов
 Comment[bn]=অই চা গরমমম!!!
@@ -185,6 +188,7 @@ Action=Sound
 
 [Event/reminder]
 Name=Tea is getting lonely
+Name[ar]=الشاي يشعر بالوحدة
 Name[bg]=Чаят изстива
 Name[bs]=Čaj postaje usamljen
 Name[ca]=El te està quedant abandonat
@@ -239,6 +243,7 @@ Name[x-test]=xxTea is getting lonelyxx
 Name[zh_CN]=茶都凉了
 Name[zh_TW]=茶煮好了，怎麼沒人喝
 Comment=Tea is getting lonely.
+Comment[ar]=الشاي يشعر بالوحدة.
 Comment[bg]=Чаят изстива...
 Comment[bs]=Čaj postaje usamljen.
 Comment[ca]=El te està quedant abandonat.
