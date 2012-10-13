@@ -6,7 +6,7 @@
  <!ENTITY % English "INCLUDE">
 ]>
 
-<book lang="&language;">
+<book id="kteatime" lang="&language;">
 <bookinfo>
 <title>The &kteatime; Handbook</title>
 <authorgroup>
