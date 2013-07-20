@@ -36,7 +36,7 @@ class TimeEditDialog : public KDialog
     Q_OBJECT
 
     public:
-        TimeEditDialog(TopLevel *toplevel);
+        explicit TimeEditDialog(TopLevel *toplevel);
         ~TimeEditDialog();
 
     private slots:
