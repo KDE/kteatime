@@ -83,7 +83,7 @@
 <sect1 id="select-your-tea">
 <title>Select Your Tea</title>
 
-<para>Clicking on the icon with the &RMB; will bring up a menu. At the top of the menu there are three menu items. Here, you can select what kind of tea you are preparing to drink. There are: <guimenuitem>Black Tea</guimenuitem>, <guimenuitem>Earl Grey</guimenuitem>, and <guimenuitem>Fruit Tea</guimenuitem>. These teas are preconfigured with a default time. Many people have complained that the times are not correct. Please be aware that the amount of time it takes to steep a cup of tea is based on personal preference. The times chosen are approximations. If you read on, you will learn how to change or delete these predefined times and to set your own time. A quick-and-easy way to set a custom time is to choose <guimenuitem>Anonymous...</guimenuitem> from the menu.</para>
+<para>Clicking on the icon with the &RMB; will bring up a menu. At the top of the menu there are three menu items. Here, you can select what kind of tea you are preparing to drink. There are: <guimenuitem>Black Tea</guimenuitem>, <guimenuitem>Earl Grey</guimenuitem>, <guimenuitem>Fruit Tea</guimenuitem>, and <guimenuitem>Green Tea</guimenuitem>. These teas are preconfigured with a default time. Many people have complained that the times are not correct. Please be aware that the amount of time it takes to steep a cup of tea is based on personal preference. The times chosen are approximations. If you read on, you will learn how to change or delete these predefined times and to set your own time. A quick-and-easy way to set a custom time is to choose <guimenuitem>Anonymous...</guimenuitem> from the menu.</para>
 </sect1>
 
 <sect1 id="start">

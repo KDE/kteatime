@@ -63,6 +63,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
         m_tealist.append( Tea(i18n( "Black Tea" ), 180 ) );
         m_tealist.append( Tea(i18n( "Earl Grey" ), 300 ) );
         m_tealist.append( Tea(i18n( "Fruit Tea" ), 480 ) );
+        m_tealist.append( Tea(i18n( "Green Tea" ), 120 ) );
     }
 
 
