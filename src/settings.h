@@ -19,6 +19,7 @@
 
 #include "ui_settings.h"
 
+#include <QDialog>
 
 class TopLevel;
 class TeaListModel;
@@ -31,7 +32,7 @@ class SettingsUI;
  *
  * @author Stefan Böhmann <kde@hilefoks.org>
  */
-class SettingsDialog : public KDialog
+class SettingsDialog : public QDialog
 {
     Q_OBJECT
     public:
@@ -40,9 +41,11 @@ class SettingsDialog : public KDialog
 
     private slots:
         void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
+
+    private:
         void accept();
         void checkPopupButtonState(bool b);
-        void confButtonClicked();
+        void showHelp();
 
         void newButtonClicked();
         void removeButtonClicked();
@@ -52,7 +55,6 @@ class SettingsDialog : public KDialog
         void nameValueChanged(const QString &text);
         void timeValueChanged();
 
-    private:
         void moveSelectedItem(bool moveup);
 
     private:

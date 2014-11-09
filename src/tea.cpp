@@ -16,8 +16,7 @@
  */
 #include "tea.h"
 
-#include <klocalizedstring.h>
-
+#include <KLocalizedString>
 
 
 Tea::Tea(const QString &name, const unsigned time)

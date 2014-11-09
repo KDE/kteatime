@@ -21,20 +21,25 @@
 #include "settings.h"
 #include "tea.h"
 
-#include <QString>
 #include <QAction>
-#include <QTimer>
-#include <QPainter>
-#include <QBrush>
 #include <QActionGroup>
+#include <QApplication>
+#include <QBrush>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QMenu>
+#include <QString>
+#include <QTimer>
 
-#include <KMenu>
-#include <KActionCollection>
-#include <KHelpMenu>
-#include <KPassivePopup>
-#include <KGlobalSettings>
-#include <KNotification>
 #include <KAboutData>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KHelpMenu>
+#include <KIconLoader>
+#include <KNotification>
+#include <KNotifyConfigWidget>
+#include <KPassivePopup>
+#include <KSharedConfig>
 
 
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
@@ -68,43 +73,47 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
 
 
     m_teaActionGroup=new QActionGroup( this );
+    m_actionCollection = new KActionCollection(this);
 
     // build the context menu
-    m_stopAct = new QAction( QLatin1String( "stop" ), this );
-    m_stopAct->setIcon( KIcon( QLatin1String(  "edit-delete" ) ) );
-    m_stopAct->setText( i18n( "&Stop" ) );
-    m_stopAct->setEnabled( false );
+    action = m_actionCollection->addAction( QStringLiteral( "stop" ));
+    action->setIcon(QIcon::fromTheme( QStringLiteral( "edit-delete" ) ) );
+    action->setText( i18n( "&Stop" ) );
+    action->setEnabled( false );
+    connect(action, &QAction::triggered, this, &TopLevel::cancelTea);
 
-    m_confAct = new QAction( QLatin1String( "configure" ), this );
-    m_confAct->setIcon(KIcon( QLatin1String(  "configure" ) ) );
-    m_confAct->setText(i18n( "&Configure..." ) );
+    action = m_actionCollection->addAction( QStringLiteral( "configure" ));
+    action->setIcon(QIcon::fromTheme( QStringLiteral( "configure" ) ) );
+    action->setText(i18n( "&Configure..." ) );
+    connect(action, &QAction::triggered, this, &TopLevel::showSettingsDialog);
 
-    m_anonAct = new QAction( QLatin1String( "anonymous" ), this );
-    m_anonAct->setText(i18n( "&Anonymous..." ) );
+    action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), m_actionCollection);
+    action = KStandardAction::quit(qApp, SLOT(quit()), m_actionCollection);
+    action->setShortcut(0);
 
-    m_exitAct = actionCollection()->action( QLatin1String( KStandardAction::name( KStandardAction::Quit ) ));
-    m_exitAct->setShortcut( 0 ); // Not sure if it is correct.
+    action = m_actionCollection->addAction( QStringLiteral( "anonymous" ));
+    action->setText(i18n( "&Anonymous..." ) );
+    connect(action, &QAction::triggered, this, &TopLevel::showTimeEditDialog);
 
-    m_helpMenu = new KHelpMenu( 0, aboutData, false );
+    m_helpMenu = new KHelpMenu( 0, *aboutData, false );
 
-
+    setStandardActionsEnabled(false);
     loadTeaMenuItems();
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_stopAct );
-    contextMenu()->addAction( m_anonAct );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_confAct );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
+    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );
     contextMenu()->addMenu( m_helpMenu->menu() );
-    contextMenu()->addAction( m_exitAct );
+    contextMenu()->addSeparator();
+    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
 
     m_timer = new QTimer( this );
 
-    connect( m_timer, SIGNAL(timeout()), this, SLOT(teaTimeEvent()) );
-    connect( m_stopAct, SIGNAL(triggered(bool)), this, SLOT(cancelTea()) );
-    connect( m_confAct, SIGNAL(triggered(bool)), this, SLOT(showSettingsDialog()) );
-    connect( m_anonAct, SIGNAL(triggered(bool)), this, SLOT(showTimeEditDialog()) );
-    connect( contextMenu(), SIGNAL(triggered(QAction*)), this, SLOT(runTea(QAction*)) );
-    connect ( this, SIGNAL(activateRequested(bool,QPoint)), this, SLOT(showPopup(bool,QPoint)) );
+    connect(m_timer, &QTimer::timeout, this, &TopLevel::teaTimeEvent);
+    connect(contextMenu(), static_cast<void (QMenu::*)(QAction*)>(&QMenu::triggered), this, static_cast<void (TopLevel::*)(QAction*)>(&TopLevel::runTea));
+    connect(this, &TopLevel::activateRequested, this, &TopLevel::showPopup);
 
     loadConfig();
     checkState();
@@ -124,8 +133,8 @@ void TopLevel::checkState() {
     const bool state = m_runningTeaTime != 0;
 
     m_teaActionGroup->setEnabled( !state );
-    m_stopAct->setEnabled( state );
-    m_anonAct->setEnabled( !state );
+    m_actionCollection->action(QStringLiteral("stop"))->setEnabled( state );
+    m_actionCollection->action(QStringLiteral("anonymous"))->setEnabled( !state );
 
     if( !state ) {
         setTooltipText( i18n( "No steeping tea." ) );
@@ -143,8 +152,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     tealistGroup.deleteGroup();
 
     for(int i=0; i<m_tealist.size(); ++i) {
-        tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Time" ) ).arg( i ), m_tealist.at( i ).time() );
-        tealistGroup.writeEntry(QString( QLatin1String( "Tea%1 Name" ) ).arg( i ), m_tealist.at( i ).name() );
+        tealistGroup.writeEntry(QStringLiteral( "Tea%1 Time" ).arg( i ), m_tealist.at( i ).time() );
+        tealistGroup.writeEntry(QStringLiteral( "Tea%1 Name" ).arg( i ), m_tealist.at( i ).name() );
     }
     tealistGroup.config()->sync();
 
@@ -155,16 +164,16 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
 
     contextMenu()->clear();
 
-    ( static_cast<KMenu*>( contextMenu() ) )->addTitle( qApp->windowIcon(), KGlobal::caption() );
-
     loadTeaMenuItems();
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_stopAct );
-    contextMenu()->addAction( m_anonAct );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_confAct );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
+    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );
     contextMenu()->addMenu(m_helpMenu->menu() );
-    contextMenu()->addAction( m_exitAct );
+    contextMenu()->addSeparator();
+    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
 
     loadConfig();
 }
@@ -229,7 +238,7 @@ void TopLevel::runTea(const Tea &tea)
 void TopLevel::repaintTrayIcon()
 {
     if( m_runningTeaTime != 0 && m_usevisualize) {
-        setOverlayIconByName ( QLatin1String("task-ongoing") );
+        setOverlayIconByName ( QStringLiteral("task-ongoing") );
     }
     else
     {
@@ -247,12 +256,12 @@ void TopLevel::teaTimeEvent()
 
         QString content = i18n( "%1 is now ready!", m_runningTea.name() );
 
-        //NOTICE Timeout is set to ~24 days when no auto hide is request. Ok - nearly the same...
+        //NOTICE Timeout is set t ~o24 days when no auto hide is request. Ok - nearly the same...
         if( m_usepopup ) {
             showMessage( title, content, iconName(), m_autohide ? m_autohidetime*1000 : 2100000000 );
         }
 
-        KNotification::event( QLatin1String( "ready" ), content );
+        KNotification::event( QStringLiteral( "ready" ), content );
 
         if( m_usereminder && m_remindertime > 0 ) {
             setTooltipText( content );
@@ -298,6 +307,10 @@ void TopLevel::cancelTea()
     repaintTrayIcon();
 }
 
+void TopLevel::configureNotifications()
+{
+    KNotifyConfigWidget::configure();
+}
 
 void TopLevel::loadConfig()
 {
@@ -323,7 +336,7 @@ void TopLevel::showPopup(bool active, const QPoint& point)
     else
     {
         QPoint p = point;
-        QRect r = KGlobalSettings::desktopGeometry( p );
+        QRect r = QApplication::desktop()->screenGeometry( p );
         QSize popupSize = m_popup->minimumSizeHint();
         if ( p.x() + popupSize.width() > r.right() )
         {
@@ -342,7 +355,7 @@ void TopLevel::setTooltipText(const QString& content)
 {
     const QString title = i18n( "The Tea Cooker" );
     setToolTip( iconName(), title, content );
-    m_popup->setView( title, content, KIcon( iconName() ).pixmap( 22,22 ) );
+    m_popup->setView( title, content, KIconLoader().loadIcon(iconName(), KIconLoader::MainToolbar) );
 }
 
 

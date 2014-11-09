@@ -22,6 +22,9 @@
 
 #include "ui_timeedit.h"
 
+#include <QDialog>
+
+class QDialogButtonBox;
 class TopLevel;
 class TimeEditUI;
 
@@ -31,21 +34,19 @@ class TimeEditUI;
  *
  * @author Stefan Böhmann <kde@hilefoks.org>
  */
-class TimeEditDialog : public KDialog
+class TimeEditDialog : public QDialog
 {
-    Q_OBJECT
-
     public:
         explicit TimeEditDialog(TopLevel *toplevel);
         ~TimeEditDialog();
 
-    private slots:
+    private:
         void checkOkButtonState();
         void accept();
 
-    private:
         TimeEditUI *ui;
         TopLevel *m_toplevel;
+        QDialogButtonBox *buttonBox;
 };
 
 #endif

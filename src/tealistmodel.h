@@ -22,7 +22,6 @@
 class Tea;
 
 
-
 /**
  * @short provides an model used by SettingsDialog
  *

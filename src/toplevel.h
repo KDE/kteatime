@@ -21,18 +21,16 @@
 
 #include "tea.h"
 
-#include <QIcon>
-#include <QPixmap>
 #include <KStatusNotifierItem>
 
 
 class QAction;
 class QActionGroup;
+class QTimer;
+class KAboutData;
+class KActionCollection;
 class KHelpMenu;
 class KPassivePopup;
-class KAboutData;
-
-
 
 /**
  * @short the main class for KTeatime
@@ -42,32 +40,32 @@ class KAboutData;
 class TopLevel : public KStatusNotifierItem
 {
     Q_OBJECT
-
     public:
         explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = 0);
         ~TopLevel();
         void setTeaList(const QList<Tea> &tealist);
         void runTea(const Tea &tea);
 
-    private slots:
+    private:
         void runTea(QAction *a);
         void showSettingsDialog();
         void showTimeEditDialog();
         void teaTimeEvent();
         void cancelTea();
         void showPopup(bool active, const QPoint& point);
-
-    private:
         void checkState();
         void loadConfig();
         void loadTeaMenuItems();
         void repaintTrayIcon();
         void setTooltipText(const QString& content);
+    private Q_SLOTS:
+        void configureNotifications();
 
     private:
         QList<Tea> m_tealist;
-        QAction *m_stopAct, *m_confAct, *m_anonAct, *m_exitAct;
+        QAction *action;
         QActionGroup *m_teaActionGroup;
+        KActionCollection *m_actionCollection;
 
         KHelpMenu *m_helpMenu;
         QTimer *m_timer;
@@ -95,7 +93,6 @@ class TopLevel : public KStatusNotifierItem
         /** use a visual effect in the system tray icon. */
         bool m_usevisualize;
 };
-
 
 #endif
 

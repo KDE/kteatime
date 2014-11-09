@@ -18,8 +18,7 @@
 #include "tealistmodel.h"
 #include "tea.h"
 
-#include <klocalizedstring.h>
-
+#include <KLocalizedString>
 
 
 TeaListModel::TeaListModel(const QList<Tea> &tealist, QObject *parent)

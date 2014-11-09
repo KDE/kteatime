@@ -18,74 +18,82 @@
  */
 #include "toplevel.h"
 
-#include <KApplication>
+#include <QApplication>
+#include <QCommandLineParser>
+
 #include <KAboutData>
-#include <KCmdLineArgs>
+#include <KLocalizedString>
 
 
 int main (int argc, char *argv[])
 {
-    KAboutData aboutData( "kteatime", 0, ki18n( "KTeaTime" ), "1.2.2",
-                          ki18n( "KDE utility for making a fine cup of tea." ),
-                          KAboutData::License_GPL,
-                          ki18n( "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n "
-                                 "(c) 2002-2003, Martin Willers\n "
-                                 "(c) 2007-2010, Stefan Böhmann"
+    /**
+     * Create application first
+     */
+    QApplication app(argc, argv);
+
+    /**
+     * construct about data for KTeaTime
+     */
+    KAboutData aboutData( QStringLiteral("kteatime"), i18n("KTeaTime"), QStringLiteral("1.3.0"),
+                          i18n( "KDE utility for making a fine cup of tea." ),
+                          KAboutLicense::GPL,
+                          i18n( "© 1998-1999, Matthias Hoelzer-Kluepfel\n "
+                                "© 2002-2003, Martin Willers\n "
+                                "© 2007-2010, Stefan Böhmann"
                                )
                         );
 
-    aboutData.addAuthor(
-        ki18n( "Stefan Böhmann" ),
-        ki18n( "Current maintainer" ),
-        "kde@hilefoks.org",
-        "http://www.hilefoks.org",
-        "hilefoks"
-    );
+    aboutData.addAuthor(i18n("Stefan Böhmann"), i18n("Current maintainer"), QStringLiteral("kde@hilefoks.org"), QStringLiteral("http://www.hilefoks.org"), QStringLiteral("hilefoks"));
+    aboutData.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), QString(), QStringLiteral("hoelzer@kde.org"));
+    aboutData.addAuthor(i18n("Martin Willers"), QString(), QStringLiteral("willers@xm-arts.de"));
 
-    aboutData.addAuthor(
-        ki18n( "Matthias Hoelzer-Kluepfel" ),
-        KLocalizedString(),
-        "hoelzer@kde.org"
-    );
+    aboutData.addCredit(i18n("Daniel Teske"), i18n("Many patches"), QStringLiteral("teske@bigfoot.com"));
 
-    aboutData.addAuthor(
-        ki18n( "Martin Willers" ),
-        KLocalizedString(),
-        "willers@xm-arts.de"
-    );
+    /**
+     * right dbus prefix == org.kde.
+     */
+    aboutData.setOrganizationDomain("kde.org");
 
-    aboutData.addCredit(
-        ki18n( "Daniel Teske" ),
-        ki18n( "Many patches" ),
-        "teske@bigfoot.com"
-    );
+    /**
+     * register about data
+     */
+    KAboutData::setApplicationData(aboutData);
 
-    KCmdLineArgs::init( argc, argv, &aboutData );
+    /**
+     * take component name and org. name from KAboutData
+     */
+    app.setApplicationName(aboutData.componentName());
+    app.setApplicationDisplayName(aboutData.displayName());
+    app.setOrganizationDomain(aboutData.organizationDomain());
+    app.setApplicationVersion(aboutData.version());
+    app.setQuitOnLastWindowClosed(false);
 
-    KCmdLineOptions options;
-    options.add( "t" );
-    options.add( "time <seconds>", ki18n( "Start a new tea with this time." ) );
-    options.add( "n");
-    options.add( "name <name>", ki18n( "Use this name for the tea started with %1." ).subs( QLatin1String("--time") ) );
+    /**
+     * Create command line parser and feed it with known options
+     */
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.setApplicationDescription(aboutData.shortDescription());
+    parser.addHelpOption();
+    parser.addVersionOption();
 
-    KCmdLineArgs::addCmdLineOptions( options );
+    QCommandLineOption timeOption(QStringList() << QStringLiteral("t") << QStringLiteral("time"), i18n("Start a new tea with this time."), i18n("seconds"));
+    parser.addOption(timeOption);
+    QCommandLineOption nameOption(QStringList() << QStringLiteral("n") << QStringLiteral("name"), i18n("Use this name for the tea started with --time."), i18n("name"));
+    parser.addOption(nameOption);
 
-    KApplication app;
-    QApplication::setQuitOnLastWindowClosed( false );
-
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     TopLevel *toplevel=new TopLevel( &aboutData );
 
-    if(args->isSet("time")) {
-        const int time=args->getOption( "time" ).toInt();
-        if( time > 0 ) {
-            const Tea tea( args->isSet("name") ? args->getOption("name") : i18n( "Anonymous Tea" ), time );
-
-            toplevel->runTea( tea );
-        }
+    const int time=parser.value(timeOption).toInt();
+    if( time > 0 ) {
+        const QString name = parser.value(nameOption);
+        const Tea tea( name == QString() ? i18n( "Anonymous Tea" ) : name, time );
+        toplevel->runTea( tea );
     }
-    args->clear();
 
     int ret = app.exec();
     

@@ -1,20 +1,38 @@
+cmake_minimum_required(VERSION 2.8.12)
 project(kteatime)
 
-# Search KDE installation
-find_package( KDE4 REQUIRED )
-include( KDE4Defaults )
-include( MacroLibrary )
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+include(ECMInstallIcons)
 
-add_definitions( ${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS} )
+# Search KDE installation
+find_package(Qt5 5.2.0 CONFIG REQUIRED
+  Core
+  Widgets
+  DBus
+)
+
+find_package(KF5 5.0.0 REQUIRED
+  Config
+  Crash
+  DocTools
+  I18n
+  IconThemes
+  NotifyConfig
+  Notifications
+  WidgetsAddons
+  TextWidgets
+  XmlGui
+)
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+include(FeatureSummary)
+
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
 add_definitions( -DQT_NO_CAST_TO_ASCII )
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories( ${KDE4_INCLUDES} )
-
-# The FindKDE4.cmake module sets _KDE4_PLATFORM_DEFINITIONS with
-# definitions like _GNU_SOURCE that are needed on each platform.
-# Put configure checks below this line.
-set( CMAKE_REQUIRED_DEFINITIONS ${_KDE4_PLATFORM_DEFINITIONS} )
 
 ADD_SUBDIRECTORY(doc)
 ADD_SUBDIRECTORY(data)

@@ -22,11 +22,15 @@
 #include "tea.h"
 
 #include <QDesktopWidget>
+#include <QDialogButtonBox>
+#include <QPushButton>
+
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 
 class TimeEditUI : public QWidget, public Ui::TimeEditWidget
 {
-    Q_OBJECT
     public:
         TimeEditUI(QWidget *parent = 0)
           : QWidget( parent )
@@ -36,31 +40,38 @@ class TimeEditUI : public QWidget, public Ui::TimeEditWidget
 };
 
 
-
-
 TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
-  : KDialog(),
+  : QDialog(),
     m_toplevel( toplevel )
 {
-    setCaption( i18n( "Anonymous Tea" ) );
+    setWindowTitle( i18n( "Anonymous Tea" ) );
 
-    setButtonWhatsThis( KDialog::Ok, i18n( "Start a new anonymous tea with the time configured in this dialog." ) );
-    setButtonWhatsThis( KDialog::Cancel, i18n( "Close this dialog without starting a new tea." ) );
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    buttonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Start a new anonymous tea with the time configured in this dialog."  ));
+    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
+    buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
+    buttonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n( "Close this dialog without starting a new tea."  ));
 
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
     ui = new TimeEditUI( this );
-    setMainWidget( ui );
+    mainLayout->addWidget(ui);
+    mainLayout->addWidget(buttonBox);
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group( config, "AnonymousTeaDialog" );
 
     int time=group.readEntry( "AnonymousTeaTime", 180 );
 
+    ui->minutes->setSuffix( ki18np( " minute", " minutes") );
+    ui->seconds->setSuffix( ki18np( " second", " seconds") );
+
     ui->minutes->setValue( time / 60 );
     ui->seconds->setValue( time % 60 );
 
     ui->minutes->setFocus( Qt::ShortcutFocusReason );
 
-    restoreDialogSize( group );
+    restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
     QDesktopWidget desktop;
     int x = group.readEntry( "AnonymousTeaDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
@@ -70,8 +81,11 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
     x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
     move( QPoint( x, y ) );
 
-    connect( ui->minutes, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
-    connect( ui->seconds, SIGNAL(valueChanged(int)), this, SLOT(checkOkButtonState()) );
+    connect(ui->minutes, static_cast<void (KPluralHandlingSpinBox::*)(int)>(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+    connect(ui->seconds, static_cast<void (KPluralHandlingSpinBox::*)(int)>(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &TimeEditDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &TimeEditDialog::reject);
 }
 
 
@@ -83,7 +97,7 @@ TimeEditDialog::~TimeEditDialog()
 
 void TimeEditDialog::checkOkButtonState()
 {
-    enableButtonOk( ui->minutes->value() || ui->seconds->value() );
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled( ui->minutes->value() || ui->seconds->value() );
 }
 
 
@@ -97,7 +111,7 @@ void TimeEditDialog::accept()
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group( config, "AnonymousTeaDialog" );
     group.writeEntry( "AnonymousTeaTime", time );
-    saveDialogSize( group );
+    group.writeEntry("Geometry", saveGeometry());
 
     group.writeEntry( "AnonymousTeaDialogXPos", x() );
     group.writeEntry( "AnonymousTeaDialogYPos", y() );
@@ -108,7 +122,3 @@ void TimeEditDialog::accept()
 
 // kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
 // vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
-
-#include "timeedit.moc"
-#include "moc_timeedit.cpp"
-

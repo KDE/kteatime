@@ -19,13 +19,18 @@
 #include "toplevel.h"
 #include "tealistmodel.h"
 
-#include <QHashIterator>
-#include <QString>
+#include <QDialogButtonBox>
 #include <QDesktopWidget>
+#include <QHashIterator>
+#include <QPushButton>
+#include <QString>
+#include <QVBoxLayout>
 
-#include <knotifyconfigwidget.h>
-
-
+#include <KConfigGroup>
+#include <KHelpClient>
+#include <KLocalizedString>
+#include <KNotifyConfigWidget>
+#include <KSharedConfig>
 
 class SettingsUI : public QWidget, public Ui::SettingsWidget
 {
@@ -39,34 +44,33 @@ class SettingsUI : public QWidget, public Ui::SettingsWidget
         }
 };
 
-
-
-
 SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
-  : KDialog(),
+  : QDialog(),
     m_toplevel(toplevel)
 {
-    setCaption( i18n( "Configure Tea Cooker" ) );
+    setWindowTitle( i18n( "Configure Tea Cooker" ) );
 
-    setButtons( Ok | Cancel | Help | Reset );
-    setButtonText( KDialog::Reset, i18n( "Configure &amp;Notifications..." ) );
-    setButtonToolTip( KDialog::Reset,  i18n( "Configure notifications" ) );
-    setButtonIcon( KDialog::Reset, KIcon( QLatin1String(  "preferences-desktop-notification" ) ) );
-
-    setHelp( QLatin1String("configure") );
-
-    setButtonWhatsThis( KDialog::Ok,     i18n( "Save changes and close dialog." ) );
-    setButtonWhatsThis( KDialog::Cancel, i18n( "Close dialog without saving changes." ) );
-    setButtonWhatsThis( KDialog::Help,   i18n( "Show help page for this dialog." ) );
-    setButtonWhatsThis( KDialog::Reset,  i18n( "Configure notifications" ) );
-
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
     ui = new SettingsUI( this );
-    setMainWidget( ui );
+    mainLayout->addWidget(ui);
+    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
+    buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::reject);
+    mainLayout->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::helpRequested, this, &SettingsDialog::showHelp);
+
+    buttonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Save changes and close dialog."  ));
+    buttonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n( "Close dialog without saving changes."  ));
+    buttonBox->button(QDialogButtonBox::Help)->setWhatsThis(i18n( "Show help page for this dialog."  ));
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group( config, "General" );
 
-    restoreDialogSize( group );
+    restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
     QDesktopWidget desktop;
     int x=group.readEntry( "SettingsDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
@@ -100,31 +104,28 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     m_model=new TeaListModel( teas, this );
     ui->tealistTreeView->setModel( m_model );
 
-    connect( ui->tealistTreeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-             this, SLOT(updateSelection(QItemSelection,QItemSelection)) );
+    connect(ui->tealistTreeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this,SLOT(updateSelection(QItemSelection,QItemSelection)) );
 
     ui->removeButton->setEnabled( false );
     ui->upButton->setEnabled( false );
     ui->downButton->setEnabled( false );
 
-    ui->newButton->setIcon( KIcon( QLatin1String(  "list-add" ) ) );
-    ui->removeButton->setIcon( KIcon( QLatin1String(  "edit-delete" ) ) );
-    ui->upButton->setIcon( KIcon( QLatin1String(  "arrow-up" ) ) );
-    ui->downButton->setIcon( KIcon( QLatin1String(  "arrow-down" ) ) );
+    ui->newButton->setIcon( QIcon::fromTheme( QLatin1String(  "list-add" ) ) );
+    ui->removeButton->setIcon( QIcon::fromTheme( QLatin1String(  "edit-delete" ) ) );
+    ui->upButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-up" ) ) );
+    ui->downButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-down" ) ) );
 
-    connect( ui->popupCheckBox, SIGNAL(toggled(bool)), this, SLOT(checkPopupButtonState(bool)) );
-    connect( this, SIGNAL(resetClicked()), this, SLOT(confButtonClicked()) );
+    connect(ui->popupCheckBox, &QCheckBox::toggled, this, &SettingsDialog::checkPopupButtonState);
 
-    connect( ui->newButton, SIGNAL(clicked()), this, SLOT(newButtonClicked()) );
-    connect( ui->removeButton, SIGNAL(clicked()), this, SLOT(removeButtonClicked()) );
-    connect( ui->upButton, SIGNAL(clicked()), this, SLOT(upButtonClicked()) );
-    connect( ui->downButton, SIGNAL(clicked()), this, SLOT(downButtonClicked()) );
+    connect(ui->newButton, &QToolButton::clicked, this, &SettingsDialog::newButtonClicked);
+    connect(ui->removeButton, &QToolButton::clicked, this, &SettingsDialog::removeButtonClicked);
+    connect(ui->upButton, &QToolButton::clicked, this, &SettingsDialog::upButtonClicked);
+    connect(ui->downButton, &QToolButton::clicked, this, &SettingsDialog::downButtonClicked);
 
-    connect( ui->teaNameEdit, SIGNAL(textChanged(QString)), this, SLOT(nameValueChanged(QString)) );
-    connect( ui->minutesSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
-    connect( ui->secondsSpin, SIGNAL(valueChanged(int)), this, SLOT(timeValueChanged()) );
+    connect(ui->teaNameEdit, &QLineEdit::textChanged, this, &SettingsDialog::nameValueChanged);
+    connect(ui->minutesSpin, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
+    connect(ui->secondsSpin, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
 }
-
 
 SettingsDialog::~SettingsDialog()
 {
@@ -132,6 +133,10 @@ SettingsDialog::~SettingsDialog()
     delete ui;
 }
 
+void SettingsDialog::showHelp()
+{
+    KHelpClient::invokeHelp();
+}
 
 void SettingsDialog::accept()
 {
@@ -141,7 +146,7 @@ void SettingsDialog::accept()
     group.writeEntry( "SettingsDialogYPos", y() );
 
     hide();
-    saveDialogSize(group);
+    group.writeEntry("Geometry", saveGeometry());
 
     group.writeEntry( "UsePopup",          ui->popupCheckBox->checkState() == Qt::Checked );
     group.writeEntry( "PopupAutoHide",     ui->autohideCheckBox->checkState() == Qt::Checked );
@@ -165,13 +170,6 @@ void SettingsDialog::checkPopupButtonState(bool b) {
         ui->autohideSpinBox->setEnabled( b );
     }
 }
-
-
-void SettingsDialog::confButtonClicked()
-{
-    KNotifyConfigWidget::configure( this );
-}
-
 
 void SettingsDialog::newButtonClicked()
 {
@@ -295,8 +293,8 @@ void SettingsDialog::nameValueChanged(const QString &text)
 }
 
 
-// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
-// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
-
 #include "settings.moc"
 #include "moc_settings.cpp"
+
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
+// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

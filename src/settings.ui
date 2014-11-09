@@ -13,7 +13,7 @@
   </property>
   <layout class="QGridLayout">
    <item row="0" column="0" rowspan="2">
-    <widget class="KButtonGroup" name="kbuttongroup1">
+    <widget class="QGroupBox" name="kbuttongroup1">
      <property name="title">
       <string>Tea List</string>
      </property>
@@ -130,7 +130,7 @@
        </widget>
       </item>
       <item row="0" column="1" colspan="4">
-       <widget class="KLineEdit" name="teaNameEdit">
+       <widget class="QLineEdit" name="teaNameEdit">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -144,7 +144,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KIntSpinBox" name="minutesSpin">
+       <widget class="QSpinBox" name="minutesSpin">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -161,7 +161,7 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="KIntSpinBox" name="secondsSpin">
+       <widget class="QSpinBox" name="secondsSpin">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -194,7 +194,7 @@
     </spacer>
    </item>
    <item row="2" column="0" colspan="2">
-    <widget class="KButtonGroup" name="kbuttongroup2">
+    <widget class="QGroupBox" name="kbuttongroup2">
      <property name="title">
       <string>Action</string>
      </property>
@@ -241,7 +241,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KIntSpinBox" name="autohideSpinBox">
+         <widget class="KPluralHandlingSpinBox" name="autohideSpinBox">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -287,7 +287,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KIntSpinBox" name="reminderSpinBox">
+         <widget class="KPluralHandlingSpinBox" name="reminderSpinBox">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -338,24 +338,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KButtonGroup</class>
-   <extends>QGroupBox</extends>
-   <header>kbuttongroup.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>
