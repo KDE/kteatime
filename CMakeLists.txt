@@ -38,4 +38,4 @@ ADD_SUBDIRECTORY(doc)
 ADD_SUBDIRECTORY(data)
 ADD_SUBDIRECTORY(src)
 
-install(FILES kteatime.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
+install(FILES org.kde.kteatime.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
