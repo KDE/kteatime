@@ -7,9 +7,11 @@
   <name xml:lang="ca">KTeaTime</name>
   <name xml:lang="cs">KTeaTime</name>
   <name xml:lang="de">KTeaTime</name>
+  <name xml:lang="en-GB">KTeaTime</name>
   <name xml:lang="fi">KTeaTime</name>
   <name xml:lang="lt">KTeaTime</name>
   <name xml:lang="nl">KTeaTime</name>
+  <name xml:lang="pl">KTeaTime</name>
   <name xml:lang="pt">KTeaTime</name>
   <name xml:lang="pt-BR">KTeaTime</name>
   <name xml:lang="sk">KTeaTime</name>
@@ -19,9 +21,11 @@
   <summary xml:lang="ca">El cuiner de te</summary>
   <summary xml:lang="cs">Vařič čaje</summary>
   <summary xml:lang="de">Teekocher</summary>
+  <summary xml:lang="en-GB">Tea Cooker</summary>
   <summary xml:lang="fi">Teenkeitin</summary>
   <summary xml:lang="lt">Arbatos virėjas</summary>
   <summary xml:lang="nl">Theezetter</summary>
+  <summary xml:lang="pl">Zaparzanie herbaty</summary>
   <summary xml:lang="pt">Preparação de Chás</summary>
   <summary xml:lang="pt-BR">Hora do chá</summary>
   <summary xml:lang="sk">Varič čaju</summary>
@@ -31,8 +35,10 @@
     <p>KTeaTime is a handy timer for steeping tea. No longer will you have to guess at how long it takes for your tea to be ready. Simply select the type of tea you have, and it will alert you when the tea is ready to drink.</p>
     <p xml:lang="ca">El KTeaTime és un temporitzador còmode per a fer el te. Ja no haureu d'endevinar quan falta per a que el vostre te estigui llest. Simplement seleccioneu el tipus de te que voleu, i l'aplicació us avisarà quan està llest.</p>
     <p xml:lang="de">KTeaTime ist ein praktischer Zeitmesser für ziehenden Tee. Sie brauchen nicht länger schätzen, wie lange es dauert, bis Ihr Tee fertig ist. Wählen Sie einfach die Teesorte, die Sie haben, und Sie werden informiert, sobald Ihr Tee trinkfertig ist.</p>
+    <p xml:lang="en-GB">KTeaTime is a handy timer for steeping tea. No longer will you have to guess at how long it takes for your tea to be ready. Simply select the type of tea you have, and it will alert you when the tea is ready to drink.</p>
     <p xml:lang="fi">KTeaTime on kätevä kello teen hautumisajan mittaamiseksi. Enää ei tarvitse arvata milloin tee on valmis. Valitse vain teelaji ja KTeaTime hälyttää, kun tee on valmista juotavaksi.</p>
     <p xml:lang="nl">KTeaTime is een handige tijdklok voor het zetten van thee. U hoeft niet langer te gokken wanneer uw thee sterk genoeg is. Selecteer de theesoort en een waarschuwing verschijnt wanneer de thee klaar is om opgedronken te worden.</p>
+    <p xml:lang="pl">KTeaTime jest poręcznym czasomierzem do zaparzania herbaty. Nigdy więcej nie będziesz musiał zgadywać ile jeszcze czasu potrzebuje twoja herbata. Po prostu wybierz rodzaj herbaty, którą posiadasz, a program powiadomi cię kiedy kiedy będzie gotowa do picia.</p>
     <p xml:lang="pt">O KTeaTime é um cronómetro útil para preparar chás. Nunca mais terá de adivinhar quanto tempo leva para o seu chá estar pronto. Basta seleccionar o tipo de chá que tem, para que ele o alerte de quando o chá está pronto para ser bebido.</p>
     <p xml:lang="pt-BR">KTeaTime é um temporizador prático para preparar um chá. Já não terá mais que adivinhar quanto tempo leva para que o seu chá fique pronto. Basta escolher o tipo de chá que deseja, e ele o alertará quando estiver pronto para beber.</p>
     <p xml:lang="sk">KTeaTime je užitočný časovač pre máčanie čaju. Už nikdy nebudete musieť hádať, koľko trvá pripravenie vášho čaju. Jednoducho vyberte typ vášho čaju a on vás upozorní, kedy bude pripravený na pitie.</p>
