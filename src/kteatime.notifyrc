@@ -55,6 +55,7 @@ Comment[zh_TW]=煮茶器
 [Event/ready]
 Name=Tea is ready
 Name[ar]=الشاي جاهز
+Name[ast]=El té ta preparáu
 Name[be]=Гарбата гатова
 Name[bg]=Чаят е готов
 Name[bn]=চা প্রস্তুত
