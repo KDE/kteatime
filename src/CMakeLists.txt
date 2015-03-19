@@ -15,7 +15,6 @@ target_link_libraries(kteatime
     KF5::NotifyConfig
     KF5::TextWidgets
     KF5::WidgetsAddons
-    KF5::WindowSystem
     KF5::XmlGui
 )
 
