@@ -20,6 +20,7 @@
   <name xml:lang="pl">KTeaTime</name>
   <name xml:lang="pt">KTeaTime</name>
   <name xml:lang="pt-BR">KTeaTime</name>
+  <name xml:lang="ru">KTeaTime</name>
   <name xml:lang="sk">KTeaTime</name>
   <name xml:lang="sl">KTeaTime</name>
   <name xml:lang="sr">К‑чајанка</name>
@@ -49,6 +50,7 @@
   <summary xml:lang="pl">Zaparzanie herbaty</summary>
   <summary xml:lang="pt">Preparação de Chás</summary>
   <summary xml:lang="pt-BR">Hora do chá</summary>
+  <summary xml:lang="ru">Таймер для заваривания чая</summary>
   <summary xml:lang="sk">Varič čaju</summary>
   <summary xml:lang="sl">Kuhalnik čaja</summary>
   <summary xml:lang="sr">Чајник</summary>
@@ -75,6 +77,7 @@
     <p xml:lang="pl">KTeaTime jest poręcznym czasomierzem do zaparzania herbaty. Nigdy więcej nie będziesz musiał zgadywać ile jeszcze czasu potrzebuje twoja herbata. Po prostu wybierz rodzaj herbaty, którą posiadasz, a program powiadomi cię kiedy kiedy będzie gotowa do picia.</p>
     <p xml:lang="pt">O KTeaTime é um cronómetro útil para preparar chás. Nunca mais terá de adivinhar quanto tempo leva para o seu chá estar pronto. Basta seleccionar o tipo de chá que tem, para que ele o alerte de quando o chá está pronto para ser bebido.</p>
     <p xml:lang="pt-BR">KTeaTime é um temporizador prático para preparar um chá. Já não terá mais que adivinhar quanto tempo leva para que o seu chá fique pronto. Basta escolher o tipo de chá que deseja, e ele o alertará quando estiver pronto para beber.</p>
+    <p xml:lang="ru">KTeaTime — удобный таймер для заваривания чая. Избавляет вас от необходимости запоминать, сколько минут готовится каждый сорт чая. Просто выберите сорт чая, — и программа сообщит, когда чай будет готов.</p>
     <p xml:lang="sk">KTeaTime je užitočný časovač pre máčanie čaju. Už nikdy nebudete musieť hádať, koľko trvá pripravenie vášho čaju. Jednoducho vyberte typ vášho čaju a on vás upozorní, kedy bude pripravený na pitie.</p>
     <p xml:lang="sl">KTeaTime je priročen časomer za kuhanje čaja. Nič več vam ne bo treba ugibati, kako dolgo bo trajalo, preden bo vaš čaj gotov. Enostavno izberite vrsto čaja, ki ga imate, in opozorjeni boste, ko bo čaj pripravljen za pitje.</p>
     <p xml:lang="sr">К‑чајанка је згодан одбројавач за преливање чаја. Више не морате да памтите колико треба да се чај припреми. Само изаберите врсту чаја, и бићете обавештени кад буде спреман за испијање.</p>
