@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KTeaTime</name>
   <name xml:lang="ast">KTeaTime</name>
+  <name xml:lang="bg">KTeaTime</name>
   <name xml:lang="bs">KTeaTime</name>
   <name xml:lang="ca">KTeaTime</name>
   <name xml:lang="cs">KTeaTime</name>
@@ -35,6 +36,7 @@
   <name xml:lang="zh-TW">KTeaTime</name>
   <summary>Tea Cooker</summary>
   <summary xml:lang="ast">Tetera</summary>
+  <summary xml:lang="bg">Приготвяне на чай</summary>
   <summary xml:lang="bs">Kuhač čaja</summary>
   <summary xml:lang="ca">El cuiner de te</summary>
   <summary xml:lang="cs">Vařič čaje</summary>
@@ -66,6 +68,7 @@
   <description>
     <p>KTeaTime is a handy timer for steeping tea. No longer will you have to guess at how long it takes for your tea to be ready. Simply select the type of tea you have, and it will alert you when the tea is ready to drink.</p>
     <p xml:lang="ast">KTeaTime ye un temporizador amañosu pa remoyar el té. Enxamás nun tendrás d'albidrar cuantu tiempu falta pa que'l to té tea tresnao. Namái esbilla la triba de té que tienes y el programa avisaráte cuando'l to té tea tresnao pa beber.</p>
+    <p xml:lang="bg">KTeaTime е удобен часовник за варене на чай. Няма нужда вече да отгатвате колко време трябва, за да е готов чаят ви. Просто изберете вида чай и програмата ще ви уведоми, когато чаят е готов за пиене.</p>
     <p xml:lang="ca">El KTeaTime és un temporitzador còmode per a fer el te. Ja no haureu d'endevinar quan falta per a que el vostre te estigui llest. Simplement seleccioneu el tipus de te que voleu, i l'aplicació us avisarà quan està llest.</p>
     <p xml:lang="cs">KTeaTime je užitečný pomocník pro louhování čaje. Už nemusíte hádat za jak dlouho bude váš čaj připraven. Jednoduše vyberte typ čaje a vyčkejte na upozornění, že je čaj hotov.</p>
     <p xml:lang="de">KTeaTime ist ein praktischer Zeitmesser für ziehenden Tee. Sie brauchen nicht länger schätzen, wie lange es dauert, bis Ihr Tee fertig ist. Wählen Sie einfach die Teesorte, die Sie haben, und Sie werden informiert, sobald Ihr Tee trinkfertig ist.</p>
