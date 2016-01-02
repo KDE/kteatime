@@ -12,7 +12,7 @@ find_package(Qt5 5.2.0 CONFIG REQUIRED
   DBus
 )
 
-find_package(KF5 5.0.0 REQUIRED
+find_package(KF5 5.15.0 REQUIRED
   Config
   Crash
   DocTools

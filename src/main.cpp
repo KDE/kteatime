@@ -22,6 +22,7 @@
 #include <QCommandLineParser>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 
 
@@ -43,6 +44,8 @@ int main (int argc, char *argv[])
                                 "© 2007-2010, Stefan Böhmann"
                                )
                         );
+
+    KCrash::initialize();
 
     aboutData.addAuthor(i18n("Stefan Böhmann"), i18n("Current maintainer"), QStringLiteral("kde@hilefoks.org"), QStringLiteral("http://www.hilefoks.org"), QStringLiteral("hilefoks"));
     aboutData.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), QString(), QStringLiteral("hoelzer@kde.org"));
