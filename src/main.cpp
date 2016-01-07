@@ -50,6 +50,8 @@ int main (int argc, char *argv[])
 
     aboutData.addCredit(i18n("Daniel Teske"), i18n("Many patches"), QStringLiteral("teske@bigfoot.com"));
 
+    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+
     /**
      * right dbus prefix == org.kde.
      */
