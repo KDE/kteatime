@@ -9,7 +9,6 @@ include(ECMInstallIcons)
 find_package(Qt5 5.2.0 CONFIG REQUIRED
   Core
   Widgets
-  DBus
 )
 
 find_package(KF5 5.15.0 REQUIRED
@@ -20,7 +19,6 @@ find_package(KF5 5.15.0 REQUIRED
   IconThemes
   NotifyConfig
   Notifications
-  WidgetsAddons
   TextWidgets
   XmlGui
 )
