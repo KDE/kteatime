@@ -25,7 +25,7 @@ find_package(KF5 5.15.0 REQUIRED
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
