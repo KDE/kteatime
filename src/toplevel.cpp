@@ -48,7 +48,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_runningTeaTime( 0 ),
     m_nextNotificationTime( 0 )
 {
-    setIconByName(icon);
+    setIconByPixmap(QIcon::fromTheme(icon));
     setCategory(ApplicationStatus);
     setStatus(Active);
     KSharedConfigPtr config = KSharedConfig::openConfig();
