@@ -39,7 +39,6 @@ class KPassivePopup;
  */
 class TopLevel : public KStatusNotifierItem
 {
-    Q_OBJECT
     public:
         explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = 0);
         ~TopLevel();
@@ -58,10 +57,8 @@ class TopLevel : public KStatusNotifierItem
         void loadTeaMenuItems();
         void repaintTrayIcon();
         void setTooltipText(const QString& content);
-    private Q_SLOTS:
         void configureNotifications();
 
-    private:
         QList<Tea> m_tealist;
         QAction *action;
         QActionGroup *m_teaActionGroup;

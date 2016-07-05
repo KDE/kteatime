@@ -34,7 +34,6 @@
 
 class SettingsUI : public QWidget, public Ui::SettingsWidget
 {
-    Q_OBJECT
 
     public:
         SettingsUI(QWidget *parent = 0)
@@ -104,7 +103,7 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     m_model=new TeaListModel( teas, this );
     ui->tealistTreeView->setModel( m_model );
 
-    connect(ui->tealistTreeView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this,SLOT(updateSelection(QItemSelection,QItemSelection)) );
+    connect(ui->tealistTreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SettingsDialog::updateSelection);
 
     ui->removeButton->setEnabled( false );
     ui->upButton->setEnabled( false );
@@ -291,10 +290,6 @@ void SettingsDialog::nameValueChanged(const QString &text)
         m_model->setData( m_model->index( items.at(0).row(), 0 ), text, Qt::EditRole );
     }
 }
-
-
-#include "settings.moc"
-#include "moc_settings.cpp"
 
 // kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
 // vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

@@ -87,8 +87,8 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     action->setText(i18n( "&Configure..." ) );
     connect(action, &QAction::triggered, this, &TopLevel::showSettingsDialog);
 
-    action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), m_actionCollection);
-    action = KStandardAction::quit(qApp, SLOT(quit()), m_actionCollection);
+    action = KStandardAction::configureNotifications(this, &TopLevel::configureNotifications, m_actionCollection);
+    action = KStandardAction::quit(qApp, &QCoreApplication::quit, m_actionCollection);
     action->setShortcut(0);
 
     action = m_actionCollection->addAction( QStringLiteral( "anonymous" ));

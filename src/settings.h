@@ -34,15 +34,13 @@ class SettingsUI;
  */
 class SettingsDialog : public QDialog
 {
-    Q_OBJECT
     public:
         SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
         ~SettingsDialog();
 
-    private slots:
+    private:
         void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
 
-    private:
         void accept();
         void checkPopupButtonState(bool b);
         void showHelp();
@@ -57,7 +55,6 @@ class SettingsDialog : public QDialog
 
         void moveSelectedItem(bool moveup);
 
-    private:
         SettingsUI *ui;
         TopLevel *m_toplevel;
         TeaListModel *m_model;

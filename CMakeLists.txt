@@ -11,7 +11,7 @@ find_package(Qt5 5.2.0 CONFIG REQUIRED
   Widgets
 )
 
-find_package(KF5 5.15.0 REQUIRED
+find_package(KF5 5.23.0 REQUIRED
   Config
   Crash
   DocTools
