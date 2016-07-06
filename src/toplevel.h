@@ -67,6 +67,7 @@ class TopLevel : public KStatusNotifierItem
         KHelpMenu *m_helpMenu;
         QTimer *m_timer;
         KPassivePopup *m_popup;
+        QString m_iconName;
 
         int m_runningTeaTime;
         int m_nextNotificationTime;

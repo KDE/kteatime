@@ -30,6 +30,7 @@
 #include <QMenu>
 #include <QString>
 #include <QTimer>
+#include <QPainter>
 
 #include <KAboutData>
 #include <KActionCollection>
@@ -45,10 +46,11 @@
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
   : KStatusNotifierItem( parent ),
     m_popup( new KPassivePopup ),
+    m_iconName(icon),
     m_runningTeaTime( 0 ),
     m_nextNotificationTime( 0 )
 {
-    setIconByPixmap(QIcon::fromTheme(icon));
+    repaintTrayIcon(); // Set initial icon
     setCategory(ApplicationStatus);
     setStatus(Active);
     KSharedConfigPtr config = KSharedConfig::openConfig();
@@ -237,13 +239,33 @@ void TopLevel::runTea(const Tea &tea)
 
 void TopLevel::repaintTrayIcon()
 {
-    if( m_runningTeaTime != 0 && m_usevisualize) {
-        setOverlayIconByName ( QStringLiteral("task-ongoing") );
-    }
-    else
-    {
+    QPixmap icon( KIconLoader::global()->loadIcon( m_iconName, KIconLoader::Panel ) );
+    if ( m_runningTeaTime <= 0) {
         setOverlayIconByName ( QString() );
+        setIconByPixmap( icon );
+
+        return;
     }
+
+    if ( !m_usevisualize ) {
+        setOverlayIconByName ( QStringLiteral( "task-ongoing" ) );
+        return;
+    }
+
+    QPainter painter( &icon );
+    painter.setRenderHint( QPainter::Antialiasing );
+
+    const QRectF rectangle( 1, icon.height() / 3 + 1, icon.width() / 1.5 - 2, icon.height() / 1.5 - 2 );
+
+    const int startAngle = 90 * 16;
+    const int angleSpan = -( 360*16 / m_runningTea.time() * m_runningTeaTime );
+
+    painter.setBrush( QColor( 0, 255, 0, 90 ) );
+    painter.drawPie( rectangle, startAngle, 360*16 + angleSpan );
+    painter.setBrush( QColor( 255, 0, 0, 90 ) );
+    painter.drawPie( rectangle, startAngle, angleSpan );
+
+    setIconByPixmap( icon );
 }
 
 
@@ -258,7 +280,7 @@ void TopLevel::teaTimeEvent()
 
         //NOTICE Timeout is set t ~o24 days when no auto hide is request. Ok - nearly the same...
         if( m_usepopup ) {
-            showMessage( title, content, iconName(), m_autohide ? m_autohidetime*1000 : 2100000000 );
+            showMessage( title, content, m_iconName, m_autohide ? m_autohidetime*1000 : 2100000000 );
         }
 
         KNotification::event( QStringLiteral( "ready" ), content );
@@ -279,7 +301,7 @@ void TopLevel::teaTimeEvent()
 
         if( m_runningTeaTime == m_nextNotificationTime ) {
             if( m_usepopup ) {
-                showMessage( title, content, iconName(), m_autohide ? m_autohidetime*1000 : 2100000000 );
+                showMessage( title, content, m_iconName, m_autohide ? m_autohidetime*1000 : 2100000000 );
             }
 
             KNotification::event( QLatin1String( "reminder" ), content );
@@ -354,8 +376,8 @@ void TopLevel::showPopup(bool active, const QPoint& point)
 void TopLevel::setTooltipText(const QString& content)
 {
     const QString title = i18n( "The Tea Cooker" );
-    setToolTip( iconName(), title, content );
-    m_popup->setView( title, content, KIconLoader().loadIcon(iconName(), KIconLoader::MainToolbar) );
+    setToolTip( m_iconName, title, content );
+    m_popup->setView( title, content, KIconLoader::global()->loadIcon( m_iconName, KIconLoader::MainToolbar ) );
 }
 
 
