@@ -31,8 +31,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-09-11</date>
-<releaseinfo>1.2.2 (&kde; 4.14)</releaseinfo>
+<date>2016-07-06</date>
+<releaseinfo>1.3.0 (Applications 16.04)</releaseinfo>
 
 <abstract>
 <para>This Handbook describes &kteatime;, the &kde; Tea Cooker.</para>
@@ -82,6 +82,9 @@
 <title>Select Your Tea</title>
 
 <para>Clicking on the icon with the &RMB; will bring up a menu. At the top of the menu there are four menu items. Here, you can select what kind of tea you are preparing to drink. There are: <guimenuitem>Black Tea</guimenuitem>, <guimenuitem>Earl Grey</guimenuitem>, <guimenuitem>Fruit Tea</guimenuitem>, and <guimenuitem>Green Tea</guimenuitem>. These teas are preconfigured with a default time. Many people have complained that the times are not correct. Please be aware that the amount of time it takes to steep a cup of tea is based on personal preference. The times chosen are approximations. If you read on, you will learn how to change or delete these predefined times and to set your own time. A quick-and-easy way to set a custom time is to choose <guimenuitem>Anonymous...</guimenuitem> from the menu.</para>
+
+<para>Clicking <guimenuitem>Configure Notifications...</guimenuitem> brings up the &kde; Notification Settings for &kteatime;.</para>
+
 </sect1>
 
 <sect1 id="start">
@@ -107,7 +110,7 @@ box.</phrase></textobject>
 <para>As shown in the picture, you may add new entries for other tea or change names, times and the order of existing entries. This is useful if you are brewing a cup of tea that is not on the list or if you do not agree with the predefined times. To edit one entry, mark it in the <guilabel>Tea List</guilabel> on the left and change the values in the <guilabel>Tea Properties</guilabel> on the right.</para>
 
 <para>The box below is the <guilabel>Action</guilabel> field. Here you can define an action that will be executed when the time is up.  If <guilabel>Popup</guilabel> is selected, a message box will appear alerting you to the fact that your tea is ready. 
-The button <guibutton>Configure Notifications...</guibutton> brings up the &kde; Notification Settings for &kteatime;.</para>
+</para>
 
 <para>If you enable the check box labeled <guilabel>Visualize progress in icon tray</guilabel>, the progress will be shown as a little animated clock inside the icon.</para>
 
