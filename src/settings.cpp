@@ -183,9 +183,9 @@ void SettingsDialog::newButtonClicked()
 
 void SettingsDialog::removeButtonClicked()
 {
-    QModelIndexList indexes = ui->tealistTreeView->selectionModel()->selectedIndexes();
+    const QModelIndexList indexes = ui->tealistTreeView->selectionModel()->selectedIndexes();
 
-    foreach(const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         // Only delete a row when column==0, otherwise the row will be delete
         // multiple times (the loop iterate over every cell, not over rows).
         if( index.column() == 0 ) {

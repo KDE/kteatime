@@ -160,7 +160,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     tealistGroup.config()->sync();
 
 
-    foreach(QAction* a, m_teaActionGroup->actions() ) {
+    const auto actions = m_teaActionGroup->actions();
+    for ( QAction* a : actions ) {
         m_teaActionGroup->removeAction( a );
     }
 
