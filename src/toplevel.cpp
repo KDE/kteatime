@@ -178,6 +178,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
 
+    connect(contextMenu(), static_cast<void (QMenu::*)(QAction*)>(&QMenu::triggered), this, static_cast<void (TopLevel::*)(QAction*)>(&TopLevel::runTea));
+
     loadConfig();
 }
 
