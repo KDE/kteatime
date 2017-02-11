@@ -21,7 +21,7 @@
 
 #include "tea.h"
 
-#include <KStatusNotifierItem>
+#include <QSystemTrayIcon>
 
 
 class QAction;
@@ -37,7 +37,7 @@ class KPassivePopup;
  *
  * @author Stefan Böhmann <kde@hilefoks.org>
  */
-class TopLevel : public KStatusNotifierItem
+class TopLevel : public QSystemTrayIcon
 {
     public:
         explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = 0);
@@ -51,7 +51,7 @@ class TopLevel : public KStatusNotifierItem
         void showTimeEditDialog();
         void teaTimeEvent();
         void cancelTea();
-        void showPopup(bool active, const QPoint& point);
+        void showPopup(QSystemTrayIcon::ActivationReason reason);
         void checkState();
         void loadConfig();
         void loadTeaMenuItems();
