@@ -254,7 +254,7 @@ void TopLevel::repaintTrayIcon()
         const QRectF rectangle( 1, icon.height() / 3 + 1, icon.width() / 1.5 - 2, icon.height() / 1.5 - 2 );
 
         const int startAngle = 90 * 16;
-        const int angleSpan = -( 360*16 / m_runningTea.time() * m_runningTeaTime );
+        const int angleSpan = -( 360*16.0 / m_runningTea.time() * m_runningTeaTime );
 
         painter.setBrush( QColor( 0, 255, 0, 90 ) );
         painter.drawPie( rectangle, startAngle, 360*16 + angleSpan );
