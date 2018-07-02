@@ -36,7 +36,7 @@ class TeaListModel : public QAbstractTableModel
          * @param teas the initial list of teas to manage.
          * @param parent the parent object.
          */
-        explicit TeaListModel(const QList<Tea> &teas, QObject *parent = 0);
+        explicit TeaListModel(const QList<Tea> &teas, QObject *parent = nullptr);
 
         /**
          * Returns the index of the item in the model specified by the given row, column and parent index.

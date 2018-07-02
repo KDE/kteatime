@@ -95,7 +95,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     action->setText(i18n( "&Anonymous..." ) );
     connect(action, &QAction::triggered, this, &TopLevel::showTimeEditDialog);
 
-    m_helpMenu = new KHelpMenu( 0, *aboutData, false );
+    m_helpMenu = new KHelpMenu( nullptr, *aboutData, false );
 
     loadTeaMenuItems();
     contextMenu()->addSeparator();

@@ -38,11 +38,11 @@ class TimeEditDialog : public QDialog
 {
     public:
         explicit TimeEditDialog(TopLevel *toplevel);
-        ~TimeEditDialog();
+        ~TimeEditDialog() override;
 
     private:
         void checkOkButtonState();
-        void accept();
+        void accept() override;
 
         TimeEditUI *ui;
         TopLevel *m_toplevel;

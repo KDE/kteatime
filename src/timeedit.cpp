@@ -32,7 +32,7 @@
 class TimeEditUI : public QWidget, public Ui::TimeEditWidget
 {
     public:
-        TimeEditUI(QWidget *parent = 0)
+        explicit TimeEditUI(QWidget *parent = nullptr)
           : QWidget( parent )
         {
             setupUi( this );

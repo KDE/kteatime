@@ -36,7 +36,7 @@ class SettingsUI : public QWidget, public Ui::SettingsWidget
 {
 
     public:
-        SettingsUI(QWidget *parent = 0)
+        explicit SettingsUI(QWidget *parent = nullptr)
           : QWidget( parent )
         {
             setupUi( this );
