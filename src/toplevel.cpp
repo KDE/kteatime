@@ -97,6 +97,8 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
 
     m_helpMenu = new KHelpMenu( nullptr, *aboutData, false );
 
+    setContextMenu(new QMenu);
+
     loadTeaMenuItems();
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
@@ -185,7 +187,6 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
 void TopLevel::loadTeaMenuItems() {
     int i=0;
 
-    setContextMenu(new QMenu);
     foreach(const Tea &t, m_tealist) {
         QAction *a = contextMenu()->addAction(
                    i18nc( "%1 - name of the tea, %2 - the predefined time for "
