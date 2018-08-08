@@ -230,6 +230,7 @@ void TopLevel::runTea(QAction *a)
 
 void TopLevel::runTea(const Tea &tea)
 {
+    m_nextNotificationTime = 0;
     m_runningTea = tea;
     m_runningTeaTime = m_runningTea.time();
 
