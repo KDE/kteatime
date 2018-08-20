@@ -48,6 +48,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_popup( new KPassivePopup ),
     m_iconName(icon),
     m_runningTeaTime( 0 ),
+    m_pausedRemainingTeaTime( 0 ),
     m_nextNotificationTime( 0 )
 {
     repaintTrayIcon(); // Set initial icon
@@ -76,6 +77,18 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_actionCollection = new KActionCollection(this);
 
     // build the context menu
+    action = m_actionCollection->addAction( QStringLiteral( "resume" ));
+    action->setIcon(QIcon::fromTheme( QStringLiteral( "media-playback-start" ) ) );
+    action->setText( i18n( "&Resume" ) );
+    action->setEnabled( false );
+    connect(action, &QAction::triggered, this, &TopLevel::resumeTea);
+
+    action = m_actionCollection->addAction( QStringLiteral( "pause" ));
+    action->setIcon(QIcon::fromTheme( QStringLiteral( "media-playback-pause" ) ) );
+    action->setText( i18n( "&Pause" ) );
+    action->setEnabled( false );
+    connect(action, &QAction::triggered, this, &TopLevel::stopTea);
+
     action = m_actionCollection->addAction( QStringLiteral( "stop" ));
     action->setIcon(QIcon::fromTheme( QStringLiteral( "edit-delete" ) ) );
     action->setText( i18n( "&Stop" ) );
@@ -101,7 +114,10 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
 
     loadTeaMenuItems();
     contextMenu()->addSeparator();
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("resume")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("pause")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
+    contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
@@ -138,7 +154,15 @@ void TopLevel::checkState() {
     m_actionCollection->action(QStringLiteral("stop"))->setEnabled( state );
     m_actionCollection->action(QStringLiteral("anonymous"))->setEnabled( !state );
 
-    if( !state ) {
+    m_actionCollection->action(QStringLiteral("resume"))->setEnabled( false );
+    m_actionCollection->action(QStringLiteral("pause"))->setEnabled( state && m_runningTeaTime > 0 );
+
+    if (m_pausedRemainingTeaTime > 0 && !state) {
+        m_actionCollection->action(QStringLiteral("resume"))->setEnabled( true );
+        m_actionCollection->action(QStringLiteral("stop"))->setEnabled( true );
+    }
+
+    if( !state && m_pausedRemainingTeaTime == 0 ) {
         setTooltipText( i18n( "No steeping tea." ) );
     }
 }
@@ -169,6 +193,8 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
 
     loadTeaMenuItems();
     contextMenu()->addSeparator();
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("resume")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("pause")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
     contextMenu()->addSeparator();
@@ -276,6 +302,7 @@ void TopLevel::teaTimeEvent()
 
     if( m_runningTeaTime == 0 ) {
         m_timer->stop();
+        m_pausedRemainingTeaTime = 0;
 
         QString content = i18n( "%1 is now ready!", m_runningTea.name() );
 
@@ -326,9 +353,33 @@ void TopLevel::cancelTea()
 {
     m_timer->stop();
     m_runningTeaTime = 0;
+    m_pausedRemainingTeaTime = 0;
+
     checkState();
     repaintTrayIcon();
 }
+
+
+void TopLevel::stopTea()
+{
+    m_timer->stop();
+    m_pausedRemainingTeaTime = m_runningTeaTime;
+    m_runningTeaTime = 0;
+
+    checkState();
+}
+
+
+void TopLevel::resumeTea()
+{
+    m_runningTeaTime = m_pausedRemainingTeaTime;
+    m_pausedRemainingTeaTime = 0;
+
+    checkState();
+
+    m_timer->start( 1000 );
+}
+
 
 void TopLevel::configureNotifications()
 {

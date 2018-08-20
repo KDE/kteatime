@@ -51,6 +51,8 @@ class TopLevel : public QSystemTrayIcon
         void showTimeEditDialog();
         void teaTimeEvent();
         void cancelTea();
+        void stopTea();
+        void resumeTea();
         void showPopup(QSystemTrayIcon::ActivationReason reason);
         void checkState();
         void loadConfig();
@@ -70,6 +72,7 @@ class TopLevel : public QSystemTrayIcon
         QString m_iconName;
 
         int m_runningTeaTime;
+        int m_pausedRemainingTeaTime;
         int m_nextNotificationTime;
         Tea m_runningTea;
 
