@@ -1,17 +1,21 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(kteatime)
 
-find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(QT_MIN_VERSION "5.9.0")
+set(KF5_VERSION "5.46.0")
+
+
+find_package(ECM ${KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(ECMInstallIcons)
 
 # Search KDE installation
-find_package(Qt5 5.2.0 CONFIG REQUIRED
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED
   Core
   Widgets
 )
 
-find_package(KF5 5.23.0 REQUIRED
+find_package(KF5 ${KF5_VERSION} REQUIRED
   Config
   Crash
   DocTools
@@ -25,15 +29,10 @@ find_package(KF5 5.23.0 REQUIRED
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
-add_definitions( -DQT_NO_CAST_FROM_ASCII )
-add_definitions( -DQT_NO_CAST_TO_ASCII )
-add_definitions(-DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
-add_definitions(-DQT_USE_QSTRINGBUILDER)
 
 ADD_SUBDIRECTORY(doc)
 ADD_SUBDIRECTORY(data)
