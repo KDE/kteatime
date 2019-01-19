@@ -22,6 +22,7 @@
   <name xml:lang="gl">KTeaTime</name>
   <name xml:lang="hu">KTeaTime</name>
   <name xml:lang="ia">KTeaTime</name>
+  <name xml:lang="id">KTeaTime</name>
   <name xml:lang="it">KTeaTime</name>
   <name xml:lang="ko">KTeaTime</name>
   <name xml:lang="lt">KTeaTime</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="fr">Tea Cooker</summary>
   <summary xml:lang="gl">Quece-tés</summary>
   <summary xml:lang="hu">Teafőző</summary>
+  <summary xml:lang="id">Pemasak Teh</summary>
   <summary xml:lang="it">Teiera</summary>
   <summary xml:lang="ko">차 요리 도구</summary>
   <summary xml:lang="lt">Arbatos virėjas</summary>
@@ -100,6 +102,7 @@
     <p xml:lang="fr">KTeaTime est un chronomètre pratique pour mesurer le temps d'infusion de votre thé. Vous n'aurez plus besoin d'estimer la durée nécessaire à la préparation de votre thé à vue de nez. Sélectionnez simplement le type de thé que vous souhaitez préparer et vous serez alerté lorsque votre boisson sera prête.</p>
     <p xml:lang="gl">KTeaTime é un temporizador útil para deixar té en infusión. Xa non terás que adiviñar o tempo que lle falta ao teu té para estar listo. Só tes que seleccionar o tipo de té, e KTeaTime informarate cando o té estea listo para tomar.</p>
     <p xml:lang="hu">A KTeaTime egy kezes időzítő teafőzéshez. Nem kell többé azon gondolkoznia, mikor lesz kész a teája: egyszerűen válassza ki a tea típusát, és a KTeaTime értesíti, mikor ihatja a teáját.</p>
+    <p xml:lang="id">KTeaTime adalah penghitung waktu praktis untuk seduhan teh. Kamu tidak perlu lagi menebak berapa lama tehmu siap. Cukup pilih jenis teh yang kamu miliki, dan itu akan mengingatkan kamu ketika teh siap untuk diminum.</p>
     <p xml:lang="it">KTeaTime è un comodo timer per preparare il tè. Non è più necessario indovinare quanto tempo ci vuole prima che il tè sia pronto. Seleziona il tipo di tè che desideri e il programma ti avviserà quanto è pronto da bere.</p>
     <p xml:lang="ko">KTeaTime은 차를 끓일 때 사용할 수 있는 타이머입니다. 차가 다 우러날 때까지 시간을 기억하지 않아도 됩니다. 끓일 차 종류를 선택한 다음 다 우러났을 때 알려 줍니다.</p>
     <p xml:lang="nl">KTeaTime is een handige tijdklok voor het zetten van thee. U hoeft niet langer te gokken wanneer uw thee sterk genoeg is. Selecteer de theesoort en een waarschuwing verschijnt wanneer de thee klaar is om opgedronken te worden.</p>
