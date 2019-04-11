@@ -33,6 +33,10 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
+if (${KF5Config_VERSION} STRGREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
 
 ADD_SUBDIRECTORY(doc)
 ADD_SUBDIRECTORY(data)

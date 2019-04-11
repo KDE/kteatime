@@ -213,7 +213,7 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
 void TopLevel::loadTeaMenuItems() {
     int i=0;
 
-    foreach(const Tea &t, m_tealist) {
+    for (const Tea &t : qAsConst(m_tealist)) {
         QAction *a = contextMenu()->addAction(
                    i18nc( "%1 - name of the tea, %2 - the predefined time for "
                           "the tea", "%1 (%2)", t.name(), t.timeToString() )
