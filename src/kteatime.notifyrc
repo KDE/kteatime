@@ -1,5 +1,6 @@
 [Global]
 IconName=kteatime
+DesktopEntry=org.kde.kteatime
 Comment=Tea Cooker
 Comment[ar]=طنجرة الشاي
 Comment[bg]=Приготвяне на чай
