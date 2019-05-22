@@ -41,7 +41,7 @@ class SettingsDialog : public QDialog
     private:
         void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
 
-        void accept();
+        void accept() override;
         void checkPopupButtonState(bool b);
         void showHelp();
 
