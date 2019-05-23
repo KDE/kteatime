@@ -2,6 +2,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kteatime\")
 
 set(kteatime_SRCS settings.cpp timeedit.cpp toplevel.cpp tealistmodel.cpp tea.cpp main.cpp )
 
+set_property(SOURCE main.cpp APPEND PROPERTY COMPILE_DEFINITIONS "KTEATIME_VERSION=\"${kteatime_VERSION}\"")
+
 ki18n_wrap_ui(kteatime_SRCS settings.ui timeedit.ui)
 
 add_executable(kteatime ${kteatime_SRCS})

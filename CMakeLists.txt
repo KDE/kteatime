@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(kteatime)
+project(kteatime VERSION 1.3.0)
 
 set(QT_MIN_VERSION "5.9.0")
 set(KF5_MIN_VERSION "5.46.0")

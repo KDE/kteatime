@@ -36,7 +36,7 @@ int main (int argc, char *argv[])
     /**
      * construct about data for KTeaTime
      */
-    KAboutData aboutData( QStringLiteral("kteatime"), i18n("KTeaTime"), QStringLiteral("1.3.0"),
+    KAboutData aboutData( QStringLiteral("kteatime"), i18n("KTeaTime"), QStringLiteral(KTEATIME_VERSION),
                           i18n( "KDE utility for making a fine cup of tea." ),
                           KAboutLicense::GPL,
                           i18n( "© 1998-1999, Matthias Hölzer-Klüpfel\n"
