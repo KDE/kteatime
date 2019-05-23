@@ -1,5 +1,5 @@
 /*
- * Copyright 1998-1999 by Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
+ * Copyright 1998-1999 by Matthias Hölzer-Klüpfel <matthias@hoelzer-kluepfel.de>
  * Copyright 2002-2003 by Martin Willers <willers@xm-arts.de>
  * Copyright 2007-2009 by Stefan Böhmann <kde@hilefoks.org>
  *
@@ -39,8 +39,8 @@ int main (int argc, char *argv[])
     KAboutData aboutData( QStringLiteral("kteatime"), i18n("KTeaTime"), QStringLiteral("1.3.0"),
                           i18n( "KDE utility for making a fine cup of tea." ),
                           KAboutLicense::GPL,
-                          i18n( "© 1998-1999, Matthias Hoelzer-Kluepfel\n "
-                                "© 2002-2003, Martin Willers\n "
+                          i18n( "© 1998-1999, Matthias Hölzer-Klüpfel\n"
+                                "© 2002-2003, Martin Willers\n"
                                 "© 2007-2010, Stefan Böhmann"
                                )
                         );
@@ -48,7 +48,7 @@ int main (int argc, char *argv[])
     KCrash::initialize();
 
     aboutData.addAuthor(i18n("Stefan Böhmann"), i18n("Current maintainer"), QStringLiteral("kde@hilefoks.org"), QStringLiteral("http://www.hilefoks.org"), QStringLiteral("hilefoks"));
-    aboutData.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), QString(), QStringLiteral("hoelzer@kde.org"));
+    aboutData.addAuthor(i18n("Matthias Hölzer-Klüpfel"), QString(), QStringLiteral("matthias@hoelzer-kluepfel.de"));
     aboutData.addAuthor(i18n("Martin Willers"), QString(), QStringLiteral("willers@xm-arts.de"));
 
     aboutData.addCredit(i18n("Daniel Teske"), i18n("Many patches"), QStringLiteral("teske@bigfoot.com"));

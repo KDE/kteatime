@@ -1,5 +1,5 @@
 /*
- * Copyright 1998-1999 by Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
+ * Copyright 1998-1999 by Matthias Hölzer-Klüpfel <matthias@hoelzer-kluepfel.de>
  * Copyright 2002-2003 by Martin Willers <willers@xm-arts.de>
  * Copyright 2007-2009 by Stefan Böhmann <kde@hilefoks.org>
  *
