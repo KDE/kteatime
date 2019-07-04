@@ -39,7 +39,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
-if (${KF5Config_VERSION} STRGREATER "5.56.0")
+if (KF5Config_VERSION VERSION_GREATER "5.56.0")
         add_definitions(-DQT_NO_FOREACH)
         MESSAGE(STATUS "compile without foreach")
 endif()
