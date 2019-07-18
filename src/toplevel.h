@@ -22,6 +22,7 @@
 #include "tea.h"
 
 #include <QSystemTrayIcon>
+#include <QPointer>
 
 
 class QAction;
@@ -30,7 +31,7 @@ class QTimer;
 class KAboutData;
 class KActionCollection;
 class KHelpMenu;
-class KPassivePopup;
+class KNotification;
 
 /**
  * @short the main class for KTeatime
@@ -68,7 +69,7 @@ class TopLevel : public QSystemTrayIcon
 
         KHelpMenu *m_helpMenu;
         QTimer *m_timer;
-        KPassivePopup *m_popup;
+        QPointer<KNotification> m_popup;
         QString m_iconName;
 
         int m_runningTeaTime;

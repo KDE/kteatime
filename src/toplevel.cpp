@@ -39,13 +39,12 @@
 #include <KIconLoader>
 #include <KNotification>
 #include <KNotifyConfigWidget>
-#include <KPassivePopup>
 #include <KSharedConfig>
 
 
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
   : QSystemTrayIcon( parent ),
-    m_popup( new KPassivePopup ),
+    m_popup(),
     m_iconName(icon),
     m_runningTeaTime( 0 ),
     m_pausedRemainingTeaTime( 0 ),
@@ -142,7 +141,6 @@ TopLevel::~TopLevel()
 {
     delete m_helpMenu;
     delete m_timer;
-    delete m_popup;
     delete m_teaActionGroup;
 }
 
@@ -405,33 +403,29 @@ void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
     if ( reason != QSystemTrayIcon::Trigger ) {
         return;
     }
-    if ( m_popup->isVisible() )
+    if ( m_popup )
     {
-        m_popup->hide();
+        m_popup->close();
     }
     else
     {
-        QPoint p = geometry().topLeft();
-        QRect r = QApplication::desktop()->screenGeometry( p );
-        QSize popupSize = m_popup->minimumSizeHint();
-        if ( p.x() + popupSize.width() > r.right() )
-        {
-            p.rx() -= popupSize.width();
-        }
-        if ( p.y() + popupSize.height() > r.bottom() )
-        {
-            p.ry() -= popupSize.height();
-        }
-        m_popup->show( p );
+        m_popup = new KNotification(QStringLiteral("popup"), KNotification::Persistent, this);
+        m_popup->setComponentName(QStringLiteral("kteatime"));
+        m_popup->setTitle(i18n( "The Tea Cooker" ));
+        m_popup->setText(toolTip());
+        m_popup->setIconName(m_iconName);
+        m_popup->sendEvent();
     }
 }
 
 
 void TopLevel::setTooltipText(const QString& content)
 {
-    const QString title = i18n( "The Tea Cooker" );
     setToolTip( content );
-    m_popup->setView( title, content, KIconLoader::global()->loadIcon( m_iconName, KIconLoader::MainToolbar ) );
+    if (m_popup)
+    {
+        m_popup->setText(content);
+    }
 }
 
 

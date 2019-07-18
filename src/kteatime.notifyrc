@@ -312,3 +312,8 @@ Comment[zh_CN]=茶都凉了。
 Comment[zh_TW]=茶煮好了，怎麼沒人喝。
 Sound=Oxygen-Sys-App-Special.ogg
 Action=Sound
+
+[Event/popup]
+Name=The Tea Cooker
+Comment=The Tea Cooker
+Action=Popup
