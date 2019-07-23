@@ -315,5 +315,15 @@ Action=Sound
 
 [Event/popup]
 Name=The Tea Cooker
+Name[ca]=El cuiner de te
+Name[nl]=De Theezetter
+Name[pt]=O Cozinheiro de Chá
+Name[uk]=Приготування чаю
+Name[x-test]=xxThe Tea Cookerxx
 Comment=The Tea Cooker
+Comment[ca]=El cuiner de te
+Comment[nl]=De Theezetter
+Comment[pt]=O Cozinheiro de Chá
+Comment[uk]=Приготування чаю
+Comment[x-test]=xxThe Tea Cookerxx
 Action=Popup
