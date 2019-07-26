@@ -316,6 +316,7 @@ Action=Sound
 [Event/popup]
 Name=The Tea Cooker
 Name[ca]=El cuiner de te
+Name[es]=Tetera
 Name[fr]=La théière
 Name[ko]=차 끓이기 도구
 Name[nl]=De Theezetter
@@ -327,6 +328,7 @@ Name[x-test]=xxThe Tea Cookerxx
 Name[zh_TW]=煮茶器
 Comment=The Tea Cooker
 Comment[ca]=El cuiner de te
+Comment[es]=Tetera
 Comment[fr]=La théière
 Comment[ko]=차 끓이기 도구
 Comment[nl]=De Theezetter
