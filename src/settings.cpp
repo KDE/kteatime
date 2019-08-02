@@ -29,7 +29,6 @@
 #include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
-#include <KNotifyConfigWidget>
 #include <KSharedConfig>
 
 class SettingsUI : public QWidget, public Ui::SettingsWidget

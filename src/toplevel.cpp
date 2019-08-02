@@ -25,8 +25,6 @@
 #include <QActionGroup>
 #include <QApplication>
 #include <QBrush>
-#include <QDebug>
-#include <QDesktopWidget>
 #include <QMenu>
 #include <QString>
 #include <QTimer>
