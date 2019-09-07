@@ -316,6 +316,7 @@ Action=Sound
 [Event/popup]
 Name=The Tea Cooker
 Name[ca]=El cuiner de te
+Name[cs]=Vařič čaje
 Name[de]=Der Teekocher
 Name[el]=Ο βραστήρας τσαγιού
 Name[en_GB]=The Tea Cooker
@@ -338,6 +339,7 @@ Name[zh_CN]=煮茶器
 Name[zh_TW]=煮茶器
 Comment=The Tea Cooker
 Comment[ca]=El cuiner de te
+Comment[cs]=Vařič čaje
 Comment[de]=Der Teekocher
 Comment[el]=Ο βραστήρας τσαγιού
 Comment[en_GB]=The Tea Cooker
