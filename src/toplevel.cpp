@@ -53,10 +53,15 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     KConfigGroup tealistGroup( config, "Tealist" );
 
     if( tealistGroup.exists() ) {
-        QString key, time;
-        for(unsigned index=0; tealistGroup.hasKey(time.sprintf("Tea%d Time", index)) && tealistGroup.hasKey(key.sprintf("Tea%d Name", index)); ++index) {
-            if( int temp = ( tealistGroup.readEntry( time, QString() ) ).toUInt() ) {
-                m_tealist.append( Tea( tealistGroup.readEntry( key, i18n( "Unknown Tea" ) ), temp ) );
+        for(unsigned index=0;; ++index) {
+            const QString time = QString::asprintf("Tea%d Time", index);
+            const QString key = QString::asprintf("Tea%d Name", index);
+            if (tealistGroup.hasKey(time) && tealistGroup.hasKey(key)) {
+                if( int temp = ( tealistGroup.readEntry( time, QString() ) ).toUInt() ) {
+                    m_tealist.append( Tea( tealistGroup.readEntry( key, i18n( "Unknown Tea" ) ), temp ) );
+                }
+            } else {
+                break;
             }
         }
     }
