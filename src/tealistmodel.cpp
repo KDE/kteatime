@@ -96,7 +96,7 @@ bool TeaListModel::setData(const QModelIndex &index, const QVariant &value, int 
         } else if( index.column() == 1 ) {
             m_tealist[ index.row() ].setTime( value.toUInt() );
         }
-        dataChanged( index, index );
+        emit dataChanged( index, index );
         return true;
     }
 
