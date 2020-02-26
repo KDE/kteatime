@@ -32,6 +32,7 @@ int main (int argc, char *argv[])
      * Create application first
      */
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     /**
      * construct about data for KTeaTime
