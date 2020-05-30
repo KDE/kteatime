@@ -20,7 +20,7 @@
 #include "tealistmodel.h"
 
 #include <QDialogButtonBox>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QHashIterator>
 #include <QPushButton>
 #include <QString>
@@ -70,12 +70,12 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
 
     restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
-    QDesktopWidget desktop;
-    int x=group.readEntry( "SettingsDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
-    int y=group.readEntry( "SettingsDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
+    const QSize desktopSize = qApp->primaryScreen()->size();
+    int x=group.readEntry( "SettingsDialogXPos", desktopSize.width()/2 - width()/2 );
+    int y=group.readEntry( "SettingsDialogYPos", desktopSize.height()/2 - height()/2 );
 
-    x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
-    x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
+    x = qMin( qMax( 0, x ), desktopSize.width() - width() );
+    x = qMin( qMax( 0, y ), desktopSize.height() - height() );
     move( QPoint( x, y ) );
 
     bool popup=group.readEntry( "UsePopup", true );

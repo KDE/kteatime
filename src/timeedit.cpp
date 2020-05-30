@@ -21,7 +21,8 @@
 #include "toplevel.h"
 #include "tea.h"
 
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QGuiApplication>
 #include <QDialogButtonBox>
 #include <QPushButton>
 
@@ -73,12 +74,12 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
 
     restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
-    QDesktopWidget desktop;
-    int x = group.readEntry( "AnonymousTeaDialogXPos", desktop.screenGeometry().width()/2 - width()/2 );
-    int y = group.readEntry( "AnonymousTeaDialogYPos", desktop.screenGeometry().height()/2 - height()/2 );
+    const QSize desktopSize = qApp->primaryScreen()->size();
+    int x = group.readEntry( "AnonymousTeaDialogXPos", desktopSize.width()/2 - width()/2 );
+    int y = group.readEntry( "AnonymousTeaDialogYPos", desktopSize.height()/2 - height()/2 );
 
-    x = qMin( qMax( 0, x ), desktop.screenGeometry().width() - width() );
-    x = qMin( qMax( 0, y ), desktop.screenGeometry().height() - height() );
+    x = qMin( qMax( 0, x ), desktopSize.width() - width() );
+    x = qMin( qMax( 0, y ), desktopSize.height() - height() );
     move( QPoint( x, y ) );
 
     connect(ui->minutes, static_cast<void (KPluralHandlingSpinBox::*)(int)>(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
