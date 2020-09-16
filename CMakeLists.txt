@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kteatime VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.9.0")
-set(KF5_MIN_VERSION "5.46.0")
+set(QT_MIN_VERSION "5.12.0")
+set(KF5_MIN_VERSION "5.57.0")
 
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
@@ -39,10 +39,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 
-if (KF5Config_VERSION VERSION_GREATER "5.56.0")
-        add_definitions(-DQT_NO_FOREACH)
-        MESSAGE(STATUS "compile without foreach")
-endif()
+add_definitions(-DQT_NO_FOREACH)
 
 ADD_SUBDIRECTORY(doc)
 ADD_SUBDIRECTORY(data)
