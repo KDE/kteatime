@@ -31,6 +31,7 @@
   <name xml:lang="pl">KTeaTime</name>
   <name xml:lang="pt">KTeaTime</name>
   <name xml:lang="pt-BR">KTeaTime</name>
+  <name xml:lang="ro">KTeaTime</name>
   <name xml:lang="ru">KTeaTime</name>
   <name xml:lang="sk">KTeaTime</name>
   <name xml:lang="sl">KTeaTime</name>
@@ -71,6 +72,7 @@
   <summary xml:lang="pl">Zaparzanie herbaty</summary>
   <summary xml:lang="pt">Preparação de Chás</summary>
   <summary xml:lang="pt-BR">Hora do chá</summary>
+  <summary xml:lang="ro">Ceainic</summary>
   <summary xml:lang="ru">Таймер для заваривания чая</summary>
   <summary xml:lang="sk">Varič čaju</summary>
   <summary xml:lang="sl">Kuhalnik čaja</summary>
