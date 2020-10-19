@@ -82,8 +82,8 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
     x = qMin( qMax( 0, y ), desktopSize.height() - height() );
     move( QPoint( x, y ) );
 
-    connect(ui->minutes, static_cast<void (KPluralHandlingSpinBox::*)(int)>(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
-    connect(ui->seconds, static_cast<void (KPluralHandlingSpinBox::*)(int)>(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+    connect(ui->minutes, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+    connect(ui->seconds, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &TimeEditDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &TimeEditDialog::reject);

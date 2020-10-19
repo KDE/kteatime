@@ -130,7 +130,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     m_timer = new QTimer( this );
 
     connect(m_timer, &QTimer::timeout, this, &TopLevel::teaTimeEvent);
-    connect(contextMenu(), static_cast<void (QMenu::*)(QAction*)>(&QMenu::triggered), this, static_cast<void (TopLevel::*)(QAction*)>(&TopLevel::runTea));
+    connect(contextMenu(), &QMenu::triggered, this, &TopLevel::slotRunTea);
     connect(this, &TopLevel::activated, this, &TopLevel::showPopup);
 
     loadConfig();
@@ -204,7 +204,7 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
 
-    connect(contextMenu(), static_cast<void (QMenu::*)(QAction*)>(&QMenu::triggered), this, static_cast<void (TopLevel::*)(QAction*)>(&TopLevel::runTea));
+    connect(contextMenu(), &QMenu::triggered, this, &TopLevel::slotRunTea);
 
     loadConfig();
 }
@@ -237,7 +237,7 @@ void TopLevel::showTimeEditDialog()
 }
 
 
-void TopLevel::runTea(QAction *a)
+void TopLevel::slotRunTea(QAction *a)
 {
     int index = a->data().toInt();
     if( index <= 0 ) {

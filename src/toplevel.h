@@ -47,7 +47,7 @@ class TopLevel : public QSystemTrayIcon
         void runTea(const Tea &tea);
 
     private:
-        void runTea(QAction *a);
+        void slotRunTea(QAction *a);
         void showSettingsDialog();
         void showTimeEditDialog();
         void teaTimeEvent();
