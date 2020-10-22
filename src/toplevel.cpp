@@ -19,7 +19,6 @@
 #include "toplevel.h"
 #include "timeedit.h"
 #include "settings.h"
-#include "tea.h"
 
 #include <QAction>
 #include <QActionGroup>
