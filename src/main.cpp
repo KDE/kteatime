@@ -95,7 +95,7 @@ int main (int argc, char *argv[])
     const int time=parser.value(timeOption).toInt();
     if( time > 0 ) {
         const QString name = parser.value(nameOption);
-        const Tea tea( name.isEmpty() ? i18n( "Anonymous Tea" ) : name, time );
+        const Tea tea( name.isEmpty() ? i18n( "Custom Tea" ) : name, time );
         toplevel->runTea( tea );
     }
 

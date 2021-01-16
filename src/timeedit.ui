@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Anonymous Tea</string>
+   <string>Custom Tea</string>
   </property>
   <layout class="QGridLayout" >
    <property name="leftMargin" >

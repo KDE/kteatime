@@ -36,7 +36,7 @@ QString Tea::name() const
 void Tea::setName(const QString &name)
 {
     if( name.isEmpty() ) {
-        m_name = i18n( "Anonymous Tea" );
+        m_name = i18n( "Custom Tea" );
     }
     else {
         m_name = name;

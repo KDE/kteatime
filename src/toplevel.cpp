@@ -105,8 +105,8 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     action = KStandardAction::quit(qApp, &QCoreApplication::quit, m_actionCollection);
     action->setShortcut(0);
 
-    action = m_actionCollection->addAction( QStringLiteral( "anonymous" ));
-    action->setText(i18n( "&Anonymous..." ) );
+    action = m_actionCollection->addAction( QStringLiteral( "custom" ));
+    action->setText(i18n( "&Custom..." ) );
     connect(action, &QAction::triggered, this, &TopLevel::showTimeEditDialog);
 
     m_helpMenu = new KHelpMenu( nullptr, *aboutData, false );
@@ -119,7 +119,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *pa
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("pause")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("custom")) );
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
     contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );
@@ -152,7 +152,7 @@ void TopLevel::checkState() {
 
     m_teaActionGroup->setEnabled( !state );
     m_actionCollection->action(QStringLiteral("stop"))->setEnabled( state );
-    m_actionCollection->action(QStringLiteral("anonymous"))->setEnabled( !state );
+    m_actionCollection->action(QStringLiteral("custom"))->setEnabled( !state );
 
     m_actionCollection->action(QStringLiteral("resume"))->setEnabled( false );
     m_actionCollection->action(QStringLiteral("pause"))->setEnabled( state && m_runningTeaTime > 0 );
@@ -196,7 +196,7 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("resume")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("pause")) );
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("stop")) );
-    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("anonymous")) );
+    contextMenu()->addAction( m_actionCollection->action(QStringLiteral("custom")) );
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
     contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );

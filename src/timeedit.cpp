@@ -45,10 +45,10 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
   : QDialog(),
     m_toplevel( toplevel )
 {
-    setWindowTitle( i18n( "Anonymous Tea" ) );
+    setWindowTitle( i18n( "Custom Tea" ) );
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    buttonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Start a new anonymous tea with the time configured in this dialog."  ));
+    buttonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Start a new custom tea with the time configured in this dialog."  ));
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
     buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
     buttonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n( "Close this dialog without starting a new tea."  ));
@@ -117,7 +117,7 @@ void TimeEditDialog::accept()
     group.writeEntry( "AnonymousTeaDialogXPos", x() );
     group.writeEntry( "AnonymousTeaDialogYPos", y() );
 
-    m_toplevel->runTea( Tea( i18n( "Anonymous Tea" ), time ) );
+    m_toplevel->runTea( Tea( i18n( "Custom Tea" ), time ) );
 }
 
 

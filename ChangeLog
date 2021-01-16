@@ -1,3 +1,7 @@
+2021-01-14: Marco Parillo <maparillo@gmail.com>
+	- Changed Anonomous to Custom for custom-timed steeping (like
+	requested in #431663
+
 2007-09-29  Stefan Böhmann <kde@hilefoks.org>
 	- added/improved command-line arguments to start a tea (like requested in #144708).
 
