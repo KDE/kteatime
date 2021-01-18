@@ -55,9 +55,9 @@ class SettingsDialog : public QDialog
 
         void moveSelectedItem(bool moveup);
 
-        SettingsUI *ui;
-        TopLevel *m_toplevel;
-        TeaListModel *m_model;
+        SettingsUI *const mUi;
+        TopLevel *const m_toplevel;
+        TeaListModel *m_model = nullptr;
 };
 
 

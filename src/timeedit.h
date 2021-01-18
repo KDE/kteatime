@@ -44,9 +44,9 @@ class TimeEditDialog : public QDialog
         void checkOkButtonState();
         void accept() override;
 
-        TimeEditUI *ui;
-        TopLevel *m_toplevel;
-        QDialogButtonBox *buttonBox;
+        TimeEditUI *const mUi;
+        TopLevel *const mToplevel;
+        QDialogButtonBox *mButtonBox = nullptr;
 };
 
 #endif

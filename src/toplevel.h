@@ -63,12 +63,12 @@ class TopLevel : public QSystemTrayIcon
         void configureNotifications();
 
         QList<Tea> m_tealist;
-        QAction *action;
-        QActionGroup *m_teaActionGroup;
-        KActionCollection *m_actionCollection;
+        QAction *action = nullptr;
+        QActionGroup *m_teaActionGroup = nullptr;
+        KActionCollection *m_actionCollection = nullptr;
 
-        KHelpMenu *m_helpMenu;
-        QTimer *m_timer;
+        KHelpMenu *m_helpMenu = nullptr;
+        QTimer *m_timer = nullptr;
         QPointer<KNotification> m_popup;
         QString m_iconName;
 

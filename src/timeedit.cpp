@@ -42,35 +42,35 @@ class TimeEditUI : public QWidget, public Ui::TimeEditWidget
 
 
 TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
-  : QDialog(),
-    m_toplevel( toplevel )
+  : QDialog()
+  , mUi(new TimeEditUI( this ))
+  , mToplevel( toplevel )
 {
     setWindowTitle( i18n( "Custom Tea" ) );
 
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    buttonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Start a new custom tea with the time configured in this dialog."  ));
-    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
-    buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
-    buttonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n( "Close this dialog without starting a new tea."  ));
+    mButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    mButtonBox->button(QDialogButtonBox::Ok)->setWhatsThis(i18n( "Start a new custom tea with the time configured in this dialog."  ));
+    mButtonBox->button(QDialogButtonBox::Ok)->setDefault(true);
+    mButtonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
+    mButtonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n( "Close this dialog without starting a new tea."  ));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
-    ui = new TimeEditUI( this );
-    mainLayout->addWidget(ui);
-    mainLayout->addWidget(buttonBox);
+    mainLayout->addWidget(mUi);
+    mainLayout->addWidget(mButtonBox);
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group( config, "AnonymousTeaDialog" );
 
     int time=group.readEntry( "AnonymousTeaTime", 180 );
 
-    ui->minutes->setSuffix( ki18np( " minute", " minutes") );
-    ui->seconds->setSuffix( ki18np( " second", " seconds") );
+    mUi->minutes->setSuffix( ki18np( " minute", " minutes") );
+    mUi->seconds->setSuffix( ki18np( " second", " seconds") );
 
-    ui->minutes->setValue( time / 60 );
-    ui->seconds->setValue( time % 60 );
+    mUi->minutes->setValue( time / 60 );
+    mUi->seconds->setValue( time % 60 );
 
-    ui->minutes->setFocus( Qt::ShortcutFocusReason );
+    mUi->minutes->setFocus( Qt::ShortcutFocusReason );
 
     restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
@@ -82,23 +82,23 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
     x = qMin( qMax( 0, y ), desktopSize.height() - height() );
     move( QPoint( x, y ) );
 
-    connect(ui->minutes, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
-    connect(ui->seconds, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+    connect(mUi->minutes, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
+    connect(mUi->seconds, QOverload<int>::of(&KPluralHandlingSpinBox::valueChanged), this, &TimeEditDialog::checkOkButtonState);
 
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &TimeEditDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &TimeEditDialog::reject);
+    connect(mButtonBox, &QDialogButtonBox::accepted, this, &TimeEditDialog::accept);
+    connect(mButtonBox, &QDialogButtonBox::rejected, this, &TimeEditDialog::reject);
 }
 
 
 TimeEditDialog::~TimeEditDialog()
 {
-    delete ui;
+    delete mUi;
 }
 
 
 void TimeEditDialog::checkOkButtonState()
 {
-    buttonBox->button(QDialogButtonBox::Ok)->setEnabled( ui->minutes->value() || ui->seconds->value() );
+    mButtonBox->button(QDialogButtonBox::Ok)->setEnabled( mUi->minutes->value() || mUi->seconds->value() );
 }
 
 
@@ -106,8 +106,8 @@ void TimeEditDialog::accept()
 {
     hide();
 
-    int time = ui->seconds->value();
-    time += ui->minutes->value() * 60;
+    int time = mUi->seconds->value();
+    time += mUi->minutes->value() * 60;
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group( config, "AnonymousTeaDialog" );
@@ -117,7 +117,7 @@ void TimeEditDialog::accept()
     group.writeEntry( "AnonymousTeaDialogXPos", x() );
     group.writeEntry( "AnonymousTeaDialogYPos", y() );
 
-    m_toplevel->runTea( Tea( i18n( "Custom Tea" ), time ) );
+    mToplevel->runTea( Tea( i18n( "Custom Tea" ), time ) );
 }
 
 

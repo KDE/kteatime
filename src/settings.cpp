@@ -43,16 +43,16 @@ class SettingsUI : public QWidget, public Ui::SettingsWidget
 };
 
 SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
-  : QDialog(),
-    m_toplevel(toplevel)
+  : QDialog()
+  , mUi(new SettingsUI( this ))
+  , m_toplevel(toplevel)
+
 {
     setWindowTitle( i18n( "Configure Tea Cooker" ) );
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    ui = new SettingsUI( this );
-    mainLayout->addWidget(ui);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(mUi);
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
     buttonBox->button(QDialogButtonBox::Ok)->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::accept);
@@ -85,50 +85,50 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     int remindertime=group.readEntry( "ReminderTime", 60 );
     bool vis=group.readEntry( "UseVisualize", true );
 
-    ui->popupCheckBox->setChecked( popup );
-    ui->autohideCheckBox->setChecked( autohide );
-    ui->reminderCheckBox->setChecked( reminder );
-    ui->visualizeCheckBox->setChecked( vis );
+    mUi->popupCheckBox->setChecked( popup );
+    mUi->autohideCheckBox->setChecked( autohide );
+    mUi->reminderCheckBox->setChecked( reminder );
+    mUi->visualizeCheckBox->setChecked( vis );
 
-    ui->autohideSpinBox->setValue( autohidetime );
-    ui->reminderSpinBox->setValue( remindertime );
-    ui->autohideSpinBox->setSuffix( ki18ncp( "Auto hide popup after", " second", " seconds") );
-    ui->reminderSpinBox->setSuffix( ki18ncp( "Reminder every", " second", " seconds") );
+    mUi->autohideSpinBox->setValue( autohidetime );
+    mUi->reminderSpinBox->setValue( remindertime );
+    mUi->autohideSpinBox->setSuffix( ki18ncp( "Auto hide popup after", " second", " seconds") );
+    mUi->reminderSpinBox->setSuffix( ki18ncp( "Reminder every", " second", " seconds") );
 
-    ui->autohideCheckBox->setEnabled( popup );
-    ui->autohideSpinBox->setEnabled( autohide );
-    ui->reminderSpinBox->setEnabled( reminder );
+    mUi->autohideCheckBox->setEnabled( popup );
+    mUi->autohideSpinBox->setEnabled( autohide );
+    mUi->reminderSpinBox->setEnabled( reminder );
 
     m_model=new TeaListModel( teas, this );
-    ui->tealistTreeView->setModel( m_model );
+    mUi->tealistTreeView->setModel( m_model );
 
-    connect(ui->tealistTreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SettingsDialog::updateSelection);
+    connect(mUi->tealistTreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SettingsDialog::updateSelection);
 
-    ui->removeButton->setEnabled( false );
-    ui->upButton->setEnabled( false );
-    ui->downButton->setEnabled( false );
+    mUi->removeButton->setEnabled( false );
+    mUi->upButton->setEnabled( false );
+    mUi->downButton->setEnabled( false );
 
-    ui->newButton->setIcon( QIcon::fromTheme( QLatin1String(  "list-add" ) ) );
-    ui->removeButton->setIcon( QIcon::fromTheme( QLatin1String(  "edit-delete" ) ) );
-    ui->upButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-up" ) ) );
-    ui->downButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-down" ) ) );
+    mUi->newButton->setIcon( QIcon::fromTheme( QLatin1String(  "list-add" ) ) );
+    mUi->removeButton->setIcon( QIcon::fromTheme( QLatin1String(  "edit-delete" ) ) );
+    mUi->upButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-up" ) ) );
+    mUi->downButton->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-down" ) ) );
 
-    connect(ui->popupCheckBox, &QCheckBox::toggled, this, &SettingsDialog::checkPopupButtonState);
+    connect(mUi->popupCheckBox, &QCheckBox::toggled, this, &SettingsDialog::checkPopupButtonState);
 
-    connect(ui->newButton, &QToolButton::clicked, this, &SettingsDialog::newButtonClicked);
-    connect(ui->removeButton, &QToolButton::clicked, this, &SettingsDialog::removeButtonClicked);
-    connect(ui->upButton, &QToolButton::clicked, this, &SettingsDialog::upButtonClicked);
-    connect(ui->downButton, &QToolButton::clicked, this, &SettingsDialog::downButtonClicked);
+    connect(mUi->newButton, &QToolButton::clicked, this, &SettingsDialog::newButtonClicked);
+    connect(mUi->removeButton, &QToolButton::clicked, this, &SettingsDialog::removeButtonClicked);
+    connect(mUi->upButton, &QToolButton::clicked, this, &SettingsDialog::upButtonClicked);
+    connect(mUi->downButton, &QToolButton::clicked, this, &SettingsDialog::downButtonClicked);
 
-    connect(ui->teaNameEdit, &QLineEdit::textChanged, this, &SettingsDialog::nameValueChanged);
-    connect(ui->minutesSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
-    connect(ui->secondsSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
+    connect(mUi->teaNameEdit, &QLineEdit::textChanged, this, &SettingsDialog::nameValueChanged);
+    connect(mUi->minutesSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
+    connect(mUi->secondsSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
 }
 
 SettingsDialog::~SettingsDialog()
 {
     delete m_model;
-    delete ui;
+    delete mUi;
 }
 
 void SettingsDialog::showHelp()
@@ -146,12 +146,12 @@ void SettingsDialog::accept()
     hide();
     group.writeEntry("Geometry", saveGeometry());
 
-    group.writeEntry( "UsePopup",          ui->popupCheckBox->checkState() == Qt::Checked );
-    group.writeEntry( "PopupAutoHide",     ui->autohideCheckBox->checkState() == Qt::Checked );
-    group.writeEntry( "PopupAutoHideTime", ui->autohideSpinBox->value() );
-    group.writeEntry( "UseReminder",       ui->reminderCheckBox->checkState() == Qt::Checked );
-    group.writeEntry( "ReminderTime",      ui->reminderSpinBox->value() );
-    group.writeEntry( "UseVisualize",      ui->visualizeCheckBox->checkState() == Qt::Checked );
+    group.writeEntry( "UsePopup",          mUi->popupCheckBox->checkState() == Qt::Checked );
+    group.writeEntry( "PopupAutoHide",     mUi->autohideCheckBox->checkState() == Qt::Checked );
+    group.writeEntry( "PopupAutoHideTime", mUi->autohideSpinBox->value() );
+    group.writeEntry( "UseReminder",       mUi->reminderCheckBox->checkState() == Qt::Checked );
+    group.writeEntry( "ReminderTime",      mUi->reminderSpinBox->value() );
+    group.writeEntry( "UseVisualize",      mUi->visualizeCheckBox->checkState() == Qt::Checked );
 
     config->sync();
     m_toplevel->setTeaList( m_model->getTeaList() );
@@ -159,13 +159,13 @@ void SettingsDialog::accept()
 
 
 void SettingsDialog::checkPopupButtonState(bool b) {
-    ui->autohideCheckBox->setEnabled( b );
+    mUi->autohideCheckBox->setEnabled( b );
 
     if( !b ) {
-        ui->autohideSpinBox->setEnabled( b );
+        mUi->autohideSpinBox->setEnabled( b );
     }
-    else if( ui->autohideCheckBox->checkState() == 2 ) {
-        ui->autohideSpinBox->setEnabled( b );
+    else if( mUi->autohideCheckBox->checkState() == 2 ) {
+        mUi->autohideSpinBox->setEnabled( b );
     }
 }
 
@@ -174,7 +174,7 @@ void SettingsDialog::newButtonClicked()
     int count = m_model->rowCount();
     m_model->insertRows( count, 1 );
 
-    QItemSelectionModel *sm = ui->tealistTreeView->selectionModel();
+    QItemSelectionModel *sm = mUi->tealistTreeView->selectionModel();
     QItemSelection selection( m_model->index( count, 0 ), m_model->index( count, 1 ) );
     sm->select( selection, QItemSelectionModel::Clear | QItemSelectionModel::Select );
 }
@@ -182,7 +182,7 @@ void SettingsDialog::newButtonClicked()
 
 void SettingsDialog::removeButtonClicked()
 {
-    const QModelIndexList indexes = ui->tealistTreeView->selectionModel()->selectedIndexes();
+    const QModelIndexList indexes = mUi->tealistTreeView->selectionModel()->selectedIndexes();
 
     for (const QModelIndex &index : indexes) {
         // Only delete a row when column==0, otherwise the row will be delete
@@ -208,7 +208,7 @@ void SettingsDialog::downButtonClicked()
 
 void SettingsDialog::moveSelectedItem(bool moveup)
 {
-    QItemSelectionModel *sm = ui->tealistTreeView->selectionModel();
+    QItemSelectionModel *sm = mUi->tealistTreeView->selectionModel();
     QModelIndexList items = sm->selection().indexes();
 
     if( !items.isEmpty() ) {
@@ -240,41 +240,41 @@ void SettingsDialog::updateSelection(const QItemSelection &selected, const QItem
 
     bool state = !items.isEmpty();
 
-    ui->teaPropertiesGroup->setEnabled( state );
-    ui->teaNameEdit->setEnabled( state );
-    ui->minutesSpin->setEnabled( state );
-    ui->secondsSpin->setEnabled( state );
-    ui->removeButton->setEnabled( state );
+    mUi->teaPropertiesGroup->setEnabled( state );
+    mUi->teaNameEdit->setEnabled( state );
+    mUi->minutesSpin->setEnabled( state );
+    mUi->secondsSpin->setEnabled( state );
+    mUi->removeButton->setEnabled( state );
 
     if( state ) {
         name = m_model->data( m_model->index( items.at(0).row(), 0 ), Qt::EditRole ).toString();
         time = m_model->data( m_model->index( items.at(0).row(), 1 ), Qt::EditRole ).toUInt();
 
-        ui->upButton->setEnabled( items.at(0).row() > 0 );
-        ui->downButton->setEnabled( items.at(0).row() < ( m_model->rowCount() - 1 ) );
+        mUi->upButton->setEnabled( items.at(0).row() > 0 );
+        mUi->downButton->setEnabled( items.at(0).row() < ( m_model->rowCount() - 1 ) );
     }
     else {
-        ui->upButton->setEnabled( false );
-        ui->downButton->setEnabled( false );
+        mUi->upButton->setEnabled( false );
+        mUi->downButton->setEnabled( false );
     }
 
-    ui->teaNameEdit->setText( name );
-    ui->minutesSpin->setValue( time / 60 );
-    ui->secondsSpin->setValue( time % 60 );
+    mUi->teaNameEdit->setText( name );
+    mUi->minutesSpin->setValue( time / 60 );
+    mUi->secondsSpin->setValue( time % 60 );
 }
 
 
 void SettingsDialog::timeValueChanged()
 {
-    QModelIndexList items = ui->tealistTreeView->selectionModel()->selection().indexes();
+    QModelIndexList items = mUi->tealistTreeView->selectionModel()->selection().indexes();
 
     if( !items.isEmpty() ) {
-        int time = ui->secondsSpin->value();
-        time += ui->minutesSpin->value() * 60;
+        int time = mUi->secondsSpin->value();
+        time += mUi->minutesSpin->value() * 60;
 
         if( time <= 0 ) {
             time = 1;
-            ui->secondsSpin->setValue( time );
+            mUi->secondsSpin->setValue( time );
         }
         m_model->setData( m_model->index( items.at(0).row(), 1 ), time, Qt::EditRole );
     }
@@ -283,7 +283,7 @@ void SettingsDialog::timeValueChanged()
 
 void SettingsDialog::nameValueChanged(const QString &text)
 {
-    QModelIndexList items = ui->tealistTreeView->selectionModel()->selection().indexes();
+    QModelIndexList items = mUi->tealistTreeView->selectionModel()->selection().indexes();
 
     if( !items.isEmpty() ) {
         m_model->setData( m_model->index( items.at(0).row(), 0 ), text, Qt::EditRole );
