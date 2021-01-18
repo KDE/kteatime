@@ -29,7 +29,7 @@ TeaListModel::TeaListModel(const QList<Tea> &tealist, QObject *parent)
 
 QModelIndex TeaListModel::index(int row, int column, const QModelIndex &parent) const
 {
-    Q_UNUSED( parent );
+    Q_UNUSED( parent )
 
     return createIndex(row, column);
 }
@@ -47,7 +47,7 @@ int TeaListModel::rowCount(const QModelIndex &parent) const
 
 int TeaListModel::columnCount(const QModelIndex &parent) const
 {
-    Q_UNUSED( parent );
+    Q_UNUSED( parent )
 
     return 2;
 }
@@ -117,7 +117,7 @@ QVariant TeaListModel::headerData(int section, Qt::Orientation orientation, int 
 
 bool TeaListModel::insertRows(int row, int count, const QModelIndex &parent)
 {
-    Q_UNUSED( parent );
+    Q_UNUSED( parent )
     beginInsertRows( QModelIndex(), row, row+count-1 );
 
     for(int i = 0; i < count; ++i) {
@@ -131,7 +131,7 @@ bool TeaListModel::insertRows(int row, int count, const QModelIndex &parent)
 
 bool TeaListModel::removeRows(int row, int count, const QModelIndex &parent)
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     if( row-count > m_tealist.size() ) {
         return false;
     }

@@ -232,7 +232,7 @@ void SettingsDialog::moveSelectedItem(bool moveup)
 
 void SettingsDialog::updateSelection(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    Q_UNUSED(deselected);
+    Q_UNUSED(deselected)
     QModelIndexList items = selected.indexes();
 
     QString name;
