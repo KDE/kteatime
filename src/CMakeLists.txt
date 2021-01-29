@@ -19,6 +19,6 @@ target_link_libraries(kteatime
     KF5::XmlGui
 )
 
-install( TARGETS kteatime ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install( TARGETS kteatime ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS org.kde.kteatime.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES kteatime.notifyrc  DESTINATION ${KNOTIFYRC_INSTALL_DIR} )
