@@ -5,7 +5,7 @@ ecm_install_icons(ICONS
     48-apps-kteatime.png
     64-apps-kteatime.png
     sc-apps-kteatime.svgz
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
 
