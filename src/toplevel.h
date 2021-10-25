@@ -31,7 +31,7 @@ class TopLevel : public QSystemTrayIcon
 {
     public:
         explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = nullptr);
-        ~TopLevel();
+        ~TopLevel() override;
         void setTeaList(const QList<Tea> &tealist);
         void runTea(const Tea &tea);
 

@@ -25,7 +25,7 @@ class SettingsDialog : public QDialog
 {
     public:
         SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
-        ~SettingsDialog();
+        ~SettingsDialog() override;
 
     private:
         void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
