@@ -319,6 +319,7 @@ Action=Sound
 [Event/popup]
 Name=The Tea Cooker
 Name[ca]=El cuiner de te
+Name[ca@valencia]=El cuiner de te
 Name[cs]=Vařič čaje
 Name[da]=Tekogeren
 Name[de]=Der Teekocher
@@ -349,6 +350,7 @@ Name[zh_CN]=煮茶器
 Name[zh_TW]=煮茶器
 Comment=The Tea Cooker
 Comment[ca]=El cuiner de te
+Comment[ca@valencia]=El cuiner de te
 Comment[cs]=Vařič čaje
 Comment[da]=Tekogeren
 Comment[de]=Der Teekocher
