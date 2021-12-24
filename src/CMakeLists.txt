@@ -21,4 +21,4 @@ target_link_libraries(kteatime
 
 install( TARGETS kteatime ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS org.kde.kteatime.desktop  DESTINATION ${KDE_INSTALL_APPDIR} )
-install( FILES kteatime.notifyrc  DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES kteatime.notifyrc  DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR} )
