@@ -139,5 +139,5 @@ Icon=kteatime
 Type=Application
 Terminal=false
 X-DocPath=kteatime/index.html
-X-KDE-StartupNotify=true
+StartupNotify=false
 Categories=Qt;KDE;Utility;
