@@ -10,6 +10,7 @@ ki18n_wrap_ui(kteatime settings.ui timeedit.ui)
 target_link_libraries(kteatime
     KF5::ConfigCore
     KF5::ConfigGui
+    KF5::CoreAddons
     KF5::Crash
     KF5::I18n
     KF5::IconThemes
