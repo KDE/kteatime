@@ -128,6 +128,7 @@
     <p xml:lang="zh-CN">KTeaTime 是一个实用的煮茶定时器。您再也不用猜何时茶已完成。只要选择您拥有的茶的类型，它将会提醒您何时茶可以享用。</p>
     <p xml:lang="zh-TW">KTeaTime 是煮茶用的計時器。您不再需要猜測您的茶要煮或泡多久。只要選擇茶的種類，時間到它就會提醒你。</p>
   </description>
+  <url type="homepage">https://apps.kde.org/kteatime/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kteatime</url>
   <url type="help">https://docs.kde.org/?application=kteatime</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kteatime&amp;source=appdata</url>
