@@ -131,6 +131,7 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kteatime</url>
   <url type="help">https://docs.kde.org/?application=kteatime</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kteatime&amp;source=appdata</url>
+  <content_rating type="oars-1.1"/>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/kteatime/kteatime.png</image>
