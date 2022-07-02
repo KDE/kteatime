@@ -319,6 +319,7 @@ Action=Sound
 [Event/popup]
 Name=The Tea Cooker
 Name[ar]=غلاية الشاي
+Name[bg]=Приготвяне на чай
 Name[ca]=El cuiner de te
 Name[ca@valencia]=El cuiner de te
 Name[cs]=Vařič čaje
@@ -353,6 +354,7 @@ Name[zh_CN]=煮茶器
 Name[zh_TW]=煮茶器
 Comment=The Tea Cooker
 Comment[ar]=غلاية الشاي
+Comment[bg]=Приготвяне на чай
 Comment[ca]=El cuiner de te
 Comment[ca@valencia]=El cuiner de te
 Comment[cs]=Vařič čaje
