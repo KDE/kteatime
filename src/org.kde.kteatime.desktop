@@ -137,7 +137,6 @@ GenericName[zh_TW]=煮茶器
 Exec=kteatime
 Icon=kteatime
 Type=Application
-Terminal=false
 X-DocPath=kteatime/index.html
 StartupNotify=false
 Categories=Qt;KDE;Utility;
