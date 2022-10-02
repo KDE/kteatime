@@ -1,0 +1,539 @@
+# Irish translation of kteatime
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kteatime package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdetoys/kteatime.po\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"PO-Revision-Date: 2004-12-03 14:52-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#: src/main.cpp:31
+#, kde-format
+msgid "KTeaTime"
+msgstr "KTeaTime"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "KDE utility for making a fine cup of tea."
+msgstr "Uirlis KDE chun cupán deas tae a fhliuchadh."
+
+#: src/main.cpp:34
+#, fuzzy, kde-format
+#| msgid ""
+#| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
+#| " (c) 2002-2003, Martin Willers\n"
+#| " (c) 2007-2010, Stefan Böhmann"
+msgid ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+msgstr ""
+"© 1998-1999, Matthias Hoelzer-Kluepfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Current maintainer"
+msgstr "Cothaitheoir reatha"
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+#| msgid "Matthias Hoelzer-Kluepfel"
+msgid "Matthias Hölzer-Klüpfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Martin Willers"
+msgstr "Martin Willers"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Daniel Teske"
+msgstr "Daniel Teske"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Many patches"
+msgstr "Neart paistí"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "seoc@iolfree.ie,kscanne@gmail.com"
+
+#: src/main.cpp:76
+#, kde-format
+msgid "Start a new tea with this time."
+msgstr "Tosaigh tae nua leis an am seo."
+
+#: src/main.cpp:76
+#, fuzzy, kde-format
+#| msgctxt "Auto hide popup after"
+#| msgid " second"
+#| msgid_plural " seconds"
+msgid "seconds"
+msgstr " soicind"
+
+#: src/main.cpp:78
+#, fuzzy, kde-format
+#| msgid "Use this name for the tea started with %1."
+msgid "Use this name for the tea started with --time."
+msgstr "Úsáid an t-ainm seo ar an tae a tosaíodh le %1."
+
+#: src/main.cpp:78
+#, kde-format
+msgid "name"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
+#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/timeedit.ui:14
+#, fuzzy, kde-format
+#| msgid "Fruit Tea"
+msgid "Custom Tea"
+msgstr "Tae Toraidh"
+
+#: src/settings.cpp:40
+#, kde-format
+msgid "Configure Tea Cooker"
+msgstr "Cumraigh An Cócaire Tae"
+
+#: src/settings.cpp:53
+#, kde-format
+msgid "Save changes and close dialog."
+msgstr "Sábháil athruithe agus dún an dialóg."
+
+#: src/settings.cpp:54
+#, kde-format
+msgid "Close dialog without saving changes."
+msgstr "Dún an dialóg ach ná sábháil athruithe."
+
+#: src/settings.cpp:55
+#, kde-format
+msgid "Show help page for this dialog."
+msgstr "Taispeáin leathanach cabhrach le haghaidh na dialóige seo."
+
+#: src/settings.cpp:84
+#, kde-format
+msgctxt "Auto hide popup after"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " soicind"
+msgstr[1] " shoicind"
+msgstr[2] " shoicind"
+msgstr[3] " soicind"
+msgstr[4] " soicind"
+
+#: src/settings.cpp:85
+#, kde-format
+msgctxt "Reminder every"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " soicind"
+msgstr[1] " shoicind"
+msgstr[2] " shoicind"
+msgstr[3] " soicind"
+msgstr[4] " soicind"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
+#: src/settings.ui:18
+#, kde-format
+msgid "Tea List"
+msgstr "Liosta Tae"
+
+#. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
+#: src/settings.ui:122
+#, kde-format
+msgid "Tea Properties"
+msgstr "Airíonna an Tae"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/settings.ui:128 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Name"
+msgstr "Ainm"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/settings.ui:142 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Time"
+msgstr "Am"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/settings.ui:159
+#, kde-format
+msgid "min"
+msgstr "nóiméad"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/settings.ui:176
+#, kde-format
+msgid "sec"
+msgstr "soic"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
+#: src/settings.ui:199
+#, kde-format
+msgid "Action"
+msgstr "Gníomh"
+
+#. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
+#: src/settings.ui:205
+#, kde-format
+msgid "Popup"
+msgstr "Preabfhuinneog"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
+#: src/settings.ui:236
+#, kde-format
+msgid "Auto hide popup after"
+msgstr "Folaigh an phreabfhuinneog go huathoibríoch tar éis"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
+#: src/settings.ui:285
+#, kde-format
+msgid "Reminder every"
+msgstr "Meabhrúchán gach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
+#: src/settings.ui:332
+#, kde-format
+msgid "Visualize progress in icon tray"
+msgstr "Taispeáin an dul chun cinn i scipéad na ndeilbhíní"
+
+#: src/tea.cpp:64
+#, kde-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 bhliain"
+msgstr[1] "%1 bhliain"
+msgstr[2] "%1 bliana"
+msgstr[3] "%1 mbliana"
+msgstr[4] "%1 bliain"
+
+#: src/tea.cpp:67
+#, kde-format
+msgid "%1 a"
+msgid_plural "%1 a"
+msgstr[0] "%1 b"
+msgstr[1] "%1 b"
+msgstr[2] "%1 b"
+msgstr[3] "%1 b"
+msgstr[4] "%1 b"
+
+#: src/tea.cpp:77
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "Lá amháin"
+msgstr[1] "%1 lá"
+msgstr[2] "%1 lá"
+msgstr[3] "%1 lá"
+msgstr[4] "%1 lá"
+
+#: src/tea.cpp:80
+#, kde-format
+msgid "%1 d"
+msgid_plural "%1 d"
+msgstr[0] "%1 l"
+msgstr[1] "%1 l"
+msgstr[2] "%1 l"
+msgstr[3] "%1 l"
+msgstr[4] "%1 l"
+
+#: src/tea.cpp:90
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] "%1 uair"
+msgstr[1] "%1 uair"
+msgstr[2] "%1 huaire"
+msgstr[3] "%1 n-uaire"
+msgstr[4] "%1 uair"
+
+#: src/tea.cpp:93
+#, kde-format
+msgid "%1 h"
+msgid_plural "%1 h"
+msgstr[0] "%1 u"
+msgstr[1] "%1 u"
+msgstr[2] "%1 u"
+msgstr[3] "%1 u"
+msgstr[4] "%1 u"
+
+#: src/tea.cpp:103
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 nóiméad"
+msgstr[1] "%1 nóiméad"
+msgstr[2] "%1 nóiméad"
+msgstr[3] "%1 nóiméad"
+msgstr[4] "%1 nóiméad"
+
+#: src/tea.cpp:106
+#, kde-format
+msgid "%1 min"
+msgid_plural "%1 min"
+msgstr[0] "%1 nóim"
+msgstr[1] "%1 nóim"
+msgstr[2] "%1 nóim"
+msgstr[3] "%1 nóim"
+msgstr[4] "%1 nóim"
+
+#: src/tea.cpp:116
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 soicind"
+msgstr[1] "%1 shoicind"
+msgstr[2] "%1 shoicind"
+msgstr[3] "%1 soicind"
+msgstr[4] "%1 soicind"
+
+#: src/tea.cpp:119
+#, kde-format
+msgid "%1 s"
+msgid_plural "%1 s"
+msgstr[0] "%1 s"
+msgstr[1] "%1 s"
+msgstr[2] "%1 s"
+msgstr[3] "%1 s"
+msgstr[4] "%1 s"
+
+#: src/tealistmodel.cpp:68
+#, kde-format
+msgid " ("
+msgstr " ("
+
+#: src/tealistmodel.cpp:70
+#, kde-format
+msgid ")"
+msgstr ")"
+
+#: src/tealistmodel.cpp:113
+#, kde-format
+msgid "Unnamed Tea"
+msgstr "Tae Gan Ainm"
+
+#: src/timeedit.cpp:41
+#, fuzzy, kde-format
+#| msgid "Start a new anonymous tea with the time configured in this dialog."
+msgid "Start a new custom tea with the time configured in this dialog."
+msgstr "Tosaigh tae nua gan ainm leis an am a cumraíodh sa dialóg seo."
+
+#: src/timeedit.cpp:44
+#, kde-format
+msgid "Close this dialog without starting a new tea."
+msgstr "Dún an dialóg gan tae nua a thosú."
+
+#: src/timeedit.cpp:56
+#, fuzzy, kde-format
+#| msgid "%1 minute"
+#| msgid_plural "%1 minutes"
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] "%1 nóiméad"
+msgstr[1] "%1 nóiméad"
+msgstr[2] "%1 nóiméad"
+msgstr[3] "%1 nóiméad"
+msgstr[4] "%1 nóiméad"
+
+#: src/timeedit.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "Auto hide popup after"
+#| msgid " second"
+#| msgid_plural " seconds"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " soicind"
+msgstr[1] " shoicind"
+msgstr[2] " shoicind"
+msgstr[3] " soicind"
+msgstr[4] " soicind"
+
+#. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
+#: src/timeedit.ui:32
+#, kde-format
+msgid "Tea time:"
+msgstr "Am tae:"
+
+#: src/toplevel.cpp:49
+#, kde-format
+msgid "Unknown Tea"
+msgstr "Tae Anaithnid"
+
+#: src/toplevel.cpp:59
+#, kde-format
+msgid "Black Tea"
+msgstr "Tae Láidir"
+
+#: src/toplevel.cpp:60
+#, kde-format
+msgid "Earl Grey"
+msgstr "Iarla Grey"
+
+#: src/toplevel.cpp:61
+#, kde-format
+msgid "Fruit Tea"
+msgstr "Tae Toraidh"
+
+#: src/toplevel.cpp:62
+#, fuzzy, kde-format
+#| msgid "New Tea"
+msgid "Green Tea"
+msgstr "Tae Nua"
+
+#: src/toplevel.cpp:72
+#, kde-format
+msgid "&Resume"
+msgstr ""
+
+#: src/toplevel.cpp:78
+#, kde-format
+msgid "&Pause"
+msgstr ""
+
+#: src/toplevel.cpp:84
+#, kde-format
+msgid "&Stop"
+msgstr "Sta&d"
+
+#: src/toplevel.cpp:90
+#, kde-format
+msgid "&Configure..."
+msgstr "&Cumraigh..."
+
+#: src/toplevel.cpp:98
+#, kde-format
+msgid "&Custom..."
+msgstr ""
+
+#: src/toplevel.cpp:155
+#, kde-format
+msgid "No steeping tea."
+msgstr "Níl aon tae á dhéanamh."
+
+#: src/toplevel.cpp:208
+#, kde-format
+msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#, kde-format
+msgid "The Tea Cooker"
+msgstr "An Cócaire Tae"
+
+#: src/toplevel.cpp:296
+#, kde-format
+msgid "%1 is now ready!"
+msgstr "Tá an %1 réidh anois!"
+
+#: src/toplevel.cpp:316
+#, kde-format
+msgid "%1 is ready since %2!"
+msgstr "Bhí %1 réidh ó %2!"
+
+#: src/toplevel.cpp:332
+#, kde-format
+msgctxt "%1 is the time, %2 is the name of the tea"
+msgid "%1 left for %2."
+msgstr "%1 fágtha le haghaidh %2."
+
+#~ msgid "Anonymous Tea"
+#~ msgstr "Tae gan ainm"
+
+#~ msgid "&Anonymous..."
+#~ msgstr "G&an Ainm..."
+
+#~ msgid "Configure &amp;Notifications..."
+#~ msgstr "Cumraigh &Fógairt..."
+
+#~ msgid "Configure notifications"
+#~ msgstr "Cumraigh fógairt"
+
+#~ msgid "Notification"
+#~ msgstr "Fógairt"
+
+#~ msgid "N"
+#~ msgstr "N"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "U"
+#~ msgstr "U"
+
+#~ msgid "Form"
+#~ msgstr "Foirm"
+
+#~ msgid " %1 s"
+#~ msgstr " %1 s"
+
+#~ msgid "Other Tea"
+#~ msgstr "Tae Eile"
+
+#~ msgid "&Start"
+#~ msgstr "&Tosaigh"
+
+#~ msgid "&Help"
+#~ msgstr "&Cabhair"
+
+#~ msgid "Quit"
+#~ msgstr "Scoir"
+
+#~ msgid "There is no tea to begin steeping."
+#~ msgstr "Níl aon tae ann le fliuchadh."
+
+#~ msgid "No Tea"
+#~ msgstr "Níl aon tae ann"
+
+#~ msgid "tea"
+#~ msgstr "tae"
+
+#~ msgid "New"
+#~ msgstr "Nua"
+
+#~ msgid "Delete"
+#~ msgstr "Scrios"
+
+#~ msgid "Down"
+#~ msgstr "Síos"
+
+#~ msgid "Name:"
+#~ msgstr "Ainm:"
+
+#~ msgid "Event"
+#~ msgstr "Teagmhas"
+
+#~ msgid "Execute:"
+#~ msgstr "Rith:"
+
+#~ msgid "Enter command here; '%t' will be replaced with name of steeping tea"
+#~ msgstr ""
+#~ "Sonraigh ordú anseo; cuirfear ainm an tae atá á fliuchadh in ionad '%t'."

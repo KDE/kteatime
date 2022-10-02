@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kteatime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"PO-Revision-Date: 2021-01-17 15:02+0000\n"
+"Last-Translator: Pedro Morais <morais@kde.org>\n"
+"Language-Team: pt <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Spell-Extra: KTeaTime\n"
+"X-POFile-SpellExtra: KTeaTime seg min Hoelzer Teske Kluepfel Willers\n"
+"X-POFile-IgnoreConsistency: Down\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: Matthias Stefan Böhmann Form time Klüpfel Hölzer\n"
+"X-POFile-IgnoreConsistency: name\n"
+"X-POFile-IgnoreConsistency: Name\n"
+
+#: src/main.cpp:31
+#, kde-format
+msgid "KTeaTime"
+msgstr "KTeaTime"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "KDE utility for making a fine cup of tea."
+msgstr "Utilitário do KDE para fazer uma boa chávena de chá."
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+msgstr ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Current maintainer"
+msgstr "Manutenção actual"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Matthias Hölzer-Klüpfel"
+msgstr "Matthias Hölzer-Klüpfel"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Martin Willers"
+msgstr "Martin Willers"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Daniel Teske"
+msgstr "Daniel Teske"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Many patches"
+msgstr "Muitas correcções"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires,Pedro Morais"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com,morais@kde.org"
+
+#: src/main.cpp:76
+#, kde-format
+msgid "Start a new tea with this time."
+msgstr "Iniciar um novo chá com este tempo."
+
+#: src/main.cpp:76
+#, kde-format
+msgid "seconds"
+msgstr "segundos"
+
+#: src/main.cpp:78
+#, kde-format
+msgid "Use this name for the tea started with --time."
+msgstr "Use este nome para o chá iniciado com o '--time'."
+
+#: src/main.cpp:78
+#, kde-format
+msgid "name"
+msgstr "nome"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
+#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/timeedit.ui:14
+#, kde-format
+msgid "Custom Tea"
+msgstr "Chá Personalizado"
+
+#: src/settings.cpp:40
+#, kde-format
+msgid "Configure Tea Cooker"
+msgstr "Configurar o Cozinheiro de Chá"
+
+#: src/settings.cpp:53
+#, kde-format
+msgid "Save changes and close dialog."
+msgstr "Grava as alterações e fecha a janela."
+
+#: src/settings.cpp:54
+#, kde-format
+msgid "Close dialog without saving changes."
+msgstr "Fecha a janela sem gravar as alterações."
+
+#: src/settings.cpp:55
+#, kde-format
+msgid "Show help page for this dialog."
+msgstr "Mostra uma página de ajuda para esta janela."
+
+#: src/settings.cpp:84
+#, kde-format
+msgctxt "Auto hide popup after"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " segundo"
+msgstr[1] " segundos"
+
+#: src/settings.cpp:85
+#, kde-format
+msgctxt "Reminder every"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " segundo"
+msgstr[1] " segundos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
+#: src/settings.ui:18
+#, kde-format
+msgid "Tea List"
+msgstr "Lista de Chás"
+
+#. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
+#: src/settings.ui:122
+#, kde-format
+msgid "Tea Properties"
+msgstr "Propriedades do Chá"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/settings.ui:128 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Name"
+msgstr "Nome"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/settings.ui:142 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Time"
+msgstr "Tempo"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/settings.ui:159
+#, kde-format
+msgid "min"
+msgstr "min"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/settings.ui:176
+#, kde-format
+msgid "sec"
+msgstr "s"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
+#: src/settings.ui:199
+#, kde-format
+msgid "Action"
+msgstr "Acção"
+
+#. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
+#: src/settings.ui:205
+#, kde-format
+msgid "Popup"
+msgstr "Mensagem"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
+#: src/settings.ui:236
+#, kde-format
+msgid "Auto hide popup after"
+msgstr "Esconder a mensagem após"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
+#: src/settings.ui:285
+#, kde-format
+msgid "Reminder every"
+msgstr "Lembrar a cada"
+
+#. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
+#: src/settings.ui:332
+#, kde-format
+msgid "Visualize progress in icon tray"
+msgstr "Visualizar o progresso no ícone da bandeja"
+
+#: src/tea.cpp:64
+#, kde-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 ano"
+msgstr[1] "%1 anos"
+
+#: src/tea.cpp:67
+#, kde-format
+msgid "%1 a"
+msgid_plural "%1 a"
+msgstr[0] "%1 a"
+msgstr[1] "%1 a"
+
+#: src/tea.cpp:77
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 dia"
+msgstr[1] "%1 dias"
+
+#: src/tea.cpp:80
+#, kde-format
+msgid "%1 d"
+msgid_plural "%1 d"
+msgstr[0] "%1 d"
+msgstr[1] "%1 d"
+
+#: src/tea.cpp:90
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] "%1 hora"
+msgstr[1] "%1 horas"
+
+#: src/tea.cpp:93
+#, kde-format
+msgid "%1 h"
+msgid_plural "%1 h"
+msgstr[0] "%1 h"
+msgstr[1] "%1 h"
+
+#: src/tea.cpp:103
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minuto"
+msgstr[1] "%1 minutos"
+
+#: src/tea.cpp:106
+#, kde-format
+msgid "%1 min"
+msgid_plural "%1 min"
+msgstr[0] "%1 min"
+msgstr[1] "%1 min"
+
+#: src/tea.cpp:116
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 segundo"
+msgstr[1] "%1 segundos"
+
+#: src/tea.cpp:119
+#, kde-format
+msgid "%1 s"
+msgid_plural "%1 s"
+msgstr[0] "%1 s"
+msgstr[1] "%1 s"
+
+#: src/tealistmodel.cpp:68
+#, kde-format
+msgid " ("
+msgstr " ("
+
+#: src/tealistmodel.cpp:70
+#, kde-format
+msgid ")"
+msgstr ")"
+
+#: src/tealistmodel.cpp:113
+#, kde-format
+msgid "Unnamed Tea"
+msgstr "Chá sem Nome"
+
+#: src/timeedit.cpp:41
+#, kde-format
+msgid "Start a new custom tea with the time configured in this dialog."
+msgstr "Inicia um novo chá personalizado com o tempo configurado nesta janela."
+
+#: src/timeedit.cpp:44
+#, kde-format
+msgid "Close this dialog without starting a new tea."
+msgstr "Fecha esta janela sem iniciar um chá novo."
+
+#: src/timeedit.cpp:56
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuto"
+msgstr[1] " minutos"
+
+#: src/timeedit.cpp:57
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " segundo"
+msgstr[1] " segundos"
+
+#. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
+#: src/timeedit.ui:32
+#, kde-format
+msgid "Tea time:"
+msgstr "Tempo do chá:"
+
+#: src/toplevel.cpp:49
+#, kde-format
+msgid "Unknown Tea"
+msgstr "Chá Desconhecido"
+
+#: src/toplevel.cpp:59
+#, kde-format
+msgid "Black Tea"
+msgstr "Chá Preto"
+
+#: src/toplevel.cpp:60
+#, kde-format
+msgid "Earl Grey"
+msgstr "Chá Cinzento"
+
+#: src/toplevel.cpp:61
+#, kde-format
+msgid "Fruit Tea"
+msgstr "Chá de Frutos"
+
+#: src/toplevel.cpp:62
+#, kde-format
+msgid "Green Tea"
+msgstr "Chá Verde"
+
+#: src/toplevel.cpp:72
+#, kde-format
+msgid "&Resume"
+msgstr "Continua&r"
+
+#: src/toplevel.cpp:78
+#, kde-format
+msgid "&Pause"
+msgstr "&Pausa"
+
+#: src/toplevel.cpp:84
+#, kde-format
+msgid "&Stop"
+msgstr "&Parar"
+
+#: src/toplevel.cpp:90
+#, kde-format
+msgid "&Configure..."
+msgstr "&Configurar..."
+
+#: src/toplevel.cpp:98
+#, kde-format
+msgid "&Custom..."
+msgstr "&Personalizar..."
+
+#: src/toplevel.cpp:155
+#, kde-format
+msgid "No steeping tea."
+msgstr "Não está nenhum chá em curso."
+
+#: src/toplevel.cpp:208
+#, kde-format
+msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#, kde-format
+msgid "The Tea Cooker"
+msgstr "O Cozinheiro de Chá"
+
+#: src/toplevel.cpp:296
+#, kde-format
+msgid "%1 is now ready!"
+msgstr "O %1 está pronto!"
+
+#: src/toplevel.cpp:316
+#, kde-format
+msgid "%1 is ready since %2!"
+msgstr "O %1 está pronto desde as %2!"
+
+#: src/toplevel.cpp:332
+#, kde-format
+msgctxt "%1 is the time, %2 is the name of the tea"
+msgid "%1 left for %2."
+msgstr "Faltam %1 para o %2."

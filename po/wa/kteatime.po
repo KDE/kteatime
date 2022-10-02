@@ -1,0 +1,463 @@
+# translation of kteatime.po to Walon
+# Copyright (C) 2003 Free Software Foundation, Inc.
+#
+# Pablo Saratxaga <pablo@mandrakesoft.com>, 2003.
+# Pablo Saratxaga <pablo@walon.org>, 2003, 2004.
+# Jean Cayron <jean.cayron@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kteatime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"PO-Revision-Date: 2009-03-09 21:29+0100\n"
+"Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
+"Language-Team: Walloon <linux@walon.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: src/main.cpp:31
+#, kde-format
+msgid "KTeaTime"
+msgstr "KTeaTime"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "KDE utility for making a fine cup of tea."
+msgstr "Usteye KDE po fé ene boune djate di té."
+
+#: src/main.cpp:34
+#, fuzzy, kde-format
+#| msgid ""
+#| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
+#| "(c) 2002-2003, Martin Willers\n"
+#| "(c) 2007, Stefan Böhmann"
+msgid ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+msgstr ""
+"© 1998-1999, Matthias Hoelzer-Kluepfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007, Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+#| msgid "Matthias Hoelzer-Kluepfel"
+msgid "Matthias Hölzer-Klüpfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Martin Willers"
+msgstr "Martin Willers"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Daniel Teske"
+msgstr "Daniel Teske"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Many patches"
+msgstr "Sacwants amidraedjes"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Djan Cayron"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jean.cayron@gmail.com"
+
+#: src/main.cpp:76
+#, kde-format
+msgid "Start a new tea with this time."
+msgstr "Enonder on novea té avou ç' tins ci."
+
+#: src/main.cpp:76
+#, fuzzy, kde-format
+#| msgctxt "Auto hide popup after"
+#| msgid "second"
+#| msgid_plural "seconds"
+msgid "seconds"
+msgstr "segonde"
+
+#: src/main.cpp:78
+#, fuzzy, kde-format
+#| msgid ""
+#| "Use this name instead of \"Anonymous Tea\" for the tea started with %1."
+msgid "Use this name for the tea started with --time."
+msgstr "Eployîz c' no al plaece di « Té sins no » pol té enondé avou %1."
+
+#: src/main.cpp:78
+#, kde-format
+msgid "name"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
+#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/timeedit.ui:14
+#, fuzzy, kde-format
+#| msgid "Fruit Tea"
+msgid "Custom Tea"
+msgstr "Té ås fruts"
+
+#: src/settings.cpp:40
+#, kde-format
+msgid "Configure Tea Cooker"
+msgstr "Apontyî l' fijheu d' té"
+
+#: src/settings.cpp:53
+#, kde-format
+msgid "Save changes and close dialog."
+msgstr "Schaper les candjmints eyet clôre li purnea."
+
+#: src/settings.cpp:54
+#, kde-format
+msgid "Close dialog without saving changes."
+msgstr "Clôre li purnea sins schaper les candjmints."
+
+#: src/settings.cpp:55
+#, kde-format
+msgid "Show help page for this dialog."
+msgstr "Mostere li pådje d' aidance po ci purnea ci."
+
+#: src/settings.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "Auto hide popup after"
+#| msgid "second"
+#| msgid_plural "seconds"
+msgctxt "Auto hide popup after"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] "segonde"
+msgstr[1] "segondes"
+
+#: src/settings.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "Reminder every"
+#| msgid "second"
+#| msgid_plural "seconds"
+msgctxt "Reminder every"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] "segonde"
+msgstr[1] "segondes"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
+#: src/settings.ui:18
+#, kde-format
+msgid "Tea List"
+msgstr "Djivêye des tés"
+
+#. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
+#: src/settings.ui:122
+#, kde-format
+msgid "Tea Properties"
+msgstr "Prôpietés do té"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/settings.ui:128 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Name"
+msgstr "No"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/settings.ui:142 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Time"
+msgstr "Tins"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/settings.ui:159
+#, kde-format
+msgid "min"
+msgstr "min"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/settings.ui:176
+#, kde-format
+msgid "sec"
+msgstr "seg"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
+#: src/settings.ui:199
+#, kde-format
+msgid "Action"
+msgstr "Accion"
+
+#. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
+#: src/settings.ui:205
+#, kde-format
+msgid "Popup"
+msgstr "Aspitant purnea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
+#: src/settings.ui:236
+#, kde-format
+msgid "Auto hide popup after"
+msgstr "Catchî tot seu l' aspitant purnea après"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
+#: src/settings.ui:285
+#, kde-format
+msgid "Reminder every"
+msgstr "Ridire tchaeke"
+
+#. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
+#: src/settings.ui:332
+#, kde-format
+msgid "Visualize progress in icon tray"
+msgstr "Vey l' avançmint sol sicriftôr"
+
+#: src/tea.cpp:64
+#, kde-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 anêye"
+msgstr[1] "%1 anêyes"
+
+#: src/tea.cpp:67
+#, kde-format
+msgid "%1 a"
+msgid_plural "%1 a"
+msgstr[0] "%1 a"
+msgstr[1] "%1 a"
+
+#: src/tea.cpp:77
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 djoû"
+msgstr[1] "%1 djoûs"
+
+#: src/tea.cpp:80
+#, kde-format
+msgid "%1 d"
+msgid_plural "%1 d"
+msgstr[0] "%1 d"
+msgstr[1] "%1 d"
+
+#: src/tea.cpp:90
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] "%1 eure"
+msgstr[1] "%1 eures"
+
+#: src/tea.cpp:93
+#, kde-format
+msgid "%1 h"
+msgid_plural "%1 h"
+msgstr[0] "%1 e"
+msgstr[1] "%1 e"
+
+#: src/tea.cpp:103
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 munute"
+msgstr[1] "%1 munutes"
+
+#: src/tea.cpp:106
+#, kde-format
+msgid "%1 min"
+msgid_plural "%1 min"
+msgstr[0] "%1 min"
+msgstr[1] "%1 min"
+
+#: src/tea.cpp:116
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 segonde"
+msgstr[1] "%1 segondes"
+
+#: src/tea.cpp:119
+#, kde-format
+msgid "%1 s"
+msgid_plural "%1 s"
+msgstr[0] "%1 s"
+msgstr[1] "%1 s"
+
+#: src/tealistmodel.cpp:68
+#, kde-format
+msgid " ("
+msgstr " ("
+
+#: src/tealistmodel.cpp:70
+#, kde-format
+msgid ")"
+msgstr ")"
+
+#: src/tealistmodel.cpp:113
+#, kde-format
+msgid "Unnamed Tea"
+msgstr "Té sins no"
+
+#: src/timeedit.cpp:41
+#, fuzzy, kde-format
+#| msgid "Start a new anonymous tea with the time configured in this dialog."
+msgid "Start a new custom tea with the time configured in this dialog."
+msgstr "Enonde on novea té sins no avou l' tins apontyî dins ç' purnea ci."
+
+#: src/timeedit.cpp:44
+#, kde-format
+msgid "Close this dialog without starting a new tea."
+msgstr "Clôre ci purnea ci sins enonder d' novea té."
+
+#: src/timeedit.cpp:56
+#, fuzzy, kde-format
+#| msgid "%1 minute"
+#| msgid_plural "%1 minutes"
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] "%1 munute"
+msgstr[1] "%1 munutes"
+
+#: src/timeedit.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "Auto hide popup after"
+#| msgid "second"
+#| msgid_plural "seconds"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] "segonde"
+msgstr[1] "segondes"
+
+#. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
+#: src/timeedit.ui:32
+#, kde-format
+msgid "Tea time:"
+msgstr "Tins pol té:"
+
+#: src/toplevel.cpp:49
+#, kde-format
+msgid "Unknown Tea"
+msgstr "Té nén cnoxhou"
+
+#: src/toplevel.cpp:59
+#, kde-format
+msgid "Black Tea"
+msgstr "Noer té"
+
+#: src/toplevel.cpp:60
+#, kde-format
+msgid "Earl Grey"
+msgstr "Vete té"
+
+#: src/toplevel.cpp:61
+#, kde-format
+msgid "Fruit Tea"
+msgstr "Té ås fruts"
+
+#: src/toplevel.cpp:62
+#, kde-format
+msgid "Green Tea"
+msgstr ""
+
+#: src/toplevel.cpp:72
+#, kde-format
+msgid "&Resume"
+msgstr ""
+
+#: src/toplevel.cpp:78
+#, kde-format
+msgid "&Pause"
+msgstr ""
+
+#: src/toplevel.cpp:84
+#, kde-format
+msgid "&Stop"
+msgstr "A&rester"
+
+#: src/toplevel.cpp:90
+#, kde-format
+msgid "&Configure..."
+msgstr "A&pontyî..."
+
+#: src/toplevel.cpp:98
+#, kde-format
+msgid "&Custom..."
+msgstr ""
+
+#: src/toplevel.cpp:155
+#, kde-format
+msgid "No steeping tea."
+msgstr "Pont d' té ki rashîd."
+
+#: src/toplevel.cpp:208
+#, kde-format
+msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#, kde-format
+msgid "The Tea Cooker"
+msgstr "Li fjheu d' té"
+
+#: src/toplevel.cpp:296
+#, kde-format
+msgid "%1 is now ready!"
+msgstr "Li %1 est presse asteure!"
+
+#: src/toplevel.cpp:316
+#, kde-format
+msgid "%1 is ready since %2!"
+msgstr "Li %1 est presse dispoy %2!"
+
+#: src/toplevel.cpp:332
+#, kde-format
+msgctxt "%1 is the time, %2 is the name of the tea"
+msgid "%1 left for %2."
+msgstr "I dmeure %1 pol %2"
+
+#~ msgid "Anonymous Tea"
+#~ msgstr "Té sins no"
+
+#~ msgid "&Anonymous..."
+#~ msgstr "&Sins no..."
+
+#, fuzzy
+#~| msgid "Configure &Notifications..."
+#~ msgid "Configure &amp;Notifications..."
+#~ msgstr "Apontyî les &notifiaedjes..."
+
+#, fuzzy
+#~| msgid "Configure &Notifications..."
+#~ msgid "Configure notifications"
+#~ msgstr "Apontyî les &notifiaedjes..."
+
+#~ msgid "Notification"
+#~ msgstr "Notifiaedje"
+
+#~ msgid "N"
+#~ msgstr "N"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "U"
+#~ msgstr "M"
+
+#~ msgid "Enter command here; '%t' will be replaced with name of steeping tea"
+#~ msgstr "Tapez l' comande chal; «%t» srè replaecî avou l' no do té a fé"

@@ -1,0 +1,237 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Russian "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Руководство пользователя &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>Олег</firstname
+><surname
+>Баталов</surname
+><affiliation
+><address
+><email
+>olegbatalov@mail.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Обновление перевода на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>06 июля 2016 г.</date>
+<releaseinfo
+>1.3.0 (Приложения KDE 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Это руководство описывает &kteatime;, таймер приготовления чая для &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>чай</keyword>
+<keyword
+>приготовление</keyword>
+<keyword
+>таймер</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Что такое &kteatime;?</title>
+
+<para
+>&kteatime; — это удобный таймер для приготовления чая. Больше не нужно гадать, сколько должно пройти времени, чтобы чай был готов. Просто заварите чай, выберите его вид, и &kteatime; сообщит, когда он будет готов.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Как использовать &kteatime;</title>
+
+<para
+>При запуске &kteatime; автоматически помещается в системный лоток. Чтобы вызвать меню, щёлкните правой кнопкой мыши по значку программы. Доступные пункты контекстного меню подробно описаны в следующем разделе.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Заваривание чая</title>
+
+<para
+>После запуска в системном лотке отображается значок приложения, на котором изображена чайная кружка. Если щёлкнуть по значку правой кнопкой мыши и выбрать вид чая, на значок будет добавлен маленький анимированный циферблат, отображающий оставшееся время приготовления чая. По истечению времени заваривания чая на будет показано  соответствующее уведомление. Чтобы закрыть уведомление, нажмите на него. Это действие также сбрасывает таймер и убирает циферблат.</para>
+
+<note
+><para
+>Таймер должен сбрасываться только теми, кто действительно любит чай.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Опции меню</title>
+
+<para
+>Следующий раздел описывает пункты меню приложения &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Выбор чая</title>
+
+<para
+>Для вызова контекстного меню щёлкните правой кнопкой мыши по значку приложения. В верхней части меню возможно выбрать тип чая для заваривания: <guimenuitem
+>Чёрный чай</guimenuitem
+>, <guimenuitem
+>Чай Earl Grey</guimenuitem
+>, <guimenuitem
+>Фруктовый чай</guimenuitem
+> и <guimenuitem
+>Зелёный чай</guimenuitem
+>. У данных типов чая время заварки установлено по умолчанию. Многие люди жаловались, что время неправильное, но следует отметить, что такое время основано на личных предпочтениях и установлено лишь приблизительно. В дальнейшем в руководстве будет рассмотрен способ настроить время заваривания чая по своему усмотрению. Наиболее быстрый способ сделать это — нажать вариант <guimenuitem
+>Собственный...</guimenuitem
+> в контекстном меню.</para>
+
+<para
+>Параметры уведомлений для &kteatime; возможно открыть путём нажатия на элемент <guimenuitem
+>Настроить уведомления...</guimenuitem
+>.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Запуск таймера заваривания чая</title>
+
+<para
+>Для запуска таймера выберите тип чая в контекстном меню. В качестве визуализации того, что таймер действительно запущен, на значке приложения будет отображаться циферблат.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Настроить...</title>
+
+<para
+>Этот пункт меню открывает диалоговое окно настройки.</para>
+
+<screenshot>
+<screeninfo
+>Диалог настройки &kteatime;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Диалог настройки &kteatime;</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Возможно добавить новые записи для других видов чая или изменить названия и время заваривания для существующих записей. Это может быть полезно при заваривании чая, отсутствующего в списке, либо если требуется изменить заданное в приложении время заваривания. Чтобы изменить запись, выделите её в <guilabel
+>Списке видов чая</guilabel
+> и отредактируйте её в расположенном справа блоке <guilabel
+>Свойство чая</guilabel
+>.</para>
+
+<para
+>Нижний блок окна настройки — раздел <guilabel
+>Действие</guilabel
+>. В этом разделе возможно выбрать действие, которое будет совершено, когда чай заварится. Если выбрано действие <guilabel
+>Всплыть</guilabel
+>, будет показано окно с оповещением о готовности чая. </para>
+
+<para
+>Чтобы процесс готовки отображался в виде маленького анимированного циферблата, установите флажок <guilabel
+>Показывать процесс готовки в системном лотке</guilabel
+>.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>Авторское право на &kteatime; &copy;, 1998-1999: &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Документация &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Перевод на русский: Олег Баталов<email
+>olegbatalov@mail.ru</email
+>, Мария Шикунова<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

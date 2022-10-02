@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % French "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Manuel de &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+&traducteurYvesDessertine;&traducteurGillesPoulain; 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>06-07-2016</date>
+<releaseinfo
+>1.3.0 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Ce manuel décrit &kteatime;, la théière de &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>KTeaTime</keyword>
+<keyword
+>thé</keyword>
+<keyword
+>théière</keyword>
+<keyword
+>chronomètre</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Qu'est-ce que &kteatime; ?</title>
+
+<para
+>&kteatime; est un chronomètre commode pour l'infusion du thé. Vous n'aurez plus à deviner combien de temps prendra votre thé pour être prêt. Sélectionnez simplement le type de thé que vous avez, et on vous avertira lorsqu'il sera prêt à être bu.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Comment utiliser &kteatime;</title>
+
+<para
+>Lorsque vous démarrerez &kteatime;, il se placera de lui-même dans le tableau de bord. Pour accéder au menu, cliquez avec le bouton droit sur l'icône du tableau de bord. Ceci vous présentera une liste d'options qui sont couvertes plus en détail dans le prochain chapitre.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Chronométrage de votre thé</title>
+
+<para
+>Une fois démarré, l'icône dans le tableau de bord sera une tasse de thé. Si vous cliquez sur la tasse avec le &BDS; et que vous sélectionnez votre thé, une horloge animée affichant le temps restant est affichée sur l'icône. Après le temps spécifié, le thé sera infusé et une boîte de dialogue vous avertira. À ce moment, vous pouvez fermer la boîte dialogue en cliquant dessus. Ceci réinitialise le chronomètre et l'horloge sur la tasse disparaît.</para>
+
+<note
+><para
+>Le chronomètre ne devrait être réinitialisé que par ceux qui aiment vraiment le thé.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Options de menu</title>
+
+<para
+>La section suivante décrit les options de menu qui sont disponibles dans &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Sélectionner votre thé</title>
+
+<para
+>Cliquer sur l'icône avec le &BDS; fera apparaître un menu. En haut de ce menu, se trouvent quatre options. Ici, vous pouvez sélectionner le type de thé que vous vous apprêtez a boire. Ces options sont : <guimenuitem
+>Thé noir</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+>, <guimenuitem
+>Thé aux fruits</guimenuitem
+> et <guimenuitem
+>Thé vert</guimenuitem
+>. Ces types de thé sont pré configurés avec une durée d'infusion par défaut. Beaucoup de gens se sont plaints que les temps ne sont pas corrects. Veuillez noter que le temps d'infusion d'une tasse de thé dépend des préférences personnelles. Les temps choisis sont des approximations. Si vous poursuivez la lecture, vous apprendrez comment modifier ou effacer ces temps préétablis et définir votre propre temps. Un moyen facile et rapide de définir un temps personnalisé est de choisir l'option <guimenuitem
+>Personnalisé...</guimenuitem
+> dans le menu.</para>
+
+<para
+>Un clic sur <guimenuitem
+>Configurer les Notifications...</guimenuitem
+> fait apparaître les paramètres de notifications de &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Démarrer le chronomètre</title>
+
+<para
+>Pour démarrer le chronomètre, choisissez un thé dans le menu contextuel. Afin de confirmer que vous avec effectivement démarré le chronomètre, une horloge affichant le temps restant apparaît dans la boîte à miniatures.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Configuration</title>
+
+<para
+>Cette option ouvre la boîte de dialogue de configuration. Une capture d'écran est montrée ci-dessous :</para>
+
+<screenshot>
+<screeninfo
+>La boîte de dialogue de configuration de &kteatime;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La boîte de dialogue de configuration de &kteatime;.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Comme montré sur l'image, vous pouvez ajouter de nouvelles entrées pour d'autres thés ou changer le nom, le temps et l'ordre des entrées existantes. Ceci est pratique si vous infusez une tasse de thé qui ne figure pas dans la liste, ou si les temps par défaut ne vous conviennent pas. Pour éditer une entrée mettez la en surbrillance dans la <guilabel
+>Liste des thés</guilabel
+> sur la gauche et changez les valeurs dans les <guilabel
+>Propriétés du thé</guilabel
+> sur la droite.</para>
+
+<para
+>La boîte ci-dessous est le champ <guilabel
+>Action</guilabel
+>. Vous pouvez définir ici une action qui sera exécutée quand le temps sera écoulé. Si <guilabel
+>Message</guilabel
+> est sélectionné, une boîte de message apparaîtra pour vous alerter quand votre thé sera prêt. </para>
+
+<para
+>Si vous cochez la case intitulée <guilabel
+>Afficher la progression dans l'icône de la boîte à miniatures</guilabel
+>, la progression sera représentée par une petite horloge animée sur l'icône.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Remerciements</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 par &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Documentation par &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Traduction française par &YvesDessertine; et &traducteurGillesPoulain;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

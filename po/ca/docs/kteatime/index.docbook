@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Catalan  "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>El manual del &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>6 de juliol de 2016</date>
+<releaseinfo
+>1.3.0 (Aplicacions 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Aquest manual descriu el &kteatime;, la Tetera del &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>te</keyword>
+<keyword
+>tetera</keyword>
+<keyword
+>temporitzador</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Què és &kteatime;?</title>
+
+<para
+>&kteatime; és un còmode temporitzador per a fer el te. Ja no haureu d'endevinar quan falta perquè el vostre te estigui llest. Simplement seleccioneu el tipus de te que voleu, i l'aplicació us avisarà quan està llest.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Com usar &kteatime;</title>
+
+<para
+>Quan executeu &kteatime;, automàticament s'acoblarà al vostre plafó. Per accedir al menú, feu clic amb el &BDR; sobre la icona acoblada. Se us mostrarà una llista d'opcions, les quals es tracten amb més detall en el següent capítol.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Mesurar el temps del vostre te</title>
+
+<para
+>En començar, la icona del plafó serà una tassa de te. Si feu clic amb el &BDR; a la tassa i seleccioneu un te, apareixerà un rellotge animat que mostrarà el temps restant en la icona. Després de la quantitat de segons indicats, el te ja estarà llest, i apareixerà un missatge indicatiu. En aquest moment, podreu tancar el quadre de missatge clicant-la. Això també reinicialitza el temporitzador i el rellotge de la tassa torna a desaparèixer.</para>
+
+<note
+><para
+>El temporitzador tan sols hauria de ser reiniciat per aquells a qui realment els agradi el te.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Opcions de menú</title>
+
+<para
+>La següent secció descriu les opcions de menú que estan disponibles en &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Seleccionar el vostre te</title>
+
+<para
+>Fent clic sobre la icona amb el &BDR; apareixerà un menú. A la part superior del menú hi ha quatre elements de menú. Des dels quals podreu seleccionar el tipus de te que voleu preparar. Aquestes són: <guimenuitem
+>Te negre</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+>, <guimenuitem
+>Te de fruita</guimenuitem
+> i <guimenuitem
+>Te verd</guimenuitem
+>. Aquests tes estan preconfigurats amb un temps predeterminat. Molta gent s'ha queixat dient que aquests temps no són correctes. Tingueu en compte que la quantitat de temps que es necessita per preparar una tassa de te es basa en preferències personals. Els temps escollits són aproximacions. Si seguiu llegint, aprendreu com canviar o suprimir aquests temps predefinits i programar el vostre propi temps. Una manera ràpida i fàcil per establir un temps personalitzat és escollir <guimenuitem
+>Personalitza...</guimenuitem
+> des del menú.</para>
+
+<para
+>Fent clic a <guimenuitem
+>Configura les notificacions...</guimenuitem
+> apareixerà la configuració de les notificacions del &kde; pel &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Inicia el temporitzador de te</title>
+
+<para
+>Per a engegar el temporitzador de te, seleccioneu un te del menú contextual. Com a confirmació que heu engegat el temporitzador, es mostrarà un rellotge que visualitzarà el temps restant en la icona del plafó.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Configura</title>
+
+<para
+>Aquest element de menú obre el diàleg de configuració. A sota es mostra una captura de pantalla:</para>
+
+<screenshot>
+<screeninfo
+>El diàleg de configuració de &kteatime;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>El diàleg de configuració de &kteatime;.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Tal com es mostra en la imatge, podeu afegir noves entrades per altres tes o canviar els noms, els temps i l'ordre de les entrades existents. És d'utilitat quan es vol fer un te que no està en la llista, o si no esteu d'acord amb els temps per omissió. Per editar una entrada, marqueu-la en la <guilabel
+>Llista de tes</guilabel
+> a l'esquerra i canvieu-ne els valors en les <guilabel
+>Propietats del te</guilabel
+> a la dreta.</para>
+
+<para
+>El quadre de sota és el camp <guilabel
+>Acció</guilabel
+>. Aquí és on podreu definir una acció a executar quan s'hagi exhaurit el temps. Si està seleccionat <guilabel
+>Emergent</guilabel
+>, apareixerà un quadre de missatge alertant-vos que el vostre te ja està llest. </para>
+
+<para
+>Si habiliteu la casella de selecció anomenada <guilabel
+>Mostra el progrés a la safata del sistema</guilabel
+>, el progrés es mostrarà com a un petit rellotge animat dins la icona.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Crèdits</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 per en &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Documentació per en &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

@@ -1,0 +1,222 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Підручник з &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>6 липня 2016 року</date>
+<releaseinfo
+>1.3.0 (Програми 16.04)</releaseinfo>
+
+<abstract>
+<para
+>У цьому підручнику описано &kteatime;, засіб для заварювання чаю для &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>чай</keyword>
+<keyword
+>засіб для заварювання</keyword>
+<keyword
+>таймер</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Для чого призначено &kteatime;?</title>
+
+<para
+>&kteatime; — це зручний таймер для заварювання чаю. Вам більше не доведеться вгадувати час, коли ваш чай буде готовим. Просто виберіть сорт чаю, і програма повідомить вам, коли чай можна буде пити.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Як користуватися &kteatime;</title>
+
+<para
+>Після запуску &kteatime; автоматично пришвартується до вашої панелі. Щоб отримати доступ до меню, наведіть вказівник на піктограму програми і клацніть правою кнопкою миші. Перед вами відкриється список параметрів, які детальніше описано у наступній главі.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Встановлення таймера для вашого чаю</title>
+
+<para
+>Одразу після запуску піктограма панелі виглядатиме як порожня чашка для чаю. Якщо ви наведете на неї вказівник миші, клацнете правою кнопкою миші і оберете ваш чай, зображення на піктограмі зміниться на зображення анімованого годинника, який показуватиме час, що залишився до того, як чай буде приготовано. По завершенню відведеного часу чай буде готовим до вживання, а програма покаже відповідне вікно повідомлення. Ви можете закрити це вікно наведенням на нього вказівника миші з наступним клацанням лівою кнопкою миші. В результаті буде відновлено нульове значення таймера, а чашка на піктограмі знову стане порожньою.</para>
+
+<note
+><para
+>Скидати значення таймера слід лише тим особам, які отримують справжнє задоволення від чаювання.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Пункти меню</title>
+
+<para
+>У наступному розділі описано пункти меню доступні у &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Виберіть ваш чай</title>
+
+<para
+>Наведення вказівника миші на піктограму з наступним клацанням правою кнопкою миші відкриє меню. Вгорі списку меню розташовано чотири пункти. Тут ви можете обрати різновид чаю, який ви готуєте. Програмі відомі такі чаї: <guimenuitem
+>Чорний чай</guimenuitem
+>, <guimenuitem
+>Сірий чай</guimenuitem
+>, <guimenuitem
+>Фруктовий чай</guimenuitem
+> та <guimenuitem
+>Зелений чай</guimenuitem
+>. Налаштування часу для заварювання цих видів чаю вже попередньо встановлено. Багато користувачів стверджують, що ці проміжки часу визначено неправильно. Будь ласка, пам’ятайте, що час, потрібний на заварювання чашки чаю, може залежати від особистих уподобань. Вказані проміжки часу є досить приблизними. Якщо ви прочитаєте цей підручник до кінця, ви дізнаєтеся як змінити або вилучити ці попередньо визначені проміжки часу, або встановити власні. Простим і швидким способом встановити ваш власний час є вибір пункту меню <guimenuitem
+>Без назви...</guimenuitem
+>.</para>
+
+<para
+>Натискання пункту <guimenuitem
+>Налаштувати сповіщення...</guimenuitem
+> відкриває вікно параметрів сповіщення &kde; для &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Запуск таймера приготування чаю</title>
+
+<para
+>Щоб запустити таймер приготування чаю, оберіть тип чаю з контекстного меню. Щоб підтвердити запуск таймера, програма покаже на піктограмі панелі позначку часу, що залишився до завершення процедури.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Налаштувати</title>
+
+<para
+>За допомогою цього пункту меню можна відкрити діалогове вікно налаштування. Його знімок наведено нижче:</para>
+
+<screenshot>
+<screeninfo
+>Діалогове вікно налаштування &kteatime;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Діалогове вікно налаштування &kteatime;.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Як видно з зображення, ви можете додавати нові записи для інших різновидів чаю або змінювати назви, час приготування і порядок існуючих записів. Це вікно корисне, якщо ви заварюєте різновиду чаю, якого немає у списку, або ви не згодні з попередньо визначеним часом приготування. Щоб змінити запис, позначте його у <guilabel
+>Списку чаїв</guilabel
+>, розташованому ліворуч, і змініть значення у <guilabel
+>Властивостях чаю</guilabel
+>, показаних праворуч.</para>
+
+<para
+>Панель, розташована нижче, — це поле <guilabel
+>Дії</guilabel
+>. У ньому ви можете визначити дію, яка виконуватиметься, коли чай буде заварено. За допомогою пункту <guilabel
+>Сповіщення</guilabel
+>, можна увімкнути подію, вказану у параметрах сповіщення &kde;. </para>
+
+<para
+>Якщо ви залишите позначку у полі <guilabel
+>Показувати поступ в системному лотку</guilabel
+>, поступ приготування буде відображено у вигляді маленького анімованого будильника всередині піктограми.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Подяки</title>
+
+<para
+>Авторські права на &kteatime; належать &copy; 1998-1999 &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Авторські права на документацію належать &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

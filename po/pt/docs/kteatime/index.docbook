@@ -1,0 +1,222 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Portuguese "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>O Manual do &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-07-06</date>
+<releaseinfo
+>1.3.0 (Aplicações 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Este manual descreve o &kteatime;, o Cozinheiro de Chás do &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>chá</keyword>
+<keyword
+>cozinheiro</keyword>
+<keyword
+>temporizador</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<sect1 id="whats-kteatime">
+<title
+>O que é o &kteatime;?</title>
+
+<para
+>O &kteatime; é um temporizador prático para preparar um chá. Já não terá mais que adivinhar quanto tempo precisa para que o seu chá fique pronto. Basta escolher o tipo de chá que quer, e ele alertar-o quando o chá estiver pronto para beber.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Como Usar o &kteatime;</title>
+
+<para
+>Quando iniciar o &kteatime; ele acoplar-se-á automaticamente no seu painel. Para aceder ao menu, carregue com o botão direito do rato no ícone acoplado. Este fará aparecer uma lista de opções que serão cobertas com mais detalhe no próximo capítulo.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Temporizar o seu Chá</title>
+
+<para
+>Depois de iniciar, o ícone do painel será o de uma caneca de chá vazia. Se carregar nela com o &RMB; e seleccionar o seu chá, o ícone irá mudar para um relógio animado que representa o tempo restante. Depois de o período indicado passar, o chá estará pronto e aparecerá uma mensagem. Nessa altura, poderá fechar a janela, carregando nele e ser reinicializado o temporizador, carregando no ícone de novo. O relógio na caneca irá então desaparecer de novo.</para>
+
+<note
+><para
+>o temporizador só deve ser reinicializado por aqueles que gostam mesmo de chá.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Opções do Menu</title>
+
+<para
+>A secção seguinte descreve as opções do menu que estão disponíveis no &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Seleccionar o seu Chá</title>
+
+<para
+>Se carregar no ícone com o &RMB;, irá aparecer um menu. No topo do menu, estão três opções. Aqui pode seleccionar qual o tipo de chá que está a preparar. As opções são: <guimenuitem
+>Chá Preto</guimenuitem
+>, <guimenuitem
+>Chá Cinzento</guimenuitem
+>, <guimenuitem
+>Chá de Frutos</guimenuitem
+> e <guimenuitem
+>Chá Verde</guimenuitem
+>. Esses chás têm um tempo predefinido; muitas pessoas se queixaram que os tempos não estão correctos. Lembre-se que a quantidade de tempo que leva a preparar uma chávena de chá é baseado nas preferências da pessoa. Os tempos escolhidos são aproximações. Se continuar a ler, irá aprender a definir o seu próprio tempo. Uma forma simples e rápida de definir um tempo personalizado é escolher a opção <guimenuitem
+>Anónimo...</guimenuitem
+> do menu.</para>
+
+<para
+>Se carregar em <guimenuitem
+>Configurar as Notificações...</guimenuitem
+>, fará aparecer a Configuração das Notificações do &kde; para o &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Iniciar o Temporizador do Chá</title>
+
+<para
+>Para iniciar o temporizador do chá, seleccione um chá no menu de contexto. Como confirmação de que realmente iniciou o temporizador, irá aparecer uma relógio que mostra o tempo restante no ícone do painel.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Configurar</title>
+
+<para
+>Este item do menu abre a janela de configuração. É mostrada uma imagem a seguir:</para>
+
+<screenshot>
+<screeninfo
+>A janela de configuração do &kteatime;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela de configuração do &kteatime;.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Como é mostrado na figura, pode adicionar itens novos para outros chás ou modificar os nomes, tempos e a ordem dos itens existentes. Isto é útil se está a preparar um chá que não esteja na lista, ou que não esteja de acordo com os tempos predefinidos. Para editar um item, marque-o na <guilabel
+>Lista de Chás</guilabel
+> à esquerda e mude os valores nas <guilabel
+>Propriedades do Chá</guilabel
+> à direita.</para>
+
+<para
+>O campo abaixo é a <guilabel
+>Acção</guilabel
+>. Aqui poderá definir uma acção que será executada quando terminar o tempo. Se o botão <guibutton
+>Mensagem</guibutton
+> estiver seleccionado, irá aparecer uma mensagem a alertá-lo do facto de o seu chá estar pronto. </para>
+
+<para
+>Se activar a opção chamada <guilabel
+>Visualizar o progresso na bandeja do sistema</guilabel
+>, o progresso será apresentado como um pequeno relógio animado dentro do ícone.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 por &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Documentação de &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

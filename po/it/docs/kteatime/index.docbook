@@ -1,0 +1,235 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Italian "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Manuale di &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>Nicola</firstname
+><surname
+>Ruggero</surname
+><affiliation
+><address
+><email
+>nicola@nxnt.org</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Cozzi</surname
+><affiliation
+><address
+><email
+>federicocozzi@federicocozzi.it</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-07-06</date>
+<releaseinfo
+>1.3.0 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Questo manuale descrive &kteatime;, la teiera di &kde;.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>tè</keyword>
+<keyword
+>teiera</keyword>
+<keyword
+>timer</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Che cos'è &kteatime;?</title>
+
+<para
+>&kteatime; è un comodo timer per fare il tè. Non è più necessario indovinare quanto tempo ci vuole prima che il tè sia pronto! Seleziona il tipo di tè che desideri e il programma ti avviserà quanto il tè è pronto.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Come usare &kteatime;</title>
+
+<para
+>All'avvio, &kteatime; si posizionerà automaticamente nel pannello. Per accedere al menu, fa clic con il tasto destro sull'icona nel pannello. Apparirà una lista di opzioni descritte più in dettaglio nel prossimo capitolo.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Misurare il tempo del tuo tè</title>
+
+<para
+>All'avvio, l'icona nel pannello rappresenta una tazza di tè. Se fai clic con il &RMB; sulla tazza e selezioni il tipo di tè, l'icona rappresenterà una tazza piena. Trascorso il tempo specificato, il tè sarà pronto e verrà mostrato un messaggio di testo apposito. A questo punto è possibile far scomparire il messaggio di testo facendoci clic sopra e riavviare il timer facendo clic sull'icona. La tazza verrà nuovamente mostrata vuota.</para>
+
+<note
+><para
+>Il timer dovrebbe essere azzerato solo da chi ama veramente il tè.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Opzioni del menu</title>
+
+<para
+>La seguente sezione descrive le opzioni del menu disponibili in &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Seleziona il tuo tè</title>
+
+<para
+>Facendo clic sull'icona con il &RMB; compare un menu. In cima al menu ci sono quattro voci. Qui puoi selezionare il tipo di tè che vuoi preparare. Le voci sono: <guimenuitem
+>Tè nero</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+>, <guimenuitem
+>Tè alla frutta</guimenuitem
+> e <guimenuitem
+>Tè verde</guimenuitem
+>. Il tempo necessario per questi tè è preconfigurato. Molte persone si sono lamentate del fatto che questi tempi non sono corretti. Attenzione, il tempo necessario per preparare il tè dipende dai propri gusti. I tempi scelti sono delle approssimazioni. Se prosegui nella lettura del manuale, scoprirai come impostare dei tempi personalizzati. Un modo facile e veloce per definire un tempo personalizzato è usare la voce <guimenuitem
+>Personalizzato...</guimenuitem
+> dal menu.</para>
+
+<para
+>Il pulsante <guibutton
+>Configura notifiche...</guibutton
+> apre le impostazioni delle notifiche di &kde; per &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Avvia il timer del tè</title>
+
+<para
+>Per avviare il timer del tè, seleziona un tè dal menu contestuale. Come conferma che sia stato avviato il tempo, viene mostrato un orologio nell'icona che indica il tempo mancante.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Configura</title>
+
+<para
+>Questa voce di menu apre la finestra di configurazione. Ecco come appare la finestra:</para>
+
+<screenshot>
+<screeninfo
+>La finestra di configurazione di &kteatime;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La finestra di configurazione di &kteatime;.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Come mostrato nell'immagine, puoi immettere nuove voci per altri tè oppure cambiare i nomi, i tempi e l'ordine delle voci esistenti. Ciò è utile se vuoi farti una tazza di tè non compresa nell'elenco, oppure se non sei d'accordo con i tempi predefiniti. Per modificare una voce selezionala nella <guilabel
+>Lista dei tè</guilabel
+> a sinistra e cambia i valori nelle <guilabel
+>Caratteristiche del tè</guilabel
+> a destra.</para>
+
+<para
+>La cornice qui sotto è il campo <guilabel
+>Azione</guilabel
+>. Qui puoi definire un'azione che verrà eseguita quando il tempo è terminato. Se è selezionato <guilabel
+>Finestra a comparsa</guilabel
+>, comparirà un messaggio avvisandoti che il tè è pronto. </para>
+
+<para
+>Se abiliti la casellina <guilabel
+>Mostra avanzamento nel vassoio di sistema</guilabel
+>, l'avanzamento verrà mostrato come un piccolo orologio animato all'interno dell'icona.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Riconoscimenti</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 di &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Documentazione di &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+><email
+>federicocozzi@federicocozzi.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

@@ -1,0 +1,241 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % German "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Das Handbuch zu &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+> <firstname
+>Michael</firstname
+> <surname
+>Korman</surname
+> <affiliation
+> <address
+><email
+>michael.korman@uconn.edu</email
+></address
+> </affiliation
+> <contrib
+>Übersetzung</contrib
+></othercredit
+> <othercredit role="translator"
+> <firstname
+>Patrick</firstname
+> <surname
+>Trettenbrein</surname
+> <affiliation
+> <address
+><email
+>patrick.trettenbrein@kdemail.net</email
+></address
+> </affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-07-06</date>
+<releaseinfo
+>1.3.0 (Anwendungen 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Dieses Handbuch beschreibt &kteatime;, den &kde;-Teekocher.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>Tee</keyword>
+<keyword
+>Kocher</keyword>
+<keyword
+>Zeitmesser</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Was ist &kteatime;?</title>
+
+<para
+>&kteatime; ist ein praktischer Zeitmesser für ziehenden Tee. Sie brauchen nicht länger schätzen, wie lange es dauert, bis Ihr Tee fertig ist. Wählen Sie einfach die Teesorte, die Sie haben, und Sie werden informiert, sobald Ihr Tee trinkfertig ist.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Wie Sie &kteatime; benutzen</title>
+
+<para
+>Wenn Sie &kteatime; starten, bindet es sich automatisch in den Systemabschnitt der Kontrollleiste ein. Um auf das Menü zuzugreifen, klicken Sie mit der &RMBn; auf das Symbol. In diesem Menü gibt es eine Reihe von Einstellungen, die im nächsten Kapitel genauer beschrieben werden.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Geben Sie Ihrem Tee Zeit</title>
+
+<para
+>Nach dem Starten erscheint das Symbol einer Teetasse im Systemabschnitt der Kontrollleiste. Klicken Sie mit der &RMBn; auf dieses Symbol und wählen Sie Ihren Tee, wird eine animierte Uhr mit der verbleibenden Zeit auf der Teetasse angezeigt. Nach der angegebenen Zeit ist der Tee fertig und eine entsprechende Nachricht erscheint. Die Nachricht schließen Sie durch einen Klick darauf, damit wird auch der Zeitmesser zurück gesetzt und das Symbol erscheint nun wieder als Teetasse ohne Uhr.</para>
+
+<note
+><para
+>Der Zeitmesser sollte nur von jenen zurückgesetzt werden, die ihren Tee wirklich genießen.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Menü-Einstellungen</title>
+
+<para
+>Der folgende Abschnitt beschreibt die Menü-Einstellungen, die in &kteatime; zur Verfügung stehen.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Wählen Sie Ihren Tee</title>
+
+<para
+>Wenn Sie mit der &RMBn; auf das Symbol klicken, öffnet sich ein Menü. Im oberen Bereich des Menüs befinden sich vier Menüpunkte. Sie können hier auswählen, welchen Tee Sie gerade zubereiten. Es stehen <guimenuitem
+>Schwarzer Tee</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+> <guimenuitem
+>Früchtetee</guimenuitem
+> und <guimenuitem
+>Grüner Tee</guimenuitem
+> zur Verfügung. Diese Teesorten haben eine voreingestellte Standardzeit. Es gab Beschwerden, dass diese Zeiten nicht korrekt sind. Beachten Sie dabei bitte, dass diese Zeiten auf persönlichen Vorlieben beruhen. Die gewählten Zeiten sind Annäherungen. Wenn Sie weiterlesen, erfahren Sie, wie Sie diese Zeiten ändern oder löschen, und Ihre eigenen Zeiten festlegen können. Eine einfache, schnelle Möglichkeit, eine eigene Zeit zu setzen ist, <guimenuitem
+>Benutzerdefiniert ...</guimenuitem
+> aus dem Menü zu wählen.</para>
+
+<para
+>Der Knopf <guibutton
+>Benachrichtigungen festlegen ...</guibutton
+> öffnet den &kde;-Standarddialog für die Benachrichtigungs-Einstellungen für &kteatime;. </para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Starten der Zeitmessung</title>
+
+<para
+>Um die Zeitmessung zu starten, wählen Sie einen Tee aus dem Kontextmenü. Als Bestätigung für den Start wird eine animierte Uhr mit der verbleibenden Zeit im Symbol in der Kontrollleiste angezeigt.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Einrichten ...</title>
+
+<para
+>Dieser Menüpunkt öffnet den Einrichtungsdialog, wie auf dem Bildschirmfoto unten zu sehen:</para>
+
+<screenshot>
+<screeninfo
+>Der &kteatime;-Einrichtungsdialog.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Der &kteatime;-Einrichtungsdialog.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Wie im Bild gezeigt, können Sie neue Einträge für andere Tees hinzufügen und die Namen, Zeiten und Reihenfolge der existierenden Einträge ändern. Dies ist dann sinnvoll, wenn Sie einen Tee zubereiten, der nicht auf der Liste steht oder Sie mit den Zeiten nicht einverstanden sind. Um einen Eintrag zu bearbeiten, markieren Sie ihn in der <guilabel
+>Teeliste</guilabel
+> links und ändern Sie die Werte in den <guilabel
+>Tee-Eigenschaften</guilabel
+> rechts.</para>
+
+<para
+>Im darunterliegenden Bereich <guilabel
+>Aktion</guilabel
+> können Sie einstellen, was geschehen soll, wenn die Zeit abgelaufen ist. Ist <guilabel
+>Meldungsfenster</guilabel
+> markiert, wird eine Nachricht angezeigt, die Sie daran erinnert, dass Ihr Tee fertig ist. </para>
+
+<para
+>Ist das Ankreuzfeld <guilabel
+>Fortschritt im Systembereich der Kontrollleiste anzeigen</guilabel
+> markiert, wird die fortschreitende Zeit als kleine animierte Uhr innerhalb des Symbols dargestellt.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 von &Matthias.Hoelzer-Kluepfel;&Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Dokumentation von &Michael.Korman; &Michael.Korman.mail; überarbeitet von Patrick Trettenbrein <email
+>patrick.trettenbrein@kdemail.net</email
+></para>
+
+<para
+>Übersetzung Michael Korman<email
+>michael.korman@uconn.edu</email
+></para
+> <para
+>Patrick Trettenbein<email
+>patrick.trettenbrein@kdemail.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

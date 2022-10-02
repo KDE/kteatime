@@ -1,0 +1,203 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Dutch "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>Het handboek van &kteatime;</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+&Niels.Reedijk;&Tom.Albers;&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-07-06</date>
+<releaseinfo
+>1.3.0 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Dit handboek beschrijft &kteatime;, de &kde; theezetter.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>thee</keyword>
+<keyword
+>zetter</keyword>
+<keyword
+>tijdklok</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Wat is &kteatime;?</title>
+
+<para
+>&kteatime; is een handige tijdklok voor het zetten van thee. U hoeft niet langer te gokken wanneer uw thee sterk genoeg is. Selecteer de theesoort en een waarschuwing verschijnt wanneer de thee klaar is om opgedronken te worden.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>&kteatime; gebruiken</title>
+
+<para
+>Wanneer &kteatime; gestart wordt, nestelt het zich automatisch als applet in het systeemvak. Om het menu op te roepen, klikt u rechts op het pictogram. Dit toont een lijst met keuzemogelijkheden, die in detail worden besproken in het volgende hoofdstuk.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Tijdklok starten</title>
+
+<para
+>Het pictogram toont in eerste instantie een theekopje. Als u klikt met de &RMB; op het kopje en u selecteert uw theesoort dan verschijnt er een lopend klokje dat de wachttijd aangeeft op het kopje. Na een ingesteld aantal seconden zal de thee klaar zijn en verschijnt er een bijpassend berichtenvakje. U kunt het vakje dan sluiten door er op te klikken. Dit reset de klok en deze verdwijnt van het kopje.</para>
+
+<note
+><para
+>De tijdklok kan alleen maar gebruikt worden door mensen die echt van thee houden.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Menuopties</title>
+
+<para
+>Het volgende gedeelte beschrijft de verschillende menuopties die beschikbaar zijn in &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Selecteer uw thee</title>
+
+<para
+>Door met &RMB; op het pictogram te klikken krijgt u een menu. Bovenaan het menu staan vier menu-items. Dit zijn: <guimenuitem
+>Zwarte thee</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+>, <guimenuitem
+>Vruchtenthee</guimenuitem
+> en <guimenuitem
+>Groene thee</guimenuitem
+>. Deze hebben standaard ook een bepaalde theetijd. Veel mensen hebben geklaagd dat deze tijden niet correct zijn. Bedenk dat de tijd die benodigd is voor het zetten van thee erg persoonlijk is. De gekozen tijden zijn benaderingen. Indien u verder leest, leest u hoe u de tijden kunt veranderen. Indien u handmatig een tijd wilt opgeven, kies dan voor <guimenuitem
+>Aangepast...</guimenuitem
+> uit het menu.</para>
+
+<para
+>Klikken op <guimenuitem
+>Meldingen instellen...</guimenuitem
+> laat de Instellingen voor meldingen voor &kteatime; van &kde; zien.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Start de thee-wekker</title>
+
+<para
+>Om de thee-wekker te starten selectert u  een thee uit het contextmenu. Als bevestiging dat u inderdaad de wekker hebt gezet, is er een klok zichtbaar met de overblijvende tijd in het paneelpictogram.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Instellen</title>
+
+<para
+>Dit opent het instellingenvenster. Een schermafdruk is hieronder te zien:</para>
+
+<screenshot>
+<screeninfo
+>Het &kteatime; instellingenvenster</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Het &kteatime; instellingenvenster</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Zoals te zien is, kunt u zelf nieuwe items voor andere theesoorten toevoegen of namen, tijden en de volgorde van bestaande items aanpassen. Dit is nuttig als u een kop thee zet die niet in de lijst staat of u bent het niet eens met de voorgedefinieerde tijden. Om een item te bewerken markeert u het in de <guilabel
+>Theelijst</guilabel
+> links en wijzigt de waarden in <guilabel
+>Thee-eigenschappen</guilabel
+> rechts.</para>
+
+<para
+>Het onderstaande vakje is het <guilabel
+>Actie</guilabel
+>-veld. Hier kunt u definiëren welke actie er moet worden uitgevoerd als de wekker afloopt. Als <guilabel
+>Popup</guilabel
+> is geselecteerd zal een meldingsvak verschijnen om u te laten weten dat uw thee klaar is om opgedronken te worden. </para>
+
+<para
+>Als u het keuzevakje genaamd <guilabel
+>Voortgang tonen in systeemvak</guilabel
+> activeert, dan zal de voortgang getoond worden als een kleine geanimeerde klok in het pictogram.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Erkenningen</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999  &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Documentatie door &Michael.Korman; &Michael.Korman.mail;</para>
+
+&meld.fouten;&vertaling.niels;&vertaling.tom;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+

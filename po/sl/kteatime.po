@@ -1,0 +1,460 @@
+# Slovenian translation of kteatime.
+# Copyright (C) 2001 - 2011 Free Software Foundation, Inc.
+#
+#
+# Tomaz Erjavec <Tomaz.Erjavec@ijs.si>, 2000.
+# Gregor Rakar <gregor.rakar@kiss.si>, 2003 - 2005.
+# Jure Repinc <jlp@holodeck1.com>, 2006, 2009 - 2011.
+# Jaka Kranjc <lynxlynxlynx@sourcemage.org>, 2007.
+# Klemen Košir <klemen.kosir@gmx.com>, 2011.
+# Andrej Mernik <andrejm@ubuntu.si>, 2014.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2019, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kteatime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"PO-Revision-Date: 2021-01-18 08:25+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: src/main.cpp:31
+#, kde-format
+msgid "KTeaTime"
+msgstr "KTeaTime"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "KDE utility for making a fine cup of tea."
+msgstr "Pripomoček KDE za pripravo dobre skodelice čaja."
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+msgstr ""
+"© 1998-1999, Matthias Hoelzer-Kluepfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Current maintainer"
+msgstr "Trenutni vzdrževalec"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Matthias Hölzer-Klüpfel"
+msgstr "Matthias Hölzer-Klüpfel"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Martin Willers"
+msgstr "Martin Willers"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Daniel Teske"
+msgstr "Daniel Teske"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Many patches"
+msgstr "Mnogi popravki"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Tomaž Erjavec,Marko Samastur,Gregor Rakar,Klemen Košir,Andrej Mernik,Matjaž "
+"Jeran"
+
+#: src/main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"tomaz.erjavec@ijs.si,markos@elite.org,gregor.rakar@kiss.si,klemen.kosir@gmx."
+"com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
+
+#: src/main.cpp:76
+#, kde-format
+msgid "Start a new tea with this time."
+msgstr "Začni nov čaj s tem časom."
+
+#: src/main.cpp:76
+#, kde-format
+msgid "seconds"
+msgstr "sekund"
+
+#: src/main.cpp:78
+#, kde-format
+msgid "Use this name for the tea started with --time."
+msgstr "Uporabi to ime za čaj, začet s --time."
+
+#: src/main.cpp:78
+#, kde-format
+msgid "name"
+msgstr "ime"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
+#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/timeedit.ui:14
+#, kde-format
+msgid "Custom Tea"
+msgstr "Čaj po meri"
+
+#: src/settings.cpp:40
+#, kde-format
+msgid "Configure Tea Cooker"
+msgstr "Nastavi Kuhalnik čaja"
+
+#: src/settings.cpp:53
+#, kde-format
+msgid "Save changes and close dialog."
+msgstr "Shrani spremembe in zapri pogovorno okno."
+
+#: src/settings.cpp:54
+#, kde-format
+msgid "Close dialog without saving changes."
+msgstr "Zapri okno brez shranitve sprememb."
+
+#: src/settings.cpp:55
+#, kde-format
+msgid "Show help page for this dialog."
+msgstr "Pokaži pomoč za to okno."
+
+#: src/settings.cpp:84
+#, kde-format
+msgctxt "Auto hide popup after"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " sekundi"
+msgstr[1] " sekundah"
+msgstr[2] " sekundah"
+msgstr[3] " sekundah"
+
+#: src/settings.cpp:85
+#, kde-format
+msgctxt "Reminder every"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " sekundo"
+msgstr[1] " sekundi"
+msgstr[2] " sekunde"
+msgstr[3] " sekund"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
+#: src/settings.ui:18
+#, kde-format
+msgid "Tea List"
+msgstr "Seznam čajev"
+
+#. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
+#: src/settings.ui:122
+#, kde-format
+msgid "Tea Properties"
+msgstr "Lastnosti čaja"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/settings.ui:128 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Name"
+msgstr "Ime"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/settings.ui:142 src/tealistmodel.cpp:100
+#, kde-format
+msgid "Time"
+msgstr "Čas"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/settings.ui:159
+#, kde-format
+msgid "min"
+msgstr "min"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/settings.ui:176
+#, kde-format
+msgid "sec"
+msgstr "s"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
+#: src/settings.ui:199
+#, kde-format
+msgid "Action"
+msgstr "Dejanje"
+
+#. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
+#: src/settings.ui:205
+#, kde-format
+msgid "Popup"
+msgstr "Pojavno okno"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
+#: src/settings.ui:236
+#, kde-format
+msgid "Auto hide popup after"
+msgstr "Samodejno skrij pojavno okno po"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
+#: src/settings.ui:285
+#, kde-format
+msgid "Reminder every"
+msgstr "Opomnik vsakih"
+
+#. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
+#: src/settings.ui:332
+#, kde-format
+msgid "Visualize progress in icon tray"
+msgstr "Prikaži napredek v sistemski vrstici"
+
+#: src/tea.cpp:64
+#, kde-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "%1 leto"
+msgstr[1] "%1 leti"
+msgstr[2] "%1 leta"
+msgstr[3] "%1 let"
+
+#: src/tea.cpp:67
+#, kde-format
+msgid "%1 a"
+msgid_plural "%1 a"
+msgstr[0] "%1 l"
+msgstr[1] "%1 l"
+msgstr[2] "%1 l"
+msgstr[3] "%1 l"
+
+#: src/tea.cpp:77
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 dan"
+msgstr[1] "%1 dneva"
+msgstr[2] "%1 dni"
+msgstr[3] "%1 dni"
+
+#: src/tea.cpp:80
+#, kde-format
+msgid "%1 d"
+msgid_plural "%1 d"
+msgstr[0] "%1 d"
+msgstr[1] "%1 d"
+msgstr[2] "%1 d"
+msgstr[3] "%1 d"
+
+#: src/tea.cpp:90
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] "%1 ura"
+msgstr[1] "%1 uri"
+msgstr[2] "%1 ure"
+msgstr[3] "%1 ur"
+
+#: src/tea.cpp:93
+#, kde-format
+msgid "%1 h"
+msgid_plural "%1 h"
+msgstr[0] "%1 h"
+msgstr[1] "%1 h"
+msgstr[2] "%1 h"
+msgstr[3] "%1 h"
+
+#: src/tea.cpp:103
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minuti"
+msgstr[2] "%1 minute"
+msgstr[3] "%1 minut"
+
+#: src/tea.cpp:106
+#, kde-format
+msgid "%1 min"
+msgid_plural "%1 min"
+msgstr[0] "%1 min"
+msgstr[1] "%1 min"
+msgstr[2] "%1 min"
+msgstr[3] "%1 min"
+
+#: src/tea.cpp:116
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 sekunda"
+msgstr[1] "%1 sekundi"
+msgstr[2] "%1 sekunde"
+msgstr[3] "%1 sekund"
+
+#: src/tea.cpp:119
+#, kde-format
+msgid "%1 s"
+msgid_plural "%1 s"
+msgstr[0] "%1 s"
+msgstr[1] "%1 s"
+msgstr[2] "%1 s"
+msgstr[3] "%1 s"
+
+#: src/tealistmodel.cpp:68
+#, kde-format
+msgid " ("
+msgstr " ("
+
+#: src/tealistmodel.cpp:70
+#, kde-format
+msgid ")"
+msgstr ")"
+
+#: src/tealistmodel.cpp:113
+#, kde-format
+msgid "Unnamed Tea"
+msgstr "Neimenovan čaj"
+
+#: src/timeedit.cpp:41
+#, kde-format
+msgid "Start a new custom tea with the time configured in this dialog."
+msgstr "Začni nov čaj po meri s časom, nastavljenim v tem oknu."
+
+#: src/timeedit.cpp:44
+#, kde-format
+msgid "Close this dialog without starting a new tea."
+msgstr "Zapri to okno brez začetka kuhanja novega čaja."
+
+#: src/timeedit.cpp:56
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuta"
+msgstr[1] " minuti"
+msgstr[2] " minute"
+msgstr[3] " minut"
+
+#: src/timeedit.cpp:57
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " sekunda"
+msgstr[1] " sekundi"
+msgstr[2] " sekunde"
+msgstr[3] " sekund"
+
+#. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
+#: src/timeedit.ui:32
+#, kde-format
+msgid "Tea time:"
+msgstr "Čas kuhanja:"
+
+#: src/toplevel.cpp:49
+#, kde-format
+msgid "Unknown Tea"
+msgstr "Neznan čaj"
+
+#: src/toplevel.cpp:59
+#, kde-format
+msgid "Black Tea"
+msgstr "Črni čaj"
+
+#: src/toplevel.cpp:60
+#, kde-format
+msgid "Earl Grey"
+msgstr "Earl Grey"
+
+#: src/toplevel.cpp:61
+#, kde-format
+msgid "Fruit Tea"
+msgstr "Sadni čaj"
+
+#: src/toplevel.cpp:62
+#, kde-format
+msgid "Green Tea"
+msgstr "Zeleni čaj"
+
+#: src/toplevel.cpp:72
+#, kde-format
+msgid "&Resume"
+msgstr "Povzetek"
+
+#: src/toplevel.cpp:78
+#, kde-format
+msgid "&Pause"
+msgstr "&Pavza"
+
+#: src/toplevel.cpp:84
+#, kde-format
+msgid "&Stop"
+msgstr "Zaustavi"
+
+#: src/toplevel.cpp:90
+#, kde-format
+msgid "&Configure..."
+msgstr "Nastavi..."
+
+#: src/toplevel.cpp:98
+#, kde-format
+msgid "&Custom..."
+msgstr "Po meri..."
+
+#: src/toplevel.cpp:155
+#, kde-format
+msgid "No steeping tea."
+msgstr "Noben čaj ne stoji."
+
+#: src/toplevel.cpp:208
+#, kde-format
+msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#, kde-format
+msgid "The Tea Cooker"
+msgstr "Kuhalnik čaja"
+
+#: src/toplevel.cpp:296
+#, kde-format
+msgid "%1 is now ready!"
+msgstr "%1 je pripravljen!"
+
+#: src/toplevel.cpp:316
+#, kde-format
+msgid "%1 is ready since %2!"
+msgstr "%1 je pripravljen že %2!"
+
+#: src/toplevel.cpp:332
+#, kde-format
+msgctxt "%1 is the time, %2 is the name of the tea"
+msgid "%1 left for %2."
+msgstr "%2 bo pripravljen čez %1."
+
+#~ msgid "Anonymous Tea"
+#~ msgstr "Brezimen čaj"
+
+#~ msgid "&Anonymous..."
+#~ msgstr "Brezimen..."
+
+#~ msgid "Configure &amp;Notifications..."
+#~ msgstr "Nastavi &obvestila ..."
+
+#~ msgid "Configure notifications"
+#~ msgstr "Nastavi obvestila"
