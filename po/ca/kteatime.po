@@ -411,16 +411,3 @@ msgstr "El %1 ja està preparat des de %2!"
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
 msgstr "Queden %1 per a %2."
-
-#~ msgid "Anonymous Tea"
-#~ msgstr "Te anònim"
-
-# skip-rule: common-te
-#~ msgid "&Anonymous..."
-#~ msgstr "Te &anònim..."
-
-#~ msgid "Configure &amp;Notifications..."
-#~ msgstr "Configura les &amp;notificacions..."
-
-#~ msgid "Configure notifications"
-#~ msgstr "Configura les notificacions"
