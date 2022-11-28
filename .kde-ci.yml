@@ -6,7 +6,7 @@ Dependencies:
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/kconfig': '@stable'
-    'frameworks/crash': '@stable'
+    'frameworks/kcrash': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/kiconthemes': '@stable'
