@@ -110,8 +110,8 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     connect(mUi->downButton, &QToolButton::clicked, this, &SettingsDialog::downButtonClicked);
 
     connect(mUi->teaNameEdit, &QLineEdit::textChanged, this, &SettingsDialog::nameValueChanged);
-    connect(mUi->minutesSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
-    connect(mUi->secondsSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &SettingsDialog::timeValueChanged);
+    connect(mUi->minutesSpin, &QSpinBox::valueChanged, this, &SettingsDialog::timeValueChanged);
+    connect(mUi->secondsSpin, &QSpinBox::valueChanged, this, &SettingsDialog::timeValueChanged);
 }
 
 SettingsDialog::~SettingsDialog()
