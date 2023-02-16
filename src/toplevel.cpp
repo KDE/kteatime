@@ -26,7 +26,7 @@
 #include <KNotification>
 #include <KNotifyConfigWidget>
 #include <KSharedConfig>
-
+#include <KIconUtils>
 
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
   : QSystemTrayIcon( parent ),
@@ -258,7 +258,7 @@ void TopLevel::runTea(const Tea &tea)
 
 void TopLevel::repaintTrayIcon()
 {
-    QPixmap icon( KIconLoader::global()->loadIcon( m_iconName, KIconLoader::Panel ) );
+    QPixmap icon = QIcon::fromTheme(m_iconName).pixmap(KIconLoader::SizeLarge);
     if ( m_runningTeaTime <= 0) {
         setIcon(icon);
         return;
@@ -277,11 +277,12 @@ void TopLevel::repaintTrayIcon()
         painter.drawPie( rectangle, startAngle, 360*16 + angleSpan );
         painter.setBrush( QColor( 255, 0, 0, 90 ) );
         painter.drawPie( rectangle, startAngle, angleSpan );
-    } else {
-        KIconLoader::global()->drawOverlays(QStringList() << QStringLiteral( "alarm-symbolic" ), icon, KIconLoader::Panel);
-    }
 
-    setIcon(icon);
+        setIcon(icon);
+    } else {
+        QPixmap overlayedIcon = KIconUtils::addOverlays(m_iconName, {QStringLiteral( "alarm-symbolic" )}).pixmap(KIconLoader::SizeLarge);
+        setIcon(overlayedIcon);
+    }
 }
 
 

@@ -38,6 +38,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
   Config
   CoreAddons
   Crash
+  GuiAddons
   I18n
   IconThemes
   NotifyConfig
