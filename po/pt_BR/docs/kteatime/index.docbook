@@ -1,7 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
- <!ENTITY kappname "&kteatime;">
- <!ENTITY package "kdetoys">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % Brazilian-Portuguese "INCLUDE">
 ]>
@@ -47,9 +45,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->11/09/2014</date>
+>06/07/2016</date>
 <releaseinfo
->1.2.2 (&kde; 4.14)</releaseinfo>
+>1.3.0 (Applications 16.04)</releaseinfo>
 
 <abstract>
 <para
@@ -128,8 +126,14 @@
 > e <guimenuitem
 >Chá Verde</guimenuitem
 >. Esses chás têm um tempo pré-definido. Muitas pessoas se queixaram que os tempos não estão corretos. Lembre-se de que a quantidade de tempo que leva para preparar uma caneca de chá é baseado nas preferências pessoais. Os tempos escolhidos são aproximações. Se continuar lendo este documento, irá aprender a alterar ou remover estes tempos pré-definidos e definir o seu próprio tempo. Um jeito rápido e fácil de definir um tempo personalizado é escolher <guimenuitem
->Anônimo...</guimenuitem
+>Personalizado...</guimenuitem
 > no menu.</para>
+
+<para
+>Clicando em <guimenuitem
+>Configurar notificações...</guimenuitem
+> irá mostrar as Configurações de notificações do &kde; para o &kteatime;.</para>
+
 </sect1>
 
 <sect1 id="start">
@@ -172,9 +176,7 @@
 >Ação</guilabel
 >. Aqui você poderá definir uma ação que será executada quando terminar o tempo. Se a <guilabel
 >Mensagem</guilabel
-> estiver selecionada, aparecerá uma janela de mensagem que o alerta do fato de o seu chá estar pronto. O botão <guilabel
->Configurar as Notificações</guilabel
-> invoca a janela de Configuração de Notificações do &kde; para o &kteatime;.</para>
+> estiver selecionada, aparecerá uma janela de mensagem que o alerta do fato de o seu chá estar pronto. </para>
 
 <para
 >Se você habilitar a caixa de verificação chamada <guilabel
@@ -198,8 +200,7 @@
 >Tradução de Marcus Gama <email
 >marcus.gama@gmail.com</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 
