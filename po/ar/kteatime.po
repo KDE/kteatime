@@ -32,7 +32,7 @@ msgstr "برنامج وقت الشاي KTeaTime"
 #: src/main.cpp:32
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
-msgstr "أداة واجهة كدي لعمل فنجان شاي ممتاز."
+msgstr "أداة واجهة كِيدِي لعمل فنجان شاي ممتاز."
 
 #: src/main.cpp:34
 #, kde-format
