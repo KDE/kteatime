@@ -75,7 +75,7 @@ int main (int argc, char *argv[])
 
     QCommandLineOption timeOption(QStringList() << QStringLiteral("t") << QStringLiteral("time"), i18n("Start a new tea with this time."), i18n("seconds"));
     parser.addOption(timeOption);
-    QCommandLineOption nameOption(QStringList() << QStringLiteral("n") << QStringLiteral("name"), i18n("Use this name for the tea started with --time."), i18n("name"));
+    QCommandLineOption nameOption(QStringList() << QStringLiteral("n") << QStringLiteral("tea-name"), i18n("Use this name for the tea started with --time."), i18n("name"));
     parser.addOption(nameOption);
 
     parser.process(app);
