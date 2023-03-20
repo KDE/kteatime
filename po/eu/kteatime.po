@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"POT-Creation-Date: 2023-03-20 00:53+0000\n"
 "PO-Revision-Date: 2021-08-06 12:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -392,22 +392,22 @@ msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#: src/toplevel.cpp:291 src/toplevel.cpp:406
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "Teontzia"
 
-#: src/toplevel.cpp:296
+#: src/toplevel.cpp:297
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "%1 prest dago!"
 
-#: src/toplevel.cpp:316
+#: src/toplevel.cpp:317
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "%1 prest dago %2-tik!"
 
-#: src/toplevel.cpp:332
+#: src/toplevel.cpp:333
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."

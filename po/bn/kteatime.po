@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-01-04 00:48+0000\n"
+"POT-Creation-Date: 2023-03-20 00:53+0000\n"
 "PO-Revision-Date: 2006-04-04 09:30+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -401,24 +401,24 @@ msgid "%1 (%2)"
 msgstr ""
 
 # FIXME
-#: src/toplevel.cpp:290 src/toplevel.cpp:405
+#: src/toplevel.cpp:291 src/toplevel.cpp:406
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "চায়ের কেটলি"
 
-#: src/toplevel.cpp:296
+#: src/toplevel.cpp:297
 #, fuzzy, kde-format
 #| msgid "The %1 is now ready!"
 msgid "%1 is now ready!"
 msgstr "%1 তৈরি হয়ে গিয়েছে!"
 
-#: src/toplevel.cpp:316
+#: src/toplevel.cpp:317
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr ""
 
 # FIXME
-#: src/toplevel.cpp:332
+#: src/toplevel.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 left for %2"
 msgctxt "%1 is the time, %2 is the name of the tea"
