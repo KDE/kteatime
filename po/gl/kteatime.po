@@ -1,7 +1,6 @@
 # translation of kteatime.po to galician
 # Tradución de kteatime.po ó galego
 # Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-#
 # Gonzalo H. Castilla <ttxzgl@yahoo.es>, 2003, 2004.
 # Marce <mvillarino@users.sourceforge.net>, 2005.
 # mvillarino <mvillarino@users.sourceforge.net>, 2006, 2007, 2008, 2009.
@@ -9,20 +8,22 @@
 # Marce Villarino <mvillarino@gmail.com>, 2009.
 # Marce Villarino <mvillarino@kde-espana.es>, 2012, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-01-04 00:48+0000\n"
-"PO-Revision-Date: 2019-07-13 12:41+0200\n"
+"PO-Revision-Date: 2023-04-24 07:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:31
 #, kde-format
@@ -110,10 +111,9 @@ msgstr "nome"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Té de froitas"
+msgstr "Té personalizado"
 
 #: src/settings.cpp:40
 #, kde-format
@@ -303,10 +303,9 @@ msgid "Unnamed Tea"
 msgstr "Té sen nome"
 
 #: src/timeedit.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Inicia un novo té anónimo co tempo configurado neste diálogo."
+msgstr "Inicia un novo té personalizado co tempo configurado neste diálogo."
 
 #: src/timeedit.cpp:44
 #, kde-format
@@ -381,7 +380,7 @@ msgstr "&Configurar…"
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "&Personalizado…"
 
 #: src/toplevel.cpp:155
 #, kde-format
