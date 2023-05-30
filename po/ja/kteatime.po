@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -150,7 +150,6 @@ msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "秒"
-msgstr[1] "秒"
 
 #: src/settings.cpp:85
 #, fuzzy, kde-format
@@ -161,7 +160,6 @@ msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "秒"
-msgstr[1] "秒"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -234,70 +232,60 @@ msgstr "システムトレイアイコンに進捗を表示する"
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "%1 年"
-msgstr[1] "%1 年"
 
 #: src/tea.cpp:67
 #, kde-format
 msgid "%1 a"
 msgid_plural "%1 a"
 msgstr[0] "%1 年"
-msgstr[1] "%1 年"
 
 #: src/tea.cpp:77
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 日"
-msgstr[1] "%1 日"
 
 #: src/tea.cpp:80
 #, kde-format
 msgid "%1 d"
 msgid_plural "%1 d"
 msgstr[0] "%1 日"
-msgstr[1] "%1 日"
 
 #: src/tea.cpp:90
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "%1 時間"
-msgstr[1] "%1 時間"
 
 #: src/tea.cpp:93
 #, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
 msgstr[0] "%1 時間"
-msgstr[1] "%1 時間"
 
 #: src/tea.cpp:103
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 分"
-msgstr[1] "%1 分"
 
 #: src/tea.cpp:106
 #, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
 msgstr[0] "%1 分"
-msgstr[1] "%1 分"
 
 #: src/tea.cpp:116
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
-msgstr[1] "%1 秒"
 
 #: src/tea.cpp:119
 #, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
 msgstr[0] "%1 秒"
-msgstr[1] "%1 秒"
 
 #: src/tealistmodel.cpp:68
 #, kde-format
@@ -332,7 +320,6 @@ msgstr "新しいお茶の準備を開始せずにこのダイアログを閉じ
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] "%1 分"
-msgstr[1] "%1 分"
 
 #: src/timeedit.cpp:57
 #, fuzzy, kde-format
@@ -342,7 +329,6 @@ msgstr[1] "%1 分"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "秒"
-msgstr[1] "秒"
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
