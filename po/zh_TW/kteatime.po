@@ -7,19 +7,20 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2008, 2010, 2014, 2015.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:53+0000\n"
-"PO-Revision-Date: 2019-05-24 23:16+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-06-15 04:28+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/main.cpp:31
@@ -108,10 +109,9 @@ msgstr "名稱"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "水果茶"
+msgstr "自訂的茶"
 
 #: src/settings.cpp:40
 #, kde-format
@@ -289,10 +289,9 @@ msgid "Unnamed Tea"
 msgstr "未命名的茶"
 
 #: src/timeedit.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "開始泡新的無名茶，時間在此對話框中設定。"
+msgstr "開始泡新的自訂的茶，時間在此對話框中設定。"
 
 #: src/timeedit.cpp:44
 #, kde-format
@@ -365,7 +364,7 @@ msgstr "設定 (&C)..."
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "自訂(&C)..."
 
 #: src/toplevel.cpp:155
 #, kde-format
