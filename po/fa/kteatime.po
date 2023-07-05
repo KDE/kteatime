@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/main.cpp:31
 #, kde-format
@@ -130,6 +130,7 @@ msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/settings.cpp:85
 #, fuzzy, kde-format
@@ -137,6 +138,7 @@ msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -209,60 +211,70 @@ msgstr "تجسم کردن پیشرفت در سینی شمایل"
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/tea.cpp:67
 #, fuzzy, kde-format
 msgid "%1 a"
 msgid_plural "%1 a"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tea.cpp:77
 #, fuzzy, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tea.cpp:80
 #, fuzzy, kde-format
 msgid "%1 d"
 msgid_plural "%1 d"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tea.cpp:90
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/tea.cpp:93
 #, fuzzy, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tea.cpp:103
 #, fuzzy, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 دقیقه"
+msgstr[1] ""
 
 #: src/tea.cpp:106
 #, fuzzy, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
 msgstr[0] "%1 دقیقه"
+msgstr[1] ""
 
 #: src/tea.cpp:116
 #, fuzzy, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tea.cpp:119
 #, fuzzy, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #: src/tealistmodel.cpp:68
 #, kde-format
@@ -294,12 +306,14 @@ msgstr ""
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] "%1 دقیقه"
+msgstr[1] ""
 
 #: src/timeedit.cpp:57
 #, fuzzy, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "%1 ثانیه"
+msgstr[1] ""
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
