@@ -38,11 +38,6 @@
           <property name="text">
            <string comment="KDE::DoNotExtract">N</string>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff/>
-           </iconset>
-          </property>
           <property name="autoRaise">
            <bool>true</bool>
           </property>
@@ -84,11 +79,6 @@
           </property>
           <property name="text">
            <string comment="KDE::DoNotExtract">D</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff/>
-           </iconset>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
