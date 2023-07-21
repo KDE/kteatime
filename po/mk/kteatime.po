@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:53+0000\n"
+"POT-Creation-Date: 2023-07-21 00:53+0000\n"
 "PO-Revision-Date: 2007-11-30 19:07+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -165,63 +165,63 @@ msgid "Tea List"
 msgstr "Листа на чаеви"
 
 #. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
-#: src/settings.ui:122
+#: src/settings.ui:112
 #, kde-format
 msgid "Tea Properties"
 msgstr "Параметри на чајот"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/settings.ui:128 src/tealistmodel.cpp:100
+#: src/settings.ui:118 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Name"
 msgstr "Име"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/settings.ui:142 src/tealistmodel.cpp:100
+#: src/settings.ui:132 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Time"
 msgstr "Време"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/settings.ui:159
+#: src/settings.ui:149
 #, fuzzy, kde-format
 #| msgid " min"
 msgid "min"
 msgstr " мин"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/settings.ui:176
+#: src/settings.ui:166
 #, fuzzy, kde-format
 #| msgid " sec"
 msgid "sec"
 msgstr " сек"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
-#: src/settings.ui:199
+#: src/settings.ui:189
 #, kde-format
 msgid "Action"
 msgstr "Дејство"
 
 #. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
-#: src/settings.ui:205
+#: src/settings.ui:195
 #, kde-format
 msgid "Popup"
 msgstr "Скок-мени"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
-#: src/settings.ui:236
+#: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
-#: src/settings.ui:285
+#: src/settings.ui:275
 #, kde-format
 msgid "Reminder every"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
-#: src/settings.ui:332
+#: src/settings.ui:322
 #, kde-format
 msgid "Visualize progress in icon tray"
 msgstr "Прикажи го прогресот во системската лента"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:53+0000\n"
+"POT-Creation-Date: 2023-07-21 00:53+0000\n"
 "PO-Revision-Date: 2023-03-20 08:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -167,61 +167,61 @@ msgid "Tea List"
 msgstr "Seznam čajev"
 
 #. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
-#: src/settings.ui:122
+#: src/settings.ui:112
 #, kde-format
 msgid "Tea Properties"
 msgstr "Lastnosti čaja"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/settings.ui:128 src/tealistmodel.cpp:100
+#: src/settings.ui:118 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Name"
 msgstr "Ime"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/settings.ui:142 src/tealistmodel.cpp:100
+#: src/settings.ui:132 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Time"
 msgstr "Čas"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/settings.ui:159
+#: src/settings.ui:149
 #, kde-format
 msgid "min"
 msgstr "min"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/settings.ui:176
+#: src/settings.ui:166
 #, kde-format
 msgid "sec"
 msgstr "s"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
-#: src/settings.ui:199
+#: src/settings.ui:189
 #, kde-format
 msgid "Action"
 msgstr "Dejanje"
 
 #. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
-#: src/settings.ui:205
+#: src/settings.ui:195
 #, kde-format
 msgid "Popup"
 msgstr "Pojavno okno"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
-#: src/settings.ui:236
+#: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
 msgstr "Samodejno skrij pojavno okno po"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
-#: src/settings.ui:285
+#: src/settings.ui:275
 #, kde-format
 msgid "Reminder every"
 msgstr "Opomnik vsakih"
 
 #. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
-#: src/settings.ui:332
+#: src/settings.ui:322
 #, kde-format
 msgid "Visualize progress in icon tray"
 msgstr "Prikaži napredek v sistemski vrstici"

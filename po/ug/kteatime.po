@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:53+0000\n"
+"POT-Creation-Date: 2023-07-21 00:53+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -157,61 +157,61 @@ msgid "Tea List"
 msgstr "چاي تىزىمى"
 
 #. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
-#: src/settings.ui:122
+#: src/settings.ui:112
 #, kde-format
 msgid "Tea Properties"
 msgstr "چاي خاسلىقى"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/settings.ui:128 src/tealistmodel.cpp:100
+#: src/settings.ui:118 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Name"
 msgstr "ئاتى"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/settings.ui:142 src/tealistmodel.cpp:100
+#: src/settings.ui:132 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Time"
 msgstr "ۋاقىت"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/settings.ui:159
+#: src/settings.ui:149
 #, kde-format
 msgid "min"
 msgstr "مىنۇت"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/settings.ui:176
+#: src/settings.ui:166
 #, kde-format
 msgid "sec"
 msgstr "سېكۇنت"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
-#: src/settings.ui:199
+#: src/settings.ui:189
 #, kde-format
 msgid "Action"
 msgstr "مەشغۇلات"
 
 #. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
-#: src/settings.ui:205
+#: src/settings.ui:195
 #, kde-format
 msgid "Popup"
 msgstr "سەكرىمە"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
-#: src/settings.ui:236
+#: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
 msgstr "سەكرەپ چىققاندىن كېيىن ئاپتوماتىك يوشۇر"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
-#: src/settings.ui:285
+#: src/settings.ui:275
 #, kde-format
 msgid "Reminder every"
 msgstr "ئەسكەرتكۈچ ئىنتېرۋالى"
 
 #. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
-#: src/settings.ui:332
+#: src/settings.ui:322
 #, kde-format
 msgid "Visualize progress in icon tray"
 msgstr ""

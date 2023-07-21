@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdetoys\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:53+0000\n"
+"POT-Creation-Date: 2023-07-21 00:53+0000\n"
 "PO-Revision-Date: 2015-01-07 00:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -159,61 +159,61 @@ msgid "Tea List"
 msgstr "Lista čajeva"
 
 #. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
-#: src/settings.ui:122
+#: src/settings.ui:112
 #, kde-format
 msgid "Tea Properties"
 msgstr "Osobine čaja"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/settings.ui:128 src/tealistmodel.cpp:100
+#: src/settings.ui:118 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Name"
 msgstr "Ime"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/settings.ui:142 src/tealistmodel.cpp:100
+#: src/settings.ui:132 src/tealistmodel.cpp:100
 #, kde-format
 msgid "Time"
 msgstr "Vrijeme"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/settings.ui:159
+#: src/settings.ui:149
 #, kde-format
 msgid "min"
 msgstr "min."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/settings.ui:176
+#: src/settings.ui:166
 #, kde-format
 msgid "sec"
 msgstr "sek."
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
-#: src/settings.ui:199
+#: src/settings.ui:189
 #, kde-format
 msgid "Action"
 msgstr "Akcija"
 
 #. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
-#: src/settings.ui:205
+#: src/settings.ui:195
 #, kde-format
 msgid "Popup"
 msgstr "Iskakač"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
-#: src/settings.ui:236
+#: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
 msgstr "Ukloni iskačući prozor nakon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
-#: src/settings.ui:285
+#: src/settings.ui:275
 #, kde-format
 msgid "Reminder every"
 msgstr "Podsjeti svakih"
 
 #. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
-#: src/settings.ui:332
+#: src/settings.ui:322
 #, kde-format
 msgid "Visualize progress in icon tray"
 msgstr "Prikaži napredak u ikonici sistemske kasete"
