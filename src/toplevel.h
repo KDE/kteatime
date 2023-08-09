@@ -30,7 +30,10 @@ class KNotification;
 class TopLevel : public QSystemTrayIcon
 {
     public:
-        explicit TopLevel(const KAboutData *aboutData, const QString &icon = QLatin1String("kteatime"), QWidget *parent = nullptr);
+        explicit TopLevel(const KAboutData *aboutData,
+                          const QString &trayIcon = QLatin1String("kteatime-symbolic"),
+                          const QString &notificationIcon = QLatin1String("kteatime"),
+                          QWidget *parent = nullptr);
         ~TopLevel() override;
         void setTeaList(const QList<Tea> &tealist);
         void runTea(const Tea &tea);
@@ -59,7 +62,8 @@ class TopLevel : public QSystemTrayIcon
         KHelpMenu *m_helpMenu = nullptr;
         QTimer *m_timer = nullptr;
         QPointer<KNotification> m_popup;
-        QString m_iconName;
+        QString m_trayIconName;
+        QString m_notificationIconName;
 
         int m_runningTeaTime;
         int m_pausedRemainingTeaTime;

@@ -28,10 +28,11 @@
 #include <KSharedConfig>
 #include <KIconUtils>
 
-TopLevel::TopLevel(const KAboutData *aboutData, const QString &icon, QWidget *parent)
+TopLevel::TopLevel(const KAboutData *aboutData, const QString &trayIcon, const QString &notificationIcon, QWidget *parent)
   : QSystemTrayIcon( parent ),
     m_popup(),
-    m_iconName(icon),
+    m_trayIconName(trayIcon),
+    m_notificationIconName(notificationIcon),
     m_runningTeaTime( 0 ),
     m_pausedRemainingTeaTime( 0 ),
     m_nextNotificationTime( 0 )
@@ -258,7 +259,7 @@ void TopLevel::runTea(const Tea &tea)
 
 void TopLevel::repaintTrayIcon()
 {
-    QPixmap icon = QIcon::fromTheme(m_iconName).pixmap(KIconLoader::SizeLarge);
+    QPixmap icon = QIcon::fromTheme(m_trayIconName).pixmap(KIconLoader::SizeLarge);
     if ( m_runningTeaTime <= 0) {
         setIcon(icon);
         return;
@@ -280,7 +281,7 @@ void TopLevel::repaintTrayIcon()
 
         setIcon(icon);
     } else {
-        QPixmap overlayedIcon = KIconUtils::addOverlays(m_iconName, {QStringLiteral( "alarm-symbolic" )}).pixmap(KIconLoader::SizeLarge);
+        QPixmap overlayedIcon = KIconUtils::addOverlays(m_trayIconName, {QStringLiteral( "alarm-symbolic" )}).pixmap(KIconLoader::SizeLarge);
         setIcon(overlayedIcon);
     }
 }
@@ -405,7 +406,7 @@ void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
         m_popup->setComponentName(QStringLiteral("kteatime"));
         m_popup->setTitle(i18n( "The Tea Cooker" ));
         m_popup->setText(toolTip());
-        m_popup->setIconName(m_iconName);
+        m_popup->setIconName(m_notificationIconName);
         m_popup->sendEvent();
     }
 }
