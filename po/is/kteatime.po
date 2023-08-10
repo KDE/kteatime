@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:53+0000\n"
+"POT-Creation-Date: 2023-08-10 00:49+0000\n"
 "PO-Revision-Date: 2011-08-05 08:35+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -345,83 +345,83 @@ msgstr[1] " sekúndur"
 msgid "Tea time:"
 msgstr "Te tími:"
 
-#: src/toplevel.cpp:49
+#: src/toplevel.cpp:50
 #, kde-format
 msgid "Unknown Tea"
 msgstr "Óþekkt te"
 
-#: src/toplevel.cpp:59
+#: src/toplevel.cpp:60
 #, kde-format
 msgid "Black Tea"
 msgstr "Svart te"
 
-#: src/toplevel.cpp:60
+#: src/toplevel.cpp:61
 #, kde-format
 msgid "Earl Grey"
 msgstr "Earl Grey"
 
-#: src/toplevel.cpp:61
+#: src/toplevel.cpp:62
 #, kde-format
 msgid "Fruit Tea"
 msgstr "Ávaxtate"
 
-#: src/toplevel.cpp:62
+#: src/toplevel.cpp:63
 #, kde-format
 msgid "Green Tea"
 msgstr ""
 
-#: src/toplevel.cpp:72
+#: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
 msgstr ""
 
-#: src/toplevel.cpp:78
+#: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
 msgstr ""
 
-#: src/toplevel.cpp:84
+#: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
 msgstr "S&töðva"
 
-#: src/toplevel.cpp:90
+#: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
 msgstr "&Stilla..."
 
-#: src/toplevel.cpp:98
+#: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
 msgstr ""
 
-#: src/toplevel.cpp:155
+#: src/toplevel.cpp:156
 #, kde-format
 msgid "No steeping tea."
 msgstr "Ekkert te í katlinum."
 
-#: src/toplevel.cpp:208
+#: src/toplevel.cpp:209
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:291 src/toplevel.cpp:406
+#: src/toplevel.cpp:292 src/toplevel.cpp:407
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "Teketillinn"
 
-#: src/toplevel.cpp:297
+#: src/toplevel.cpp:298
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "%1 er núna tilbúið!"
 
-#: src/toplevel.cpp:317
+#: src/toplevel.cpp:318
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "%1 er tílbúið síðan %2!"
 
-#: src/toplevel.cpp:333
+#: src/toplevel.cpp:334
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:53+0000\n"
+"POT-Creation-Date: 2023-08-10 00:49+0000\n"
 "PO-Revision-Date: 2021-05-16 22:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -310,84 +310,84 @@ msgstr[0] "초"
 msgid "Tea time:"
 msgstr "차 시간:"
 
-#: src/toplevel.cpp:49
+#: src/toplevel.cpp:50
 #, kde-format
 msgid "Unknown Tea"
 msgstr "알 수 없는 차"
 
-#: src/toplevel.cpp:59
+#: src/toplevel.cpp:60
 #, kde-format
 msgid "Black Tea"
 msgstr "홍차"
 
-#: src/toplevel.cpp:60
+#: src/toplevel.cpp:61
 #, kde-format
 msgid "Earl Grey"
 msgstr "얼그레이"
 
-#: src/toplevel.cpp:61
+#: src/toplevel.cpp:62
 #, kde-format
 msgid "Fruit Tea"
 msgstr "과일차"
 
-#: src/toplevel.cpp:62
+#: src/toplevel.cpp:63
 #, kde-format
 msgid "Green Tea"
 msgstr "녹차"
 
-#: src/toplevel.cpp:72
+#: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
 msgstr "다시 시작(&R)"
 
-#: src/toplevel.cpp:78
+#: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
 msgstr "일시 정지(&P)"
 
-#: src/toplevel.cpp:84
+#: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
 msgstr "정지(&S)"
 
-#: src/toplevel.cpp:90
+#: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
 msgstr "설정(&C)..."
 
-#: src/toplevel.cpp:98
+#: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
 msgstr "사용자 정의(&C)..."
 
-#: src/toplevel.cpp:155
+#: src/toplevel.cpp:156
 #, kde-format
 msgid "No steeping tea."
 msgstr "끓이고 있는 차가 없습니다."
 
-#: src/toplevel.cpp:208
+#: src/toplevel.cpp:209
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/toplevel.cpp:291 src/toplevel.cpp:406
+#: src/toplevel.cpp:292 src/toplevel.cpp:407
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "차 끓이기 도구"
 
-#: src/toplevel.cpp:297
+#: src/toplevel.cpp:298
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "%1이(가) 준비되었습니다!|/|%1$[이가 %1] 준비되었습니다!"
 
-#: src/toplevel.cpp:317
+#: src/toplevel.cpp:318
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr ""
 "%1이(가) %2부터 준비되어 있습니다!|/|%1$[이가 %1] %2부터 준비되어 있습니다!"
 
-#: src/toplevel.cpp:333
+#: src/toplevel.cpp:334
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
