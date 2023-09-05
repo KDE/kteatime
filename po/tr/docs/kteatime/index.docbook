@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Turkish "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>&kteatime; El Kitabı</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>Kaan</firstname
+><surname
+>Özdinçer</surname
+><affiliation
+><address
+><email
+>kaanozdincer@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-07-06</date>
+<releaseinfo
+>1.3.0 (Uygulamalar 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Bu el kitabı, &kteatime;, &kde; çay demleyicisini açıklar.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>k çay saati</keyword>
+<keyword
+>tea</keyword>
+<keyword
+>demleme</keyword>
+<keyword
+>sayaç</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+
+<sect1 id="whats-kteatime">
+<title
+>&kteatime; nedir?</title>
+
+<para
+>&kteatime;, çay demlemek için kullanışlı bir sayaçtır. Artık çayınızın hazır olması için ne kadar zaman harcadığınızı tahmin etmek zorunda değilsiniz. Elinizdeki çayın türünü seçmeniz yeterlidir; çay içilmeye hazır olduğunda bu uygulama sizi uyaracaktır.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>&kteatime; nasıl kullanılır?</title>
+
+<para
+>&kteatime;'ni başlattığınızda, kendini otomatik olarak panele yerleştirir. Menüye girmek için simgenin üstüne sağ tıklayın. Bu, sonraki bölümde daha ayrıntılı anlatılacak olan seçeneklerin listesini gösterecektir.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Çayınızı Zamanlamak</title>
+
+<para
+>Başlattıktan sonra, panel simgesi bir çay kupası simgesi olarak gözükür. Kupanın üstüne &RMB; ile tıklayıp çayı seçerseniz kalan süreyi gösteren canlandırmalı bir saat simgesi göreceksiniz. Belirlenen sürenin sonunda çay demlenmiş olur ve uygun bir ileti gösterilir. Bu noktada ileti kutusuna tıklayarak kapatabilirsiniz. Bu da sayacı sıfırlayacak ve kupadaki saat yeniden kaybolacaktır.</para>
+
+<note
+><para
+>Sayacı yalnızca gerçek çay tiryakileri sıfırlamalıdır.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Menü Seçenekleri</title>
+
+<para
+>Aşağıdaki bölüm, &kteatime; içinde kullanılabilecek olan menü seçeneklerini açıklar.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Çayını Seç</title>
+
+<para
+>Simgeye &RMB; ile tıkladığınızda bir menü açılacaktır. Menünün üstünde dört menü ögesi vardır. Burada, içmek için hazırlayacağınız çayın türünü seçebilirsiniz. Bunlar: <guimenuitem
+>Siyah Çay</guimenuitem
+>, <guimenuitem
+>Earl Grey Çayı</guimenuitem
+>, <guimenuitem
+>Meyve Çayı</guimenuitem
+>, ve <guimenuitem
+>Yeşil Çay</guimenuitem
+> olarak listelenir. Bu çaylar öntanımlı bir zamanlayıcıyla önceden yapılandırılmıştır. Çoğu kimse zamanın doğru olmadığından şikayet eder. Bir bardak çayın demini alması için gereken sürenin kişisel tercihinize bağlı olduğunu unutmayın. Seçilen süreler yaklaşık değerlerdir. Okumayı sürdürürseniz önceden tanımlanmış süreleri nasıl değiştireceğinizi veya sileceğinizi öğrenebilir ve kendi sürenizi ayarlayabilirsiniz. Özel bir süre ayarlamak için hızlı ve kolay bir yol, menüden <guimenuitem
+>Özel...</guimenuitem
+> ögesini seçmektir.</para>
+
+<para
+><guimenuitem
+>Bildirimleri Yapılandır...</guimenuitem
+> ögesine tıklamak, &kteatime; için olan &kde; bildirim ayarlarını getirir.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Çay Sayacını Başlatmak</title>
+
+<para
+>Çay sayacını başlatmak için içerik menüsünden bir çay seçin. Sayacı gerçekten başlattığınıza dair bir onay olarak panel simgesinde kalan süreyi gösteren bir saat görüntülenir.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Yapılandır</title>
+
+<para
+>Bu menü ögesi, yapılandırma iletişim kutusunu açar. Ekran görüntüsü aşağıda gösterilmektedir:</para>
+
+<screenshot>
+<screeninfo
+>&kteatime; yapılandırma iletişim kutusu.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>&kteatime; yapılandırma iletişim kutusu.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Resimde görüldüğü gibi, diğer çaylara yeni kayıtlar ekleyebilir veya adlarını, zamanlarını ve var olan kayıtların sırasını değiştirebilirsiniz. Listede bulunmayan bir fincan çayı demlemek için veya önceden tanımlanmış süreleri değiştirmek için yararlıdır. Bir girdiyi düzenlemek için, soldaki <guilabel
+>Çay Listesi</guilabel
+> içinden işaretleyin ve sağdaki <guilabel
+>Çay Özellikleri</guilabel
+> içinden değerleri değiştirin.</para>
+
+<para
+>Aşağıdaki kutu, <guilabel
+>Eylem</guilabel
+> alanıdır. Burada, zaman dolduğunda uygulanacak bir eylemi tanımlayabilirsiniz. <guilabel
+>İleti</guilabel
+> seçiliyse çayınızın hazır olduğunu belirten bir ileti kutusu belirecektir. </para>
+
+<para
+><guilabel
+>İlerlemeyi simge tepsisinde görselleştir</guilabel
+> etiketli onay kutusunu etkinleştirirseniz ilerleme küçük bir hareketli saat simgesi olarak gösterilir.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Hazırlayanlar</title>
+
+<para
+>&kteatime; Telif Hakkı &copy; 1998-1999 - &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Belgelendirme - &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Çeviren Kaan Özdinçer <email
+>kaanozdincer@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+
