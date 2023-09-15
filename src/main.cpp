@@ -21,10 +21,6 @@ int main (int argc, char *argv[])
      * Create application first
      */
     QApplication app(argc, argv);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
-
     /**
      * construct about data for KTeaTime
      */
