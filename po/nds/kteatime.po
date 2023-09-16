@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-10 00:49+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2010-12-18 09:55+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -21,17 +21,17 @@ msgstr ""
 "X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/main.cpp:31
+#: src/main.cpp:27
 #, kde-format
 msgid "KTeaTime"
 msgstr "KTeaTime"
 
-#: src/main.cpp:32
+#: src/main.cpp:28
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
 msgstr "KDE-Warktüüch för't Kaken vun'n gode Tass Tee"
 
-#: src/main.cpp:34
+#: src/main.cpp:30
 #, fuzzy, kde-format
 #| msgid ""
 #| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
@@ -46,55 +46,55 @@ msgstr ""
 " ©  2002-2003, Martin Willers\n"
 " ©  2007-2009, Stefan Böhmann"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Current maintainer"
 msgstr "Pleger opstunns"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, fuzzy, kde-format
 #| msgid "Matthias Hoelzer-Kluepfel"
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Martin Willers"
 msgstr "Martin Willers"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Daniel Teske"
 msgstr "Daniel Teske"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Many patches"
 msgstr "Vele Kodeplasters"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Martin Sommer, Manfred Wiese"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sommer451@gmx.de, m.j.wiese@web.de"
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "Start en niegen Tee mit disse Tiet"
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "Auto hide popup after"
 #| msgid " second"
@@ -102,19 +102,19 @@ msgstr "Start en niegen Tee mit disse Tiet"
 msgid "seconds"
 msgstr " Sekunn"
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, fuzzy, kde-format
 #| msgid "Use this name for the tea started with %1."
 msgid "Use this name for the tea started with --time."
 msgstr "Bruuk dissen Naam för den Tee, de mit %1 anfangt."
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"

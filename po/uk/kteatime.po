@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-10 00:49+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2021-01-17 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -23,17 +23,17 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: src/main.cpp:31
+#: src/main.cpp:27
 #, kde-format
 msgid "KTeaTime"
 msgstr "KTeaTime"
 
-#: src/main.cpp:32
+#: src/main.cpp:28
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
 msgstr "Утиліта KDE для заварювання чаю."
 
-#: src/main.cpp:34
+#: src/main.cpp:30
 #, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
@@ -44,70 +44,70 @@ msgstr ""
 "© Martin Willers, 2002–2003\n"
 "© Stefan Böhmann, 2007–2010"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Current maintainer"
 msgstr "Поточний супровідник"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, kde-format
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "Matthias Hölzer-Klüpfel"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Martin Willers"
 msgstr "Martin Willers"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Daniel Teske"
 msgstr "Daniel Teske"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Many patches"
 msgstr "Багато латок"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Андрій Рисін,Іван Петрущак"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "rysin@kde.org,ivanpetrouchtchak@yahoo.com"
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "Почати заварювання нового чаю з цим часом."
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, kde-format
 msgid "seconds"
 msgstr "секунд"
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr "Використовувати цю назву для чаю, початого з --time."
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, kde-format
 msgid "name"
 msgstr "назва"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, kde-format
 msgid "Custom Tea"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-10 00:49+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2008-12-15 20:59+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:31
+#: src/main.cpp:27
 #, kde-format
 msgid "KTeaTime"
 msgstr "KTeaTime"
 
-#: src/main.cpp:32
+#: src/main.cpp:28
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
 msgstr "おいしいお茶を入れるための KDE ユーティリティ"
 
-#: src/main.cpp:34
+#: src/main.cpp:30
 #, fuzzy, kde-format
 #| msgid ""
 #| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
@@ -45,55 +45,55 @@ msgstr ""
 "(c) 2002-2003, Martin Willers\n"
 "(c) 2007, Stefan Böhmann"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: src/main.cpp:42
+#: src/main.cpp:38
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, fuzzy, kde-format
 #| msgid "Matthias Hoelzer-Kluepfel"
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Martin Willers"
 msgstr "Martin Willers"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Daniel Teske"
 msgstr "Daniel Teske"
 
-#: src/main.cpp:46
+#: src/main.cpp:42
 #, kde-format
 msgid "Many patches"
 msgstr "多数のパッチ"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Taiki Komoda,SATOH Satoru"
 
-#: src/main.cpp:48
+#: src/main.cpp:44
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kom@kde.gr.jp,ss@kde.gr.jp"
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "この時間で新しいお茶を開始"
 
-#: src/main.cpp:76
+#: src/main.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "Auto hide popup after"
 #| msgid "second"
@@ -101,20 +101,20 @@ msgstr "この時間で新しいお茶を開始"
 msgid "seconds"
 msgstr "秒"
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, fuzzy, kde-format
 #| msgid ""
 #| "Use this name instead of \"Anonymous Tea\" for the tea started with %1."
 msgid "Use this name for the tea started with --time."
 msgstr "%1 で開始したお茶に「名前のないお茶」ではなくこの名前を使う"
 
-#: src/main.cpp:78
+#: src/main.cpp:74
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:89 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"
