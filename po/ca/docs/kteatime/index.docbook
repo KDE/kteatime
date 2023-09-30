@@ -74,7 +74,7 @@
 >Com usar &kteatime;</title>
 
 <para
->Quan executeu &kteatime;, automàticament s'acoblarà al vostre plafó. Per accedir al menú, feu clic amb el &BDR; sobre la icona acoblada. Se us mostrarà una llista d'opcions, les quals es tracten amb més detall en el següent capítol.</para>
+>Quan executeu &kteatime;, automàticament s'acoblarà al vostre plafó. Per a accedir al menú, feu clic amb el &BDR; sobre la icona acoblada. Se us mostrarà una llista d'opcions, les quals es tracten amb més detall en el següent capítol.</para>
 
 <sect1 id="timing-your-tea">
 <title
@@ -111,7 +111,7 @@
 >Te de fruita</guimenuitem
 > i <guimenuitem
 >Te verd</guimenuitem
->. Aquests tes estan preconfigurats amb un temps predeterminat. Molta gent s'ha queixat dient que aquests temps no són correctes. Tingueu en compte que la quantitat de temps que es necessita per preparar una tassa de te es basa en preferències personals. Els temps escollits són aproximacions. Si seguiu llegint, aprendreu com canviar o suprimir aquests temps predefinits i programar el vostre propi temps. Una manera ràpida i fàcil per establir un temps personalitzat és escollir <guimenuitem
+>. Aquests tes estan preconfigurats amb un temps predeterminat. Molta gent s'ha queixat dient que aquests temps no són correctes. Tingueu en compte que la quantitat de temps que es necessita per a preparar una tassa de te es basa en preferències personals. Els temps escollits són aproximacions. Si seguiu llegint, aprendreu com canviar o suprimir aquests temps predefinits i programar el vostre propi temps. Una manera ràpida i fàcil per a establir un temps personalitzat és escollir <guimenuitem
 >Personalitza...</guimenuitem
 > des del menú.</para>
 
@@ -151,7 +151,7 @@
 </screenshot>
 
 <para
->Tal com es mostra en la imatge, podeu afegir noves entrades per altres tes o canviar els noms, els temps i l'ordre de les entrades existents. És d'utilitat quan es vol fer un te que no està en la llista, o si no esteu d'acord amb els temps per omissió. Per editar una entrada, marqueu-la en la <guilabel
+>Tal com es mostra en la imatge, podeu afegir noves entrades per altres tes o canviar els noms, els temps i l'ordre de les entrades existents. És d'utilitat quan es vol fer un te que no està en la llista, o si no esteu d'acord amb els temps per omissió. Per a editar una entrada, marqueu-la en la <guilabel
 >Llista de tes</guilabel
 > a l'esquerra i canvieu-ne els valors en les <guilabel
 >Propietats del te</guilabel
