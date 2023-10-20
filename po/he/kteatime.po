@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2023-10-17 22:54+0300\n"
+"PO-Revision-Date: 2023-10-19 20:17+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
 "Language: he\n"
@@ -40,7 +40,7 @@ msgstr "KTeaTime"
 #: src/main.cpp:28
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
-msgstr "כלי של KDE להכנת כוס תה מצוינת"
+msgstr "כלי של KDE להכנת כוס תה מצוינת."
 
 #: src/main.cpp:30
 #, kde-format
