@@ -17,21 +17,22 @@
 # Avi Sand <avisand@gmail.com>, 2010.
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2023-10-19 20:17+0300\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-10-21 23:23+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -145,24 +146,24 @@ msgid "Show help page for this dialog."
 msgstr "הצגת עמוד עזרה לחלונית הזאת."
 
 #: src/settings.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " שנייה"
 msgstr[1] " שניות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] " שניות"
+msgstr[3] " שניות"
 
 #: src/settings.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " שנייה"
 msgstr[1] " שניות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] " שניות"
+msgstr[3] " שניות"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -231,94 +232,94 @@ msgid "Visualize progress in icon tray"
 msgstr "המחשת התהליך בסמל במגש המערכת"
 
 #: src/tea.cpp:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "שנה"
-msgstr[1] "%1 שנים"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "שנתיים"
+msgstr[2] "%1 שנים"
+msgstr[3] "%1 שנים"
 
 #: src/tea.cpp:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 a"
 msgid_plural "%1 a"
 msgstr[0] "%1"
 msgstr[1] "%1"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] "%1"
+msgstr[3] "%1"
 
 #: src/tea.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "יום"
-msgstr[1] "%1 ימים"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "יומיים"
+msgstr[2] "%1 ימים"
+msgstr[3] "%1 ימים"
 
 #: src/tea.cpp:80
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 d"
 msgid_plural "%1 d"
 msgstr[0] "יום"
-msgstr[1] "%1 ימים"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "יומיים"
+msgstr[2] "%1 י׳"
+msgstr[3] "%1 י׳"
 
 #: src/tea.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "שעה"
-msgstr[1] "%1 שעות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "שעתיים"
+msgstr[2] "%1 שעות"
+msgstr[3] "%1 שעות"
 
 #: src/tea.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
 msgstr[0] "שעה"
-msgstr[1] "%1 שעות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "שעתיים"
+msgstr[2] "%1 שע׳"
+msgstr[3] "%1 שע׳"
 
 #: src/tea.cpp:103
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "דקה"
-msgstr[1] "%1 דקות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "שתי דקות"
+msgstr[2] "%1 דקות"
+msgstr[3] "%1 דקות"
 
 #: src/tea.cpp:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
 msgstr[0] "דקה"
-msgstr[1] "%1 דקות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "שתי דק׳"
+msgstr[2] "%1 דק׳"
+msgstr[3] "%1 דק׳"
 
 #: src/tea.cpp:116
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "שניה"
-msgstr[1] "%1 שניות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנייה"
+msgstr[1] "שתי שניות"
+msgstr[2] "%1 שניות"
+msgstr[3] "%1 שניות"
 
 #: src/tea.cpp:119
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
-msgstr[0] "ש'"
-msgstr[1] "%1 ש'"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנייה"
+msgstr[1] "שתי שנ׳"
+msgstr[2] "%1 שנ׳"
+msgstr[3] "%1 שנ׳"
 
 #: src/tealistmodel.cpp:68
 #, kde-format
@@ -346,22 +347,22 @@ msgid "Close this dialog without starting a new tea."
 msgstr "לסגור את החלונית הזאת מבלי להתחיל תה חדש."
 
 #: src/timeedit.cpp:56
-#, fuzzy, kde-format
+#, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " דקה"
 msgstr[1] " דקות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] " דקות"
+msgstr[3] " דקות"
 
 #: src/timeedit.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " שנייה"
 msgstr[1] " שניות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] " שניות"
+msgstr[3] " שניות"
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
