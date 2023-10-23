@@ -112,10 +112,10 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &trayIcon, const Q
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("custom")) );
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
-    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );
+    contextMenu()->addAction( m_actionCollection->action(KStandardAction::name(KStandardAction::ConfigureNotifications)) );
     contextMenu()->addMenu( m_helpMenu->menu() );
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
+    contextMenu()->addAction( m_actionCollection->action(KStandardAction::name(KStandardAction::Quit)) );
 
     m_timer = new QTimer( this );
 
@@ -189,10 +189,10 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("custom")) );
     contextMenu()->addSeparator();
     contextMenu()->addAction( m_actionCollection->action(QStringLiteral("configure")) );
-    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))) );
+    contextMenu()->addAction( m_actionCollection->action(KStandardAction::name(KStandardAction::ConfigureNotifications)) );
     contextMenu()->addMenu(m_helpMenu->menu() );
     contextMenu()->addSeparator();
-    contextMenu()->addAction( m_actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))) );
+    contextMenu()->addAction( m_actionCollection->action(KStandardAction::name(KStandardAction::Quit)) );
 
     connect(contextMenu(), &QMenu::triggered, this, &TopLevel::slotRunTea);
 
