@@ -197,7 +197,7 @@ Comment[wa]=Li té est presse
 Comment[x-test]=xxTea is readyxx
 Comment[zh_CN]=茶沏好了
 Comment[zh_TW]=茶煮好了
-Sound=Oxygen-Sys-App-Message.ogg
+Sound=dialog-information
 Action=Sound
 
 [Event/reminder]
@@ -319,7 +319,7 @@ Comment[uk]=Час остигає.
 Comment[x-test]=xxTea is getting lonely.xx
 Comment[zh_CN]=茶都凉了。
 Comment[zh_TW]=茶煮好了，怎麼沒人喝。
-Sound=Oxygen-Sys-App-Error-Serious-Very.ogg
+Sound=dialog-error-serious
 Action=Sound
 
 [Event/popup]
