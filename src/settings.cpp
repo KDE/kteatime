@@ -55,7 +55,7 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     buttonBox->button(QDialogButtonBox::Help)->setWhatsThis(i18n( "Show help page for this dialog."  ));
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group( config, "General" );
+    KConfigGroup group( config, QStringLiteral("General") );
 
     restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
 
@@ -128,7 +128,7 @@ void SettingsDialog::showHelp()
 void SettingsDialog::accept()
 {
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group( config, "General" );
+    KConfigGroup group( config, QStringLiteral("General") );
     group.writeEntry( "SettingsDialogXPos", x() );
     group.writeEntry( "SettingsDialogYPos", y() );
 

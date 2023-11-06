@@ -39,7 +39,7 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &trayIcon, const Q
 {
     repaintTrayIcon(); // Set initial icon
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup tealistGroup( config, "Tealist" );
+    KConfigGroup tealistGroup( config, QStringLiteral("Tealist")) ;
 
     if( tealistGroup.exists() ) {
         for(unsigned index=0;; ++index) {
@@ -163,7 +163,7 @@ void TopLevel::setTeaList(const QList<Tea> &tealist) {
 
     // Save list...
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup tealistGroup( config, "Tealist" );
+    KConfigGroup tealistGroup( config, QStringLiteral("Tealist") );
 
     tealistGroup.deleteGroup();
 
@@ -380,7 +380,7 @@ void TopLevel::configureNotifications()
 void TopLevel::loadConfig()
 {
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup generalGroup( config, "General" );
+    KConfigGroup generalGroup( config, QStringLiteral("General") );
 
     m_usepopup=generalGroup.readEntry( "UsePopup", true );
     m_autohide=generalGroup.readEntry( "PopupAutoHide", false );

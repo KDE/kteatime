@@ -49,7 +49,7 @@ TimeEditDialog::TimeEditDialog(TopLevel *toplevel)
     mainLayout->addWidget(mButtonBox);
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group( config, "AnonymousTeaDialog" );
+    KConfigGroup group( config, QStringLiteral("AnonymousTeaDialog") );
 
     int time=group.readEntry( "AnonymousTeaTime", 180 );
 
@@ -99,7 +99,7 @@ void TimeEditDialog::accept()
     time += mUi->minutes->value() * 60;
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group( config, "AnonymousTeaDialog" );
+    KConfigGroup group( config, QStringLiteral("AnonymousTeaDialog") );
     group.writeEntry( "AnonymousTeaTime", time );
     group.writeEntry("Geometry", saveGeometry());
 
