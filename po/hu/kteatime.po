@@ -3,20 +3,21 @@
 # Tamas Szanto <tszanto@interware.hu>, 2000.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2015.
 # Balázs Úr <urbalazs@gmail.com>, 2014.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2015-01-10 12:52+0100\n"
-"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"PO-Revision-Date: 2024-01-21 21:21+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -29,17 +30,13 @@ msgid "KDE utility for making a fine cup of tea."
 msgstr "KDE segédprogram teafőzéshez"
 
 #: src/main.cpp:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "© 1998-1999, Matthias Hoelzer-Kluepfel\n"
-#| " © 2002-2003, Martin Willers\n"
-#| " © 2007-2010, Stefan Böhmann"
+#, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
 "© 2002-2003, Martin Willers\n"
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
-"© Matthias Hoelzer-Kluepfel, 1998-1999.\n"
+"© Matthias Hölzer-Klüpfel, 1998-1999.\n"
 " © Martin Willers, 2002-2003.\n"
 " © Stefan Böhmann, 2007-2010."
 
@@ -54,10 +51,9 @@ msgid "Current maintainer"
 msgstr "Jelenlegi karbantartó"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgid "Matthias Hölzer-Klüpfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hölzer-Klüpfel"
 
 #: src/main.cpp:40
 #, kde-format
@@ -78,13 +74,13 @@ msgstr "Sok javítás"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Szántó Tamás,Kiszel Kristóf"
+msgstr "Kiszel Kristóf"
 
 #: src/main.cpp:44
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "taszanto@gmail.com,ulysses@kubuntu.org"
+msgstr "ulysses@fsf.hu"
 
 #: src/main.cpp:72
 #, kde-format
@@ -109,10 +105,9 @@ msgstr "név"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Gyümölcstea"
+msgstr "Saját tea"
 
 #: src/settings.cpp:40
 #, kde-format
@@ -302,10 +297,9 @@ msgid "Unnamed Tea"
 msgstr "Ismeretlen tea"
 
 #: src/timeedit.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Ismeretlen tea főzésének megkezdése az ablakban megadott időtartammal."
+msgstr "Saját tea főzésének megkezdése az ablakban megadott időtartammal."
 
 #: src/timeedit.cpp:44
 #, kde-format
@@ -360,12 +354,12 @@ msgstr "Zöld tea"
 #: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
-msgstr ""
+msgstr "&Folytatás"
 
 #: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
-msgstr ""
+msgstr "&Szünet"
 
 #: src/toplevel.cpp:85
 #, kde-format
@@ -380,7 +374,7 @@ msgstr "&Beállítások..."
 #: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "Sa&ját…"
 
 #: src/toplevel.cpp:156
 #, kde-format
