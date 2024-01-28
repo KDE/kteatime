@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2019-10-23 20:38+0300\n"
+"PO-Revision-Date: 2024-01-28 00:31+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
 "Language: lt\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -104,10 +104,9 @@ msgstr "pavadinimas"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Vaisių arbata"
+msgstr "Tinkinta arbata"
 
 #: src/settings.cpp:40
 #, kde-format
@@ -321,10 +320,10 @@ msgid "Unnamed Tea"
 msgstr "Bevardė arbata"
 
 #: src/timeedit.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Pradėti naują anoniminę arbatą su laiku konfigūruotu šiame dialoge."
+msgstr ""
+"Pradėti naują tinkintą arbatą naudojant šiame dialoge konfigūruotą laiką."
 
 #: src/timeedit.cpp:44
 #, kde-format
@@ -403,7 +402,7 @@ msgstr "&Konfigūruoti..."
 #: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "&Tinkinta..."
 
 #: src/toplevel.cpp:156
 #, kde-format
