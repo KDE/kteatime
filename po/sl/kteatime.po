@@ -4,7 +4,7 @@
 #
 # Tomaz Erjavec <Tomaz.Erjavec@ijs.si>, 2000.
 # Gregor Rakar <gregor.rakar@kiss.si>, 2003 - 2005.
-# Jure Repinc <jlp@holodeck1.com>, 2006, 2009 - 2011.
+# SPDX-FileCopyrightText: 2006, 2009 - 2011, 2024 Jure Repinc <jlp@holodeck1.com>
 # Jaka Kranjc <lynxlynxlynx@sourcemage.org>, 2007.
 # Klemen Košir <klemen.kosir@gmx.com>, 2011.
 # Andrej Mernik <andrejm@ubuntu.si>, 2014.
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2023-03-20 08:43+0100\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"PO-Revision-Date: 2024-02-27 13:19+0100\n"
+"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -83,7 +83,7 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "Tomaž Erjavec,Marko Samastur,Gregor Rakar,Klemen Košir,Andrej Mernik,Matjaž "
-"Jeran"
+"Jeran,Jure Repinc"
 
 #: src/main.cpp:44
 #, kde-format
@@ -91,7 +91,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "tomaz.erjavec@ijs.si,markos@elite.org,gregor.rakar@kiss.si,klemen.kosir@gmx."
-"com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
+"com,andrejm@ubuntu.si,matjaz.jeran@amis.net,jlp@holodeck1.com"
 
 #: src/main.cpp:72
 #, kde-format
@@ -145,8 +145,8 @@ msgstr "Pokaži pomoč za to okno."
 msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " sekundi"
-msgstr[1] " sekundah"
+msgstr[0] " sekundah"
+msgstr[1] " sekundi"
 msgstr[2] " sekundah"
 msgstr[3] " sekundah"
 
@@ -155,10 +155,10 @@ msgstr[3] " sekundah"
 msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " sekundo"
-msgstr[1] " sekundi"
-msgstr[2] " sekunde"
-msgstr[3] " sekund"
+msgstr[0] " sekund"
+msgstr[1] " sekundo"
+msgstr[2] " sekundi"
+msgstr[3] " sekunde"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -230,10 +230,10 @@ msgstr "Prikaži napredek v sistemski vrstici"
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 leto"
-msgstr[1] "%1 leti"
-msgstr[2] "%1 leta"
-msgstr[3] "%1 let"
+msgstr[0] "%1 let"
+msgstr[1] "%1 leto"
+msgstr[2] "%1 leti"
+msgstr[3] "%1 leta"
 
 #: src/tea.cpp:67
 #, kde-format
@@ -248,9 +248,9 @@ msgstr[3] "%1 l"
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 dan"
-msgstr[1] "%1 dneva"
-msgstr[2] "%1 dni"
+msgstr[0] "%1 dni"
+msgstr[1] "%1 dan"
+msgstr[2] "%1 dneva"
 msgstr[3] "%1 dni"
 
 #: src/tea.cpp:80
@@ -266,10 +266,10 @@ msgstr[3] "%1 d"
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] "%1 ura"
-msgstr[1] "%1 uri"
-msgstr[2] "%1 ure"
-msgstr[3] "%1 ur"
+msgstr[0] "%1 ur"
+msgstr[1] "%1 ura"
+msgstr[2] "%1 uri"
+msgstr[3] "%1 ure"
 
 #: src/tea.cpp:93
 #, kde-format
@@ -284,10 +284,10 @@ msgstr[3] "%1 h"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "%1 minuta"
-msgstr[1] "%1 minuti"
-msgstr[2] "%1 minute"
-msgstr[3] "%1 minut"
+msgstr[0] "%1 minut"
+msgstr[1] "%1 minuta"
+msgstr[2] "%1 minuti"
+msgstr[3] "%1 minute"
 
 #: src/tea.cpp:106
 #, kde-format
@@ -302,10 +302,10 @@ msgstr[3] "%1 min"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "%1 sekunda"
-msgstr[1] "%1 sekundi"
-msgstr[2] "%1 sekunde"
-msgstr[3] "%1 sekund"
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekunda"
+msgstr[2] "%1 sekundi"
+msgstr[3] "%1 sekunde"
 
 #: src/tea.cpp:119
 #, kde-format
@@ -339,31 +339,31 @@ msgstr "Začni nov čaj po meri s časom, nastavljenim v tem oknu."
 #: src/timeedit.cpp:44
 #, kde-format
 msgid "Close this dialog without starting a new tea."
-msgstr "Zapri to okno brez začetka kuhanja novega čaja."
+msgstr "Zapri to okno brez začetka namakanja novega čaja."
 
 #: src/timeedit.cpp:56
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] " minuta"
-msgstr[1] " minuti"
-msgstr[2] " minute"
-msgstr[3] " minut"
+msgstr[0] " minut"
+msgstr[1] " minuta"
+msgstr[2] " minuti"
+msgstr[3] " minute"
 
 #: src/timeedit.cpp:57
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " sekunda"
-msgstr[1] " sekundi"
-msgstr[2] " sekunde"
-msgstr[3] " sekund"
+msgstr[0] " sekund"
+msgstr[1] " sekunda"
+msgstr[2] " sekundi"
+msgstr[3] " sekunde"
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
 #, kde-format
 msgid "Tea time:"
-msgstr "Čas kuhanja:"
+msgstr "Čas namakanja:"
 
 #: src/toplevel.cpp:50
 #, kde-format
@@ -393,32 +393,32 @@ msgstr "Zeleni čaj"
 #: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
-msgstr "Povzetek"
+msgstr "Na&daljuj"
 
 #: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
-msgstr "&Pavza"
+msgstr "&Premor"
 
 #: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
-msgstr "Zaustavi"
+msgstr "&Zaustavi"
 
 #: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
-msgstr "Nastavi..."
+msgstr "&Nastavi …"
 
 #: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
-msgstr "Po meri..."
+msgstr "Po &meri …"
 
 #: src/toplevel.cpp:156
 #, kde-format
 msgid "No steeping tea."
-msgstr "Noben čaj ne stoji."
+msgstr "Noben čaj se ne namaka."
 
 #: src/toplevel.cpp:209
 #, kde-format
