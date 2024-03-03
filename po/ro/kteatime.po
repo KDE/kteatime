@@ -1,25 +1,23 @@
 # Traducerea kteatime.po în Română
 # translation of kteatime.po to Romanian
-# translation of kteatime.po to
 # Copyright (C) 2003, 2004, 2005, 2006, 2008 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004, 2005, 2006.
-# Sergiu Bivol <sergiu@cip.md>, 2008.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2011, 2020.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2011, 2020, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2020-09-20 10:29+0100\n"
+"PO-Revision-Date: 2024-02-25 14:29+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -32,19 +30,15 @@ msgid "KDE utility for making a fine cup of tea."
 msgstr "Utilitar KDE pentru a vă face o cană de ceai."
 
 #: src/main.cpp:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
-#| " (c) 2002-2003, Martin Willers\n"
-#| " (c) 2007-2010, Stefan Böhmann"
+#, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
 "© 2002-2003, Martin Willers\n"
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
-"(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
-" (c) 2002-2003, Martin Willers\n"
-" (c) 2007-2010, Stefan Böhmann"
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
 
 #: src/main.cpp:38
 #, kde-format
@@ -57,10 +51,9 @@ msgid "Current maintainer"
 msgstr "Responsabil actual"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgid "Matthias Hölzer-Klüpfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hölzer-Klüpfel"
 
 #: src/main.cpp:40
 #, kde-format
@@ -95,31 +88,26 @@ msgid "Start a new tea with this time."
 msgstr "Pornește un ceai nou cu acest timp."
 
 #: src/main.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid "seconds"
-msgstr " secundă"
+msgstr "secunde"
 
 #: src/main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Use this name for the tea started with %1."
+#, kde-format
 msgid "Use this name for the tea started with --time."
-msgstr "Folosește această denumire pentru ceaiul început cu %1."
+msgstr "Folosește această denumire pentru ceaiul început cu --time."
 
 #: src/main.cpp:74
 #, kde-format
 msgid "name"
-msgstr ""
+msgstr "denumire"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Ceai de fructe"
+msgstr "Ceai personalizat"
 
 #: src/settings.cpp:40
 #, kde-format
@@ -321,10 +309,9 @@ msgid "Unnamed Tea"
 msgstr "Ceai fără nume"
 
 #: src/timeedit.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Pornește un nou ceai anonim cu durata indicată în acest dialog."
+msgstr "Pornește un nou ceai personalizat cu durata indicată în acest dialog."
 
 #: src/timeedit.cpp:44
 #, kde-format
@@ -332,20 +319,15 @@ msgid "Close this dialog without starting a new tea."
 msgstr "Închide acest dialog fără a porni un ceai nou."
 
 #: src/timeedit.cpp:56
-#, fuzzy, kde-format
-#| msgid "%1 minute"
-#| msgid_plural "%1 minutes"
+#, kde-format
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] "%1 minut"
-msgstr[1] "%1 minute"
-msgstr[2] "%1 de minute"
+msgstr[0] " minut"
+msgstr[1] " minute"
+msgstr[2] " de minute"
 
 #: src/timeedit.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " secundă"
@@ -356,7 +338,7 @@ msgstr[2] " de secunde"
 #: src/timeedit.ui:32
 #, kde-format
 msgid "Tea time:"
-msgstr "Timp fierbere:"
+msgstr "Timp de fierbere:"
 
 #: src/toplevel.cpp:50
 #, kde-format
@@ -381,17 +363,17 @@ msgstr "Ceai de fructe"
 #: src/toplevel.cpp:63
 #, kde-format
 msgid "Green Tea"
-msgstr ""
+msgstr "Ceai verde"
 
 #: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
-msgstr ""
+msgstr "&Reia"
 
 #: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
-msgstr ""
+msgstr "&Pauză"
 
 #: src/toplevel.cpp:85
 #, kde-format
@@ -406,7 +388,7 @@ msgstr "&Configurare..."
 #: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "P&ersonalizat…"
 
 #: src/toplevel.cpp:156
 #, kde-format
@@ -439,27 +421,3 @@ msgstr "%1 este gata de la %2!"
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
 msgstr "%1 rămase pentru %2."
-
-#~ msgid "Anonymous Tea"
-#~ msgstr "Ceai anonim"
-
-#~ msgid "&Anonymous..."
-#~ msgstr "&Anonim..."
-
-#~ msgid "Configure &amp;Notifications..."
-#~ msgstr "Configurare &amp;notificări..."
-
-#~ msgid "Configure notifications"
-#~ msgstr "Configurează notificările"
-
-#~ msgid "Notification"
-#~ msgstr "Notificare"
-
-#~ msgid "N"
-#~ msgstr "N"
-
-#~ msgid "D"
-#~ msgstr "D"
-
-#~ msgid "U"
-#~ msgstr "U"
