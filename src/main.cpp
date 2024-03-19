@@ -30,7 +30,9 @@ int main (int argc, char *argv[])
                           i18n( "© 1998-1999, Matthias Hölzer-Klüpfel\n"
                                 "© 2002-2003, Martin Willers\n"
                                 "© 2007-2010, Stefan Böhmann"
-                               )
+                               ),
+                          QString(),
+                          QStringLiteral("https://apps.kde.org/kteatime")
                         );
 
     KCrash::initialize();
@@ -42,11 +44,6 @@ int main (int argc, char *argv[])
     aboutData.addCredit(i18n("Daniel Teske"), i18n("Many patches"), QStringLiteral("teske@bigfoot.com"));
 
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
-
-    /**
-     * right dbus prefix == org.kde.
-     */
-    aboutData.setOrganizationDomain("kde.org");
 
     /**
      * register about data
