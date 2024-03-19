@@ -60,7 +60,6 @@ int main (int argc, char *argv[])
      */
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
-    parser.setApplicationDescription(aboutData.shortDescription());
 
     QCommandLineOption timeOption(QStringList() << QStringLiteral("t") << QStringLiteral("time"), i18n("Start a new tea with this time."), i18n("seconds"));
     parser.addOption(timeOption);
