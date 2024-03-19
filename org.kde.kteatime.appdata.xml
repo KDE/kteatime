@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>org.kde.kteatime.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>KTeaTime</name>
   <name xml:lang="ar">وقت شايك</name>
   <name xml:lang="ast">KTeaTime</name>
@@ -154,6 +157,7 @@
   <provides>
     <binary>kteatime</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.kteatime.desktop</launchable>
   <releases>
     <release version="24.02.1" date="2024-03-21"/>
     <release version="24.02.0" date="2024-02-28"/>
