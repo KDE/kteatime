@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2024-03-20 00:40+0000\n"
 "PO-Revision-Date: 2021-01-17 12:19+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -48,72 +48,72 @@ msgstr ""
 "© Martin Willers, 2002-2003\n"
 "© Stefan Böhmann, 2007-2010"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "Сопровождающий"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "Matthias Hölzer-Klüpfel"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "Martin Willers"
 msgstr "Martin Willers"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Daniel Teske"
 msgstr "Daniel Teske"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Many patches"
 msgstr "Множество исправлений"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Андрей Дубиковский,Денис Песоцкий"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andru@bog.msu.ru,denis@kde.ru"
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "Начать приготовление чая с этим временем."
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, kde-format
 msgid "seconds"
 msgstr "секунды"
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr ""
 "Использовать это название для чая, приготовление которого запущено ключом --"
 "time."
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "name"
 msgstr "название"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:74 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, kde-format
 msgid "Custom Tea"

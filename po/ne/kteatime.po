@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2024-03-20 00:40+0000\n"
 "PO-Revision-Date: 2007-08-26 15:27+0545\n"
 "Last-Translator: Ishwor Sharma <sharmabeeshwar@gmail.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -42,72 +42,72 @@ msgstr ""
 "(c) १९९८-१९९९, मेथियस होएल्जर-क्लूफेल\n"
 "(c) २००२-२००३, मार्टिन विलर्स"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Matthias Hoelzer-Kluepfel"
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "मेथियस होएल्जर-क्लूप्फेल"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "Martin Willers"
 msgstr "मार्टिन विलर्स"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Daniel Teske"
 msgstr "डेनियल टेस्की"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Many patches"
 msgstr "धेरै भागहरू"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ishwor Sharma"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sharmabeeshwar@gmail.com"
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr ""
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, fuzzy, kde-format
 #| msgid "%1 s"
 msgid "seconds"
 msgstr "%1 सेकेन्ड"
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr ""
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:74 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"

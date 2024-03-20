@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2024-03-20 00:40+0000\n"
 "PO-Revision-Date: 2006-04-04 09:30+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -36,71 +36,71 @@ msgid ""
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Matthias Hölzer-Klüpfel"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "Martin Willers"
 msgstr ""
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Daniel Teske"
 msgstr ""
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Many patches"
 msgstr "অনেক প্যাচ"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "প্রজ্ঞা"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "progga@BengaLinux.Org"
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr ""
 
-#: src/main.cpp:72
+#: src/main.cpp:61
 #, fuzzy, kde-format
 #| msgid "%1 s"
 msgid "seconds"
 msgstr "%1 সেকেন্ড"
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr ""
 
-#: src/main.cpp:74
+#: src/main.cpp:63
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:85 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:74 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"
