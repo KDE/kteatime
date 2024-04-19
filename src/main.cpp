@@ -14,8 +14,7 @@
 #include <KCrash>
 #include <KLocalizedString>
 
-
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     /**
      * Create application first
@@ -24,20 +23,24 @@ int main (int argc, char *argv[])
     /**
      * construct about data for KTeaTime
      */
-    KAboutData aboutData( QStringLiteral("kteatime"), i18n("KTeaTime"), QStringLiteral(KTEATIME_VERSION),
-                          i18n( "KDE utility for making a fine cup of tea." ),
-                          KAboutLicense::GPL,
-                          i18n( "© 1998-1999, Matthias Hölzer-Klüpfel\n"
-                                "© 2002-2003, Martin Willers\n"
-                                "© 2007-2010, Stefan Böhmann"
-                               ),
-                          QString(),
-                          QStringLiteral("https://apps.kde.org/kteatime")
-                        );
+    KAboutData aboutData(QStringLiteral("kteatime"),
+                         i18n("KTeaTime"),
+                         QStringLiteral(KTEATIME_VERSION),
+                         i18n("KDE utility for making a fine cup of tea."),
+                         KAboutLicense::GPL,
+                         i18n("© 1998-1999, Matthias Hölzer-Klüpfel\n"
+                              "© 2002-2003, Martin Willers\n"
+                              "© 2007-2010, Stefan Böhmann"),
+                         QString(),
+                         QStringLiteral("https://apps.kde.org/kteatime"));
 
     KCrash::initialize();
 
-    aboutData.addAuthor(i18n("Stefan Böhmann"), i18n("Current maintainer"), QStringLiteral("kde@hilefoks.org"), QStringLiteral("http://www.hilefoks.org"), QStringLiteral("hilefoks"));
+    aboutData.addAuthor(i18n("Stefan Böhmann"),
+                        i18n("Current maintainer"),
+                        QStringLiteral("kde@hilefoks.org"),
+                        QStringLiteral("http://www.hilefoks.org"),
+                        QStringLiteral("hilefoks"));
     aboutData.addAuthor(i18n("Matthias Hölzer-Klüpfel"), QString(), QStringLiteral("matthias@hoelzer-kluepfel.de"));
     aboutData.addAuthor(i18n("Martin Willers"), QString(), QStringLiteral("willers@xm-arts.de"));
 
@@ -60,27 +63,28 @@ int main (int argc, char *argv[])
 
     QCommandLineOption timeOption(QStringList() << QStringLiteral("t") << QStringLiteral("time"), i18n("Start a new tea with this time."), i18n("seconds"));
     parser.addOption(timeOption);
-    QCommandLineOption nameOption(QStringList() << QStringLiteral("n") << QStringLiteral("tea-name"), i18n("Use this name for the tea started with --time."), i18n("name"));
+    QCommandLineOption nameOption(QStringList() << QStringLiteral("n") << QStringLiteral("tea-name"),
+                                  i18n("Use this name for the tea started with --time."),
+                                  i18n("name"));
     parser.addOption(nameOption);
 
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    TopLevel *toplevel=new TopLevel( &aboutData );
+    TopLevel *toplevel = new TopLevel(&aboutData);
 
-    const int time=parser.value(timeOption).toInt();
-    if( time > 0 ) {
+    const int time = parser.value(timeOption).toInt();
+    if (time > 0) {
         const QString name = parser.value(nameOption);
-        const Tea tea( name.isEmpty() ? i18n( "Custom Tea" ) : name, time );
-        toplevel->runTea( tea );
+        const Tea tea(name.isEmpty() ? i18n("Custom Tea") : name, time);
+        toplevel->runTea(tea);
     }
 
     int ret = app.exec();
-    
+
     delete toplevel;
     return ret;
 }
 
-
-// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
-// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on;
+// replace-tabs on; space-indent on; vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

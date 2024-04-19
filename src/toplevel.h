@@ -10,9 +10,8 @@
 
 #include "tea.h"
 
-#include <QSystemTrayIcon>
 #include <QPointer>
-
+#include <QSystemTrayIcon>
 
 class QAction;
 class QActionGroup;
@@ -29,67 +28,67 @@ class KNotification;
  */
 class TopLevel : public QSystemTrayIcon
 {
-    public:
-        explicit TopLevel(const KAboutData *aboutData,
-                          const QString &trayIcon = QLatin1String("kteatime-symbolic"),
-                          const QString &notificationIcon = QLatin1String("kteatime"),
-                          QWidget *parent = nullptr);
-        ~TopLevel() override;
-        void setTeaList(const QList<Tea> &tealist);
-        void runTea(const Tea &tea);
+public:
+    explicit TopLevel(const KAboutData *aboutData,
+                      const QString &trayIcon = QLatin1String("kteatime-symbolic"),
+                      const QString &notificationIcon = QLatin1String("kteatime"),
+                      QWidget *parent = nullptr);
+    ~TopLevel() override;
+    void setTeaList(const QList<Tea> &tealist);
+    void runTea(const Tea &tea);
 
-    private:
-        void slotRunTea(QAction *a);
-        void showSettingsDialog();
-        void showTimeEditDialog();
-        void teaTimeEvent();
-        void cancelTea();
-        void stopTea();
-        void resumeTea();
-        void showPopup(QSystemTrayIcon::ActivationReason reason);
-        void checkState();
-        void loadConfig();
-        void loadTeaMenuItems();
-        void repaintTrayIcon();
-        void setTooltipText(const QString& content);
-        void configureNotifications();
+private:
+    void slotRunTea(QAction *a);
+    void showSettingsDialog();
+    void showTimeEditDialog();
+    void teaTimeEvent();
+    void cancelTea();
+    void stopTea();
+    void resumeTea();
+    void showPopup(QSystemTrayIcon::ActivationReason reason);
+    void checkState();
+    void loadConfig();
+    void loadTeaMenuItems();
+    void repaintTrayIcon();
+    void setTooltipText(const QString &content);
+    void configureNotifications();
 
-        QList<Tea> m_tealist;
-        QAction *action = nullptr;
-        QActionGroup *m_teaActionGroup = nullptr;
-        KActionCollection *m_actionCollection = nullptr;
+    QList<Tea> m_tealist;
+    QAction *action = nullptr;
+    QActionGroup *m_teaActionGroup = nullptr;
+    KActionCollection *m_actionCollection = nullptr;
 
-        KHelpMenu *m_helpMenu = nullptr;
-        QTimer *m_timer = nullptr;
-        QPointer<KNotification> m_popup;
-        QString m_trayIconName;
-        QString m_notificationIconName;
+    KHelpMenu *m_helpMenu = nullptr;
+    QTimer *m_timer = nullptr;
+    QPointer<KNotification> m_popup;
+    QString m_trayIconName;
+    QString m_notificationIconName;
 
-        int m_runningTeaTime;
-        int m_pausedRemainingTeaTime;
-        int m_nextNotificationTime;
-        Tea m_runningTea;
+    int m_runningTeaTime;
+    int m_pausedRemainingTeaTime;
+    int m_nextNotificationTime;
+    Tea m_runningTea;
 
-        /** should we show a popup for events */
-        bool m_usepopup;
+    /** should we show a popup for events */
+    bool m_usepopup;
 
-        /** auto hide the popup? */
-        bool m_autohide;
+    /** auto hide the popup? */
+    bool m_autohide;
 
-        /** time after the popup should be hide. */
-        int m_autohidetime;
+    /** time after the popup should be hide. */
+    int m_autohidetime;
 
-        /** remind us about a ready tea? */
-        bool m_usereminder;
+    /** remind us about a ready tea? */
+    bool m_usereminder;
 
-        /** the time bedween remind events */
-        int m_remindertime;
+    /** the time bedween remind events */
+    int m_remindertime;
 
-        /** use a visual effect in the system tray icon. */
-        bool m_usevisualize;
+    /** use a visual effect in the system tray icon. */
+    bool m_usevisualize;
 };
 
 #endif
 
-// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
-// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on;
+// replace-tabs on; space-indent on; vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

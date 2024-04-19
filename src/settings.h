@@ -15,7 +15,6 @@ class TeaListModel;
 class Tea;
 class SettingsUI;
 
-
 /**
  * @short the settings dialog
  *
@@ -23,34 +22,33 @@ class SettingsUI;
  */
 class SettingsDialog : public QDialog
 {
-    public:
-        SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
-        ~SettingsDialog() override;
+public:
+    SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas);
+    ~SettingsDialog() override;
 
-    private:
-        void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
+private:
+    void updateSelection(const QItemSelection &selected, const QItemSelection &deselected);
 
-        void accept() override;
-        void checkPopupButtonState(bool b);
-        void showHelp();
+    void accept() override;
+    void checkPopupButtonState(bool b);
+    void showHelp();
 
-        void newButtonClicked();
-        void removeButtonClicked();
-        void upButtonClicked();
-        void downButtonClicked();
+    void newButtonClicked();
+    void removeButtonClicked();
+    void upButtonClicked();
+    void downButtonClicked();
 
-        void nameValueChanged(const QString &text);
-        void timeValueChanged();
+    void nameValueChanged(const QString &text);
+    void timeValueChanged();
 
-        void moveSelectedItem(bool moveup);
+    void moveSelectedItem(bool moveup);
 
-        SettingsUI *const mUi;
-        TopLevel *const m_toplevel;
-        TeaListModel *m_model = nullptr;
+    SettingsUI *const mUi;
+    TopLevel *const m_toplevel;
+    TeaListModel *m_model = nullptr;
 };
-
 
 #endif
 
-// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
-// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on;
+// replace-tabs on; space-indent on; vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:

@@ -17,7 +17,6 @@ class QDialogButtonBox;
 class TopLevel;
 class TimeEditUI;
 
-
 /**
  * @short the timeedit dialog.
  *
@@ -25,20 +24,20 @@ class TimeEditUI;
  */
 class TimeEditDialog : public QDialog
 {
-    public:
-        explicit TimeEditDialog(TopLevel *toplevel);
-        ~TimeEditDialog() override;
+public:
+    explicit TimeEditDialog(TopLevel *toplevel);
+    ~TimeEditDialog() override;
 
-    private:
-        void checkOkButtonState();
-        void accept() override;
+private:
+    void checkOkButtonState();
+    void accept() override;
 
-        TimeEditUI *const mUi;
-        TopLevel *const mToplevel;
-        QDialogButtonBox *mButtonBox = nullptr;
+    TimeEditUI *const mUi;
+    TopLevel *const mToplevel;
+    QDialogButtonBox *mButtonBox = nullptr;
 };
 
 #endif
 
-// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on; replace-tabs on; space-indent on;
-// vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
+// kate: word-wrap off; encoding utf-8; indent-width 4; tab-width 4; line-numbers on; mixed-indent off; remove-trailing-space-save on; replace-tabs-save on;
+// replace-tabs on; space-indent on; vim:set spell et sw=4 ts=4 nowrap cino=l1,cs,U1:
