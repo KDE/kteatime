@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:40+0000\n"
+"POT-Creation-Date: 2024-04-20 00:40+0000\n"
 "PO-Revision-Date: 2024-01-26 10:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -39,12 +39,12 @@ msgstr ""
 msgid "KTeaTime"
 msgstr "KTeaTime"
 
-#: src/main.cpp:28
+#: src/main.cpp:29
 #, kde-format
 msgid "KDE utility for making a fine cup of tea."
 msgstr "כלי של KDE להכנת כוס תה מצוינת."
 
-#: src/main.cpp:30
+#: src/main.cpp:31
 #, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
@@ -55,7 +55,7 @@ msgstr ""
 "© 2002-2003, מרטין וילרס\n"
 "© 2007-2010, סטפן בויהמן"
 
-#: src/main.cpp:40
+#: src/main.cpp:39
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "סטפן בויהמן"
@@ -65,87 +65,87 @@ msgstr "סטפן בויהמן"
 msgid "Current maintainer"
 msgstr "מתחזק נוכחי"
 
-#: src/main.cpp:41
+#: src/main.cpp:44
 #, kde-format
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "מטיאס הוילצר-קלופפל"
 
-#: src/main.cpp:42
+#: src/main.cpp:45
 #, kde-format
 msgid "Martin Willers"
 msgstr "מרטין וילרס"
 
-#: src/main.cpp:44
+#: src/main.cpp:47
 #, kde-format
 msgid "Daniel Teske"
 msgstr "דניאל טסקה"
 
-#: src/main.cpp:44
+#: src/main.cpp:47
 #, kde-format
 msgid "Many patches"
 msgstr "מגוון טלאים"
 
-#: src/main.cpp:46
+#: src/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "מני ליבנה,איתי שגב,אבי זאנד,צוות התרגום של KDE ישראל"
 
-#: src/main.cpp:46
+#: src/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "livne@kde.org,is+translation@cs.hmc.edu,avisand@gmail.com,kde-l10-he@kde.org"
 
-#: src/main.cpp:61
+#: src/main.cpp:64
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "התחלת תה חדש בשעה הזאת."
 
-#: src/main.cpp:61
+#: src/main.cpp:64
 #, kde-format
 msgid "seconds"
 msgstr "שניות"
 
-#: src/main.cpp:63
+#: src/main.cpp:67
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr "להשתמש בשם הזה לתה שהותחל עם ‎--time."
 
-#: src/main.cpp:63
+#: src/main.cpp:68
 #, kde-format
 msgid "name"
 msgstr "שם"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:74 src/tea.cpp:28 src/timeedit.cpp:38 src/timeedit.cpp:109
+#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
 #, kde-format
 msgid "Custom Tea"
 msgstr "תה מותאם אישית"
 
-#: src/settings.cpp:40
+#: src/settings.cpp:39
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr "הגדרות מבשל התה"
 
-#: src/settings.cpp:53
+#: src/settings.cpp:52
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr "שמירת השינויים וסגירת החלונית."
 
-#: src/settings.cpp:54
+#: src/settings.cpp:53
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr "סגירת החלונית מבלי לשמור את השינויים."
 
-#: src/settings.cpp:55
+#: src/settings.cpp:54
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr "הצגת עמוד עזרה לחלונית הזאת."
 
-#: src/settings.cpp:84
+#: src/settings.cpp:83
 #, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
@@ -155,7 +155,7 @@ msgstr[1] " שניות"
 msgstr[2] " שניות"
 msgstr[3] " שניות"
 
-#: src/settings.cpp:85
+#: src/settings.cpp:84
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
@@ -178,13 +178,13 @@ msgid "Tea Properties"
 msgstr "מאפייני התה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/settings.ui:118 src/tealistmodel.cpp:100
+#: src/settings.ui:118 src/tealistmodel.cpp:93
 #, kde-format
 msgid "Name"
 msgstr "שם"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/settings.ui:132 src/tealistmodel.cpp:100
+#: src/settings.ui:132 src/tealistmodel.cpp:93
 #, kde-format
 msgid "Time"
 msgstr "זמן"
@@ -231,7 +231,7 @@ msgstr "להזכיר כל"
 msgid "Visualize progress in icon tray"
 msgstr "המחשת התהליך בסמל במגש המערכת"
 
-#: src/tea.cpp:64
+#: src/tea.cpp:56
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
@@ -240,7 +240,7 @@ msgstr[1] "שנתיים"
 msgstr[2] "%1 שנים"
 msgstr[3] "%1 שנים"
 
-#: src/tea.cpp:67
+#: src/tea.cpp:58
 #, kde-format
 msgid "%1 a"
 msgid_plural "%1 a"
@@ -249,7 +249,7 @@ msgstr[1] "%1"
 msgstr[2] "%1"
 msgstr[3] "%1"
 
-#: src/tea.cpp:77
+#: src/tea.cpp:68
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
@@ -258,7 +258,7 @@ msgstr[1] "יומיים"
 msgstr[2] "%1 ימים"
 msgstr[3] "%1 ימים"
 
-#: src/tea.cpp:80
+#: src/tea.cpp:70
 #, kde-format
 msgid "%1 d"
 msgid_plural "%1 d"
@@ -267,7 +267,7 @@ msgstr[1] "יומיים"
 msgstr[2] "%1 י׳"
 msgstr[3] "%1 י׳"
 
-#: src/tea.cpp:90
+#: src/tea.cpp:80
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
@@ -276,7 +276,7 @@ msgstr[1] "שעתיים"
 msgstr[2] "%1 שעות"
 msgstr[3] "%1 שעות"
 
-#: src/tea.cpp:93
+#: src/tea.cpp:82
 #, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
@@ -285,7 +285,7 @@ msgstr[1] "שעתיים"
 msgstr[2] "%1 שע׳"
 msgstr[3] "%1 שע׳"
 
-#: src/tea.cpp:103
+#: src/tea.cpp:92
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
@@ -294,7 +294,7 @@ msgstr[1] "שתי דקות"
 msgstr[2] "%1 דקות"
 msgstr[3] "%1 דקות"
 
-#: src/tea.cpp:106
+#: src/tea.cpp:94
 #, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
@@ -303,7 +303,7 @@ msgstr[1] "שתי דק׳"
 msgstr[2] "%1 דק׳"
 msgstr[3] "%1 דק׳"
 
-#: src/tea.cpp:116
+#: src/tea.cpp:104
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -312,7 +312,7 @@ msgstr[1] "שתי שניות"
 msgstr[2] "%1 שניות"
 msgstr[3] "%1 שניות"
 
-#: src/tea.cpp:119
+#: src/tea.cpp:106
 #, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
@@ -321,32 +321,32 @@ msgstr[1] "שתי שנ׳"
 msgstr[2] "%1 שנ׳"
 msgstr[3] "%1 שנ׳"
 
-#: src/tealistmodel.cpp:68
+#: src/tealistmodel.cpp:64
 #, kde-format
 msgid " ("
 msgstr " ("
 
-#: src/tealistmodel.cpp:70
+#: src/tealistmodel.cpp:66
 #, kde-format
 msgid ")"
 msgstr ")"
 
-#: src/tealistmodel.cpp:113
+#: src/tealistmodel.cpp:105
 #, kde-format
 msgid "Unnamed Tea"
 msgstr "תה ללא שם"
 
-#: src/timeedit.cpp:41
+#: src/timeedit.cpp:39
 #, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
 msgstr "התחלת כוס תה מותאמת אישית עם השעה שהוגדרה בחלונית הזאת."
 
-#: src/timeedit.cpp:44
+#: src/timeedit.cpp:42
 #, kde-format
 msgid "Close this dialog without starting a new tea."
 msgstr "לסגור את החלונית הזאת מבלי להתחיל תה חדש."
 
-#: src/timeedit.cpp:56
+#: src/timeedit.cpp:54
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
@@ -355,7 +355,7 @@ msgstr[1] " דקות"
 msgstr[2] " דקות"
 msgstr[3] " דקות"
 
-#: src/timeedit.cpp:57
+#: src/timeedit.cpp:55
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
@@ -395,58 +395,58 @@ msgstr "תה פירות"
 msgid "Green Tea"
 msgstr "תה ירוק"
 
-#: src/toplevel.cpp:73
+#: src/toplevel.cpp:72
 #, kde-format
 msgid "&Resume"
 msgstr "להמ&שיך"
 
-#: src/toplevel.cpp:79
+#: src/toplevel.cpp:78
 #, kde-format
 msgid "&Pause"
 msgstr "ל&השהות"
 
-#: src/toplevel.cpp:85
+#: src/toplevel.cpp:84
 #, kde-format
 msgid "&Stop"
 msgstr "ע&צירה"
 
-#: src/toplevel.cpp:91
+#: src/toplevel.cpp:90
 #, kde-format
 msgid "&Configure..."
 msgstr "ה&גדרות…"
 
-#: src/toplevel.cpp:99
+#: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
 msgstr "התאמה &אישית…"
 
-#: src/toplevel.cpp:156
+#: src/toplevel.cpp:154
 #, kde-format
 msgid "No steeping tea."
 msgstr "תה ללא השריה."
 
-#: src/toplevel.cpp:209
+#: src/toplevel.cpp:207
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:292 src/toplevel.cpp:407
+#: src/toplevel.cpp:285 src/toplevel.cpp:390
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "מבשל התה"
 
-#: src/toplevel.cpp:298
+#: src/toplevel.cpp:291
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "%1 מוכן עכשיו!"
 
-#: src/toplevel.cpp:318
+#: src/toplevel.cpp:310
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "%1 מוכן מאז %2!"
 
-#: src/toplevel.cpp:334
+#: src/toplevel.cpp:325
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
