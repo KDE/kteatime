@@ -372,12 +372,12 @@ msgstr "A&tura"
 #: src/toplevel.cpp:90
 #, kde-format
 msgid "&Configure..."
-msgstr "&Configura..."
+msgstr "&Configura…"
 
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr "&Personalitza..."
+msgstr "&Personalitza…"
 
 #: src/toplevel.cpp:154
 #, kde-format
