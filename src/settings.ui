@@ -35,8 +35,8 @@
        <layout class="QHBoxLayout">
         <item>
          <widget class="QToolButton" name="newButton">
-          <property name="text">
-           <string comment="KDE::DoNotExtract">N</string>
+          <property name="icon">
+           <iconset theme="list-add"/>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
@@ -48,8 +48,8 @@
           <property name="enabled">
            <bool>true</bool>
           </property>
-          <property name="text">
-           <string comment="KDE::DoNotExtract">D</string>
+          <property name="icon">
+           <iconset theme="edit-delete"/>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
@@ -61,8 +61,8 @@
           <property name="enabled">
            <bool>true</bool>
           </property>
-          <property name="text">
-           <string comment="KDE::DoNotExtract">U</string>
+          <property name="icon">
+           <iconset theme="arrow-up"/>
           </property>
           <property name="autoRaise">
            <bool>true</bool>
@@ -77,8 +77,8 @@
           <property name="autoFillBackground">
            <bool>false</bool>
           </property>
-          <property name="text">
-           <string comment="KDE::DoNotExtract">D</string>
+          <property name="icon">
+           <iconset theme="arrow-down"/>
           </property>
           <property name="autoRaise">
            <bool>true</bool>

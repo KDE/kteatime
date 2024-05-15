@@ -96,11 +96,6 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     mUi->upButton->setEnabled(false);
     mUi->downButton->setEnabled(false);
 
-    mUi->newButton->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
-    mUi->removeButton->setIcon(QIcon::fromTheme(QLatin1String("edit-delete")));
-    mUi->upButton->setIcon(QIcon::fromTheme(QLatin1String("arrow-up")));
-    mUi->downButton->setIcon(QIcon::fromTheme(QLatin1String("arrow-down")));
-
     connect(mUi->popupCheckBox, &QCheckBox::toggled, this, &SettingsDialog::checkPopupButtonState);
 
     connect(mUi->newButton, &QToolButton::clicked, this, &SettingsDialog::newButtonClicked);
