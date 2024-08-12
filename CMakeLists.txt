@@ -47,7 +47,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.7  KF 6.4.0)
+ecm_set_disabled_deprecation_versions(QT 6.7  KF 6.5.0)
 ADD_SUBDIRECTORY(data)
 ADD_SUBDIRECTORY(src)
 ki18n_install(po)
