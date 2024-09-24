@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Slovenian "INCLUDE">
+]>
+
+<book id="kteatime" lang="&language;">
+<bookinfo>
+<title
+>&kteatime; Priročnik</title>
+<authorgroup>
+<author
+>&Michael.Korman; &Michael.Korman.mail; </author>
+
+<othercredit role="developer"
+>&Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </othercredit>
+
+<othercredit role="reviewer"
+>&Lauri.Watts; &Lauri.Watts.mail; </othercredit>
+<othercredit role="translator"
+><firstname
+>Jan</firstname
+><surname
+>Napast</surname
+><affiliation
+><address
+><email
+>jan.napast153@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>&Michael.Korman;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>06.07.2016</date>
+<releaseinfo
+>1.3.0 (Aplikacije 16.04)</releaseinfo>
+
+<abstract>
+<para
+>Ta priročnik opisuje &kteatime;, &kde; Kuhalnik za čaj.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdetoys</keyword>
+<keyword
+>kteatime</keyword>
+<keyword
+>čaj</keyword>
+<keyword
+>kuhar</keyword>
+<keyword
+>časovnik</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<sect1 id="whats-kteatime">
+<title
+>Kaj je &kteatime;?</title>
+
+<para
+>&kteatime; je priročen časovnik za namakanje čaja. Nič več vam ne bo treba ugibati, koliko časa traja, da je vaš čaj pripravljen. Preprosto izberite vrsto čaja, ki ga imate, in opozorilo vas bo, ko bo čaj pripravljen za pitje.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="how-to-use">
+<title
+>Kako uporabljati &kteatime;</title>
+
+<para
+>Ko zaženete &kteatime;, se samodejno zasidra v vašo ploščo. Za dostop do menija z desno miškino tipko kliknite zasidrano ikono. To bo predstavilo seznam možnosti, ki so podrobneje obravnavane v naslednjem poglavju.</para>
+
+<sect1 id="timing-your-tea">
+<title
+>Čas za vaš čaj</title>
+
+<para
+>Ob zagonu bo ikona plošče v obliki skodelice za čaj. Če kliknete z &RMB; na skodelici in izberite svoj čaj, se na ikoni prikaže animirana ura, ki prikazuje preostali čas. Po določenem času bo čaj končan in prikazano bo ustrezno sporočilo. Na tej točki lahko zaprete okno s sporočilom s klikom nanj. To ponastavi tudi časovnik in ura na skodelici spet izgine.</para>
+
+<note
+><para
+>Časovnik naj ponastavijo samo tisti, ki resnično uživajo v čaju.</para
+></note>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-options">
+<title
+>Možnosti menija</title>
+
+<para
+>Naslednji razdelek opisuje možnosti menija, ki so na voljo v &kteatime;.</para>
+
+<sect1 id="select-your-tea">
+<title
+>Izberite svoj čaj</title>
+
+<para
+>S klikom na ikono z &RMB; bo prikazal meni. Na vrhu menija so štirje elementi menija. Tukaj lahko izberete, kakšen čaj želite piti. Obstajajo: <guimenuitem
+>črni čaj</guimenuitem
+>, <guimenuitem
+>Earl Grey</guimenuitem
+>, <guimenuitem
+>sadni čaj</guimenuitem
+> in <guimenuitem
+>zeleni čaj</guimenuitem
+>. Ti čaji so vnaprej konfigurirani s privzetim časom. Mnogi ljudje so se pritoževali, da časi niso pravi. Upoštevajte, da je čas, potreben za namakanje skodelice čaja, odvisen od osebnih želja. Izbrani časi so približni. Če boste brali naprej, se boste naučili, kako spremeniti ali izbrisati te vnaprej določene ure in nastaviti svoj čas. Hiter in enostaven način za nastavitev časa po meri je, da v meniju izberete <guimenuitem
+>Po meri ...</guimenuitem
+>.</para>
+
+<para
+>Če kliknete <guimenuitem
+>Konfiguriraj obvestila ...</guimenuitem
+>, se prikaže &kde; Nastavitve obvestil za &kteatime;.</para>
+
+</sect1>
+
+<sect1 id="start">
+<title
+>Zaženite časovnik za čaj</title>
+
+<para
+>Če želite zagnati časovnik za čaj, izberite čaj v kontekstnem meniju. Kot potrditev, da ste res zagnali časovnik, se na ikoni plošče prikaže ura, ki prikazuje preostali čas.</para
+></sect1>
+
+<sect1 id="configure">
+<title
+>Konfiguriraj</title>
+
+<para
+>Ta element menija odpre pogovorno okno za konfiguracijo. Posnetek zaslona je prikazan spodaj:</para>
+
+<screenshot>
+<screeninfo
+>&kteatime; konfiguracijsko pogovorno okno.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="config.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>&kteatime; konfiguracijsko pogovorno okno.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Kot je prikazano na sliki, lahko dodate nove vnose za druge čaje ali spremenite imena, ure in vrstni red obstoječih vnosov. To je uporabno, če kuhate skodelico čaja, ki ni na seznamu, ali če se ne strinjate z vnaprej določenimi časi. Če želite urediti en vnos, ga označite v <guilabel
+>Seznamu čajev</guilabel
+> na levi in spremenite vrednosti v <guilabel
+>Lastnostih čaja</guilabel
+> na desni.</para>
+
+<para
+>Spodnje polje je polje <guilabel
+>Dejanje</guilabel
+>. Tukaj lahko določite dejanje, ki bo izvedeno, ko čas poteče. Če izberete <guilabel
+>Pojavno okno</guilabel
+>, se prikaže okno s sporočilom, ki vas opozori, da je vaš čaj pripravljen. </para>
+
+<para
+>Če omogočite potrditveno polje z oznako <guilabel
+>Vizualiziraj napredek v vrstici z ikonami</guilabel
+>, bo napredek prikazan kot majhna animirana ura znotraj ikone.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Zasluge</title>
+
+<para
+>&kteatime; Copyright &copy; 1998-1999 &Matthias.Hoelzer-Kluepfel; &Matthias.Hoelzer-Kluepfel.mail; </para>
+
+<para
+>Dokumentacija &Michael.Korman; &Michael.Korman.mail;</para>
+
+<para
+>Prevod: Jan Napast<email
+>jan.napast153@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
+
+
