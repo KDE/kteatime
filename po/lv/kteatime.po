@@ -4,19 +4,20 @@
 # Māris Nartišs <marisn@e118.lv>, 2003.
 # Maris Nartiss <maris.kde@gmail.com>, 2007, 2008, 2009.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008, 2010.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-20 00:40+0000\n"
-"PO-Revision-Date: 2010-01-02 21:28+0200\n"
-"Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-10-14 14:11+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -31,19 +32,15 @@ msgid "KDE utility for making a fine cup of tea."
 msgstr "KDE rīks labas tējas pagatavošanai."
 
 #: src/main.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
-#| " (c) 2002-2003, Martin Willers\n"
-#| " (c) 2007-2009, Stefan Böhmann"
+#, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
 "© 2002-2003, Martin Willers\n"
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
-"(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
-" (c) 2002-2003, Martin Willers\n"
-" (c) 2007-2009, Stefan Böhmann"
+"© 1998—1999, Matthias Hölzer-Klüpfel\n"
+"© 2002—2003, Martin Willers\n"
+"© 2007—2010, Stefan Böhmann"
 
 #: src/main.cpp:39
 #, kde-format
@@ -53,13 +50,12 @@ msgstr "Stefan Böhmann"
 #: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
-msgstr ""
+msgstr "Pašreizējais uzturētājs"
 
 #: src/main.cpp:44
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgid "Matthias Hölzer-Klüpfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hölzer-Klüpfel"
 
 #: src/main.cpp:45
 #, kde-format
@@ -80,13 +76,13 @@ msgstr "Daudzi labojumi"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Māris Nartišs, Viesturs Zariņš"
+msgstr "Māris Nartišs, Viesturs Zariņš, Toms Trasūns"
 
 #: src/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "maris.kde@gmail.com, viesturs.zarins@mi.lu.lv"
+msgstr "maris.kde@gmail.com, viesturs.zarins@mi.lu.lv, toms.trasuns@posteo.net"
 
 #: src/main.cpp:64
 #, kde-format
@@ -94,31 +90,26 @@ msgid "Start a new tea with this time."
 msgstr "Sākt jaunu tēju ar šo laiku."
 
 #: src/main.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid "seconds"
-msgstr "%1 sekunde"
+msgstr "sekundes"
 
 #: src/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Use this name for the tea started with %1."
+#, kde-format
 msgid "Use this name for the tea started with --time."
-msgstr "Izmantojiet šo nosaukumu tējai, kas tiks sākta %1."
+msgstr "Izmantojiet šo nosaukumu tējai, kas sākas ar „--time“."
 
 #: src/main.cpp:68
 #, kde-format
 msgid "name"
-msgstr ""
+msgstr "nosaukums"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Augļu tēja"
+msgstr "Cita tēja"
 
 #: src/settings.cpp:39
 #, kde-format
@@ -128,41 +119,35 @@ msgstr "Konfigurēt tējas vārītāju"
 #: src/settings.cpp:52
 #, kde-format
 msgid "Save changes and close dialog."
-msgstr "Saglabāt izmaiņas un aizvērt dialogu."
+msgstr "Saglabāt izmaiņas un aizvērt logu."
 
 #: src/settings.cpp:53
 #, kde-format
 msgid "Close dialog without saving changes."
-msgstr "Aizvērt dialogu nesaglabājot izmaiņas."
+msgstr "Aizvērt logu, nesaglabājot izmaiņas."
 
 #: src/settings.cpp:54
 #, kde-format
 msgid "Show help page for this dialog."
-msgstr "Rādīt palīdzības lapu šim dialogam."
+msgstr "Rādīt palīdzības lapu šim logam."
 
 #: src/settings.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] "%1 sekunde"
-msgstr[1] "%1 sekundes"
-msgstr[2] "%1 sekunžu"
+msgstr[0] " sekunde"
+msgstr[1] " sekundes"
+msgstr[2] " sekunžu"
 
 #: src/settings.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "Reminder every"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] "%1 sekunde"
-msgstr[1] "%1 sekundes"
-msgstr[2] "%1 sekunžu"
+msgstr[0] " sekunde"
+msgstr[1] " sekundes"
+msgstr[2] " sekunžu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -198,7 +183,7 @@ msgstr " min"
 #: src/settings.ui:166
 #, kde-format
 msgid "sec"
-msgstr " sek"
+msgstr " sek."
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
 #: src/settings.ui:189
@@ -210,13 +195,13 @@ msgstr "Darbība"
 #: src/settings.ui:195
 #, kde-format
 msgid "Popup"
-msgstr "Izlecošs"
+msgstr "Uznirstošais paziņojums"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
 #: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
-msgstr "Automātiski paslēpt izlēkušo logu pēc"
+msgstr "Automātiski paslēpt uznirstošo logu pēc"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
 #: src/settings.ui:275
@@ -228,7 +213,7 @@ msgstr "Atgādinājums ik pēc"
 #: src/settings.ui:322
 #, kde-format
 msgid "Visualize progress in icon tray"
-msgstr "Vizualizēt procesu sistēmas ikonu joslā"
+msgstr "Vizualizēt progresu sistēmas ikonu joslā"
 
 #: src/tea.cpp:56
 #, kde-format
@@ -274,9 +259,9 @@ msgstr[2] "%1 stundu"
 #, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
-msgstr[0] "%1 h"
-msgstr[1] "%1 h"
-msgstr[2] "%1 h"
+msgstr[0] "%1 st."
+msgstr[1] "%1 st."
+msgstr[2] "%1 st."
 
 #: src/tea.cpp:92
 #, kde-format
@@ -290,9 +275,9 @@ msgstr[2] "%1 minūšu"
 #, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
-msgstr[0] "%1 min"
-msgstr[1] "%1 min"
-msgstr[2] "%1 min"
+msgstr[0] "%1 min."
+msgstr[1] "%1 min."
+msgstr[2] "%1 min."
 
 #: src/tea.cpp:104
 #, kde-format
@@ -306,9 +291,9 @@ msgstr[2] "%1 sekunžu"
 #, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
-msgstr[0] "%1 s"
-msgstr[1] "%1 s"
-msgstr[2] "%1 s"
+msgstr[0] "%1 sek."
+msgstr[1] "%1 sek."
+msgstr[2] "%1 sek."
 
 #: src/tealistmodel.cpp:64
 #, kde-format
@@ -326,36 +311,30 @@ msgid "Unnamed Tea"
 msgstr "Nenosaukta tēja"
 
 #: src/timeedit.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Sākt jaunu anonīmo tēju ar dialogā norādīto laiku."
+msgstr "Sākt jaunu pielāgotu tēju ar logā norādīto laiku."
 
 #: src/timeedit.cpp:42
 #, kde-format
 msgid "Close this dialog without starting a new tea."
-msgstr "Aizvērt šo dialogu bez jaunas tējas sākšanas."
+msgstr "Aizvērt šo logu, nesākot jaunu tēju."
 
 #: src/timeedit.cpp:54
-#, fuzzy, kde-format
-#| msgid "%1 minute"
-#| msgid_plural "%1 minutes"
+#, kde-format
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] "%1 minūte"
-msgstr[1] "%1 minūtes"
-msgstr[2] "%1 minūšu"
+msgstr[0] " minūte"
+msgstr[1] " minūtes"
+msgstr[2] " minūšu"
 
 #: src/timeedit.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] "%1 sekunde"
-msgstr[1] "%1 sekundes"
-msgstr[2] "%1 sekunžu"
+msgstr[0] " sekunde"
+msgstr[1] " sekundes"
+msgstr[2] " sekunžu"
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
@@ -386,17 +365,17 @@ msgstr "Augļu tēja"
 #: src/toplevel.cpp:63
 #, kde-format
 msgid "Green Tea"
-msgstr ""
+msgstr "Zaļā tēja"
 
 #: src/toplevel.cpp:72
 #, kde-format
 msgid "&Resume"
-msgstr ""
+msgstr "&Turpināt"
 
 #: src/toplevel.cpp:78
 #, kde-format
 msgid "&Pause"
-msgstr ""
+msgstr "&Pauzēt"
 
 #: src/toplevel.cpp:84
 #, kde-format
@@ -411,7 +390,7 @@ msgstr "&Konfigurēt..."
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "&Cita tēja..."
 
 #: src/toplevel.cpp:154
 #, kde-format
@@ -437,13 +416,13 @@ msgstr "%1 ir gatava!"
 #: src/toplevel.cpp:310
 #, kde-format
 msgid "%1 is ready since %2!"
-msgstr "%1 ir gatava kopš %2!"
+msgstr "%1 ir gatava pirms %2!"
 
 #: src/toplevel.cpp:325
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
-msgstr "%1 atlicis līdz %2."
+msgstr "%1 atlikušas līdz būs gatava %2."
 
 #~ msgid "Anonymous Tea"
 #~ msgstr "Anonīmā tēja"
