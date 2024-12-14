@@ -1,0 +1,407 @@
+# Sanskrit translations for kteatime package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kteatime package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kteatime\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-04-20 00:40+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+
+#: src/main.cpp:27
+#, kde-format
+msgid "KTeaTime"
+msgstr "KTeaTime इति"
+
+#: src/main.cpp:29
+#, kde-format
+msgid "KDE utility for making a fine cup of tea."
+msgstr "चायस्य उत्तमं चषकं निर्मातुं KDE उपयोगिता।"
+
+#: src/main.cpp:31
+#, kde-format
+msgid ""
+"© 1998-1999, Matthias Hölzer-Klüpfel\n"
+"© 2002-2003, Martin Willers\n"
+"© 2007-2010, Stefan Böhmann"
+msgstr ""
+"© 1998-1999, मथियस होल्जर-क्लुप्फेल\n"
+"© 2002-2003, मार्टिन विलर्स\n"
+"© 2007-2010, स्टीफन बोहमैन"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "स्टीफन् बोहमैन्"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "Current maintainer"
+msgstr "वर्तमान परिपालकः"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Matthias Hölzer-Klüpfel"
+msgstr "मथियस होल्जर-क्लुप्फेल"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Martin Willers"
+msgstr "मार्टिन् विलर्स"
+
+#: src/main.cpp:47
+#, kde-format
+msgid "Daniel Teske"
+msgstr "डैनियल टेस्के"
+
+#: src/main.cpp:47
+#, kde-format
+msgid "Many patches"
+msgstr "अनेकाः पटलाः"
+
+#: src/main.cpp:49
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#: src/main.cpp:49
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/main.cpp:64
+#, kde-format
+msgid "Start a new tea with this time."
+msgstr "एतेन समयेन नूतनं चायं आरभत।"
+
+#: src/main.cpp:64
+#, kde-format
+msgid "seconds"
+msgstr "सेकण्ड्"
+
+#: src/main.cpp:67
+#, kde-format
+msgid "Use this name for the tea started with --time."
+msgstr "--समयेन आरब्धस्य चायस्य कृते एतत् नाम प्रयोजयन्तु।"
+
+#: src/main.cpp:68
+#, kde-format
+msgid "name"
+msgstr "नामः"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
+#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
+#: src/timeedit.ui:14
+#, kde-format
+msgid "Custom Tea"
+msgstr "कस्टम चाय"
+
+#: src/settings.cpp:39
+#, kde-format
+msgid "Configure Tea Cooker"
+msgstr "चाय कुकरं विन्यस्तं कुर्वन्तु"
+
+#: src/settings.cpp:52
+#, kde-format
+msgid "Save changes and close dialog."
+msgstr "परिवर्तनं रक्षन्तु संवादं च बन्दं कुर्वन्तु।"
+
+#: src/settings.cpp:53
+#, kde-format
+msgid "Close dialog without saving changes."
+msgstr "परिवर्तनं रक्षितं विना संवादं पिधाय।"
+
+#: src/settings.cpp:54
+#, kde-format
+msgid "Show help page for this dialog."
+msgstr "अस्य संवादस्य कृते सहायतापृष्ठं दर्शयतु ।"
+
+#: src/settings.cpp:83
+#, kde-format
+msgctxt "Auto hide popup after"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/settings.cpp:84
+#, kde-format
+msgctxt "Reminder every"
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
+#: src/settings.ui:18
+#, kde-format
+msgid "Tea List"
+msgstr "चायसूची"
+
+#. i18n: ectx: property (title), widget (QGroupBox, teaPropertiesGroup)
+#: src/settings.ui:112
+#, kde-format
+msgid "Tea Properties"
+msgstr "चाय गुणाः"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/settings.ui:118 src/tealistmodel.cpp:93
+#, kde-format
+msgid "Name"
+msgstr "नामः"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/settings.ui:132 src/tealistmodel.cpp:93
+#, kde-format
+msgid "Time"
+msgstr "कालः"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/settings.ui:149
+#, kde-format
+msgid "min"
+msgstr "मि"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/settings.ui:166
+#, kde-format
+msgid "sec"
+msgstr "सेक"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup2)
+#: src/settings.ui:189
+#, kde-format
+msgid "Action"
+msgstr "नामपत्र"
+
+#. i18n: ectx: property (text), widget (QCheckBox, popupCheckBox)
+#: src/settings.ui:195
+#, kde-format
+msgid "Popup"
+msgstr "पॉपअप"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autohideCheckBox)
+#: src/settings.ui:226
+#, kde-format
+msgid "Auto hide popup after"
+msgstr "ततः परं स्वतः पॉपअपं गोपयन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
+#: src/settings.ui:275
+#, kde-format
+msgid "Reminder every"
+msgstr "स्मरणं प्रत्येकं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, visualizeCheckBox)
+#: src/settings.ui:322
+#, kde-format
+msgid "Visualize progress in icon tray"
+msgstr "चिह्न ट्रे मध्ये प्रगतिम् कल्पयन्तु"
+
+#: src/tea.cpp:56
+#, kde-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:58
+#, kde-format
+msgid "%1 a"
+msgid_plural "%1 a"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:68
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:70
+#, kde-format
+msgid "%1 d"
+msgid_plural "%1 d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:80
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:82
+#, kde-format
+msgid "%1 h"
+msgid_plural "%1 h"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:92
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:94
+#, kde-format
+msgid "%1 min"
+msgid_plural "%1 min"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:104
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tea.cpp:106
+#, kde-format
+msgid "%1 s"
+msgid_plural "%1 s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/tealistmodel.cpp:64
+#, kde-format
+msgid " ("
+msgstr " ("
+
+#: src/tealistmodel.cpp:66
+#, kde-format
+msgid ")"
+msgstr ") ९."
+
+#: src/tealistmodel.cpp:105
+#, kde-format
+msgid "Unnamed Tea"
+msgstr "अनाम चाय"
+
+#: src/timeedit.cpp:39
+#, kde-format
+msgid "Start a new custom tea with the time configured in this dialog."
+msgstr "अस्मिन् संवादे विन्यस्तसमयेन सह नूतनं कस्टम् चायं आरभत ।"
+
+#: src/timeedit.cpp:42
+#, kde-format
+msgid "Close this dialog without starting a new tea."
+msgstr "नूतनं चायं न आरभ्य एतत् संवादं पिधाय ।"
+
+#: src/timeedit.cpp:54
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/timeedit.cpp:55
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
+#: src/timeedit.ui:32
+#, kde-format
+msgid "Tea time:"
+msgstr "चायसमयः : १."
+
+#: src/toplevel.cpp:50
+#, kde-format
+msgid "Unknown Tea"
+msgstr "अज्ञात चाय"
+
+#: src/toplevel.cpp:60
+#, kde-format
+msgid "Black Tea"
+msgstr "कृष्णा चायः"
+
+#: src/toplevel.cpp:61
+#, kde-format
+msgid "Earl Grey"
+msgstr "अर्ल ग्रे"
+
+#: src/toplevel.cpp:62
+#, kde-format
+msgid "Fruit Tea"
+msgstr "फलचाय"
+
+#: src/toplevel.cpp:63
+#, kde-format
+msgid "Green Tea"
+msgstr "ग्रीन टी"
+
+#: src/toplevel.cpp:72
+#, kde-format
+msgid "&Resume"
+msgstr "&पुनर्प्रारम्भय"
+
+#: src/toplevel.cpp:78
+#, kde-format
+msgid "&Pause"
+msgstr "&विराम"
+
+#: src/toplevel.cpp:84
+#, kde-format
+msgid "&Stop"
+msgstr "&विरमतु"
+
+#: src/toplevel.cpp:90
+#, kde-format
+msgid "&Configure..."
+msgstr "&विन्यस्तं कुर्वन्तु..."
+
+#: src/toplevel.cpp:98
+#, kde-format
+msgid "&Custom..."
+msgstr "&आचारः..."
+
+#: src/toplevel.cpp:154
+#, kde-format
+msgid "No steeping tea."
+msgstr "न मग्नचायः।"
+
+#: src/toplevel.cpp:207
+#, kde-format
+msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/toplevel.cpp:285 src/toplevel.cpp:390
+#, kde-format
+msgid "The Tea Cooker"
+msgstr "चायपाककः"
+
+#: src/toplevel.cpp:291
+#, kde-format
+msgid "%1 is now ready!"
+msgstr "%1 इदानीं सज्जम् अस्ति!"
+
+#: src/toplevel.cpp:310
+#, kde-format
+msgid "%1 is ready since %2!"
+msgstr "%1 सज्जः अस्ति यतः %2!"
+
+#: src/toplevel.cpp:325
+#, kde-format
+msgctxt "%1 is the time, %2 is the name of the tea"
+msgid "%1 left for %2."
+msgstr ""
