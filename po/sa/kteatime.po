@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the kteatime package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-20 00:40+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:43+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -72,13 +74,13 @@ msgstr "अनेकाः पटलाः"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: src/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/main.cpp:64
 #, kde-format
@@ -132,16 +134,16 @@ msgstr "अस्य संवादस्य कृते सहायताप
 msgctxt "Auto hide popup after"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षण"
+msgstr[1] " सेकण्ड्"
 
 #: src/settings.cpp:84
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षण"
+msgstr[1] " सेकण्ड्"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kbuttongroup1)
 #: src/settings.ui:18
@@ -213,71 +215,71 @@ msgstr "चिह्न ट्रे मध्ये प्रगतिम् �
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 वर्ष"
+msgstr[1] "%1 वर्षाणि"
 
 #: src/tea.cpp:58
 #, kde-format
 msgid "%1 a"
 msgid_plural "%1 a"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 क"
+msgstr[1] "%1 क"
 
 #: src/tea.cpp:68
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 दिवसः"
+msgstr[1] "%1 दिवसाः"
 
 #: src/tea.cpp:70
 #, kde-format
 msgid "%1 d"
 msgid_plural "%1 d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 घ"
+msgstr[1] "%1 घ"
 
 #: src/tea.cpp:80
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 घण्टा"
+msgstr[1] "%1 घण्टा"
 
 #: src/tea.cpp:82
 #, kde-format
 msgid "%1 h"
 msgid_plural "%1 h"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ज"
+msgstr[1] "%1 ज"
 
 #: src/tea.cpp:92
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 मिनिट्"
+msgstr[1] "%1 निमेषाः"
 
 #: src/tea.cpp:94
 #, kde-format
 msgid "%1 min"
 msgid_plural "%1 min"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 मि"
+msgstr[1] "%1 मि"
 
 #: src/tea.cpp:104
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 द्वितीयम्"
+msgstr[1] "%1 सेकण्ड्"
 
 #: src/tea.cpp:106
 #, kde-format
 msgid "%1 s"
 msgid_plural "%1 s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 स"
+msgstr[1] "%1 स"
 
 #: src/tealistmodel.cpp:64
 #, kde-format
@@ -308,15 +310,15 @@ msgstr "नूतनं चायं न आरभ्य एतत् संव�
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षणं"
+msgstr[1] " पन्चनिमेषः"
 
 #: src/timeedit.cpp:55
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षण"
+msgstr[1] " सेकण्ड्"
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
@@ -383,7 +385,7 @@ msgstr "न मग्नचायः।"
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2) २."
 
 #: src/toplevel.cpp:285 src/toplevel.cpp:390
 #, kde-format
@@ -404,4 +406,4 @@ msgstr "%1 सज्जः अस्ति यतः %2!"
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
-msgstr ""
+msgstr "%1 %2 कृते अवशिष्टम् ।"
