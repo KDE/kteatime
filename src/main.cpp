@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
 
     app.setQuitOnLastWindowClosed(false);
 
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kteatime")));
+
     /**
      * Create command line parser and feed it with known options
      */
