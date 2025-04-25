@@ -383,6 +383,7 @@ void TopLevel::showPopup()
 {
     if (m_popup) {
         m_popup->close();
+        m_popup = nullptr;
     } else {
         m_popup = new KNotification(QStringLiteral("popup"), KNotification::Persistent, this);
         m_popup->setComponentName(QStringLiteral("kteatime"));
