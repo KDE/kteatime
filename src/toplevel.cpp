@@ -29,7 +29,7 @@
 #include <KSharedConfig>
 
 TopLevel::TopLevel(const KAboutData *aboutData, const QString &trayIcon, const QString &notificationIcon, QWidget *parent)
-    : QSystemTrayIcon(parent)
+    : KStatusNotifierItem(parent)
     , m_popup()
     , m_trayIconName(trayIcon)
     , m_notificationIconName(notificationIcon)
@@ -113,18 +113,15 @@ TopLevel::TopLevel(const KAboutData *aboutData, const QString &trayIcon, const Q
     contextMenu()->addAction(m_actionCollection->action(QStringLiteral("configure")));
     contextMenu()->addAction(m_actionCollection->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
     contextMenu()->addMenu(m_helpMenu->menu());
-    contextMenu()->addSeparator();
-    contextMenu()->addAction(m_actionCollection->action(KStandardAction::name(KStandardAction::Quit)));
 
     m_timer = new QTimer(this);
 
     connect(m_timer, &QTimer::timeout, this, &TopLevel::teaTimeEvent);
     connect(contextMenu(), &QMenu::triggered, this, &TopLevel::slotRunTea);
-    connect(this, &TopLevel::activated, this, &TopLevel::showPopup);
+    connect(this, &TopLevel::activateRequested, this, &TopLevel::showPopup);
 
     loadConfig();
     checkState();
-    show();
 }
 
 TopLevel::~TopLevel()
@@ -253,30 +250,35 @@ void TopLevel::runTea(const Tea &tea)
 
 void TopLevel::repaintTrayIcon()
 {
-    QPixmap icon = QIcon::fromTheme(m_trayIconName).pixmap(KIconLoader::SizeLarge);
     if (m_runningTeaTime <= 0) {
-        setIcon(icon);
+        setStatus(KStatusNotifierItem::Passive);
+        setIconByName(m_trayIconName);
+        setOverlayIconByPixmap({});
+        setOverlayIconByName({});
         return;
     }
 
+    setStatus(KStatusNotifierItem::Active);
+
     if (m_usevisualize) {
+        QPixmap icon(QSize(64, 64));
+        icon.fill(QColorConstants::Transparent);
         QPainter painter(&icon);
         painter.setRenderHint(QPainter::Antialiasing);
 
-        const QRectF rectangle(1, icon.height() / 3 + 1, icon.width() / 1.5 - 2, icon.height() / 1.5 - 2);
+        const QRectF rectangle(0, 0, icon.width(), icon.height());
 
         const int startAngle = 90 * 16;
         const int angleSpan = -(360 * 16.0 / m_runningTea.time() * m_runningTeaTime);
 
-        painter.setBrush(QColor(0, 255, 0, 90));
+        painter.setBrush(QColorConstants::Green);
         painter.drawPie(rectangle, startAngle, 360 * 16 + angleSpan);
-        painter.setBrush(QColor(255, 0, 0, 90));
+        painter.setBrush(QColorConstants::Red);
         painter.drawPie(rectangle, startAngle, angleSpan);
 
-        setIcon(icon);
+        setOverlayIconByPixmap(icon);
     } else {
-        QPixmap overlayedIcon = KIconUtils::addOverlays(m_trayIconName, {QStringLiteral("alarm-symbolic")}).pixmap(KIconLoader::SizeLarge);
-        setIcon(overlayedIcon);
+        setOverlayIconByName(QStringLiteral("alarm-symbolic"));
     }
 }
 
@@ -292,7 +294,7 @@ void TopLevel::teaTimeEvent()
 
         // NOTICE Timeout is set t ~o24 days when no auto hide is request. Ok - nearly the same...
         if (m_usepopup) {
-            showMessage(title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime * 1000 : 2100000000);
+            showMessage(title, content, QStringLiteral("dialog-information"), m_autohide ? m_autohidetime * 1000 : 2100000000);
         }
 
         KNotification::event(QStringLiteral("ready"), content);
@@ -312,7 +314,7 @@ void TopLevel::teaTimeEvent()
 
         if (m_runningTeaTime == m_nextNotificationTime) {
             if (m_usepopup) {
-                showMessage(title, content, QSystemTrayIcon::Information, m_autohide ? m_autohidetime * 1000 : 2100000000);
+                showMessage(title, content, QStringLiteral("dialog-information"), m_autohide ? m_autohidetime * 1000 : 2100000000);
             }
 
             KNotification::event(QLatin1String("reminder"), content);
@@ -377,18 +379,15 @@ void TopLevel::loadConfig()
     m_usevisualize = generalGroup.readEntry("UseVisualize", true);
 }
 
-void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
+void TopLevel::showPopup()
 {
-    if (reason != QSystemTrayIcon::Trigger) {
-        return;
-    }
     if (m_popup) {
         m_popup->close();
     } else {
         m_popup = new KNotification(QStringLiteral("popup"), KNotification::Persistent, this);
         m_popup->setComponentName(QStringLiteral("kteatime"));
         m_popup->setTitle(i18n("The Tea Cooker"));
-        m_popup->setText(toolTip());
+        m_popup->setText(toolTipTitle());
         m_popup->setIconName(m_notificationIconName);
         m_popup->sendEvent();
     }
@@ -396,7 +395,7 @@ void TopLevel::showPopup(QSystemTrayIcon::ActivationReason reason)
 
 void TopLevel::setTooltipText(const QString &content)
 {
-    setToolTip(content);
+    setToolTip(QString{}, content, {});
     if (m_popup) {
         m_popup->setText(content);
     }

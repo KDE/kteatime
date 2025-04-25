@@ -17,6 +17,7 @@ target_link_libraries(kteatime
     KF6::IconThemes
     KF6::Notifications
     KF6::NotifyConfig
+    KF6::StatusNotifierItem
     KF6::TextWidgets
     KF6::XmlGui
 )

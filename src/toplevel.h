@@ -11,7 +11,7 @@
 #include "tea.h"
 
 #include <QPointer>
-#include <QSystemTrayIcon>
+#include <KStatusNotifierItem>
 
 class QAction;
 class QActionGroup;
@@ -26,7 +26,7 @@ class KNotification;
  *
  * @author Stefan Böhmann <kde@hilefoks.org>
  */
-class TopLevel : public QSystemTrayIcon
+class TopLevel : public KStatusNotifierItem
 {
 public:
     explicit TopLevel(const KAboutData *aboutData,
@@ -45,7 +45,7 @@ private:
     void cancelTea();
     void stopTea();
     void resumeTea();
-    void showPopup(QSystemTrayIcon::ActivationReason reason);
+    void showPopup();
     void checkState();
     void loadConfig();
     void loadTeaMenuItems();

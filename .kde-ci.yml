@@ -12,6 +12,7 @@ Dependencies:
     'frameworks/kiconthemes': '@latest-kf6'
     'frameworks/knotifyconfig': '@latest-kf6'
     'frameworks/knotifications': '@latest-kf6'
+    'frameworks/kstatusnotifieritem': '@latest-kf6'
     'frameworks/ktextwidgets': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
 
