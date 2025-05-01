@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-05-01 00:45+0000\n"
 "PO-Revision-Date: 2021-02-01 16:25-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -379,33 +379,33 @@ msgstr "&Configurar..."
 msgid "&Custom..."
 msgstr "&Personalizado..."
 
-#: src/toplevel.cpp:154
+#: src/toplevel.cpp:151
 #, kde-format
 msgid "No steeping tea."
 msgstr "Nenhum chá sendo preparado."
 
-#: src/toplevel.cpp:207
+#: src/toplevel.cpp:204
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:285 src/toplevel.cpp:390
+#: src/toplevel.cpp:287 src/toplevel.cpp:390
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "Hora do chá"
 
-#: src/toplevel.cpp:291
+#: src/toplevel.cpp:293
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "O %1 está pronto!"
 
-#: src/toplevel.cpp:310
+#: src/toplevel.cpp:312
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "O %1 está pronto desde as %2!"
 
-#: src/toplevel.cpp:325
+#: src/toplevel.cpp:327
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
