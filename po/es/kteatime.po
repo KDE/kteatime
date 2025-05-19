@@ -1,21 +1,22 @@
-# translation of kteatime.po to Spanish
-# traducción de kteatime.po a Español
-# translation of kteatime.po to
-# Eduardo Sanchez <kde@sombragris.org>, 2003, 2005, 2007, 2008.
-# Jaime Robles <jaime@kde.org>, 2004, 2008, 2009.
-# Eduardo Sanchez <ibvm@cbvm.edu.py>, 2004.
-# Eduardo Sanchez <lists@sombragris.org>, 2005.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2006.
-# Pablo de Vicente <pablo.devicente@gmail.com>, 2006.
-# Cristina Yenyxe Gonzalez Garcia <the.blue.valkyrie@gmail.com>, 2009.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2010, 2018, 2019, 2021.
-# Javier Vinal <fjvinal@gmail.com>, 2014.
+# Spanish translations for kteatime.po package.
+# Copyright (C) 2003-2025 This file is copyright:
+# This file is distributed under the same license as the kteatime package.
+#
+# SPDX-FileCopyrightText: 2003, 2005, 2007, 2008 Eduardo Sanchez <kde@sombragris.org>
+# SPDX-FileCopyrightText: 2004, 2008, 2009 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2004 Eduardo Sanchez <ibvm@cbvm.edu.py>
+# SPDX-FileCopyrightText: 2005 Eduardo Sanchez <lists@sombragris.org>
+# SPDX-FileCopyrightText: 2006 Santiago Fernandez Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2006 Pablo de Vicente <pablo.devicente@gmail.com>
+# SPDX-FileCopyrightText: 2009 Cristina Yenyxe Gonzalez Garcia <the.blue.valkyrie@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2018, 2019, 2021, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014 Javier Vinal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:45+0000\n"
-"PO-Revision-Date: 2021-01-18 00:32+0100\n"
+"PO-Revision-Date: 2025-05-18 14:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -376,12 +377,12 @@ msgstr "&Parar"
 #: src/toplevel.cpp:90
 #, kde-format
 msgid "&Configure..."
-msgstr "&Configurar..."
+msgstr "&Configurar…"
 
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr "&Personalizado..."
+msgstr "&Personalizado…"
 
 #: src/toplevel.cpp:151
 #, kde-format
@@ -414,9 +415,3 @@ msgstr "¡%1 está listo desde hace %2!"
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
 msgstr "faltan %1 para %2."
-
-#~ msgid "Anonymous Tea"
-#~ msgstr "Té anónimo"
-
-#~ msgid "&Anonymous..."
-#~ msgstr "&Anónimo..."
