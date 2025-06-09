@@ -140,12 +140,12 @@
 > y <guimenuitem
 >Té verde</guimenuitem
 >. Estos tés están preconfigurados con un tiempo predeterminado. Mucha gente se ha quejado diciendo que esos tiempos no son correctos. Recuerde que la cantidad de tiempo que toma preparar una taza de té se basa principalmente en el gusto personal. Los tiempos elegidos son aproximados. Si sigue leyendo, sabrá como cambiar o borrar los tiempos predefinidos y como definir su propio plazo de tiempo. Una forma fácil y rápida de establecer un tiempo personalizado es eligiendo <guimenuitem
->Personalizado...</guimenuitem
+>Personalizado…</guimenuitem
 > en el menú.</para>
 
 <para
 >Al pulsar <guimenuitem
->Configurar notificaciones...</guimenuitem
+>Configurar notificaciones…</guimenuitem
 > se muestran las preferencias de las notificaciones de &kde; para &kteatime;.</para>
 
 </sect1>
