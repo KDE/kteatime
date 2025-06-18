@@ -217,6 +217,9 @@ void SettingsDialog::updateSelection(const QItemSelection &selected, const QItem
 
     bool state = !items.isEmpty();
 
+    if (m_model->rowCount() > 1 && !state)
+        return;
+
     mUi->teaPropertiesGroup->setEnabled(state);
     mUi->teaNameEdit->setEnabled(state);
     mUi->minutesSpin->setEnabled(state);
