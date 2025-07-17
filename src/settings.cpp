@@ -19,6 +19,9 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
+
+using namespace Qt::StringLiterals;
 
 class SettingsUI : public QWidget, public Ui::SettingsWidget
 {
@@ -53,18 +56,18 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     buttonBox->button(QDialogButtonBox::Cancel)->setWhatsThis(i18n("Close dialog without saving changes."));
     buttonBox->button(QDialogButtonBox::Help)->setWhatsThis(i18n("Show help page for this dialog."));
 
+    // clean up old, pre-KWindowConfig config
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group(config, QStringLiteral("General"));
+    group.revertToDefault("Geometry");
+    group.revertToDefault("SettingsDialogXPos");
+    group.revertToDefault("SettingsDialogYPos");
 
-    restoreGeometry(group.readEntry<QByteArray>("Geometry", QByteArray()));
-
-    const QSize desktopSize = qApp->primaryScreen()->size();
-    int x = group.readEntry("SettingsDialogXPos", desktopSize.width() / 2 - width() / 2);
-    int y = group.readEntry("SettingsDialogYPos", desktopSize.height() / 2 - height() / 2);
-
-    x = qMin(qMax(0, x), desktopSize.width() - width());
-    x = qMin(qMax(0, y), desktopSize.height() - height());
-    move(QPoint(x, y));
+    winId();
+    auto windowConfig = KSharedConfig::openStateConfig()->group(u"SettingsWindow"_s);
+    KWindowConfig::restoreWindowPosition(windowHandle(), windowConfig);
+    KWindowConfig::restoreWindowSize(windowHandle(), windowConfig);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 
     bool popup = group.readEntry("UsePopup", true);
     bool autohide = group.readEntry("PopupAutoHide", false);
@@ -121,13 +124,14 @@ void SettingsDialog::showHelp()
 
 void SettingsDialog::accept()
 {
-    KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("General"));
-    group.writeEntry("SettingsDialogXPos", x());
-    group.writeEntry("SettingsDialogYPos", y());
+    auto windowGroup = KSharedConfig::openStateConfig()->group(u"SettingsWindow"_s);
+    KWindowConfig::saveWindowSize(windowHandle(), windowGroup);
+    KWindowConfig::saveWindowPosition(windowHandle(), windowGroup);
 
     hide();
-    group.writeEntry("Geometry", saveGeometry());
+
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup group(config, QStringLiteral("General"));
 
     group.writeEntry("UsePopup", mUi->popupCheckBox->checkState() == Qt::Checked);
     group.writeEntry("PopupAutoHide", mUi->autohideCheckBox->checkState() == Qt::Checked);
