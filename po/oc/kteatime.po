@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:45+0000\n"
+"POT-Creation-Date: 2025-07-18 00:45+0000\n"
 "PO-Revision-Date: 2008-08-05 22:28+0200\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (lengadocian) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -107,27 +107,27 @@ msgstr ""
 msgid "Custom Tea"
 msgstr ""
 
-#: src/settings.cpp:39
+#: src/settings.cpp:42
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr ""
 
-#: src/settings.cpp:52
+#: src/settings.cpp:55
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr ""
 
-#: src/settings.cpp:53
+#: src/settings.cpp:56
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr ""
 
-#: src/settings.cpp:54
+#: src/settings.cpp:57
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr ""
 
-#: src/settings.cpp:83
+#: src/settings.cpp:86
 #, fuzzy, kde-format
 #| msgid "seconds."
 msgctxt "Auto hide popup after"
@@ -136,7 +136,7 @@ msgid_plural " seconds"
 msgstr[0] "segondas."
 msgstr[1] "segondas."
 
-#: src/settings.cpp:84
+#: src/settings.cpp:87
 #, fuzzy, kde-format
 #| msgid "seconds."
 msgctxt "Reminder every"

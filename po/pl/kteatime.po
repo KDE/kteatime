@@ -1,5 +1,5 @@
 # translation of kteatime.po to
-# Version: $Revision: 1708088 $
+# Version: $Revision: 1713606 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2009 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2006, 2007.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:45+0000\n"
+"POT-Creation-Date: 2025-07-18 00:45+0000\n"
 "PO-Revision-Date: 2022-04-10 10:55+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -112,27 +112,27 @@ msgstr "nazwa"
 msgid "Custom Tea"
 msgstr "Własna herbata"
 
-#: src/settings.cpp:39
+#: src/settings.cpp:42
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr "Ustawienia zaparzacza herbaty"
 
-#: src/settings.cpp:52
+#: src/settings.cpp:55
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr "Zapisuje zmiany i zamyka to okno."
 
-#: src/settings.cpp:53
+#: src/settings.cpp:56
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr "Zamyka okno bez zapisywania zmian."
 
-#: src/settings.cpp:54
+#: src/settings.cpp:57
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr "Pokaż pomoc dla tego okna."
 
-#: src/settings.cpp:83
+#: src/settings.cpp:86
 #, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
@@ -141,7 +141,7 @@ msgstr[0] " sekundzie"
 msgstr[1] " sekundach"
 msgstr[2] " sekundach"
 
-#: src/settings.cpp:84
+#: src/settings.cpp:87
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
