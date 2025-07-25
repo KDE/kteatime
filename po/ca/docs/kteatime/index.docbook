@@ -81,7 +81,7 @@
 >Mesurar el temps del vostre te</title>
 
 <para
->En començar, la icona del plafó serà una tassa de te. Si feu clic amb el &BDR; a la tassa i seleccioneu un te, apareixerà un rellotge animat que mostrarà el temps restant en la icona. Després de la quantitat de segons indicats, el te ja estarà llest, i apareixerà un missatge indicatiu. En aquest moment, podreu tancar el quadre de missatge clicant-la. Això també reinicialitza el temporitzador i el rellotge de la tassa torna a desaparèixer.</para>
+>En començar, la icona del plafó serà una tassa de te. Si feu clic amb el &BDR; a la tassa i seleccioneu un te, apareixerà un rellotge animat que mostrarà el temps restant en la icona. Després de la quantitat de segons indicats, el te ja estarà llest, i apareixerà un missatge indicatiu. En aquest moment, podreu tancar el quadre de missatge clicant-hi. Això també reinicialitza el temporitzador i el rellotge de la tassa torna a desaparèixer.</para>
 
 <note
 ><para
