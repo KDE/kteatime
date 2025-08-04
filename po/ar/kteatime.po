@@ -6,13 +6,13 @@
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:45+0000\n"
-"PO-Revision-Date: 2022-01-29 14:39+0400\n"
+"PO-Revision-Date: 2025-08-03 12:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:27
 #, kde-format
@@ -125,7 +126,7 @@ msgstr "احفظ التغييرات و أغلق نافذة الحوار."
 #: src/settings.cpp:53
 #, kde-format
 msgid "Close dialog without saving changes."
-msgstr "أغلق نافذة الحوار بدون حفظ التغييرات."
+msgstr "أغلق نافذة الحوار دون حفظ التغييرات."
 
 #: src/settings.cpp:54
 #, kde-format
@@ -355,7 +356,7 @@ msgstr "ابدأ شايًا مخصصًا جديدًا بالوقت الذي ال
 #: src/timeedit.cpp:42
 #, kde-format
 msgid "Close this dialog without starting a new tea."
-msgstr "أغلق نافذة الحوار بدون عمل شاي جديد."
+msgstr "أغلق نافذة الحوار دون عمل شاي جديد."
 
 #: src/timeedit.cpp:54
 #, kde-format
