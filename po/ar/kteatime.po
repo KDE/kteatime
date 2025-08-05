@@ -209,7 +209,7 @@ msgstr "منبثق"
 #: src/settings.ui:226
 #, kde-format
 msgid "Auto hide popup after"
-msgstr "أخف النافذة المنبثقة تلقائيا بعد"
+msgstr "أخف النافذة المنبثقة آليّا بعد"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reminderCheckBox)
 #: src/settings.ui:275
