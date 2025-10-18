@@ -1,10 +1,10 @@
 # Translation of kteatime.po to Catalan (Valencian)
 # Copyright (C) 2000-2021 This_file_is_part_of_KDE
 #
-# Sebastià Pla <sastia@retemail.es>, 2000, 2001.
-# Josep M. Ferrer <txemaq@gmail.com>, 2002, 2003, 2004, 2006, 2007, 2008, 2009, 2010, 2014, 2015, 2018, 2019, 2020, 2021.
-# Albert Astals Cid <aacid@kde.org>, 2004, 2005.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020.
+# SPDX-FileCopyrightText: 2000, 2001 Sebastià Pla <sastia@retemail.es>
+# SPDX-FileCopyrightText: 2002, 2003, 2004, 2006, 2007, 2008, 2009, 2010, 2014, 2015, 2018, 2019, 2020, 2021 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2004, 2005 Albert Astals Cid <aacid@kde.org>
+# SPDX-FileCopyrightText: 2018, 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
