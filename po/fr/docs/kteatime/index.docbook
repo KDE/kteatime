@@ -81,7 +81,7 @@
 >Chronométrage de votre thé</title>
 
 <para
->Une fois démarré, l'icône dans le tableau de bord sera une tasse de thé. Si vous cliquez sur la tasse avec le &BDS; et que vous sélectionnez votre thé, une horloge animée affichant le temps restant est affichée sur l'icône. Après le temps spécifié, le thé sera infusé et une boîte de dialogue vous avertira. À ce moment, vous pouvez fermer la boîte dialogue en cliquant dessus. Ceci réinitialise le chronomètre et l'horloge sur la tasse disparaît.</para>
+>Une fois démarré, l'icône dans le tableau de bord sera une tasse de thé. Si vous cliquez sur la tasse avec le &BDS; et que vous sélectionnez votre thé, une horloge animée affichant le temps restant est affichée sur l'icône. Après le temps spécifié, le thé sera infusé et une boite de dialogue vous avertira. À ce moment, vous pouvez fermer la boite dialogue en cliquant dessus. Ceci réinitialise le chronomètre et l'horloge sur la tasse disparait.</para>
 
 <note
 ><para
@@ -103,7 +103,7 @@
 >Sélectionner votre thé</title>
 
 <para
->Cliquer sur l'icône avec le &BDS; fera apparaître un menu. En haut de ce menu, se trouvent quatre options. Ici, vous pouvez sélectionner le type de thé que vous vous apprêtez a boire. Ces options sont : <guimenuitem
+>Cliquer sur l'icône avec le &BDS; fera apparaitre un menu. En haut de ce menu, se trouvent quatre options. Ici, vous pouvez sélectionner le type de thé que vous vous apprêtez a boire. Ces options sont : <guimenuitem
 >Thé noir</guimenuitem
 >, <guimenuitem
 >Earl Grey</guimenuitem
@@ -118,7 +118,7 @@
 <para
 >Un clic sur <guimenuitem
 >Configurer les Notifications...</guimenuitem
-> fait apparaître les paramètres de notifications de &kteatime;.</para>
+> fait apparaitre les paramètres de notifications de &kteatime;.</para>
 
 </sect1>
 
@@ -127,7 +127,7 @@
 >Démarrer le chronomètre</title>
 
 <para
->Pour démarrer le chronomètre, choisissez un thé dans le menu contextuel. Afin de confirmer que vous avec effectivement démarré le chronomètre, une horloge affichant le temps restant apparaît dans la boîte à miniatures.</para
+>Pour démarrer le chronomètre, choisissez un thé dans le menu contextuel. Afin de confirmer que vous avec effectivement démarré le chronomètre, une horloge affichant le temps restant apparait dans la boite à miniatures.</para
 ></sect1>
 
 <sect1 id="configure">
@@ -135,17 +135,17 @@
 >Configuration</title>
 
 <para
->Cette option ouvre la boîte de dialogue de configuration. Une capture d'écran est montrée ci-dessous :</para>
+>Cette option ouvre la boite de dialogue de configuration. Une capture d'écran est montrée ci-dessous :</para>
 
 <screenshot>
 <screeninfo
->La boîte de dialogue de configuration de &kteatime;.</screeninfo>
+>La boite de dialogue de configuration de &kteatime;.</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="config.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La boîte de dialogue de configuration de &kteatime;.</phrase
+>La boite de dialogue de configuration de &kteatime;.</phrase
 ></textobject>
 </mediaobject>
 </screenshot>
@@ -158,15 +158,15 @@
 > sur la droite.</para>
 
 <para
->La boîte ci-dessous est le champ <guilabel
+>La boite ci-dessous est le champ <guilabel
 >Action</guilabel
 >. Vous pouvez définir ici une action qui sera exécutée quand le temps sera écoulé. Si <guilabel
 >Message</guilabel
-> est sélectionné, une boîte de message apparaîtra pour vous alerter quand votre thé sera prêt. </para>
+> est sélectionné, une boite de message apparaitra pour vous alerter quand votre thé sera prêt. </para>
 
 <para
 >Si vous cochez la case intitulée <guilabel
->Afficher la progression dans l'icône de la boîte à miniatures</guilabel
+>Afficher la progression dans l'icône de la boite à miniatures</guilabel
 >, la progression sera représentée par une petite horloge animée sur l'icône.</para>
 
 </sect1>
