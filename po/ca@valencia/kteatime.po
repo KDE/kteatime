@@ -367,7 +367,7 @@ msgstr "Fes una &pausa"
 #: src/toplevel.cpp:84
 #, kde-format
 msgid "&Stop"
-msgstr "A&tura"
+msgstr "&Para"
 
 #: src/toplevel.cpp:90
 #, kde-format
