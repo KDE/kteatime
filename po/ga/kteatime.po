@@ -28,19 +28,12 @@ msgid "KDE utility for making a fine cup of tea."
 msgstr "Uirlis KDE chun cupán deas tae a fhliuchadh."
 
 #: src/main.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "(c) 1998-1999, Matthias Hoelzer-Kluepfel\n"
-#| " (c) 2002-2003, Martin Willers\n"
-#| " (c) 2007-2010, Stefan Böhmann"
+#, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
 "© 2002-2003, Martin Willers\n"
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
-"© 1998-1999, Matthias Hoelzer-Kluepfel\n"
-"© 2002-2003, Martin Willers\n"
-"© 2007-2010, Stefan Böhmann"
 
 #: src/main.cpp:39
 #, kde-format
@@ -53,10 +46,9 @@ msgid "Current maintainer"
 msgstr "Cothaitheoir reatha"
 
 #: src/main.cpp:44
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgid "Matthias Hölzer-Klüpfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr ""
 
 #: src/main.cpp:45
 #, kde-format
@@ -91,18 +83,14 @@ msgid "Start a new tea with this time."
 msgstr "Tosaigh tae nua leis an am seo."
 
 #: src/main.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid "seconds"
-msgstr " soicind"
+msgstr ""
 
 #: src/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Use this name for the tea started with %1."
+#, kde-format
 msgid "Use this name for the tea started with --time."
-msgstr "Úsáid an t-ainm seo ar an tae a tosaíodh le %1."
+msgstr ""
 
 #: src/main.cpp:68
 #, kde-format
@@ -112,10 +100,9 @@ msgstr ""
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "Tae Toraidh"
+msgstr ""
 
 #: src/settings.cpp:42
 #, kde-format
@@ -341,10 +328,9 @@ msgid "Unnamed Tea"
 msgstr "Tae Gan Ainm"
 
 #: src/timeedit.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Tosaigh tae nua gan ainm leis an am a cumraíodh sa dialóg seo."
+msgstr ""
 
 #: src/timeedit.cpp:42
 #, kde-format
@@ -352,29 +338,18 @@ msgid "Close this dialog without starting a new tea."
 msgstr "Dún an dialóg gan tae nua a thosú."
 
 #: src/timeedit.cpp:54
-#, fuzzy, kde-format
-#| msgid "%1 minute"
-#| msgid_plural "%1 minutes"
+#, kde-format
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] "%1 nóiméad"
-msgstr[1] "%1 nóiméad"
-msgstr[2] "%1 nóiméad"
-msgstr[3] "%1 nóiméad"
-msgstr[4] "%1 nóiméad"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/timeedit.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "Auto hide popup after"
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " soicind"
-msgstr[1] " shoicind"
-msgstr[2] " shoicind"
-msgstr[3] " soicind"
-msgstr[4] " soicind"
+msgstr[0] ""
+msgstr[1] ""
 
 #. i18n: ectx: property (text), widget (QLabel, minutesLabel_2)
 #: src/timeedit.ui:32
@@ -403,10 +378,9 @@ msgid "Fruit Tea"
 msgstr "Tae Toraidh"
 
 #: src/toplevel.cpp:63
-#, fuzzy, kde-format
-#| msgid "New Tea"
+#, kde-format
 msgid "Green Tea"
-msgstr "Tae Nua"
+msgstr ""
 
 #: src/toplevel.cpp:72
 #, kde-format
@@ -464,76 +438,3 @@ msgstr "Bhí %1 réidh ó %2!"
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
 msgstr "%1 fágtha le haghaidh %2."
-
-#~ msgid "Anonymous Tea"
-#~ msgstr "Tae gan ainm"
-
-#~ msgid "&Anonymous..."
-#~ msgstr "G&an Ainm..."
-
-#~ msgid "Configure &amp;Notifications..."
-#~ msgstr "Cumraigh &Fógairt..."
-
-#~ msgid "Configure notifications"
-#~ msgstr "Cumraigh fógairt"
-
-#~ msgid "Notification"
-#~ msgstr "Fógairt"
-
-#~ msgid "N"
-#~ msgstr "N"
-
-#~ msgid "D"
-#~ msgstr "D"
-
-#~ msgid "U"
-#~ msgstr "U"
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgid " %1 s"
-#~ msgstr " %1 s"
-
-#~ msgid "Other Tea"
-#~ msgstr "Tae Eile"
-
-#~ msgid "&Start"
-#~ msgstr "&Tosaigh"
-
-#~ msgid "&Help"
-#~ msgstr "&Cabhair"
-
-#~ msgid "Quit"
-#~ msgstr "Scoir"
-
-#~ msgid "There is no tea to begin steeping."
-#~ msgstr "Níl aon tae ann le fliuchadh."
-
-#~ msgid "No Tea"
-#~ msgstr "Níl aon tae ann"
-
-#~ msgid "tea"
-#~ msgstr "tae"
-
-#~ msgid "New"
-#~ msgstr "Nua"
-
-#~ msgid "Delete"
-#~ msgstr "Scrios"
-
-#~ msgid "Down"
-#~ msgstr "Síos"
-
-#~ msgid "Name:"
-#~ msgstr "Ainm:"
-
-#~ msgid "Event"
-#~ msgstr "Teagmhas"
-
-#~ msgid "Execute:"
-#~ msgstr "Rith:"
-
-#~ msgid "Enter command here; '%t' will be replaced with name of steeping tea"
-#~ msgstr ""
-#~ "Sonraigh ordú anseo; cuirfear ainm an tae atá á fliuchadh in ionad '%t'."
