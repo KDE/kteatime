@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdetoys\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-27 00:49+0000\n"
 "PO-Revision-Date: 2015-01-07 00:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -86,28 +86,28 @@ msgstr ""
 "Roske@kde.org.yu,caslav.ilic@gmx.nit,kos_haris@hotmail.com,samir.ribic@etf."
 "unsa.ba"
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "Pristavi novi čaj sa ovim vremenom."
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, fuzzy, kde-format
 msgid "seconds"
 msgstr " sekunda"
 
-#: src/main.cpp:67
+#: src/main.cpp:69
 #, fuzzy, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr "Koristi ovo ime za čaj pristavljen sa %1."
 
-#: src/main.cpp:68
+#: src/main.cpp:70
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
+#: src/main.cpp:81 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"
