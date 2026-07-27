@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-27 03:19+0000\n"
 "PO-Revision-Date: 2010-06-09 15:25+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -87,12 +87,12 @@ msgstr ""
 "khoemsokhem@khmeros.info,mornmet@khmeros.info,sutha@khmeros.info, "
 "vannak@khmeros.info,piseth_dv@khmeros.info"
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "ចាប់ផ្ដើម​តែ​ថ្មី​ជាមួយ​នឹង​ពេលវេលា​នេះ ។"
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, fuzzy, kde-format
 #| msgctxt "Auto hide popup after"
 #| msgid " second"
@@ -100,19 +100,19 @@ msgstr "ចាប់ផ្ដើម​តែ​ថ្មី​ជាមួយ​
 msgid "seconds"
 msgstr " វិនាទី"
 
-#: src/main.cpp:67
+#: src/main.cpp:69
 #, fuzzy, kde-format
 #| msgid "Use this name for the tea started with %1."
 msgid "Use this name for the tea started with --time."
 msgstr "ប្រើ​ឈ្មោះ​នេះ​សម្រាប់​តែ​ចាប់ផ្ដើម​ដោយ %1 ។"
 
-#: src/main.cpp:68
+#: src/main.cpp:70
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
+#: src/main.cpp:81 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"

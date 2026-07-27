@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-27 03:19+0000\n"
 "PO-Revision-Date: 2010-12-22 12:02+0530\n"
 "Last-Translator: Anish A <anish.nl@gmail.com>\n"
 "Language-Team:  Swathantra Malayalam Computing | സ്വതന്ത്ര മലയാളം കമ്പ്യൂട്ടിങ് "
@@ -87,12 +87,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "royal.mexian@gmail.com"
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "ഈ സമയം വെച്ച് പുതിയൊരു ചായ തിളപ്പിക്കൂ."
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, fuzzy, kde-format
 #| msgctxt "Auto hide popup after"
 #| msgid " second"
@@ -100,19 +100,19 @@ msgstr "ഈ സമയം വെച്ച് പുതിയൊരു ചായ �
 msgid "seconds"
 msgstr " നിമിഷം"
 
-#: src/main.cpp:67
+#: src/main.cpp:69
 #, fuzzy, kde-format
 #| msgid "Use this name for the tea started with %1."
 msgid "Use this name for the tea started with --time."
 msgstr "%1-ല്‍ തുടങ്ങുന്ന ചായയ്ക്ക് ഈ നാമം ഉപയോഗിക്കൂ."
 
-#: src/main.cpp:68
+#: src/main.cpp:70
 #, kde-format
 msgid "name"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
+#: src/main.cpp:81 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
 #, fuzzy, kde-format
 #| msgid "Fruit Tea"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-27 03:19+0000\n"
 "PO-Revision-Date: 2021-01-17 12:19+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -90,30 +90,30 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andru@bog.msu.ru,denis@kde.ru"
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, kde-format
 msgid "Start a new tea with this time."
 msgstr "Начать приготовление чая с этим временем."
 
-#: src/main.cpp:64
+#: src/main.cpp:66
 #, kde-format
 msgid "seconds"
 msgstr "секунды"
 
-#: src/main.cpp:67
+#: src/main.cpp:69
 #, kde-format
 msgid "Use this name for the tea started with --time."
 msgstr ""
 "Использовать это название для чая, приготовление которого запущено ключом --"
 "time."
 
-#: src/main.cpp:68
+#: src/main.cpp:70
 #, kde-format
 msgid "name"
 msgstr "название"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
-#: src/main.cpp:79 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
+#: src/main.cpp:81 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
 #, kde-format
 msgid "Custom Tea"
