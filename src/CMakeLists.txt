@@ -7,6 +7,8 @@ set_property(SOURCE main.cpp APPEND PROPERTY COMPILE_DEFINITIONS "KTEATIME_VERSI
 
 ki18n_wrap_ui(kteatime settings.ui timeedit.ui)
 
+kconfig_target_kcfg_file(kteatime FILE kteatimesettings.kcfg CLASS_NAME KTeaTimeSettings MUTATORS)
+
 target_link_libraries(kteatime
     KF6::ConfigCore
     KF6::ConfigGui
@@ -25,3 +27,4 @@ target_link_libraries(kteatime
 install( TARGETS kteatime ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS org.kde.kteatime.desktop  DESTINATION ${KDE_INSTALL_APPDIR} )
 install( FILES kteatime.notifyrc  DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR} )
+install( FILES kteatimesettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})

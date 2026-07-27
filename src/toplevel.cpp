@@ -6,6 +6,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "toplevel.h"
+#include "kteatimesettings.h"
 #include "settings.h"
 #include "timeedit.h"
 
@@ -368,15 +369,14 @@ void TopLevel::configureNotifications()
 
 void TopLevel::loadConfig()
 {
-    KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup generalGroup(config, QStringLiteral("General"));
+    KTeaTimeSettings settings;
 
-    m_usepopup = generalGroup.readEntry("UsePopup", true);
-    m_autohide = generalGroup.readEntry("PopupAutoHide", false);
-    m_autohidetime = generalGroup.readEntry("PopupAutoHideTime", 30);
-    m_usereminder = generalGroup.readEntry("UseReminder", false);
-    m_remindertime = generalGroup.readEntry("ReminderTime", 60);
-    m_usevisualize = generalGroup.readEntry("UseVisualize", true);
+    m_usepopup = settings.usePopup();
+    m_autohide = settings.popupAutoHide();
+    m_autohidetime = settings.popupAutoHideTime();
+    m_usereminder = settings.useReminder();
+    m_remindertime = settings.reminderTime();
+    m_usevisualize = settings.useVisualize();
 }
 
 void TopLevel::showPopup()

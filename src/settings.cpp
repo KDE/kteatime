@@ -5,6 +5,7 @@
 */
 #include "settings.h"
 
+#include "kteatimesettings.h"
 #include "tealistmodel.h"
 #include "toplevel.h"
 
@@ -69,12 +70,14 @@ SettingsDialog::SettingsDialog(TopLevel *toplevel, const QList<Tea> &teas)
     KWindowConfig::restoreWindowSize(windowHandle(), windowConfig);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 
-    bool popup = group.readEntry("UsePopup", true);
-    bool autohide = group.readEntry("PopupAutoHide", false);
-    int autohidetime = group.readEntry("PopupAutoHideTime", 30);
-    bool reminder = group.readEntry("UseReminder", false);
-    int remindertime = group.readEntry("ReminderTime", 60);
-    bool vis = group.readEntry("UseVisualize", true);
+    KTeaTimeSettings settings;
+
+    bool popup = settings.usePopup();
+    bool autohide = settings.popupAutoHide();
+    int autohidetime = settings.popupAutoHideTime();
+    bool reminder = settings.useReminder();
+    int remindertime = settings.reminderTime();
+    bool vis = settings.useVisualize();
 
     mUi->popupCheckBox->setChecked(popup);
     mUi->autohideCheckBox->setChecked(autohide);
@@ -130,17 +133,16 @@ void SettingsDialog::accept()
 
     hide();
 
-    KSharedConfigPtr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("General"));
+    KTeaTimeSettings settings;
 
-    group.writeEntry("UsePopup", mUi->popupCheckBox->checkState() == Qt::Checked);
-    group.writeEntry("PopupAutoHide", mUi->autohideCheckBox->checkState() == Qt::Checked);
-    group.writeEntry("PopupAutoHideTime", mUi->autohideSpinBox->value());
-    group.writeEntry("UseReminder", mUi->reminderCheckBox->checkState() == Qt::Checked);
-    group.writeEntry("ReminderTime", mUi->reminderSpinBox->value());
-    group.writeEntry("UseVisualize", mUi->visualizeCheckBox->checkState() == Qt::Checked);
+    settings.setUsePopup(mUi->popupCheckBox->checkState() == Qt::Checked);
+    settings.setPopupAutoHide(mUi->autohideCheckBox->checkState() == Qt::Checked);
+    settings.setPopupAutoHideTime(mUi->autohideSpinBox->value());
+    settings.setUseReminder(mUi->reminderCheckBox->checkState() == Qt::Checked);
+    settings.setReminderTime(mUi->reminderSpinBox->value());
+    settings.setUseVisualize(mUi->visualizeCheckBox->checkState() == Qt::Checked);
 
-    config->sync();
+    settings.save();
     m_toplevel->setTeaList(m_model->getTeaList());
 }
 
