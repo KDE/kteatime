@@ -1,5 +1,5 @@
 # translation of kteatime.po to
-# Version: $Revision: 1742332 $
+# Version: $Revision: 1742406 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2009 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2006, 2007.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:49+0000\n"
+"POT-Creation-Date: 2026-07-28 00:49+0000\n"
 "PO-Revision-Date: 2022-04-10 10:55+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -112,27 +112,27 @@ msgstr "nazwa"
 msgid "Custom Tea"
 msgstr "Własna herbata"
 
-#: src/settings.cpp:42
+#: src/settings.cpp:43
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr "Ustawienia zaparzacza herbaty"
 
-#: src/settings.cpp:55
+#: src/settings.cpp:56
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr "Zapisuje zmiany i zamyka to okno."
 
-#: src/settings.cpp:56
+#: src/settings.cpp:57
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr "Zamyka okno bez zapisywania zmian."
 
-#: src/settings.cpp:57
+#: src/settings.cpp:58
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr "Pokaż pomoc dla tego okna."
 
-#: src/settings.cpp:86
+#: src/settings.cpp:89
 #, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
@@ -141,7 +141,7 @@ msgstr[0] " sekundzie"
 msgstr[1] " sekundach"
 msgstr[2] " sekundach"
 
-#: src/settings.cpp:87
+#: src/settings.cpp:90
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
@@ -343,83 +343,83 @@ msgstr[2] " sekund"
 msgid "Tea time:"
 msgstr "Czas parzenia:"
 
-#: src/toplevel.cpp:50
+#: src/toplevel.cpp:51
 #, kde-format
 msgid "Unknown Tea"
 msgstr "Nieznana herbata"
 
-#: src/toplevel.cpp:60
+#: src/toplevel.cpp:61
 #, kde-format
 msgid "Black Tea"
 msgstr "Herbata czarna"
 
-#: src/toplevel.cpp:61
+#: src/toplevel.cpp:62
 #, kde-format
 msgid "Earl Grey"
 msgstr "Earl Grey"
 
-#: src/toplevel.cpp:62
+#: src/toplevel.cpp:63
 #, kde-format
 msgid "Fruit Tea"
 msgstr "Herbata owocowa"
 
-#: src/toplevel.cpp:63
+#: src/toplevel.cpp:64
 #, kde-format
 msgid "Green Tea"
 msgstr "Herbata zielona"
 
-#: src/toplevel.cpp:72
+#: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
 msgstr "&Wznów"
 
-#: src/toplevel.cpp:78
+#: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
 msgstr "&Wstrzymaj"
 
-#: src/toplevel.cpp:84
+#: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
 msgstr "&Stop"
 
-#: src/toplevel.cpp:90
+#: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
 msgstr "U&stawienia..."
 
-#: src/toplevel.cpp:98
+#: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
 msgstr "&Własna..."
 
-#: src/toplevel.cpp:151
+#: src/toplevel.cpp:152
 #, kde-format
 msgid "No steeping tea."
 msgstr "Nie ma żadnych uruchomionych herbat."
 
-#: src/toplevel.cpp:204
+#: src/toplevel.cpp:205
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:287 src/toplevel.cpp:390
+#: src/toplevel.cpp:288 src/toplevel.cpp:390
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "Program do parzenia herbaty"
 
-#: src/toplevel.cpp:293
+#: src/toplevel.cpp:294
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "%1 jest już gotowa!"
 
-#: src/toplevel.cpp:312
+#: src/toplevel.cpp:313
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "%1 jest gotowa już %2"
 
-#: src/toplevel.cpp:327
+#: src/toplevel.cpp:328
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."

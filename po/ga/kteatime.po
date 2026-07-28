@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdetoys/kteatime.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:49+0000\n"
+"POT-Creation-Date: 2026-07-28 00:49+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -104,27 +104,27 @@ msgstr ""
 msgid "Custom Tea"
 msgstr ""
 
-#: src/settings.cpp:42
+#: src/settings.cpp:43
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr "Cumraigh An Cócaire Tae"
 
-#: src/settings.cpp:55
+#: src/settings.cpp:56
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr "Sábháil athruithe agus dún an dialóg."
 
-#: src/settings.cpp:56
+#: src/settings.cpp:57
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr "Dún an dialóg ach ná sábháil athruithe."
 
-#: src/settings.cpp:57
+#: src/settings.cpp:58
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr "Taispeáin leathanach cabhrach le haghaidh na dialóige seo."
 
-#: src/settings.cpp:86
+#: src/settings.cpp:89
 #, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
@@ -135,7 +135,7 @@ msgstr[2] " shoicind"
 msgstr[3] " soicind"
 msgstr[4] " soicind"
 
-#: src/settings.cpp:87
+#: src/settings.cpp:90
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
@@ -357,83 +357,83 @@ msgstr[1] ""
 msgid "Tea time:"
 msgstr "Am tae:"
 
-#: src/toplevel.cpp:50
+#: src/toplevel.cpp:51
 #, kde-format
 msgid "Unknown Tea"
 msgstr "Tae Anaithnid"
 
-#: src/toplevel.cpp:60
+#: src/toplevel.cpp:61
 #, kde-format
 msgid "Black Tea"
 msgstr "Tae Láidir"
 
-#: src/toplevel.cpp:61
+#: src/toplevel.cpp:62
 #, kde-format
 msgid "Earl Grey"
 msgstr "Iarla Grey"
 
-#: src/toplevel.cpp:62
+#: src/toplevel.cpp:63
 #, kde-format
 msgid "Fruit Tea"
 msgstr "Tae Toraidh"
 
-#: src/toplevel.cpp:63
+#: src/toplevel.cpp:64
 #, kde-format
 msgid "Green Tea"
 msgstr ""
 
-#: src/toplevel.cpp:72
+#: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
 msgstr ""
 
-#: src/toplevel.cpp:78
+#: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
 msgstr ""
 
-#: src/toplevel.cpp:84
+#: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
 msgstr "Sta&d"
 
-#: src/toplevel.cpp:90
+#: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
 msgstr "&Cumraigh..."
 
-#: src/toplevel.cpp:98
+#: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
 msgstr ""
 
-#: src/toplevel.cpp:151
+#: src/toplevel.cpp:152
 #, kde-format
 msgid "No steeping tea."
 msgstr "Níl aon tae á dhéanamh."
 
-#: src/toplevel.cpp:204
+#: src/toplevel.cpp:205
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:287 src/toplevel.cpp:390
+#: src/toplevel.cpp:288 src/toplevel.cpp:390
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "An Cócaire Tae"
 
-#: src/toplevel.cpp:293
+#: src/toplevel.cpp:294
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "Tá an %1 réidh anois!"
 
-#: src/toplevel.cpp:312
+#: src/toplevel.cpp:313
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "Bhí %1 réidh ó %2!"
 
-#: src/toplevel.cpp:327
+#: src/toplevel.cpp:328
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."

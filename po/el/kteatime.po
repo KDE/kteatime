@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:49+0000\n"
+"POT-Creation-Date: 2026-07-28 00:49+0000\n"
 "PO-Revision-Date: 2021-07-03 09:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -115,27 +115,27 @@ msgstr "όνομα"
 msgid "Custom Tea"
 msgstr "Προσαρμοσμένο τσάι"
 
-#: src/settings.cpp:42
+#: src/settings.cpp:43
 #, kde-format
 msgid "Configure Tea Cooker"
 msgstr "Διαμόρφωση βραστήρα τσαγιού"
 
-#: src/settings.cpp:55
+#: src/settings.cpp:56
 #, kde-format
 msgid "Save changes and close dialog."
 msgstr "Αποθήκευση τροποποιήσεων και κλείσιμο διαλόγου."
 
-#: src/settings.cpp:56
+#: src/settings.cpp:57
 #, kde-format
 msgid "Close dialog without saving changes."
 msgstr "Κλείσιμο διαλόγου χωρίς αποθήκευση τροποποιήσεων."
 
-#: src/settings.cpp:57
+#: src/settings.cpp:58
 #, kde-format
 msgid "Show help page for this dialog."
 msgstr "Εμφάνιση σελίδας βοήθειας για το διάλογο αυτό."
 
-#: src/settings.cpp:86
+#: src/settings.cpp:89
 #, kde-format
 msgctxt "Auto hide popup after"
 msgid " second"
@@ -143,7 +143,7 @@ msgid_plural " seconds"
 msgstr[0] " δευτ"
 msgstr[1] " δευτ"
 
-#: src/settings.cpp:87
+#: src/settings.cpp:90
 #, kde-format
 msgctxt "Reminder every"
 msgid " second"
@@ -333,83 +333,83 @@ msgstr[1] " δευτερόλεπτα"
 msgid "Tea time:"
 msgstr "Ώρα για τσάι:"
 
-#: src/toplevel.cpp:50
+#: src/toplevel.cpp:51
 #, kde-format
 msgid "Unknown Tea"
 msgstr "Άγνωστο τσάι"
 
-#: src/toplevel.cpp:60
+#: src/toplevel.cpp:61
 #, kde-format
 msgid "Black Tea"
 msgstr "Μαύρο τσάι"
 
-#: src/toplevel.cpp:61
+#: src/toplevel.cpp:62
 #, kde-format
 msgid "Earl Grey"
 msgstr "Earl Grey"
 
-#: src/toplevel.cpp:62
+#: src/toplevel.cpp:63
 #, kde-format
 msgid "Fruit Tea"
 msgstr "Τσάι φρούτων"
 
-#: src/toplevel.cpp:63
+#: src/toplevel.cpp:64
 #, kde-format
 msgid "Green Tea"
 msgstr "Πράσινο τσάι"
 
-#: src/toplevel.cpp:72
+#: src/toplevel.cpp:73
 #, kde-format
 msgid "&Resume"
 msgstr "&Συνέχιση"
 
-#: src/toplevel.cpp:78
+#: src/toplevel.cpp:79
 #, kde-format
 msgid "&Pause"
 msgstr "&Παύση"
 
-#: src/toplevel.cpp:84
+#: src/toplevel.cpp:85
 #, kde-format
 msgid "&Stop"
 msgstr "&Διακοπή"
 
-#: src/toplevel.cpp:90
+#: src/toplevel.cpp:91
 #, kde-format
 msgid "&Configure..."
 msgstr "&Διαμόρφωση..."
 
-#: src/toplevel.cpp:98
+#: src/toplevel.cpp:99
 #, kde-format
 msgid "&Custom..."
 msgstr "&Προσαρμοσμένο..."
 
-#: src/toplevel.cpp:151
+#: src/toplevel.cpp:152
 #, kde-format
 msgid "No steeping tea."
 msgstr "Χωρίς βυθισμένο στην κούπα τσάι."
 
-#: src/toplevel.cpp:204
+#: src/toplevel.cpp:205
 #, kde-format
 msgctxt "%1 - name of the tea, %2 - the predefined time for the tea"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/toplevel.cpp:287 src/toplevel.cpp:390
+#: src/toplevel.cpp:288 src/toplevel.cpp:390
 #, kde-format
 msgid "The Tea Cooker"
 msgstr "Ο βραστήρας τσαγιού"
 
-#: src/toplevel.cpp:293
+#: src/toplevel.cpp:294
 #, kde-format
 msgid "%1 is now ready!"
 msgstr "Το %1 είναι έτοιμο!"
 
-#: src/toplevel.cpp:312
+#: src/toplevel.cpp:313
 #, kde-format
 msgid "%1 is ready since %2!"
 msgstr "Το %1 είναι έτοιμο από %2!"
 
-#: src/toplevel.cpp:327
+#: src/toplevel.cpp:328
 #, kde-format
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
