@@ -5,16 +5,24 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "kteatime",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
-    "finish-args": ["--share=ipc", "--socket=fallback-x11", "--socket=wayland" ],
-
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland"
+    ],
     "modules": [
         {
             "name": "kteatime",
             "buildsystem": "cmake-ninja",
             "sources": [
-                { "type": "dir", "path": "." }
+                {
+                    "type": "dir",
+                    "path": "."
+                }
             ]
         }
     ]
