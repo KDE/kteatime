@@ -253,7 +253,7 @@ msgstr[0] "اليوم"
 msgstr[1] "يوم واحد"
 msgstr[2] "يومان"
 msgstr[3] "%1 أيّام"
-msgstr[4] "%1 يوماً"
+msgstr[4] "%1 يومًا"
 msgstr[5] "%1 يوم"
 
 #: src/tea.cpp:70
