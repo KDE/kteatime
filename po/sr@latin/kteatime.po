@@ -4,13 +4,14 @@
 # Chusslove Illich <caslav.ilic@gmx.net>, 2005, 2006, 2009, 2010, 2012, 2014, 2016.
 # Slobodan Simic <slsimic@gmail.com>, 2008, 2009.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kteatime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 03:19+0000\n"
-"PO-Revision-Date: 2016-03-20 15:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -34,19 +35,15 @@ msgid "KDE utility for making a fine cup of tea."
 msgstr "KDE alatka za spremanje šolje finog čaja"
 
 #: src/main.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "© 1998-1999, Matthias Hoelzer-Kluepfel\n"
-#| " © 2002-2003, Martin Willers\n"
-#| " © 2007-2010, Stefan Böhmann"
+#, kde-format
 msgid ""
 "© 1998-1999, Matthias Hölzer-Klüpfel\n"
 "© 2002-2003, Martin Willers\n"
 "© 2007-2010, Stefan Böhmann"
 msgstr ""
-"© 1998-1999, Matijas Helcer-Klipfel\n"
-"© 2002-2003, Martin Vilers\n"
-"© 2007-2010, Štefan Beman"
+"© 1998–1999, Matijas Helcer-Klipfel\n"
+"© 2002–2003, Martin Vilers\n"
+"© 2007–2010, Štefan Beman"
 
 #: src/main.cpp:39
 #, kde-format
@@ -59,8 +56,7 @@ msgid "Current maintainer"
 msgstr "Trenutni održavalac"
 
 #: src/main.cpp:44
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgid "Matthias Hölzer-Klüpfel"
 msgstr "Matijas Helcer-Klipfel"
 
@@ -83,13 +79,13 @@ msgstr "Mnoštvo zakrpa"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Slobodan Simić"
+msgstr "Slobodan Simić,Nemanja Hiršl"
 
 #: src/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: src/main.cpp:66
 #, kde-format
@@ -115,10 +111,9 @@ msgstr "ime"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TimeEditWidget)
 #: src/main.cpp:81 src/tea.cpp:25 src/timeedit.cpp:36 src/timeedit.cpp:104
 #: src/timeedit.ui:14
-#, fuzzy, kde-format
-#| msgid "Fruit Tea"
+#, kde-format
 msgid "Custom Tea"
-msgstr "voćni čaj"
+msgstr "poseban čaj"
 
 # >> @title:window
 #: src/settings.cpp:42
@@ -339,10 +334,9 @@ msgid "Unnamed Tea"
 msgstr "Neimenovani čaj"
 
 #: src/timeedit.cpp:39
-#, fuzzy, kde-format
-#| msgid "Start a new anonymous tea with the time configured in this dialog."
+#, kde-format
 msgid "Start a new custom tea with the time configured in this dialog."
-msgstr "Pristavlja novi anonimni čaj sa vremenom podešenim u ovom dijalogu."
+msgstr "Pristavlja novi poseban čaj sa vremenom podešenim u ovom dijalogu."
 
 #: src/timeedit.cpp:42
 #, kde-format
@@ -405,12 +399,12 @@ msgstr "zeleni čaj"
 #: src/toplevel.cpp:72
 #, kde-format
 msgid "&Resume"
-msgstr ""
+msgstr "Nas&tavi"
 
 #: src/toplevel.cpp:78
 #, kde-format
 msgid "&Pause"
-msgstr ""
+msgstr "P&auziraj"
 
 #: src/toplevel.cpp:84
 #, kde-format
@@ -425,7 +419,7 @@ msgstr "&Podesi..."
 #: src/toplevel.cpp:98
 #, kde-format
 msgid "&Custom..."
-msgstr ""
+msgstr "Po&sebno..."
 
 #: src/toplevel.cpp:151
 #, kde-format
@@ -461,9 +455,3 @@ msgstr "%1 je spreman već %2!"
 msgctxt "%1 is the time, %2 is the name of the tea"
 msgid "%1 left for %2."
 msgstr "Još %1 za čaj %2."
-
-#~ msgid "Anonymous Tea"
-#~ msgstr "Anonimni čaj"
-
-#~ msgid "&Anonymous..."
-#~ msgstr "&Anonimni..."
